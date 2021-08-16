@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>所有文章 - Fake Physicist</title>
+        <link>https://fakephysicist.github.com/posts/</link>
+        <description>所有文章 | Fake Physicist</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fakephysicist@outlook.com (fakephysicist)</managingEditor>
+            <webMaster>fakephysicist@outlook.com (fakephysicist)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 16 Aug 2021 00:53:04 -0400</lastBuildDate><atom:link href="https://fakephysicist.github.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Hello World</title>
+    <link>https://fakephysicist.github.com/hello-world/</link>
+    <pubDate>Mon, 16 Aug 2021 00:53:04 -0400</pubDate>
+    <author>作者</author>
+    <guid>https://fakephysicist.github.com/hello-world/</guid>
+    <description><![CDATA[<p>Hello World! This is my first note!</p>]]></description>
+</item></channel>
+</rss>

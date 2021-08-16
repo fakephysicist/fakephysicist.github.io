@@ -1,3 +1,2 @@
-# Netlify redirects
-# Automatically generated
-# Documentation: http://bit.ly/netlify-deployment
+/zh-cn/* /zh-cn/404.html 404
+/fr/*    /fr/404.html    404
