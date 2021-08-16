@@ -4,19 +4,33 @@
         <link>https://fakephysicist.github.com/posts/</link>
         <description>所有文章 | Fake Physicist</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fakephysicist@outlook.com (fakephysicist)</managingEditor>
-            <webMaster>fakephysicist@outlook.com (fakephysicist)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 16 Aug 2021 02:43:06 -0400</lastBuildDate><atom:link href="https://fakephysicist.github.com/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>fakephysicist@outlook.com (fakephysicist)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 16 Aug 2021 14:00:00 -0400</lastBuildDate><atom:link href="https://fakephysicist.github.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Liquid Crystal in FDTD</title>
+    <link>https://fakephysicist.github.com/fdtd_lc/</link>
+    <pubDate>Mon, 16 Aug 2021 14:00:00 -0400</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://fakephysicist.github.com/fdtd_lc/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>FDTD 使用总结</title>
+    <link>https://fakephysicist.github.com/fdtd/</link>
+    <pubDate>Mon, 16 Aug 2021 13:25:00 -0400</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://fakephysicist.github.com/fdtd/</guid>
+    <description><![CDATA[<p>FDTD原理, 软件使用, Python脚本控制</p>]]></description>
+</item><item>
     <title>Hugo&#43;LoveIt 创建个人主页</title>
     <link>https://fakephysicist.github.com/hugo-setup/</link>
-    <pubDate>Mon, 16 Aug 2021 02:43:06 -0400</pubDate>
-    <author>作者</author>
-    <guid>https://fakephysicist.github.com/hugo-setup/</guid>
+    <pubDate>Mon, 16 Aug 2021 02:43:06 -0400</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://fakephysicist.github.com/hugo-setup/</guid>
     <description><![CDATA[<p>在wsl环境下安装Go, Hugo 并且配置主题Loveit.</p>]]></description>
 </item><item>
     <title>Hello World</title>
     <link>https://fakephysicist.github.com/hello-world/</link>
-    <pubDate>Mon, 16 Aug 2021 00:53:04 -0400</pubDate>
-    <author>作者</author>
-    <guid>https://fakephysicist.github.com/hello-world/</guid>
+    <pubDate>Mon, 16 Aug 2021 00:53:04 -0400</pubDate><author>
+        <name>作者</name>
+    </author><guid>https://fakephysicist.github.com/hello-world/</guid>
     <description><![CDATA[<p>Hello World! This is my first note!</p>]]></description>
 </item></channel>
 </rss>

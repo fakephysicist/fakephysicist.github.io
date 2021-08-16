@@ -79,6 +79,19 @@ wget https://golang.org/dl/go1.16.7.linux-amd64.tar.gz
     git submodule add git@github.com:FakePhysicist/LoveIt.git themes/LoveIt
     ```
 
+{{< admonition type=tip title="How to remove a submodule?" open=false >}}
+
+```bash
+# Remove the submodule entry from .git/config
+git submodule deinit -f path/to/submodule
+# Remove the submodule directory from the superproject's .git/modules directory
+rm -rf .git/modules/path/to/submodule
+# Remove the entry in .gitmodules and remove the submodule directory located at path/to/submodule
+git rm -f path/to/submodule
+```
+
+{{< /admonition >}}
+
 1. 初始化项目：`git submodule update --init --recursive`，完成安装
 
 1. 自动更新 submodule：`git submodule update --remote --merge`;
