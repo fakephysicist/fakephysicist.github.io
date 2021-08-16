@@ -4,9 +4,16 @@
         <link>https://fakephysicist.github.com/</link>
         <description>A fake physicist&#39;s notes</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fakephysicist@outlook.com (fakephysicist)</managingEditor>
-            <webMaster>fakephysicist@outlook.com (fakephysicist)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 16 Aug 2021 00:53:04 -0400</lastBuildDate>
+            <webMaster>fakephysicist@outlook.com (fakephysicist)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 16 Aug 2021 02:43:06 -0400</lastBuildDate>
             <atom:link href="https://fakephysicist.github.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Hugo Setup</title>
+    <link>https://fakephysicist.github.com/hugo-setup/</link>
+    <pubDate>Mon, 16 Aug 2021 02:43:06 -0400</pubDate>
+    <author>作者</author>
+    <guid>https://fakephysicist.github.com/hugo-setup/</guid>
+    <description><![CDATA[<p>再wsl环境下安装Go, Hugo 并且配置主题Loveit.</p>]]></description>
+</item><item>
     <title>Hello World</title>
     <link>https://fakephysicist.github.com/hello-world/</link>
     <pubDate>Mon, 16 Aug 2021 00:53:04 -0400</pubDate>

@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Hugo Setup - Fake Physicist</title><meta name="Description" content="A fake physicist&#39;s notes"><meta property="og:title" content="Hugo Setup" />
+<meta property="og:description" content="再wsl环境下安装Go, Hugo 并且配置主题Loveit." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://fakephysicist.github.com/hugo-setup/" /><meta property="og:image" content="https://fakephysicist.github.com/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-08-16T02:43:06-04:00" />
+<meta property="article:modified_time" content="2021-08-16T02:43:06-04:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://fakephysicist.github.com/logo.png"/>
+
+<meta name="twitter:title" content="Hugo Setup"/>
+<meta name="twitter:description" content="再wsl环境下安装Go, Hugo 并且配置主题Loveit."/>
+<meta name="application-name" content="Fake Physicist">
+<meta name="apple-mobile-web-app-title" content="Fake Physicist"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://fakephysicist.github.com/hugo-setup/" /><link rel="prev" href="https://fakephysicist.github.com/hello-world/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Hugo Setup",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/fakephysicist.github.com\/hugo-setup\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/fakephysicist.github.com\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "Hugo, Git","wordcount":  2027 ,
+        "url": "https:\/\/fakephysicist.github.com\/hugo-setup\/","datePublished": "2021-08-16T02:43:06-04:00","dateModified": "2021-08-16T02:43:06-04:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/fakephysicist.github.com\/images\/avatar.png",
+                    "width":  528 ,
+                    "height":  560 
+                }},"author": {
+                "@type": "Person",
+                "name": "fakephysicist"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Fake Physicist"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Fake Physicist</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/categories/documentation/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/fakephysicist" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/hugo-setup/" selected>简体中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Fake Physicist"><span class="header-title-pre"><i class='far fa-kiss-wink-heart fa-fw'></i></span>Fake Physicist</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/categories/documentation/" title="">文档</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/fakephysicist" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/hugo-setup/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Hugo Setup</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/fakephysicist" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>fakephysicist</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/documentation/"><i class="far fa-folder fa-fw"></i>文档</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2027 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#go">Go</a>
+      <ul>
+        <li><a href="#下载">下载</a></li>
+        <li><a href="#安装">安装</a></li>
+      </ul>
+    </li>
+    <li><a href="#hugo">Hugo</a>
+      <ul>
+        <li><a href="#安装升级">安装/升级</a></li>
+        <li><a href="#常用命令">常用命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#github-ssh">Github SSH</a>
+      <ul>
+        <li><a href="#generating-a-new-ssh-key">Generating a new SSH key</a></li>
+        <li><a href="#adding-your-ssh-key-to-the-ssh-agent">Adding your SSH key to the ssh-agent</a></li>
+        <li><a href="#adding-a-new-ssh-key-to-your-github-account">Adding a new SSH key to your GitHub account</a></li>
+      </ul>
+    </li>
+    <li><a href="#git">Git</a></li>
+    <li><a href="#loveit">Loveit</a>
+      <ul>
+        <li><a href="#安装-1">安装</a></li>
+        <li><a href="#auto-update">auto update</a></li>
+      </ul>
+    </li>
+    <li><a href="#deploy-to-github-pages">Deploy to Github Pages</a>
+      <ul>
+        <li><a href="#原理">原理</a></li>
+        <li><a href="#教程">教程</a></li>
+      </ul>
+    </li>
+    <li><a href="#push-to-githubio">push to github.io</a>
+      <ul>
+        <li><a href="#笨办法">笨办法</a></li>
+        <li><a href="#github-action">Github action</a>
+          <ul>
+            <li><a href="#创建-ci-脚本">创建 CI 脚本</a></li>
+            <li><a href="#设置-push-用的密钥">设置 Push 用的密钥</a></li>
+            <li><a href="#观察效果">观察效果</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>再wsl环境下安装Go, Hugo 并且配置主题Loveit.</p>
+<h2 id="go">Go</h2>
+<h3 id="下载">下载</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">wget https://golang.org/dl/go1.16.7.linux-amd64.tar.gz
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="安装">安装</h3>
+<ol>
+<li>
+<p>Extract the archive you downloaded into /usr/local, creating a Go tree in /usr/local/go.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo rm -rf /usr/local/go <span class="o">&amp;&amp;</span>sudo tar -C /usr/local -xzf go1.16.7.linux-amd64.tar.gz
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Add /usr/local/go/bin to the PATH environment variable, or add to ~/.zshrc</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/usr/local/go/bin
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Verify that you&rsquo;ve installed Go by opening a command prompt and typing the following command</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">go version
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h2 id="hugo">Hugo</h2>
+<h3 id="安装升级">安装/升级</h3>
+<ol>
+<li>
+<p>go to <a href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener noreffer">github page</a> and download the Hugo Extended installer for Debian (hugo_extended_<VERSION>_Linux-64bit.deb)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">wget https://github.com/gohugoio/hugo/releases/download/v0.87.0/hugo_extended_0.87.0_Linux-64bit.deb
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>install Hugo with</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo dpkg -i hugo_extended_0.87.0_Linux-64bit.deb
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>update Hugo by repeating the first two steps, overwrite installation.</p>
+</li>
+</ol>
+<h3 id="常用命令">常用命令</h3>
+<ul>
+<li>hugo： 编译项目生成静态网站，默认位置在项目的 public 目录下</li>
+<li>hugo server： 启动你的网站服务</li>
+<li>hugo new {folder}/{name}.md: 创建新文章，使用 markdown 进行排版，一般默认放在 posts 文件夹下；</li>
+</ul>
+<p>基本没了，一般情况下用这三个命令就够了。</p>
+<h2 id="github-ssh">Github SSH</h2>
+<h3 id="generating-a-new-ssh-key">Generating a new SSH key</h3>
+<ol>
+<li>Open Terminal.</li>
+<li>Paste the text below, substituting in your GitHub email address.
+<code>ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot;</code>
+This creates a new ssh key, using the provided email as a label.</li>
+</ol>
+<h3 id="adding-your-ssh-key-to-the-ssh-agent">Adding your SSH key to the ssh-agent</h3>
+<ol>
+<li>
+<p>Start the ssh-agent in the background.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Add your SSH private key to the ssh-agent. If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_ed25519 in the command with the name of your private key file.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ssh-add ~/.ssh/id_ed25519
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h3 id="adding-a-new-ssh-key-to-your-github-account">Adding a new SSH key to your GitHub account</h3>
+<p>网页操作,很容易</p>
+<h2 id="git">Git</h2>
+<h2 id="loveit">Loveit</h2>
+<h3 id="安装-1">安装</h3>
+<ol>
+<li>
+<p>通过 git 安装的话，首先建议你在 GitHub 上 fork 成你自己的项目</p>
+<ul>
+<li>standard method <code>git clone https://github.com/dillonzq/LoveIt.git themes/LoveIt</code> 将代码克隆到本地文件夹 My_Website</li>
+<li>SSH method 更安全，也免于 push 时输入密码 <code>git clone git@github.com:FakePhysicist/starter-hugo-academic.git My_Website</code></li>
+</ul>
+</li>
+<li>
+<p>进入文件夹，初始化项目：<code>git submodule update --init --recursive</code>，完成安装;</p>
+</li>
+</ol>
+<h3 id="auto-update">auto update</h3>
+<p>说是自动，还是需要手动执行一条命令：<code>git submodule update --remote --merge</code>;</p>
+<h2 id="deploy-to-github-pages">Deploy to Github Pages</h2>
+<h3 id="原理">原理</h3>
+<p>网上介绍的办法很多，但核心其实就一句：</p>
+<p>将 <strong><code>hugo</code></strong> 命令生成的 <strong><code>public</code></strong> 文件夹上传到 GitHub pages 项目下.</p>
+<p><code>public</code> 文件夹相当于编译完成的静态网站，你在本地打开其实就能看。换句话说，你每次手动将这个目录下的内容上传到你的 GitHub page 项目也是可以的。</p>
+<p>然后为了达到这个目的，Academic 给出的做法是利用 <code>git submodule</code> 将你的 GitHub page 项目作为 My_Website 项目的子模块存放到 public 目录。那么当你更新你的文章之后，只提交 public 文件夹内的变更到 GitHub page 项目即可。</p>
+<h3 id="教程">教程</h3>
+<ol>
+<li>
+<p>之前我们fork了模板,已经有了一个项目. 现在需要再新建一个github pages 项目. <USERNAME>.github.io where <USERNAME> is your Github username - we will save the generated website to this repo. To create the <USERNAME>.github.io repository, click the “+” icon in the top right corner and then choose “New Repository”.</p>
+</li>
+<li>
+<p>在 <code>My_Website</code> 目录下执行 <code>git submodule update --init --recursive</code> 将子模块更新到最新状态；</p>
+</li>
+<li>
+<p>In your config/_default/config.yaml file, set baseurl = &ldquo;https://<USERNAME>.github.io/&rdquo;, where <USERNAME> is your Github username. Stop Hugo if it’s running and delete the public directory if it exists (by typing rm -r public/).</p>
+</li>
+<li>
+<p>Add your .github.io repository into a submodule in a folder named public, replacing with your Github username:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git submodule add -f -b master https://github.com/&lt;USERNAME&gt;/&lt;USERNAME&gt;.github.io.git public
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Add everything to your local git repository and push it up to your remote repository on GitHub:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git add .
+git commit -m <span class="s2">&#34;Initial commit&#34;</span>
+git push -u origin master
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h2 id="push-to-githubio">push to github.io</h2>
+<h3 id="笨办法">笨办法</h3>
+<p>regenerate your website’s HTML code by running Hugo and uploading the public submodule to GitHub:</p>
+<pre><code>```bash
+hugo
+cd public
+git add .
+git commit -m &quot;Build website&quot;
+git push origin main
+cd ..
+```
+
+**Notice that the default branch of github is `main` instead of `master` now.**
+</code></pre>
+<h3 id="github-action">Github action</h3>
+<h4 id="创建-ci-脚本">创建 CI 脚本</h4>
+<div class="details admonition info">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw"></i>什么是Github Action?<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>Github Action 是 Github 提供的 CI 系统，可以让用户编写脚本，并在触发指定的操作后（比如新 commit push 到仓库），自动触发脚本。它可以：</p>
+<ul>
+<li>编译项目</li>
+<li>测试项目</li>
+<li>登陆远程服务器</li>
+<li>发布服务</li>
+<li>等等……</li>
+</ul>
+</div>
+        </div>
+    </div>
+<p>在源代码项目根目录下新建<code>.github/workflow/main.yml</code>。(通过 Github Action 网页端操作也可以)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">.
+├── .git
+├── .github
+│   └── workflows
+│       └── main.yml  &lt;---在这里创建
+├── .gitignore
+├── README.md
+├── archetypes
+├── config.toml
+├── content
+├── data
+├── layouts
+├── public
+├── resources
+├── static
+└── themes
+</code></pre></td></tr></table>
+</div>
+</div><p><code>main.yml</code>脚本内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-YAML" data-lang="YAML"><span class="c"># This is a basic workflow to help you get started with Actions</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">CI</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># Controls when the action will run.</span><span class="w">
+</span><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="c"># Triggers the workflow on push or pull request events but only for the master branch</span><span class="w">
+</span><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">master]</span><span class="w">
+</span><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">master]</span><span class="w">
+</span><span class="w">
+</span><span class="w">  </span><span class="c"># Allows you to run this workflow manually from the Actions tab</span><span class="w">
+</span><span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># A workflow run is made up of one or more jobs that can run sequentially or in parallel</span><span class="w">
+</span><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="c"># This workflow contains a single job called &#34;build&#34;</span><span class="w">
+</span><span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="c"># The type of runner that the job will run on</span><span class="w">
+</span><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span><span class="w">
+</span><span class="w">    </span><span class="c"># Steps represent a sequence of tasks that will be executed as part of the job</span><span class="w">
+</span><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="c"># Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v2</span><span class="w">
+</span><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">submodules</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c"># Fetch Hugo themes (true OR recursive)</span><span class="w">
+</span><span class="w">          </span><span class="nt">fetch-depth</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="c"># Fetch all history for .GitInfo and .Lastmod</span><span class="w">
+</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Hugo setup</span><span class="w">
+</span><span class="w">        </span><span class="c"># You may pin to the exact commit or the version.</span><span class="w">
+</span><span class="w">        </span><span class="c"># uses: peaceiris/actions-hugo@2e89aa66d0093e4cd14751b3028fc1a179452c2e</span><span class="w">
+</span><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">peaceiris/actions-hugo@v2.4.13</span><span class="w">
+</span><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="c"># The Hugo version to download (if necessary) and use. Example: 0.58.2</span><span class="w">
+</span><span class="w">          </span><span class="nt">hugo-version</span><span class="p">:</span><span class="w"> </span><span class="l">latest</span><span class="w"> </span><span class="c"># optional, default is latest</span><span class="w">
+</span><span class="w">          </span><span class="c"># Download (if necessary) and use Hugo extended version. Example: true</span><span class="w">
+</span><span class="w">          </span><span class="nt">extended</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c"># optional, default is false</span><span class="w">
+</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build</span><span class="w">
+</span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">hugo</span><span class="w">
+</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Pushes to another repository</span><span class="w">
+</span><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">cpina/github-action-push-to-another-repository@main</span><span class="w">
+</span><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">API_TOKEN_GITHUB</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.API_TOKEN_GITHUB }}</span><span class="w">
+</span><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">target-branch</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;main&#34;</span><span class="w">
+</span><span class="w">          </span><span class="nt">source-directory</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;public&#34;</span><span class="w">
+</span><span class="w">          </span><span class="nt">destination-github-username</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;这里输入你的Github用户名&#34;</span><span class="w">
+</span><span class="w">          </span><span class="nt">destination-repository-name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;这里输入你的Github用户名.github.io&#34;</span><span class="w">
+</span><span class="w">          </span><span class="nt">user-email</span><span class="p">:</span><span class="w"> </span><span class="l">这里输入你的 Github no-reply 邮箱</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition note">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw"></i>需要自定义的部分<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">注意trigger on里的 branch 是否和自己的相同，因为现在 Github 默认分支为 main。 同时最后三行内容需要自行替换。</div>
+        </div>
+    </div>
+<p>脚本主要做了以下事情：</p>
+<ol>
+<li>创建一个 Hugo 环境</li>
+<li>使用 hugo 命令编译代码，产生 public 文件夹</li>
+<li>将 public 文件 push 到你的Github用户名.github.io仓库。（也就是你之前创建的第二个仓库）</li>
+</ol>
+<h4 id="设置-push-用的密钥">设置 Push 用的密钥</h4>
+<p>为了让 Github Action 脚本有权限将代码 Push 到我们的xx.github.io仓库，我们需要申请一个密钥并告诉它。在 Github 设置中找到Developer settings/Personal access tokens</p>
+<p>新建一个密钥，权限设置把Repo打勾。</p>
+<p>回到第一个仓库的设置里，选择Secrets（密钥）</p>
+<p>新建密钥，将刚才生成的个人密钥填进去，名字设为API_TOKEN_GITHUB(跟 CI 脚本里的名称对应即可)</p>
+<h4 id="观察效果">观察效果</h4>
+<p>在 Push 新修改到第一个仓库后，在<code>Action</code>界面可以看到新的<code>workflow</code>开始运行了。</p>
+<p>在<code>workflow</code>结束后，可以在第二个仓库看到新的<code>Push</code></p>
+<p>在等待 1-2 分钟后，即可在<code>xx.github.io</code>观察到变化。</p></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-08-16</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/hugo-setup/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/hugo/">Hugo</a>,&nbsp;<a href="/tags/git/">Git</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/hello-world/" class="prev" rel="prev" title="Hello World"><i class="fas fa-angle-left fa-fw"></i>Hello World</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                    # 运行时间在这里
+                    <span id="timeDate">运行 time 天&nbsp;|&nbsp;</span>
+                    <script>
+                        var now = new Date();
+                        function createtime() {
+                            var start_time= new Date("09/16/2020 00:00:00");
+                            now.setTime(now.getTime()+250);
+                            days = (now - start_time ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+                            var worktime = document.getElementById("timeDate").innerHTML.replace(/time/, Math.floor(days));
+                            document.getElementById("timeDate").innerHTML = worktime ;
+                        }
+                        createtime();
+                    </script>由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/fakephysicist" target="_blank">fakephysicist</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"search":{"algoliaAppID":"","algoliaIndex":"","algoliaSearchKey":"","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
