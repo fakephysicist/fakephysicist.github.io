@@ -34,7 +34,7 @@
                             "url": "https:\/\/fakephysicist.github.com\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Hugo, Git, Github, Github Action","wordcount":  3092 ,
+                        }],"genre": "posts","keywords": "Hugo, Git, Github, Github Action","wordcount":  3100 ,
         "url": "https:\/\/fakephysicist.github.com\/hugo-setup\/","datePublished": "2021-08-16T02:43:06-04:00","dateModified": "2021-08-16T02:43:06-04:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "","logo": {
@@ -120,7 +120,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Hugo&#43;LoveIt 创建个人主页</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/fakephysicist" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>fakephysicist</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/documentation/"><i class="far fa-folder fa-fw"></i>文档</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3092 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3100 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -141,13 +141,6 @@
         <li><a href="#常用命令">常用命令</a></li>
       </ul>
     </li>
-    <li><a href="#github-ssh">Github SSH</a>
-      <ul>
-        <li><a href="#generating-a-new-ssh-key">Generating a new SSH key</a></li>
-        <li><a href="#adding-your-ssh-key-to-the-ssh-agent">Adding your SSH key to the ssh-agent</a></li>
-        <li><a href="#adding-a-new-ssh-key-to-your-github-account">Adding a new SSH key to your GitHub account</a></li>
-      </ul>
-    </li>
     <li><a href="#loveit">LoveIt</a>
       <ul>
         <li><a href="#loveit-安装">LoveIt 安装</a></li>
@@ -161,6 +154,13 @@
             <li><a href="#本地调试">本地调试</a></li>
           </ul>
         </li>
+      </ul>
+    </li>
+    <li><a href="#github-ssh">Github SSH</a>
+      <ul>
+        <li><a href="#generating-a-new-ssh-key">Generating a new SSH key</a></li>
+        <li><a href="#adding-your-ssh-key-to-the-ssh-agent">Adding your SSH key to the ssh-agent</a></li>
+        <li><a href="#adding-a-new-ssh-key-to-your-github-account">Adding a new SSH key to your GitHub account</a></li>
       </ul>
     </li>
     <li><a href="#创建-github-仓库">创建 Github 仓库</a>
@@ -177,7 +177,11 @@
             <li><a href="#在仓库设置里设置启用github-pages">在仓库设置里设置启用Github Pages</a></li>
           </ul>
         </li>
-        <li><a href="#手动-push">手动 push</a></li>
+      </ul>
+    </li>
+    <li><a href="#从第一个仓库-push-到第二个仓库">从第一个仓库 push 到第二个仓库</a>
+      <ul>
+        <li><a href="#纯手工操作">纯手工操作</a></li>
         <li><a href="#给源代码仓库添加-github-action">给源代码仓库添加 Github Action</a>
           <ul>
             <li><a href="#创建-ci-脚本">创建 CI 脚本</a></li>
@@ -271,46 +275,11 @@
 <li>hugo server： 启动你的网站服务</li>
 <li>hugo new {folder}/{name}.md: 创建新文章，使用 markdown 进行排版，一般默认放在 posts 文件夹下；</li>
 </ul>
-<p>基本没了，一般情况下用这三个命令就够了。</p>
-<h2 id="github-ssh">Github SSH</h2>
-<h3 id="generating-a-new-ssh-key">Generating a new SSH key</h3>
-<ol>
-<li>Open Terminal.</li>
-<li>Paste the text below, substituting in your GitHub email address.
-<code>ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot;</code>
-This creates a new ssh key, using the provided email as a label.</li>
-</ol>
-<h3 id="adding-your-ssh-key-to-the-ssh-agent">Adding your SSH key to the ssh-agent</h3>
-<ol>
-<li>
-<p>Start the ssh-agent in the background.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&#34;</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
-<li>
-<p>Add your SSH private key to the ssh-agent. If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_ed25519 in the command with the name of your private key file.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ssh-add ~/.ssh/id_ed25519
-</code></pre></td></tr></table>
-</div>
-</div></li>
-</ol>
-<h3 id="adding-a-new-ssh-key-to-your-github-account">Adding a new SSH key to your GitHub account</h3>
-<p>网页操作,很容易</p>
+<p>基本没了，一般情况下用这三个命令就够了.</p>
 <h2 id="loveit">LoveIt</h2>
 <div class="details admonition tip">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb fa-fw"></i>This is a tip<i class="details-icon fas fa-angle-right fa-fw"></i>
+            <i class="icon fas fa-lightbulb fa-fw"></i>提示<i class="details-icon fas fa-angle-right fa-fw"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content">主要参考了<a href="https://xinqi.gq/2021/08/%E4%BD%BF%E7%94%A8hugo-loveit%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/#%E5%AE%89%E8%A3%85-hugo" target="_blank" rel="noopener noreffer">这篇文章</a></div>
@@ -383,17 +352,17 @@ git submodule add git@github.com:FakePhysicist/LoveIt.git themes/LoveIt
 </div>
 </div><p>通常，我们只会用到以下几个文件夹的东西</p>
 <ul>
-<li><code>config.toml</code> ：保存 hugo 的配置，包括主题的配置等。详细设置见下方 #网站配置</li>
-<li><code>content</code> ：保存网站的各种内容，比如文章。</li>
-<li><code>archetypes</code> ： 保存文章的 markdown 模版，通常包括文章的前缀注释，是一些在创建新文章时会被用到。</li>
-<li><code>static</code> ：保存文章中用到的静态文件，比如图片、网站缩略图等。</li>
-<li><code>public</code> ：通过hugo命令生成的静态 html 文件、css、js 等。在服务器上发布时主要发布这个文件夹。</li>
+<li><code>config.toml</code> ：保存 hugo 的配置，包括主题的配置等.详细设置见下方 #网站配置</li>
+<li><code>content</code> ：保存网站的各种内容，比如文章.</li>
+<li><code>archetypes</code> ： 保存文章的 markdown 模版，通常包括文章的前缀注释，是一些在创建新文章时会被用到.</li>
+<li><code>static</code> ：保存文章中用到的静态文件，比如图片、网站缩略图等.</li>
+<li><code>public</code> ：通过hugo命令生成的静态 html 文件、css、js 等.在服务器上发布时主要发布这个文件夹.</li>
 </ul>
 <h3 id="配置网站设置">配置网站设置</h3>
 <p>配置文件位置：<code>./config.toml</code></p>
 <div class="details admonition tip">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb fa-fw"></i>This is a tip<i class="details-icon fas fa-angle-right fa-fw"></i>
+            <i class="icon fas fa-lightbulb fa-fw"></i>提示<i class="details-icon fas fa-angle-right fa-fw"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content">具体的配置条目参考 <a href="https://hugoloveit.com/zh-cn/theme-documentation-basics/#site-configuration" target="_blank" rel="noopener noreffer">LoveIt 官方文档</a></div>
@@ -401,7 +370,7 @@ git submodule add git@github.com:FakePhysicist/LoveIt.git themes/LoveIt
     </div>
 <h3 id="开始写第一篇文章">开始写第一篇文章</h3>
 <h4 id="文章前缀参数">文章前缀参数</h4>
-<p>在每篇 markdown 文章最前面可以用一部分注释来告诉LoveIt主题，这篇文章的属性，譬如文章标签、分类、是否为草稿等。</p>
+<p>在每篇 markdown 文章最前面可以用一部分注释来告诉LoveIt主题，这篇文章的属性，譬如文章标签、分类、是否为草稿等.</p>
 <h4 id="将文章前缀参数保存在-markdown-模版中">将文章前缀参数保存在 markdown 模版中</h4>
 <p>模版文件位置：<code>./archetypes/default.md</code></p>
 <h4 id="生成新文章">生成新文章</h4>
@@ -414,15 +383,15 @@ git submodule add git@github.com:FakePhysicist/LoveIt.git themes/LoveIt
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">hugo new posts/HelloWorld/index.cn.md
 </code></pre></td></tr></table>
 </div>
-</div><p>执行完成后，在<code>./content/posts</code>目录下应该可以看到新文件，同时里面已经有 markdown 模版中的文章前缀参数。</p>
+</div><p>执行完成后，在<code>./content/posts</code>目录下应该可以看到新文件，同时里面已经有 markdown 模版中的文章前缀参数.</p>
 <div class="details admonition tip open">
         <div class="details-summary admonition-title">
             <i class="icon fas fa-lightbulb fa-fw"></i>技巧<i class="details-icon fas fa-angle-right fa-fw"></i>
         </div>
         <div class="details-content">
             <div class="admonition-content"><ul>
-<li>也可以手动复制旧文章来生成新文章，不通过命令。</li>
-<li>也可以在<code>content</code>文件夹下建新的文件夹，方便管理。这种情况下生成的静态 Html 文件路由效果如下：</li>
+<li>也可以手动复制旧文章来生成新文章，不通过命令.</li>
+<li>也可以在<code>content</code>文件夹下建新的文件夹，方便管理.这种情况下生成的静态 Html 文件路由效果如下：</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -466,14 +435,49 @@ git submodule add git@github.com:FakePhysicist/LoveIt.git themes/LoveIt
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">hugo server --disableFastRender
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="创建-github-仓库">创建 Github 仓库</h2>
+</div><h2 id="github-ssh">Github SSH</h2>
+<h3 id="generating-a-new-ssh-key">Generating a new SSH key</h3>
+<ol>
+<li>Open Terminal.</li>
+<li>Paste the text below, substituting in your GitHub email address.
+<code>ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot;</code>
+This creates a new ssh key, using the provided email as a label.</li>
+</ol>
+<h3 id="adding-your-ssh-key-to-the-ssh-agent">Adding your SSH key to the ssh-agent</h3>
+<ol>
+<li>
+<p>Start the ssh-agent in the background.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Add your SSH private key to the ssh-agent. If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_ed25519 in the command with the name of your private key file.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ssh-add ~/.ssh/id_ed25519
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h3 id="adding-a-new-ssh-key-to-your-github-account">Adding a new SSH key to your GitHub account</h3>
+<p>网页操作,很容易</p>
+<h2 id="创建-github-仓库">创建 Github 仓库</h2>
 <p>个人建议创建两个仓库：</p>
 <ul>
 <li>
-<p>一个用于托管博客项目源文件，包括配置文件等包含后续可能配置 <code>API KEY</code> 的东西。设置权限为 Private（不公开）</p>
+<p>一个用于托管博客项目源文件，包括配置文件等包含后续可能配置 <code>API KEY</code> 的东西.设置权限为 Private（不公开）</p>
 </li>
 <li>
-<p>一个用于托管博客编译后生成的<code>静态 Html 文件</code>(即使用 hugo 命令编译生成的 <code>public</code> 文件夹)，并配置该仓库使用 <code>Github Pages</code>，然后 Github 就会自动检测到它其中的<code>静态 Html 文件</code>并搭建网站。设置权限为 Public（公开）</p>
+<p>一个用于托管博客编译后生成的<code>静态 Html 文件</code>(即使用 hugo 命令编译生成的 <code>public</code> 文件夹)，并配置该仓库使用 <code>Github Pages</code>，然后 Github 就会自动检测到它其中的<code>静态 Html 文件</code>并搭建网站.设置权限为 Public（公开）</p>
 </li>
 </ul>
 <figure><a class="lightgallery" href="/hugo-setup/git_management.svg" title="/hugo-setup/git_management.svg" data-thumbnail="/hugo-setup/git_management.svg" data-sub-html="<h2>Github Workflow</h2>">
@@ -529,8 +533,9 @@ git push -u origin master
 <h4 id="创建仓库注意名称">创建仓库，注意名称</h4>
 <p>第二个仓库名字比较重要，必须是 <code>{{你的github用户名}}.github.io</code>. 比如我的 Github 名字为 <code>FakePhysicist</code>, 那么我需要创建的仓库名称为 <code>fakephysicist.github.io</code>.</p>
 <h4 id="在仓库设置里设置启用github-pages">在仓库设置里设置启用Github Pages</h4>
-<p>设置 <code>Branch</code> 为 <code>master</code>, 静态文件位置为<code>/(root)</code>, 原因是我们在下个步骤中会直接将生成的 <code>public</code> 文件夹中的内容 <code>push</code> 到 <code>master</code> 分支的 <code>/</code> 目录下。</p>
-<h3 id="手动-push">手动 push</h3>
+<p>设置 <code>Branch</code> 为 <code>master</code>, 静态文件位置为<code>/(root)</code>, 原因是我们在下个步骤中会直接将生成的 <code>public</code> 文件夹中的内容 <code>push</code> 到 <code>master</code> 分支的 <code>/</code> 目录下.</p>
+<h2 id="从第一个仓库-push-到第二个仓库">从第一个仓库 push 到第二个仓库</h2>
+<h3 id="纯手工操作">纯手工操作</h3>
 <ol>
 <li>
 <p>在 <code>My_Website</code> 目录下执行 <code>git submodule update --init --recursive</code> 将子模块更新到最新状态；</p>
@@ -594,7 +599,7 @@ git push origin main
             <i class="icon fas fa-info-circle fa-fw"></i>什么是Github Action?<i class="details-icon fas fa-angle-right fa-fw"></i>
         </div>
         <div class="details-content">
-            <div class="admonition-content"><p>Github Action 是 Github 提供的 CI 系统，可以让用户编写脚本，并在触发指定的操作后（比如新 commit push 到仓库），自动触发脚本。它可以：</p>
+            <div class="admonition-content"><p>Github Action 是 Github 提供的 CI 系统，可以让用户编写脚本，并在触发指定的操作后（比如新 commit push 到仓库），自动触发脚本.它可以：</p>
 <ul>
 <li>编译项目</li>
 <li>测试项目</li>
@@ -605,7 +610,7 @@ git push origin main
 </div>
         </div>
     </div>
-<p>在源代码项目根目录下新建<code>.github/workflow/main.yml</code>。(通过 Github Action 网页端操作也可以)</p>
+<p>在源代码项目根目录下新建<code>.github/workflow/main.yml</code>.(通过 Github Action 网页端操作也可以)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -757,29 +762,29 @@ git push origin main
 </span><span class="w">          </span><span class="nt">user-email</span><span class="p">:</span><span class="w"> </span><span class="l">这里输入你的 Github no-reply 邮箱</span><span class="w">
 </span></code></pre></td></tr></table>
 </div>
-</div><div class="details admonition note">
+</div><div class="details admonition warning">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-pencil-alt fa-fw"></i>需要自定义的部分<i class="details-icon fas fa-angle-right fa-fw"></i>
+            <i class="icon fas fa-exclamation-triangle fa-fw"></i>注意<i class="details-icon fas fa-angle-right fa-fw"></i>
         </div>
         <div class="details-content">
-            <div class="admonition-content">注意trigger on里的 branch 是否和自己的相同. 添加了 <code>target-branch</code>, 因为现在 Github 默认 branch 为 <code>main</code>. 最后三行内容需要自行替换。</div>
+            <div class="admonition-content">注意trigger on里的 branch 是否和自己的相同. 添加了 <code>target-branch</code>, 因为现在 Github 默认 branch 为 <code>main</code>. 最后三行内容需要自行替换.</div>
         </div>
     </div>
 <p>脚本主要做了以下事情：</p>
 <ol>
 <li>创建一个 Hugo 环境</li>
 <li>使用 hugo 命令编译代码，产生 public 文件夹</li>
-<li>将 public 文件 push 到你的Github用户名.github.io仓库。（也就是你之前创建的第二个仓库）</li>
+<li>将 public 文件 push 到你的Github用户名.github.io仓库.（也就是你之前创建的第二个仓库）</li>
 </ol>
 <h4 id="设置-push-用的密钥">设置 Push 用的密钥</h4>
-<p>为了让 Github Action 脚本有权限将代码 Push 到我们的 <code>xx.github.io</code> 仓库，我们需要申请一个密钥并告诉它。在 Github 设置中找到 <code>Developer settings/Personal access tokens</code></p>
-<p>新建一个密钥，权限设置把 <code>Repo</code> 打勾。</p>
+<p>为了让 Github Action 脚本有权限将代码 Push 到我们的 <code>xx.github.io</code> 仓库，我们需要申请一个密钥并告诉它.在 Github 设置中找到 <code>Developer settings/Personal access tokens</code></p>
+<p>新建一个密钥，权限设置把 <code>Repo</code> 打勾. 复制密钥.</p>
 <p>回到第一个仓库的设置里，选择<code>Secrets（密钥）</code></p>
-<p>新建密钥，将刚才生成的个人密钥填进去，名字设为 <code>API_TOKEN_GITHUB</code> (跟 CI 脚本里的名称对应即可)</p>
+<p>新建密钥，将刚才生成的密钥填进去，名字设为 <code>API_TOKEN_GITHUB</code> (跟 CI 脚本里的名称对应即可)</p>
 <h4 id="观察效果">观察效果</h4>
-<p>在 Push 新修改到第一个仓库后，在<code>Action</code>界面可以看到新的<code>workflow</code>开始运行了。</p>
+<p>在 Push 新修改到第一个仓库后，在<code>Action</code>界面可以看到新的<code>workflow</code>开始运行了.</p>
 <p>在<code>workflow</code>结束后，可以在第二个仓库看到新的<code>Push</code></p>
-<p>在等待 1-2 分钟后，即可在<code>xx.github.io</code>观察到变化。</p></div><div class="post-footer" id="post-footer">
+<p>在等待 1-2 分钟后，即可在<code>xx.github.io</code>观察到变化.</p></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -788,9 +793,7 @@ git push origin main
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
-            <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/hugo-setup/index.md" target="_blank">阅读原始文档</a>
-                        </span></div>
+            <div class="post-info-md"></div>
             <div class="post-info-share">
                 <span></span>
             </div>

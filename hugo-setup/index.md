@@ -54,38 +54,11 @@ wget https://golang.org/dl/go1.16.7.linux-amd64.tar.gz
 - hugo server： 启动你的网站服务
 - hugo new {folder}/{name}.md: 创建新文章，使用 markdown 进行排版，一般默认放在 posts 文件夹下；
 
-基本没了，一般情况下用这三个命令就够了。
-
-## Github SSH
-
-### Generating a new SSH key
-
-1. Open Terminal.
-2. Paste the text below, substituting in your GitHub email address.
-    ```ssh-keygen -t ed25519 -C "your_email@example.com"```
-This creates a new ssh key, using the provided email as a label.
-
-### Adding your SSH key to the ssh-agent
-
-1. Start the ssh-agent in the background.
-
-    ```bash
-    eval "$(ssh-agent -s)"
-    ```
-
-2. Add your SSH private key to the ssh-agent. If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_ed25519 in the command with the name of your private key file.
-
-    ```bash
-    ssh-add ~/.ssh/id_ed25519
-    ```
-
-### Adding a new SSH key to your GitHub account
-
-网页操作,很容易
+基本没了，一般情况下用这三个命令就够了.
 
 ## LoveIt
 
-{{< admonition type=tip title="This is a tip" open=false >}}
+{{< admonition type=tip title="提示" open=false >}}
 主要参考了[这篇文章](https://xinqi.gq/2021/08/%E4%BD%BF%E7%94%A8hugo-loveit%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/#%E5%AE%89%E8%A3%85-hugo)
 {{< /admonition >}}
 
@@ -127,17 +100,17 @@ This creates a new ssh key, using the provided email as a label.
 
 通常，我们只会用到以下几个文件夹的东西
 
-- `config.toml` ：保存 hugo 的配置，包括主题的配置等。详细设置见下方 #网站配置
-- `content` ：保存网站的各种内容，比如文章。
-- `archetypes` ： 保存文章的 markdown 模版，通常包括文章的前缀注释，是一些在创建新文章时会被用到。
-- `static` ：保存文章中用到的静态文件，比如图片、网站缩略图等。
-- `public` ：通过hugo命令生成的静态 html 文件、css、js 等。在服务器上发布时主要发布这个文件夹。
+- `config.toml` ：保存 hugo 的配置，包括主题的配置等.详细设置见下方 #网站配置
+- `content` ：保存网站的各种内容，比如文章.
+- `archetypes` ： 保存文章的 markdown 模版，通常包括文章的前缀注释，是一些在创建新文章时会被用到.
+- `static` ：保存文章中用到的静态文件，比如图片、网站缩略图等.
+- `public` ：通过hugo命令生成的静态 html 文件、css、js 等.在服务器上发布时主要发布这个文件夹.
 
 ### 配置网站设置
 
 配置文件位置：`./config.toml`
 
-{{< admonition type=tip title="This is a tip" open=false >}}
+{{< admonition type=tip title="提示" open=false >}}
 具体的配置条目参考 [LoveIt 官方文档](https://hugoloveit.com/zh-cn/theme-documentation-basics/#site-configuration)
 {{< /admonition >}}
 
@@ -145,7 +118,7 @@ This creates a new ssh key, using the provided email as a label.
 
 #### 文章前缀参数
 
-在每篇 markdown 文章最前面可以用一部分注释来告诉LoveIt主题，这篇文章的属性，譬如文章标签、分类、是否为草稿等。
+在每篇 markdown 文章最前面可以用一部分注释来告诉LoveIt主题，这篇文章的属性，譬如文章标签、分类、是否为草稿等.
 
 #### 将文章前缀参数保存在 markdown 模版中
 
@@ -159,12 +132,12 @@ This creates a new ssh key, using the provided email as a label.
 hugo new posts/HelloWorld/index.cn.md
 ```
 
-执行完成后，在`./content/posts`目录下应该可以看到新文件，同时里面已经有 markdown 模版中的文章前缀参数。
+执行完成后，在`./content/posts`目录下应该可以看到新文件，同时里面已经有 markdown 模版中的文章前缀参数.
 
 {{< admonition type=tip title="技巧" open=open >}}
 
-- 也可以手动复制旧文章来生成新文章，不通过命令。
-- 也可以在`content`文件夹下建新的文件夹，方便管理。这种情况下生成的静态 Html 文件路由效果如下：
+- 也可以手动复制旧文章来生成新文章，不通过命令.
+- 也可以在`content`文件夹下建新的文件夹，方便管理.这种情况下生成的静态 Html 文件路由效果如下：
 
 ```bash
 .
@@ -189,13 +162,40 @@ hugo new posts/HelloWorld/index.cn.md
 hugo server --disableFastRender
 ```
 
+## Github SSH
+
+### Generating a new SSH key
+
+1. Open Terminal.
+2. Paste the text below, substituting in your GitHub email address.
+    ```ssh-keygen -t ed25519 -C "your_email@example.com"```
+This creates a new ssh key, using the provided email as a label.
+
+### Adding your SSH key to the ssh-agent
+
+1. Start the ssh-agent in the background.
+
+    ```bash
+    eval "$(ssh-agent -s)"
+    ```
+
+2. Add your SSH private key to the ssh-agent. If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_ed25519 in the command with the name of your private key file.
+
+    ```bash
+    ssh-add ~/.ssh/id_ed25519
+    ```
+
+### Adding a new SSH key to your GitHub account
+
+网页操作,很容易
+
 ## 创建 Github 仓库
 
 个人建议创建两个仓库：
 
-- 一个用于托管博客项目源文件，包括配置文件等包含后续可能配置 `API KEY` 的东西。设置权限为 Private（不公开）
+- 一个用于托管博客项目源文件，包括配置文件等包含后续可能配置 `API KEY` 的东西.设置权限为 Private（不公开）
 
-- 一个用于托管博客编译后生成的`静态 Html 文件`(即使用 hugo 命令编译生成的 `public` 文件夹)，并配置该仓库使用 `Github Pages`，然后 Github 就会自动检测到它其中的`静态 Html 文件`并搭建网站。设置权限为 Public（公开）
+- 一个用于托管博客编译后生成的`静态 Html 文件`(即使用 hugo 命令编译生成的 `public` 文件夹)，并配置该仓库使用 `Github Pages`，然后 Github 就会自动检测到它其中的`静态 Html 文件`并搭建网站.设置权限为 Public（公开）
 
 {{< image src="git_management.svg" caption="Github Workflow">}}
 
@@ -237,9 +237,11 @@ git push -u origin master
 
 #### 在仓库设置里设置启用Github Pages
 
-设置 `Branch` 为 `master`, 静态文件位置为`/(root)`, 原因是我们在下个步骤中会直接将生成的 `public` 文件夹中的内容 `push` 到 `master` 分支的 `/` 目录下。
+设置 `Branch` 为 `master`, 静态文件位置为`/(root)`, 原因是我们在下个步骤中会直接将生成的 `public` 文件夹中的内容 `push` 到 `master` 分支的 `/` 目录下.
 
-### 手动 push
+## 从第一个仓库 push 到第二个仓库
+
+### 纯手工操作
 
 1. 在 `My_Website` 目录下执行 `git submodule update --init --recursive` 将子模块更新到最新状态；
 2. In your config/_default/config.yaml file, set baseurl = "https://<USERNAME>.github.io/", where <USERNAME> is your Github username. Stop Hugo if it’s running and delete the public directory if it exists (by typing rm -r public/).
@@ -275,7 +277,7 @@ git push -u origin master
 #### 创建 CI 脚本
 
 {{< admonition type=info title="什么是Github Action?" open=false >}}
-Github Action 是 Github 提供的 CI 系统，可以让用户编写脚本，并在触发指定的操作后（比如新 commit push 到仓库），自动触发脚本。它可以：
+Github Action 是 Github 提供的 CI 系统，可以让用户编写脚本，并在触发指定的操作后（比如新 commit push 到仓库），自动触发脚本.它可以：
 
 - 编译项目
 - 测试项目
@@ -284,7 +286,7 @@ Github Action 是 Github 提供的 CI 系统，可以让用户编写脚本，并
 - 等等……
 {{< /admonition >}}
 
-在源代码项目根目录下新建`.github/workflow/main.yml`。(通过 Github Action 网页端操作也可以)
+在源代码项目根目录下新建`.github/workflow/main.yml`.(通过 Github Action 网页端操作也可以)
 
 ```bash
 .
@@ -363,31 +365,31 @@ jobs:
           user-email: 这里输入你的 Github no-reply 邮箱
 ```
 
-{{< admonition type=note title="需要自定义的部分" open=false >}}
-注意trigger on里的 branch 是否和自己的相同. 添加了 `target-branch`, 因为现在 Github 默认 branch 为 `main`. 最后三行内容需要自行替换。
+{{< admonition type=warning title="注意" open=false >}}
+注意trigger on里的 branch 是否和自己的相同. 添加了 `target-branch`, 因为现在 Github 默认 branch 为 `main`. 最后三行内容需要自行替换.
 {{< /admonition >}}
 
 脚本主要做了以下事情：
 
 1. 创建一个 Hugo 环境
 2. 使用 hugo 命令编译代码，产生 public 文件夹
-3. 将 public 文件 push 到你的Github用户名.github.io仓库。（也就是你之前创建的第二个仓库）
+3. 将 public 文件 push 到你的Github用户名.github.io仓库.（也就是你之前创建的第二个仓库）
 
 #### 设置 Push 用的密钥
 
-为了让 Github Action 脚本有权限将代码 Push 到我们的 `xx.github.io` 仓库，我们需要申请一个密钥并告诉它。在 Github 设置中找到 `Developer settings/Personal access tokens`
+为了让 Github Action 脚本有权限将代码 Push 到我们的 `xx.github.io` 仓库，我们需要申请一个密钥并告诉它.在 Github 设置中找到 `Developer settings/Personal access tokens`
 
-新建一个密钥，权限设置把 `Repo` 打勾。
+新建一个密钥，权限设置把 `Repo` 打勾. 复制密钥.
 
 回到第一个仓库的设置里，选择`Secrets（密钥）`
 
-新建密钥，将刚才生成的个人密钥填进去，名字设为 `API_TOKEN_GITHUB` (跟 CI 脚本里的名称对应即可)
+新建密钥，将刚才生成的密钥填进去，名字设为 `API_TOKEN_GITHUB` (跟 CI 脚本里的名称对应即可)
 
 #### 观察效果
 
-在 Push 新修改到第一个仓库后，在`Action`界面可以看到新的`workflow`开始运行了。
+在 Push 新修改到第一个仓库后，在`Action`界面可以看到新的`workflow`开始运行了.
 
 在`workflow`结束后，可以在第二个仓库看到新的`Push`
 
-在等待 1-2 分钟后，即可在`xx.github.io`观察到变化。
+在等待 1-2 分钟后，即可在`xx.github.io`观察到变化.
 
