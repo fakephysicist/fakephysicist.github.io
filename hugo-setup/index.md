@@ -1,6 +1,6 @@
-# Hugo Setup
+# Hugo+LoveIt 创建个人主页
 
-再wsl环境下安装Go, Hugo 并且配置主题Loveit.
+在wsl环境下安装Go, Hugo 并且配置主题Loveit.
 <!--more-->
 ## Go
 
@@ -83,47 +83,173 @@ This creates a new ssh key, using the provided email as a label.
 
 网页操作,很容易
 
-## Git
+## LoveIt
 
-## Loveit
+{{< admonition type=tip title="This is a tip" open=false >}}
+主要参考了[这篇文章](https://xinqi.gq/2021/08/%E4%BD%BF%E7%94%A8hugo-loveit%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/#%E5%AE%89%E8%A3%85-hugo)
+{{< /admonition >}}
 
-### 安装
+### LoveIt 安装
+
+1. 创建你的项目, Hugo 提供了一个 `new` 命令来创建一个新的网站:
+
+    ```bash
+    hugo new site my_website
+    cd my_website
+    ```
 
 1. 通过 git 安装的话，首先建议你在 GitHub 上 fork 成你自己的项目
-    - standard method `git clone https://github.com/dillonzq/LoveIt.git themes/LoveIt
-` 将代码克隆到本地文件夹 My_Website
-    - SSH method 更安全，也免于 push 时输入密码 `git clone git@github.com:FakePhysicist/starter-hugo-academic.git My_Website`
+1. 初始化你的项目目录为 git 仓库, 并且把主题仓库作为你的网站目录的子模块. SSH method 更安全，也免于 push 时输入密码:
 
-2. 进入文件夹，初始化项目：`git submodule update --init --recursive`，完成安装;
+    ```bash
+    git init
+    git submodule add git@github.com:FakePhysicist/LoveIt.git themes/LoveIt
+    ```
 
-### auto update
+1. 初始化项目：`git submodule update --init --recursive`，完成安装
 
-说是自动，还是需要手动执行一条命令：`git submodule update --remote --merge`;
+1. 自动更新 submodule：`git submodule update --remote --merge`;
 
-## Deploy to Github Pages
+### 项目文件树结构
 
-### 原理
+```bash
+.
+├── archetypes # markdown文章的模版
+├── config.toml # 配置文件
+├── content # 网站内容，主要保存文章
+├── data # 生成网站可用的数据文件，可用在模版中
+├── layouts # 生成网站时可用的模版
+├── public # 通过hugo命令生成的静态文件，主要发布这个
+├── resources # 通过hugo命令一起生成的资源文件，暂时不知道什么用
+├── static # 静态文件，比如文章中的图片/视频文件、缩略图等
+└── themes # 保存可用的hugo主题
+```
 
-网上介绍的办法很多，但核心其实就一句：
+通常，我们只会用到以下几个文件夹的东西
 
-将 **`hugo`** 命令生成的 **`public`** 文件夹上传到 GitHub pages 项目下.
+- `config.toml` ：保存 hugo 的配置，包括主题的配置等。详细设置见下方 #网站配置
+- `content` ：保存网站的各种内容，比如文章。
+- `archetypes` ： 保存文章的 markdown 模版，通常包括文章的前缀注释，是一些在创建新文章时会被用到。
+- `static` ：保存文章中用到的静态文件，比如图片、网站缩略图等。
+- `public` ：通过hugo命令生成的静态 html 文件、css、js 等。在服务器上发布时主要发布这个文件夹。
 
-`public` 文件夹相当于编译完成的静态网站，你在本地打开其实就能看。换句话说，你每次手动将这个目录下的内容上传到你的 GitHub page 项目也是可以的。
+### 配置网站设置
 
-然后为了达到这个目的，Academic 给出的做法是利用 `git submodule` 将你的 GitHub page 项目作为 My_Website 项目的子模块存放到 public 目录。那么当你更新你的文章之后，只提交 public 文件夹内的变更到 GitHub page 项目即可。
+配置文件位置：`./config.toml`
 
-### 教程
+{{< admonition type=tip title="This is a tip" open=false >}}
+具体的配置条目参考 [LoveIt 官方文档](https://hugoloveit.com/zh-cn/theme-documentation-basics/#site-configuration)
+{{< /admonition >}}
 
-1. 之前我们fork了模板,已经有了一个项目. 现在需要再新建一个github pages 项目. <USERNAME>.github.io where <USERNAME> is your Github username - we will save the generated website to this repo. To create the <USERNAME>.github.io repository, click the “+” icon in the top right corner and then choose “New Repository”.
-2. 在 `My_Website` 目录下执行 `git submodule update --init --recursive` 将子模块更新到最新状态；
-3. In your config/_default/config.yaml file, set baseurl = "https://<USERNAME>.github.io/", where <USERNAME> is your Github username. Stop Hugo if it’s running and delete the public directory if it exists (by typing rm -r public/).
-4. Add your .github.io repository into a submodule in a folder named public, replacing with your Github username:
+### 开始写第一篇文章
+
+#### 文章前缀参数
+
+在每篇 markdown 文章最前面可以用一部分注释来告诉LoveIt主题，这篇文章的属性，譬如文章标签、分类、是否为草稿等。
+
+#### 将文章前缀参数保存在 markdown 模版中
+
+模版文件位置：`./archetypes/default.md`
+
+#### 生成新文章
+
+生成新文章中文版`HelloWorld`的命令：
+
+```bash
+hugo new posts/HelloWorld/index.cn.md
+```
+
+执行完成后，在`./content/posts`目录下应该可以看到新文件，同时里面已经有 markdown 模版中的文章前缀参数。
+
+{{< admonition type=tip title="技巧" open=open >}}
+
+- 也可以手动复制旧文章来生成新文章，不通过命令。
+- 也可以在`content`文件夹下建新的文件夹，方便管理。这种情况下生成的静态 Html 文件路由效果如下：
+
+```bash
+.
+└── content
+    └── about
+    |   └── index.md  // <- https://example.com/about/
+    ├── posts
+    |   ├── firstpost.md   // <- https://example.com/posts/firstpost/
+    |   ├── happy
+    |   |   └── ness.md  // <- https://example.com/posts/happy/ness/
+    |   └── secondpost.md  // <- https://example.com/posts/secondpost/
+    └── quote
+        ├── first.md       // <- https://example.com/quote/first/
+        └── second.md      // <- https://example.com/quote/second/
+```
+
+{{< /admonition >}}
+
+#### 本地调试
+
+```bash
+hugo server --disableFastRender
+```
+
+## 创建 Github 仓库
+
+个人建议创建两个仓库：
+
+- 一个用于托管博客项目源文件，包括配置文件等包含后续可能配置 `API KEY` 的东西。设置权限为 Private（不公开）
+
+- 一个用于托管博客编译后生成的`静态 Html 文件`(即使用 hugo 命令编译生成的 `public` 文件夹)，并配置该仓库使用 `Github Pages`，然后 Github 就会自动检测到它其中的`静态 Html 文件`并搭建网站。设置权限为 Public（公开）
+
+{{< image src="git_management.svg" caption="Github Workflow">}}
+
+### 第一个仓库
+
+设置为private权限等级，没人看得见
+
+#### 链接本地仓库与远端仓库
+
+```bash
+## 位于博客源代码根目录
+
+## 初始化本地Git仓库
+git init
+
+## 设置名为Origin的远端Git仓库
+git remote add origin {{这里替换成你的仓库在Github Clone用的地址}}
+
+## 选择所有文件
+git add -A
+
+## Push到github
+git push -u origin master
+```
+
+直接用vscode链接本地仓库与远端Github仓库 (vscode yyds)
+
+#### 创建.gitignore
+
+在源代码项目中创建.gitignore文件，来防止把生成的静态文件上传
+
+参考 [gitignore.io](https://gitignore.io/)
+
+### 第二个仓库
+
+#### 创建仓库，注意名称
+
+第二个仓库名字比较重要，必须是 `{{你的github用户名}}.github.io`. 比如我的 Github 名字为 `FakePhysicist`, 那么我需要创建的仓库名称为 `fakephysicist.github.io`.
+
+#### 在仓库设置里设置启用Github Pages
+
+设置 `Branch` 为 `master`, 静态文件位置为`/(root)`, 原因是我们在下个步骤中会直接将生成的 `public` 文件夹中的内容 `push` 到 `master` 分支的 `/` 目录下。
+
+### 手动 push
+
+1. 在 `My_Website` 目录下执行 `git submodule update --init --recursive` 将子模块更新到最新状态；
+2. In your config/_default/config.yaml file, set baseurl = "https://<USERNAME>.github.io/", where <USERNAME> is your Github username. Stop Hugo if it’s running and delete the public directory if it exists (by typing rm -r public/).
+3. Add your .github.io repository into a submodule in a folder named public, replacing with your Github username:
 
     ```bash
     git submodule add -f -b master https://github.com/<USERNAME>/<USERNAME>.github.io.git public
     ```
 
-5. Add everything to your local git repository and push it up to your remote repository on GitHub:
+4. Add everything to your local git repository and push it up to your remote repository on GitHub:
 
     ```bash
     git add .
@@ -131,11 +257,7 @@ This creates a new ssh key, using the provided email as a label.
     git push -u origin master
     ```
 
-## push to github.io
-
-### 笨办法
-
-regenerate your website’s HTML code by running Hugo and uploading the public submodule to GitHub:
+5. regenerate your website’s HTML code by running Hugo and uploading the public submodule to GitHub:
 
     ```bash
     hugo
@@ -148,7 +270,7 @@ regenerate your website’s HTML code by running Hugo and uploading the public s
 
     **Notice that the default branch of github is `main` instead of `master` now.**
 
-### Github action
+### 给源代码仓库添加 Github Action
 
 #### 创建 CI 脚本
 
@@ -240,8 +362,9 @@ jobs:
           destination-repository-name: "这里输入你的Github用户名.github.io"
           user-email: 这里输入你的 Github no-reply 邮箱
 ```
+
 {{< admonition type=note title="需要自定义的部分" open=false >}}
-注意trigger on里的 branch 是否和自己的相同，因为现在 Github 默认分支为 main。 同时最后三行内容需要自行替换。
+注意trigger on里的 branch 是否和自己的相同. 添加了 `target-branch`, 因为现在 Github 默认 branch 为 `main`. 最后三行内容需要自行替换。
 {{< /admonition >}}
 
 脚本主要做了以下事情：
@@ -252,13 +375,13 @@ jobs:
 
 #### 设置 Push 用的密钥
 
-为了让 Github Action 脚本有权限将代码 Push 到我们的xx.github.io仓库，我们需要申请一个密钥并告诉它。在 Github 设置中找到Developer settings/Personal access tokens
+为了让 Github Action 脚本有权限将代码 Push 到我们的 `xx.github.io` 仓库，我们需要申请一个密钥并告诉它。在 Github 设置中找到 `Developer settings/Personal access tokens`
 
-新建一个密钥，权限设置把Repo打勾。
+新建一个密钥，权限设置把 `Repo` 打勾。
 
-回到第一个仓库的设置里，选择Secrets（密钥）
+回到第一个仓库的设置里，选择`Secrets（密钥）`
 
-新建密钥，将刚才生成的个人密钥填进去，名字设为API_TOKEN_GITHUB(跟 CI 脚本里的名称对应即可)
+新建密钥，将刚才生成的个人密钥填进去，名字设为 `API_TOKEN_GITHUB` (跟 CI 脚本里的名称对应即可)
 
 #### 观察效果
 
@@ -267,3 +390,4 @@ jobs:
 在`workflow`结束后，可以在第二个仓库看到新的`Push`
 
 在等待 1-2 分钟后，即可在`xx.github.io`观察到变化。
+
