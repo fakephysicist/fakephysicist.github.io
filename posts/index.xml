@@ -1,36 +1,26 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>所有文章 - Fake Physicist</title>
+        <title>All Posts - Fake Physicist</title>
         <link>https://fakephysicist.github.com/posts/</link>
-        <description>所有文章 | Fake Physicist</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fakephysicist@outlook.com (fakephysicist)</managingEditor>
-            <webMaster>fakephysicist@outlook.com (fakephysicist)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 16 Aug 2021 14:00:00 -0400</lastBuildDate><atom:link href="https://fakephysicist.github.com/posts/" rel="self" type="application/rss+xml" /><item>
+        <description>All Posts | Fake Physicist</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>fakephysicist@outlook.com (FakePhysicist)</managingEditor>
+            <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 16 Aug 2021 14:00:00 -0400</lastBuildDate><atom:link href="https://fakephysicist.github.com/posts/" rel="self" type="application/rss+xml" /><item>
     <title>Liquid Crystals in FDTD</title>
     <link>https://fakephysicist.github.com/fdtd_lc/</link>
     <pubDate>Mon, 16 Aug 2021 14:00:00 -0400</pubDate><author>
-        <name>作者</name>
-    </author><guid>https://fakephysicist.github.com/fdtd_lc/</guid>
+                    <name>FakePhysicist</name><uri>https://github.com/fakephysicist</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.com/fdtd_lc/</guid>
     <description><![CDATA[<p>Liquid Crystals in FDTD simulation</p>]]></description>
 </item><item>
     <title>FDTD Usage</title>
-    <link>https://fakephysicist.github.com/fdtd/</link>
+    <link>https://fakephysicist.github.com/index.zh-en/</link>
     <pubDate>Mon, 16 Aug 2021 13:25:00 -0400</pubDate><author>
-        <name>作者</name>
-    </author><guid>https://fakephysicist.github.com/fdtd/</guid>
+                    <name>FakePhysicist</name><uri>https://github.com/fakephysicist</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.com/index.zh-en/</guid>
     <description><![CDATA[<p>FDTD basics, Python scripts controlling Lumerical.</p>]]></description>
-</item><item>
-    <title>Hugo&#43;DoIt 创建个人主页</title>
-    <link>https://fakephysicist.github.com/hugo-setup/</link>
-    <pubDate>Mon, 16 Aug 2021 02:43:06 -0400</pubDate><author>
-        <name>作者</name>
-    </author><guid>https://fakephysicist.github.com/hugo-setup/</guid>
-    <description><![CDATA[<p>在 wsl 环境下安装 Go, Hugo 并且配置主题 DoIt.</p>]]></description>
 </item><item>
     <title>Hello World</title>
     <link>https://fakephysicist.github.com/hello-world/</link>
     <pubDate>Mon, 16 Aug 2021 00:53:04 -0400</pubDate><author>
-        <name>作者</name>
-    </author><guid>https://fakephysicist.github.com/hello-world/</guid>
+                    <name>FakePhysicist</name><uri>https://github.com/fakephysicist</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.com/hello-world/</guid>
     <description><![CDATA[<p>Hello World! This is my first note!</p>]]></description>
 </item></channel>
 </rss>

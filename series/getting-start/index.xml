@@ -1,0 +1,8 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Getting start with DoIt - Series - Fake Physicist</title>
+        <link>https://fakephysicist.github.com/series/getting-start/</link>
+        <description>Getting start with DoIt - Series - Fake Physicist</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>fakephysicist@outlook.com (FakePhysicist)</managingEditor>
+            <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://fakephysicist.github.com/series/getting-start/" rel="self" type="application/rss+xml" /></channel>
+</rss>

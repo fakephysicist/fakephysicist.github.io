@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -10,7 +10,8 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://fakephysicist.github.com/fdtd_lc/" /><meta property="og:image" content="https://fakephysicist.github.com/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-08-16T14:00:00-04:00" />
-<meta property="article:modified_time" content="2021-08-16T22:28:52-04:00" />
+<meta property="article:modified_time" content="2021-08-16T14:00:00-04:00" />
+
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://fakephysicist.github.com/logo.png"/>
@@ -22,29 +23,29 @@
 
 <meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://fakephysicist.github.com/fdtd_lc/" /><link rel="prev" href="https://fakephysicist.github.com/fdtd/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://fakephysicist.github.com/fdtd_lc/" /><link rel="prev" href="https://fakephysicist.github.com/index.zh-en/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.css">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/animate/animate.min.css">
     <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
         "headline": "Liquid Crystals in FDTD",
-        "inLanguage": "zh-CN",
+        "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/fakephysicist.github.com\/fdtd_lc\/"
-        },"genre": "posts","keywords": "FDTD, LC","wordcount":  2057 ,
-        "url": "https:\/\/fakephysicist.github.com\/fdtd_lc\/","datePublished": "2021-08-16T14:00:00-04:00","dateModified": "2021-08-16T22:28:52-04:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"genre": "posts","keywords": "FDTD, LC","wordcount":  2053 ,
+        "url": "https:\/\/fakephysicist.github.com\/fdtd_lc\/","datePublished": "2021-08-16T14:00:00-04:00","dateModified": "2021-08-16T14:00:00-04:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "","logo": {
                     "@type": "ImageObject",
                     "url": "https:\/\/fakephysicist.github.com\/images\/avatar.webp",
                     "width":  528 ,
                     "height":  560 
-                }},"author": {
-                "@type": "Person",
-                "name": "fakephysicist"
-            },"description": ""
+                }},"authors": [{
+                    "@type": "Person",
+                    "name": "FakePhysicist"
+                }],"description": ""
     }
     </script></head>
 
@@ -63,15 +64,15 @@
             <a href="/" title="Fake Physicist"><span class="header-title-pre"><i class='far fa-edit fa-fw'></i></span>Fake Physicist</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/series/"> 系列 </a><a class="menu-item" href="/authors/"> 作者 </a><a class="menu-item" href="/categories/documentation/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/fakephysicist" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="#" onclick="return false;" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                        <select class="language-select" title="Select Language" id="language-select-desktop" onchange="location = this.value;"><option value="/fdtd_lc/" selected>简体中文</option></select>
-                    </a><a href="#" onclick="return false;" class="menu-item theme-select" title="切换主题">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/series/"> Series </a><a class="menu-item" href="/authors/"> Authors </a><a class="menu-item" href="/categories/documentation/"> Docs </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/fakephysicist" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="#" onclick="return false;" class="menu-item language" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" title="Select Language" id="language-select-desktop" onchange="location = this.value;"><option value="/fdtd_lc/" selected>English</option></select>
+                    </a><a href="#" onclick="return false;" class="menu-item theme-select" title="Switch Theme">
                     <i class="fas fa-adjust fa-fw"></i>
-                    <select class="color-theme-select" id="theme-select-desktop" title="切换主题">
-                        <option value="light">浅色</option>
-                        <option value="dark">深色</option>
-                        <option value="black">黑色</option>
-                        <option value="auto">跟随系统</option>
+                    <select class="color-theme-select" id="theme-select-desktop" title="Switch Theme">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="black">Black</option>
+                        <option value="auto">Auto</option>
                     </select>
                 </a></div>
         </div>
@@ -86,16 +87,16 @@
                 <span></span><span></span><span></span>
             </div>
         </div>
-        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/series/" title="">系列</a><a class="menu-item" href="/authors/" title="">作者</a><a class="menu-item" href="/categories/documentation/" title="">文档</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/fakephysicist" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="#" onclick="return false;" class="menu-item theme-select" title="切换主题">
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/series/" title="">Series</a><a class="menu-item" href="/authors/" title="">Authors</a><a class="menu-item" href="/categories/documentation/" title="">Docs</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/fakephysicist" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="#" onclick="return false;" class="menu-item theme-select" title="Switch Theme">
                 <i class="fas fa-adjust fa-fw"></i>
-                <select class="color-theme-select" id="theme-select-mobile" title="切换主题">
-                    <option value="light">浅色</option>
-                    <option value="dark">深色</option>
-                    <option value="black">黑色</option>
-                    <option value="auto">跟随系统</option>
+                <select class="color-theme-select" id="theme-select-mobile" title="Switch Theme">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="black">Black</option>
+                    <option value="auto">Auto</option>
                 </select>
-            </a><a href="#" onclick="return false;" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
-                    <select class="language-select" title="Select Language" onchange="location = this.value;"><option value="/fdtd_lc/" selected>简体中文</option></select>
+            </a><a href="#" onclick="return false;" class="menu-item" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" title="Select Language" onchange="location = this.value;"><option value="/fdtd_lc/" selected>English</option></select>
                 </a></div>
     </div>
 </header>
@@ -107,17 +108,17 @@
 </div>
 <main class="main">
             <div class="container"><div class="toc" id="toc-auto">
-        <h2 class="toc-title">目录</h2>
+        <h2 class="toc-title">Contents</h2>
         <div class="toc-content" id="toc-content-auto"></div>
     </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "wide")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Liquid Crystals in FDTD</h1><div class="post-meta">
             <div class="post-meta-line">
-                <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://github.com/fakephysicist" title="Author" target="_blank" rel="noopener noreffer author" class="author">fakephysicist</a>
-                </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/documentation/"><i class="far fa-folder fa-fw"></i>文档</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2057 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 10 分钟&nbsp;</div>
+                <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://fakephysicist.github.com/authors/fakephysicist'>FakePhysicist</a></span>
+                </span>&nbsp;<span class="post-category">included in </span>&nbsp;<span class="post-category">category <a href="/categories/documentation/"><i class="far fa-folder fa-fw"></i>Documentation</a></span>&nbsp;<span class="post-category">and</span>&nbsp;<span class="post-series">series <a href="/series/fdtd/"><i class="far fa-list-alt fa-fw"></i>FDTD</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2053 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;10 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
-                    <span>目录</span>
+                    <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
@@ -148,7 +149,7 @@
     </li>
     <li><a href="#package-version">Package Version</a>
       <ul>
-        <li><a href="#packages-used-in-this-notebook">Packages used in This Notebook**</a></li>
+        <li><a href="#packages-used-in-this-notebook">Packages used in This Notebook</a></li>
       </ul>
     </li>
   </ul>
@@ -198,10 +199,10 @@ U_z U_y =
 \begin{bmatrix} \cos\theta \cos\phi &amp; -\sin\theta &amp; \sin\theta \sin\phi \\ \cos\theta \sin\phi &amp; \cos\phi &amp; \sin\theta \sin\phi \\ -\sin\theta &amp; 0 &amp; \cos\theta \end{bmatrix}
 $$</p>
 <p>and the permittivity tensor in the reference (or simulation ) coordinate system $(x,y,z)$ is transformed to the principal coordinate system $(X,Y,Z)$ via a rotation about $z$, and the $y$.</p>
-<p>we have the transform relation:
-$$\begin{bmatrix} X\\ Y\\ Z \end{bmatrix} = U(\theta, \phi) \begin{bmatrix} x\\ y\\ z \end{bmatrix} $$</p>
-<p>and the permittivity in two coordinate systems
-$$\mathbf{\tilde \varepsilon}_D =U^\ast(\theta,\phi)\tilde\varepsilon U(\theta,\phi)$$</p>
+<p>we have the transform relation:</p>
+<p>$$\begin{bmatrix} X\\ Y\\ Z \end{bmatrix} = U(\theta, \phi) \begin{bmatrix} x\\ y\\ z \end{bmatrix} $$</p>
+<p>and the permittivity in two coordinate systems</p>
+<p>$$\mathbf{\tilde \varepsilon}_D =U^\ast(\theta,\phi)\tilde\varepsilon U(\theta,\phi)$$</p>
 <p>where</p>
 <p>$$
 \tilde\varepsilon_{D}= \begin{bmatrix} \varepsilon_0 &amp;0&amp; 0 \\ 0&amp; \varepsilon_0 &amp; 0 \\ 0 &amp; 0 &amp; \varepsilon_0 \end{bmatrix}=\begin{bmatrix} n_0^2 &amp;0&amp; 0 \\ 0&amp; n_0^2 &amp; 0 \\ 0 &amp; 0 &amp; n_e^2\end{bmatrix}
@@ -213,11 +214,7 @@ $$</p>
 <h2 id="spatially-varying-orientation-distribution-of-lcs">Spatially varying orientation distribution of LCs</h2>
 <h3 id="importing-data-using-the-script-environment">Importing data using the script environment</h3>
 <p>In this case, we can use the <strong>addgridattribute</strong> , and optionally the <strong>importdataset</strong> script command to add the LC attribute and to set the spatially varying LC orientation. For example, if we want to set up LCs which are twisted in z direction as shown below, where the components of the LC director are given by</p>
-<p>$$
-\begin{align*}
-u_{x}(x,y,z) &amp;=\cos(\pi z) \\ u_{y}(x,y,z) &amp;=\sin(\pi z) \\ u_{z}(x,y,z) &amp;=0
-\end{align*}
-$$</p>
+<p>$$\begin{align*}u_{x}(x,y,z) &amp;=\cos(\pi z) \\ u_{y}(x,y,z) &amp;=\sin(\pi z) \\ u_{z}(x,y,z) &amp;=0\end{align*}$$</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -666,7 +663,7 @@ matlabsave(&#34;LC_import.mat&#34;,LC);
 <span class="n">notebook_manifest</span><span class="p">(</span><span class="s1">&#39;jupyterlab&#39;</span><span class="p">,</span> <span class="s1">&#39;numpy&#39;</span><span class="p">,</span> <span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;scipy&#39;</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="packages-used-in-this-notebook">Packages used in This Notebook**</h3>
+</div><h3 id="packages-used-in-this-notebook">Packages used in This Notebook</h3>
 <table>
 <thead>
 <tr>
@@ -706,15 +703,12 @@ matlabsave(&#34;LC_import.mat&#34;,LC);
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-08-16&nbsp;<a class="git-hash" href="https://github.com/HEIGE-PCloud/DoIt/commit/0925a3513469fbecdbbce19f5655af5481c05cf0" target="_blank" title="commit by FakePhysicist(20970845&#43;FakePhysicist@users.noreply.github.com) 0925a3513469fbecdbbce19f5655af5481c05cf0: adjust the template revise FDTD_LC" rel="noopener noreferrer">
-                                    <i class="fas fa-hashtag fa-fw"></i>0925a35</a></span>
+                <span>Updated on 2021-08-16</span>
             </div>
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
-            <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="/fdtd_lc/index.md" target="_blank" rel="noopener noreferrer">阅读原始文档</a>
-                        </span></div>
+            <div class="post-info-md"></div>
             <div class="post-info-share">
                 <span></span>
             </div>
@@ -724,16 +718,16 @@ matlabsave(&#34;LC_import.mat&#34;,LC);
     <div class="post-info-more">
         <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/fdtd/">FDTD</a>,&nbsp;<a href="/tags/lc/">LC</a></section>
         <section>
-            <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+            <span><a href="#" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/fdtd/" class="prev" rel="prev" title="FDTD Usage"><i class="fas fa-angle-left fa-fw"></i>FDTD Usage</a></div>
+    <div class="post-nav"><a href="/index.zh-en/" class="prev" rel="prev" title="FDTD Usage"><i class="fas fa-angle-left fa-fw"></i>FDTD Usage</a></div>
 </div>
 </article></div>
         </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.10"><i class="far fa-edit fa-fw"></i> DoIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/fakephysicist" target="_blank" rel="noopener noreferrer">fakephysicist</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> | Theme - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.10"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/fakephysicist" target="_blank" rel="noopener noreferrer">FakePhysicist</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div><script>
                     if('serviceWorker' in navigator) {
                         navigator.serviceWorker
@@ -750,14 +744,14 @@ matlabsave(&#34;LC_import.mat&#34;,LC);
                     }
                 </script></footer></div>
 
-    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="Back to Top">
             <i class="fas fa-arrow-up fa-fw"></i>
-        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+        </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
             <i class="fas fa-comment fa-fw"></i>
         </a>
     </div><div class="assets"><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script></div>
 
-<div class="pjax-assets"><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false}};</script><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"></div>
+<div class="pjax-assets"><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false}};</script><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"></div>
 </body>
 
 </html>

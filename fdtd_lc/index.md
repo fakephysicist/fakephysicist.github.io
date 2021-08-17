@@ -38,9 +38,11 @@ $$
 and the permittivity tensor in the reference (or simulation ) coordinate system $(x,y,z)$ is transformed to the principal coordinate system $(X,Y,Z)$ via a rotation about $z$, and the $y$.
 
 we have the transform relation:
+
 $$\begin{bmatrix} X\\\\ Y\\\\ Z \end{bmatrix} = U(\theta, \phi) \begin{bmatrix} x\\\\ y\\\\ z \end{bmatrix} $$
 
 and the permittivity in two coordinate systems
+
 $$\mathbf{\tilde \varepsilon}_D =U^\ast(\theta,\phi)\tilde\varepsilon U(\theta,\phi)$$
 
 where
@@ -63,11 +65,7 @@ In LC attribute object, set the properties "theta" and 'phi".
 
 In this case, we can use the **addgridattribute** , and optionally the **importdataset** script command to add the LC attribute and to set the spatially varying LC orientation. For example, if we want to set up LCs which are twisted in z direction as shown below, where the components of the LC director are given by
 
-$$
-\begin{align*}
-u_{x}(x,y,z) &=\cos(\pi z) \\\\ u_{y}(x,y,z) &=\sin(\pi z) \\\\ u_{z}(x,y,z) &=0
-\end{align*}
-$$
+$$\begin{align*}u_{x}(x,y,z) &=\cos(\pi z) \\\\ u_{y}(x,y,z) &=\sin(\pi z) \\\\ u_{z}(x,y,z) &=0\end{align*}$$
 
 ```python
 # %matplotlib widget
@@ -331,7 +329,7 @@ display(IPd.Markdown('**Packages used in This Notebook**'))
 notebook_manifest('jupyterlab', 'numpy', 'matplotlib', 'scipy')
 ```
 
-### Packages used in This Notebook**
+### Packages used in This Notebook
 
 | Component                         | Version                    | Description          |
 | --------------------------------- | -------------------------- | -------------------- |
