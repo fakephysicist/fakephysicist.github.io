@@ -5,18 +5,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">FDTD 使用总结 - Fake Physicist</title><meta name="Description" content="A fake physicist&#39;s notes"><meta property="og:title" content="FDTD 使用总结" />
-<meta property="og:description" content="FDTD原理, 软件使用, Python脚本控制" />
+    <title class="pjax-title">FDTD Usage - Fake Physicist</title><meta name="Description" content="A fake physicist&#39;s notes"><meta property="og:title" content="FDTD Usage" />
+<meta property="og:description" content="FDTD basics, Python scripts controlling Lumerical." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://fakephysicist.github.com/fdtd/" /><meta property="og:image" content="https://fakephysicist.github.com/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-08-16T13:25:00-04:00" />
-<meta property="article:modified_time" content="2021-08-16T17:20:44-04:00" />
+<meta property="article:modified_time" content="2021-08-16T22:28:52-04:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://fakephysicist.github.com/logo.png"/>
 
-<meta name="twitter:title" content="FDTD 使用总结"/>
-<meta name="twitter:description" content="FDTD原理, 软件使用, Python脚本控制"/>
+<meta name="twitter:title" content="FDTD Usage"/>
+<meta name="twitter:description" content="FDTD basics, Python scripts controlling Lumerical."/>
 <meta name="application-name" content="Fake Physicist">
 <meta name="apple-mobile-web-app-title" content="Fake Physicist">
 
@@ -28,13 +28,13 @@
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "FDTD 使用总结",
+        "headline": "FDTD Usage",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/fakephysicist.github.com\/fdtd\/"
-        },"genre": "posts","keywords": "FDTD, Python","wordcount":  3953 ,
-        "url": "https:\/\/fakephysicist.github.com\/fdtd\/","datePublished": "2021-08-16T13:25:00-04:00","dateModified": "2021-08-16T17:20:44-04:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"genre": "posts","keywords": "FDTD, Python","wordcount":  3906 ,
+        "url": "https:\/\/fakephysicist.github.com\/fdtd\/","datePublished": "2021-08-16T13:25:00-04:00","dateModified": "2021-08-16T22:28:52-04:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "","logo": {
                     "@type": "ImageObject",
@@ -109,12 +109,12 @@
             <div class="container"><div class="toc" id="toc-auto">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-auto"></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "wide")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">FDTD 使用总结</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "wide")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">FDTD Usage</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://github.com/fakephysicist" title="Author" target="_blank" rel="noopener noreffer author" class="author">fakephysicist</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/documentation/"><i class="far fa-folder fa-fw"></i>文档</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3953 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 8 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3906 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 19 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -199,7 +199,7 @@
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>FDTD原理, 软件使用, Python脚本控制</p>
+            </div><div class="content" id="content"><p>FDTD basics, Python scripts controlling Lumerical.</p>
 <h2 id="solver-physics">Solver Physics</h2>
 <p>In three dimensions, Maxwell equations have six electromagnetic field components: Ex, Ey, Ez and Hx, Hy, and Hz. If we assume that <strong>the structure is infinite in the z dimension</strong> and that <strong>the fields are independent of z</strong>, then Maxwell&rsquo;s equations split into two independent sets of equations composed of three vector quantities each which can be solved in the x-y plane only.  These are termed the <strong>TE (transverse electric)</strong>, and <strong>TM (transverse magnetic)</strong> equations. We can solve both sets of equations with the following components:</p>
 <ul>
@@ -1166,8 +1166,8 @@ $$1-\frac{\int\left|H_{\perp}\right|^2 dxdy}{\int\left(\left|H\right|^2\right) d
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-08-16&nbsp;<a class="git-hash" href="https://github.com/HEIGE-PCloud/DoIt/commit/b98ae456a8a36e219fdc01291c0941788939bd62" target="_blank" title="commit by FakePhysicist(20970845&#43;FakePhysicist@users.noreply.github.com) b98ae456a8a36e219fdc01291c0941788939bd62: move to DoIt!" rel="noopener noreferrer">
-                                    <i class="fas fa-hashtag fa-fw"></i>b98ae45</a></span>
+                <span>更新于 2021-08-16&nbsp;<a class="git-hash" href="https://github.com/HEIGE-PCloud/DoIt/commit/0925a3513469fbecdbbce19f5655af5481c05cf0" target="_blank" title="commit by FakePhysicist(20970845&#43;FakePhysicist@users.noreply.github.com) 0925a3513469fbecdbbce19f5655af5481c05cf0: adjust the template revise FDTD_LC" rel="noopener noreferrer">
+                                    <i class="fas fa-hashtag fa-fw"></i>0925a35</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>
@@ -1188,8 +1188,8 @@ $$1-\frac{\int\left|H_{\perp}\right|^2 dxdy}{\int\left(\left|H\right|^2\right) d
         </section>
     </div>
 
-    <div class="post-nav"><a href="/hugo-setup/" class="prev" rel="prev" title="Hugo&#43;LoveIt 创建个人主页"><i class="fas fa-angle-left fa-fw"></i>Hugo&#43;LoveIt 创建个人主页</a>
-            <a href="/fdtd_lc/" class="next" rel="next" title="Liquid Crystal in FDTD">Liquid Crystal in FDTD<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/hugo-setup/" class="prev" rel="prev" title="Hugo&#43;DoIt 创建个人主页"><i class="fas fa-angle-left fa-fw"></i>Hugo&#43;DoIt 创建个人主页</a>
+            <a href="/fdtd_lc/" class="next" rel="next" title="Liquid Crystals in FDTD">Liquid Crystals in FDTD<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 </article></div>
         </main><footer class="footer">

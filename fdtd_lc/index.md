@@ -1,6 +1,6 @@
-# Liquid Crystal in FDTD
+# Liquid Crystals in FDTD
 
-
+Liquid Crystals in FDTD simulation
 <!--more-->
 ## general work flow
 
@@ -14,16 +14,17 @@
 
 The Liquid crystal (LC) rotation grid attribute allows you to specify a spatially varying LC director orientation in terms of theta, phi.
 
-![](./images/LC_rot_obj.webp)
+![LC_rot_obj](./images/LC_rot_obj.webp)
 
 Liquid crystals are composed of rod-like molecular structures which have rotational symmetry with respect to a long axis. Therefore, liquid crystals have spatially varying uni-axial optical properties. The refractive indices with respect to the long and short molecular axes are called extraordinary $n_e$ and ordinary $n_o$ respectively, see figure above.
 
 Rotational symmetry allows the transformation matrix to reduced to a function of two rotational angles (θ, ϕ).
 
 {{< admonition type=tip title="KaTex Tip" open=true >}}
+
 1. `\begin{aligned}` can't be on its own line. Nor can `\end{aligned}`.
 2. You need to use four \s instead of two because they need to be escaped.
-3. You must have a trailing space at the end of those four `\`s. That is, you need `\\\\ ` instead of `\\\\`.
+3. You must have a trailing space at the end of those four `\`s.
 {{< /admonition >}}
 
 $$
@@ -43,9 +44,11 @@ and the permittivity in two coordinate systems
 $$\mathbf{\tilde \varepsilon}_D =U^\ast(\theta,\phi)\tilde\varepsilon U(\theta,\phi)$$
 
 where
+
 $$
 \tilde\varepsilon_{D}= \begin{bmatrix} \varepsilon_0 &0& 0 \\\\ 0& \varepsilon_0 & 0 \\\\ 0 & 0 & \varepsilon_0 \end{bmatrix}=\begin{bmatrix} n_0^2 &0& 0 \\\\ 0& n_0^2 & 0 \\\\ 0 & 0 & n_e^2\end{bmatrix}
 $$
+
 is the permittivity in the principle coordinate system $(X,Y,Z)$.
 
 ## Uniform distribution
@@ -58,11 +61,13 @@ In LC attribute object, set the properties "theta" and 'phi".
 
 ### Importing data using the script environment
 
-In this case, we can use the **addgridattribute** , and optionally the **importdataset** script command to add the LC attribute and to set the spatially varying LC orientation. For example, if we want to set up LCs which are twisted in z direction as shown below, where the components of the LC director are given by 
-```
-ux(x,y,z)=cos(z*π), uy(x,y,z)=sin(z*π) and uz(x,y,z)=0
-```
+In this case, we can use the **addgridattribute** , and optionally the **importdataset** script command to add the LC attribute and to set the spatially varying LC orientation. For example, if we want to set up LCs which are twisted in z direction as shown below, where the components of the LC director are given by
 
+$$
+\begin{align*}
+u_{x}(x,y,z) &=\cos(\pi z) \\\\ u_{y}(x,y,z) &=\sin(\pi z) \\\\ u_{z}(x,y,z) &=0
+\end{align*}
+$$
 
 ```python
 # %matplotlib widget
@@ -133,11 +138,7 @@ def LC_twist_z_axis():
 LC_twist_z_axis()       
 ```
 
-
-    
-![](./images/LC_twist_z_axis.webp)
-    
-
+![LC_twist_z_axis](./images/LC_twist_z_axis.webp)
 
 we define the director distribution in a matrix variable and put the matrix into the LC attribute property. In the following script, matrix "n" is used to define the director distribution of the twisted nematic LCs, and this information is put into a dataset called LC which contains the x, y, z position data and the director orientations in an attribute called "u". At the second last line where addgridattribute command is used, a LC attribute is added to the simulation and the director distribution is set up.
 
@@ -145,7 +146,7 @@ Note : Magnitude of spatially varying orientation unit vector
 
 >When specifying the LC orientation, it is important that the magnitude of the orientation vector be exactly 1, except in regions where you don't want the LC orientation to be set where the magnitude of the vector should be set to 0.
 
-```
+```lumerical
 # define x/y/z
 x = 0;
 y = 0;
@@ -171,14 +172,13 @@ setnamed("LC attribute","nz",50); # set resolution
 
 Note : When setting angle theta via 'set' script command, the input must be in radians. For example:
 
-```
+```lumerical
 setnamed("LC attribute","theta",pi/4);
 ````
 
 We then add a material with diagonal anisotropy components and set up the object to use the LC attribute similarly to the case of uniform distribution.
 
 #### realizaton in python
-
 
 ```python
 import importlib
@@ -230,7 +230,8 @@ fdtd.setnamed("LC_attribute", "nz", 50)  # set resolution
 ### Importing data from .mat file using the graphical user interface
 
 In the edit window of the grid attribute, it is possible to import a .mat file containing a dataset with the required director distribution data by clicking on the "Import data..." button. The following code shows an example of how to save a .mat file to be imported by using the matlabsave script command.
-```
+
+```lumerical
 # define x/y/z
 x = 0;
 y = 0;
@@ -257,7 +258,7 @@ We then add a material with diagonal anisotropy components and set up the object
 
 ### Importing data from a CSV (comma-separated values) file
 
-From the Import menu in the top toolbar, click on Import from CSV to open the import wizard which allows you to select the CSV file to import. This file is typically created with TechWiz LCD from Sanayi System Co., Ltd. (http://sanayisystem.com/).
+From the Import menu in the top toolbar, click on Import from CSV to open the import wizard which allows you to select the CSV file to import. This file is typically created with TechWiz LCD from Sanayi System Co., Ltd [(http://sanayisystem.com/)](http://sanayisystem.com/).
 
 For more details on the file format and steps for importing the data from the graphical wizard, see Import object - Liquid crystal from CSV.
 
@@ -275,9 +276,9 @@ As shown in the script in the LC rotation page, it is possible to specify a spat
 
 Alternatively, the magnitude of the orientation vector can be set to 0. In such cases, the grid attribute transformation is disabled at that location, and the simulation will use the unrotated diagonal permittivity values. For example, if we set |u(x,y,z)|=1 inside the spherical region and set |u(x,y,z)|=0 outside the region as shown below, a spherical LC region can be set up.
 
-![](./images/director01.webp)
+![director](./images/director01.webp)
 
-### Index monitor currently record only diagonal index 
+### Index monitor currently record only diagonal index
 
 Index monitors to not record any information about the permittivity transformations. Therefore, it is important to do some careful testing to ensure the setup is correct.
 
@@ -291,7 +292,7 @@ Linear interpolation is used to interpolate grid attribute data at each mesh poi
 
 Singleton dimensions are extruded uniformly as shown below.
 
-![](./images/U_FDTD.webp)
+![U_FDTD](./images/U_FDTD.webp)
 
 If the dimensions of a structure object are larger than the grid attribute data, the attribute will not be applied to the portion of the structure that is outside of the attribute data.
 
@@ -299,8 +300,7 @@ If the dimensions of a structure object are larger than the grid attribute data,
 
 It is worth noting that using Grid attributes will increase the simulation memory and time requirements. Therefore, when they are not needed, it's best to ensure they are not used. For example, rather than setting the rotation angle to zero (the grid attribute will still be included in the simulation), it's best to disable the grid attribute entirely.
 
-# Package Version
-
+## Package Version
 
 ```python
 import sys
@@ -326,18 +326,12 @@ def notebook_manifest(*packages: List[str] ) -> str:
     return IPd.Markdown('\n'.join(manifest))
 ```
 
-
 ```python
 display(IPd.Markdown('**Packages used in This Notebook**'))
 notebook_manifest('jupyterlab', 'numpy', 'matplotlib', 'scipy')
 ```
 
-
-**Packages used in This Notebook**
-
-
-
-
+### Packages used in This Notebook**
 
 | Component                         | Version                    | Description          |
 | --------------------------------- | -------------------------- | -------------------- |
@@ -346,6 +340,4 @@ notebook_manifest('jupyterlab', 'numpy', 'matplotlib', 'scipy')
 | [matplotlib](https://matplotlib.org) | 3.4.2 | Python plotting package |
 | [numpy](https://www.numpy.org) | 1.20.3 | NumPy is the fundamental package for array computing with Python. |
 | [scipy](https://www.scipy.org) | 1.6.2 | SciPy: Scientific Library for Python |
-
-
 

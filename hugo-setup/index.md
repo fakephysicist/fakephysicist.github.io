@@ -1,6 +1,6 @@
-# Hugo+LoveIt 创建个人主页
+# Hugo+DoIt 创建个人主页
 
-在wsl环境下安装Go, Hugo 并且配置主题Loveit.
+在 wsl 环境下安装 Go, Hugo 并且配置主题 DoIt.
 <!--more-->
 ## Go
 
@@ -56,13 +56,15 @@ wget https://golang.org/dl/go1.16.7.linux-amd64.tar.gz
 
 基本没了，一般情况下用这三个命令就够了.
 
-## LoveIt
+## DoIt
 
 {{< admonition type=tip title="提示" open=false >}}
 主要参考了[这篇文章](https://xinqi.gq/2021/08/%E4%BD%BF%E7%94%A8hugo-loveit%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/#%E5%AE%89%E8%A3%85-hugo)
+
+本来是要写 LoveIt 这个主题, 但是她实在是太久没有更新了... 所以爱是会消失是吗:)
 {{< /admonition >}}
 
-### LoveIt 安装
+### DoIt 安装
 
 1. 创建你的项目, Hugo 提供了一个 `new` 命令来创建一个新的网站:
 
@@ -71,30 +73,29 @@ wget https://golang.org/dl/go1.16.7.linux-amd64.tar.gz
     cd my_website
     ```
 
-1. 通过 git 安装的话，首先建议你在 GitHub 上 fork 成你自己的项目
-1. 初始化你的项目目录为 git 仓库, 并且把主题仓库作为你的网站目录的子模块. SSH method 更安全，也免于 push 时输入密码:
+2. 初始化你的项目目录为 git 仓库, 并且把主题仓库作为你的网站目录的子模块:
 
     ```bash
     git init
-    git submodule add git@github.com:FakePhysicist/LoveIt.git themes/LoveIt
+    git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
     ```
 
-{{< admonition type=tip title="How to remove a submodule?" open=false >}}
+    {{< admonition type=tip title="How to remove a submodule?" open=false >}}
 
-```bash
-# Remove the submodule entry from .git/config
-git submodule deinit -f path/to/submodule
-# Remove the submodule directory from the superproject's .git/modules directory
-rm -rf .git/modules/path/to/submodule
-# Remove the entry in .gitmodules and remove the submodule directory located at path/to/submodule
-git rm -f path/to/submodule
-```
+    ```bash
+    # Remove the submodule entry from .git/config
+    git submodule deinit -f path/to/submodule
+    # Remove the submodule directory from the superproject's .git/modules directory
+    rm -rf .git/modules/path/to/submodule
+    # Remove the entry in .gitmodules and remove the submodule directory located at path/to/submodule
+    git rm -f path/to/submodule
+    ```
 
-{{< /admonition >}}
+    {{< /admonition >}}
 
-1. 初始化项目：`git submodule update --init --recursive`，完成安装
+3. 初始化项目：`git submodule update --init --recursive`，完成安装
 
-1. 自动更新 submodule：`git submodule update --remote --merge`;
+4. 自动更新 submodule：`git submodule update --remote --merge`;
 
 ### 项目文件树结构
 
@@ -124,14 +125,14 @@ git rm -f path/to/submodule
 配置文件位置：`./config.toml`
 
 {{< admonition type=tip title="提示" open=false >}}
-具体的配置条目参考 [LoveIt 官方文档](https://hugoloveit.com/zh-cn/theme-documentation-basics/#site-configuration)
+具体的配置条目参考 [DoIt 官方文档](https://hugodoit.pages.dev/theme-documentation-basics/#3-configuration)
 {{< /admonition >}}
 
 ### 开始写第一篇文章
 
 #### 文章前缀参数
 
-在每篇 markdown 文章最前面可以用一部分注释来告诉LoveIt主题，这篇文章的属性，譬如文章标签、分类、是否为草稿等.
+在每篇 markdown 文章最前面可以用一部分注释来告诉DoIt主题，这篇文章的属性，譬如文章标签、分类、是否为草稿等.
 
 #### 将文章前缀参数保存在 markdown 模版中
 

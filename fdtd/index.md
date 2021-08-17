@@ -1,6 +1,6 @@
-# FDTD 使用总结
+# FDTD Usage
 
-FDTD原理, 软件使用, Python脚本控制
+FDTD basics, Python scripts controlling Lumerical.
 <!--more-->
 
 ## Solver Physics

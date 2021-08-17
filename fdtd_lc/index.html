@@ -5,18 +5,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">Liquid Crystal in FDTD - Fake Physicist</title><meta name="Description" content="A fake physicist&#39;s notes"><meta property="og:title" content="Liquid Crystal in FDTD" />
-<meta property="og:description" content="" />
+    <title class="pjax-title">Liquid Crystals in FDTD - Fake Physicist</title><meta name="Description" content="A fake physicist&#39;s notes"><meta property="og:title" content="Liquid Crystals in FDTD" />
+<meta property="og:description" content="Liquid Crystals in FDTD simulation" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://fakephysicist.github.com/fdtd_lc/" /><meta property="og:image" content="https://fakephysicist.github.com/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-08-16T14:00:00-04:00" />
-<meta property="article:modified_time" content="2021-08-16T17:20:44-04:00" />
+<meta property="article:modified_time" content="2021-08-16T22:28:52-04:00" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://fakephysicist.github.com/logo.png"/>
 
-<meta name="twitter:title" content="Liquid Crystal in FDTD"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Liquid Crystals in FDTD"/>
+<meta name="twitter:description" content="Liquid Crystals in FDTD simulation"/>
 <meta name="application-name" content="Fake Physicist">
 <meta name="apple-mobile-web-app-title" content="Fake Physicist">
 
@@ -28,13 +28,13 @@
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Liquid Crystal in FDTD",
+        "headline": "Liquid Crystals in FDTD",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/fakephysicist.github.com\/fdtd_lc\/"
-        },"genre": "posts","keywords": "FDTD, LC","wordcount":  2051 ,
-        "url": "https:\/\/fakephysicist.github.com\/fdtd_lc\/","datePublished": "2021-08-16T14:00:00-04:00","dateModified": "2021-08-16T17:20:44-04:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"genre": "posts","keywords": "FDTD, LC","wordcount":  2057 ,
+        "url": "https:\/\/fakephysicist.github.com\/fdtd_lc\/","datePublished": "2021-08-16T14:00:00-04:00","dateModified": "2021-08-16T22:28:52-04:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "","logo": {
                     "@type": "ImageObject",
@@ -109,11 +109,11 @@
             <div class="container"><div class="toc" id="toc-auto">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-auto"></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "wide")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Liquid Crystal in FDTD</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "wide")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Liquid Crystals in FDTD</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><i class="author fas fa-user-circle fa-fw"></i><a href="https://github.com/fakephysicist" title="Author" target="_blank" rel="noopener noreffer author" class="author">fakephysicist</a>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/documentation/"><i class="far fa-folder fa-fw"></i>文档</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2051 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2057 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 10 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -146,9 +146,15 @@
         <li><a href="#simulation-speed">Simulation speed</a></li>
       </ul>
     </li>
+    <li><a href="#package-version">Package Version</a>
+      <ul>
+        <li><a href="#packages-used-in-this-notebook">Packages used in This Notebook**</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="general-work-flow">general work flow</h2>
+            </div><div class="content" id="content"><p>Liquid Crystals in FDTD simulation</p>
+<h2 id="general-work-flow">general work flow</h2>
 <ol>
 <li><strong>grid attribute</strong> object defines a transform $U$ to diagonalize the permittivity. $U$ is often a simple rotation matrix.</li>
 <li>in the <strong>material database</strong>, create a diagonal anisotropic material</li>
@@ -167,7 +173,7 @@
         data-srcset="./images/LC_rot_obj.webp, ./images/LC_rot_obj.webp 1.5x, ./images/LC_rot_obj.webp 2x"
         data-sizes="auto"
         alt="./images/LC_rot_obj.webp"
-        title="./images/LC_rot_obj.webp"
+        title="LC_rot_obj"
     /></p>
 <p>Liquid crystals are composed of rod-like molecular structures which have rotational symmetry with respect to a long axis. Therefore, liquid crystals have spatially varying uni-axial optical properties. The refractive indices with respect to the long and short molecular axes are called extraordinary $n_e$ and ordinary $n_o$ respectively, see figure above.</p>
 <p>Rotational symmetry allows the transformation matrix to reduced to a function of two rotational angles (θ, ϕ).</p>
@@ -179,7 +185,7 @@
             <div class="admonition-content"><ol>
 <li><code>\begin{aligned}</code> can&rsquo;t be on its own line. Nor can <code>\end{aligned}</code>.</li>
 <li>You need to use four \s instead of two because they need to be escaped.</li>
-<li>You must have a trailing space at the end of those four <code>\</code>s. That is, you need <code>\\\\ </code> instead of <code>\\\\</code>.</li>
+<li>You must have a trailing space at the end of those four <code>\</code>s.</li>
 </ol>
 </div>
         </div>
@@ -196,26 +202,23 @@ $$</p>
 $$\begin{bmatrix} X\\ Y\\ Z \end{bmatrix} = U(\theta, \phi) \begin{bmatrix} x\\ y\\ z \end{bmatrix} $$</p>
 <p>and the permittivity in two coordinate systems
 $$\mathbf{\tilde \varepsilon}_D =U^\ast(\theta,\phi)\tilde\varepsilon U(\theta,\phi)$$</p>
-<p>where
-$$
+<p>where</p>
+<p>$$
 \tilde\varepsilon_{D}= \begin{bmatrix} \varepsilon_0 &amp;0&amp; 0 \\ 0&amp; \varepsilon_0 &amp; 0 \\ 0 &amp; 0 &amp; \varepsilon_0 \end{bmatrix}=\begin{bmatrix} n_0^2 &amp;0&amp; 0 \\ 0&amp; n_0^2 &amp; 0 \\ 0 &amp; 0 &amp; n_e^2\end{bmatrix}
-$$
-is the permittivity in the principle coordinate system $(X,Y,Z)$.</p>
+$$</p>
+<p>is the permittivity in the principle coordinate system $(X,Y,Z)$.</p>
 <h2 id="uniform-distribution">Uniform distribution</h2>
 <p>It is quite simple.</p>
 <p>In LC attribute object, set the properties &ldquo;theta&rdquo; and &lsquo;phi&quot;.</p>
 <h2 id="spatially-varying-orientation-distribution-of-lcs">Spatially varying orientation distribution of LCs</h2>
 <h3 id="importing-data-using-the-script-environment">Importing data using the script environment</h3>
 <p>In this case, we can use the <strong>addgridattribute</strong> , and optionally the <strong>importdataset</strong> script command to add the LC attribute and to set the spatially varying LC orientation. For example, if we want to set up LCs which are twisted in z direction as shown below, where the components of the LC director are given by</p>
+<p>$$
+\begin{align*}
+u_{x}(x,y,z) &amp;=\cos(\pi z) \\ u_{y}(x,y,z) &amp;=\sin(\pi z) \\ u_{z}(x,y,z) &amp;=0
+\end{align*}
+$$</p>
 <div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ux(x,y,z)=cos(z*π), uy(x,y,z)=sin(z*π) and uz(x,y,z)=0
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
@@ -359,7 +362,7 @@ is the permittivity in the principle coordinate system $(X,Y,Z)$.</p>
         data-srcset="./images/LC_twist_z_axis.webp, ./images/LC_twist_z_axis.webp 1.5x, ./images/LC_twist_z_axis.webp 2x"
         data-sizes="auto"
         alt="./images/LC_twist_z_axis.webp"
-        title="./images/LC_twist_z_axis.webp"
+        title="LC_twist_z_axis"
     /></p>
 <p>we define the director distribution in a matrix variable and put the matrix into the LC attribute property. In the following script, matrix &ldquo;n&rdquo; is used to define the director distribution of the twisted nematic LCs, and this information is put into a dataset called LC which contains the x, y, z position data and the director orientations in an attribute called &ldquo;u&rdquo;. At the second last line where addgridattribute command is used, a LC attribute is added to the simulation and the director distribution is set up.</p>
 <p>Note : Magnitude of spatially varying orientation unit vector</p>
@@ -569,7 +572,7 @@ matlabsave(&#34;LC_import.mat&#34;,LC);
 </div>
 </div><p>We then add a material with diagonal anisotropy components and set up the object to use the LC attribute similarly to the case of uniform distribution.</p>
 <h3 id="importing-data-from-a-csv-comma-separated-values-file">Importing data from a CSV (comma-separated values) file</h3>
-<p>From the Import menu in the top toolbar, click on Import from CSV to open the import wizard which allows you to select the CSV file to import. This file is typically created with TechWiz LCD from Sanayi System Co., Ltd. (<a href="http://sanayisystem.com/%29" target="_blank" rel="noopener noreffer">http://sanayisystem.com/)</a>.</p>
+<p>From the Import menu in the top toolbar, click on Import from CSV to open the import wizard which allows you to select the CSV file to import. This file is typically created with TechWiz LCD from Sanayi System Co., Ltd <a href="http://sanayisystem.com/" target="_blank" rel="noopener noreffer">(http://sanayisystem.com/)</a>.</p>
 <p>For more details on the file format and steps for importing the data from the graphical wizard, see Import object - Liquid crystal from CSV.</p>
 <p>The same data can also be imported using the importcsvlc script command.</p>
 <h2 id="tips-on-grid-attributes">Tips on grid attributes</h2>
@@ -584,7 +587,7 @@ matlabsave(&#34;LC_import.mat&#34;,LC);
         data-srcset="./images/director01.webp, ./images/director01.webp 1.5x, ./images/director01.webp 2x"
         data-sizes="auto"
         alt="./images/director01.webp"
-        title="./images/director01.webp"
+        title="director"
     /></p>
 <h3 id="index-monitor-currently-record-only-diagonal-index">Index monitor currently record only diagonal index</h3>
 <p>Index monitors to not record any information about the permittivity transformations. Therefore, it is important to do some careful testing to ensure the setup is correct.</p>
@@ -599,12 +602,12 @@ matlabsave(&#34;LC_import.mat&#34;,LC);
         data-srcset="./images/U_FDTD.webp, ./images/U_FDTD.webp 1.5x, ./images/U_FDTD.webp 2x"
         data-sizes="auto"
         alt="./images/U_FDTD.webp"
-        title="./images/U_FDTD.webp"
+        title="U_FDTD"
     /></p>
 <p>If the dimensions of a structure object are larger than the grid attribute data, the attribute will not be applied to the portion of the structure that is outside of the attribute data.</p>
 <h3 id="simulation-speed">Simulation speed</h3>
 <p>It is worth noting that using Grid attributes will increase the simulation memory and time requirements. Therefore, when they are not needed, it&rsquo;s best to ensure they are not used. For example, rather than setting the rotation angle to zero (the grid attribute will still be included in the simulation), it&rsquo;s best to disable the grid attribute entirely.</p>
-<h1 id="package-version">Package Version</h1>
+<h2 id="package-version">Package Version</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -663,7 +666,7 @@ matlabsave(&#34;LC_import.mat&#34;,LC);
 <span class="n">notebook_manifest</span><span class="p">(</span><span class="s1">&#39;jupyterlab&#39;</span><span class="p">,</span> <span class="s1">&#39;numpy&#39;</span><span class="p">,</span> <span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;scipy&#39;</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><strong>Packages used in This Notebook</strong></p>
+</div><h3 id="packages-used-in-this-notebook">Packages used in This Notebook**</h3>
 <table>
 <thead>
 <tr>
@@ -703,8 +706,8 @@ matlabsave(&#34;LC_import.mat&#34;,LC);
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-08-16&nbsp;<a class="git-hash" href="https://github.com/HEIGE-PCloud/DoIt/commit/b98ae456a8a36e219fdc01291c0941788939bd62" target="_blank" title="commit by FakePhysicist(20970845&#43;FakePhysicist@users.noreply.github.com) b98ae456a8a36e219fdc01291c0941788939bd62: move to DoIt!" rel="noopener noreferrer">
-                                    <i class="fas fa-hashtag fa-fw"></i>b98ae45</a></span>
+                <span>更新于 2021-08-16&nbsp;<a class="git-hash" href="https://github.com/HEIGE-PCloud/DoIt/commit/0925a3513469fbecdbbce19f5655af5481c05cf0" target="_blank" title="commit by FakePhysicist(20970845&#43;FakePhysicist@users.noreply.github.com) 0925a3513469fbecdbbce19f5655af5481c05cf0: adjust the template revise FDTD_LC" rel="noopener noreferrer">
+                                    <i class="fas fa-hashtag fa-fw"></i>0925a35</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>
@@ -725,7 +728,7 @@ matlabsave(&#34;LC_import.mat&#34;,LC);
         </section>
     </div>
 
-    <div class="post-nav"><a href="/fdtd/" class="prev" rel="prev" title="FDTD 使用总结"><i class="fas fa-angle-left fa-fw"></i>FDTD 使用总结</a></div>
+    <div class="post-nav"><a href="/fdtd/" class="prev" rel="prev" title="FDTD Usage"><i class="fas fa-angle-left fa-fw"></i>FDTD Usage</a></div>
 </div>
 </article></div>
         </main><footer class="footer">
