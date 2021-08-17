@@ -29,4 +29,7 @@ I took the one less traveled by,
 And that has made all the difference.
 {{< /style >}}
 
+## My Github chart
+
+{{< image src="https://ghchart.rshah.org/fakephysicist" alt="FakePhysicist's Github chart" width="100%">}}
 

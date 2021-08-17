@@ -1,6 +1,6 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Fake Physicist</title>
+        <title>FakePhysicist</title>
         <link>https://fakephysicist.github.com/</link>
         <description>A fake physicist&#39;s notes</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>fakephysicist@outlook.com (FakePhysicist)</managingEditor>

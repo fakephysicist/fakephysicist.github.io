@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>所有文章 - Fake Physicist</title>
+        <title>所有文章 - FakePhysicist</title>
         <link>https://fakephysicist.github.com/zh-cn/posts/</link>
-        <description>所有文章 | Fake Physicist</description>
+        <description>所有文章 | FakePhysicist</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fakephysicist@outlook.com (FakePhysicist)</managingEditor>
             <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 16 Aug 2021 02:43:06 -0400</lastBuildDate><atom:link href="https://fakephysicist.github.com/zh-cn/posts/" rel="self" type="application/rss+xml" /><item>
     <title>Hugo&#43;DoIt 创建个人主页</title>

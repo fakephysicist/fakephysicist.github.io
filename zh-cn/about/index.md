@@ -7,3 +7,7 @@
 
 勃，三尺微命，一介书生。无路请缨，等终军之弱冠；有怀投笔，慕宗悫之长风。舍簪笏于百龄，奉晨昏于万里。非谢家之宝树，接孟氏之芳邻。他日趋庭，叨陪鲤对；今兹捧袂，喜托龙门。杨意不逢，抚凌云而自惜；钟期既遇，奏流水以何惭？
 
+## My Github chart
+
+{{< image src="https://ghchart.rshah.org/fakephysicist" alt="FakePhysicist's Github chart" width="100%">}}
+
