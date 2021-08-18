@@ -2,7 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://fakephysicist.github.com/en/authors/fakephysicist/</loc><lastmod>2021-08-18T02:04:27-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://fakephysicist.github.com/en/authors/fakephysicist/</loc><lastmod>2021-08-18T02:09:06-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://fakephysicist.github.com/authors/fakephysicist/"
@@ -11,7 +11,7 @@
                     hreflang="en"
                     href="https://fakephysicist.github.com/en/authors/fakephysicist/"
                     /></url><url>
-            <loc>https://fakephysicist.github.com/en/</loc><lastmod>2021-08-18T02:04:27-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://fakephysicist.github.com/en/</loc><lastmod>2021-08-18T02:09:06-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://fakephysicist.github.com/"
@@ -20,8 +20,8 @@
                     hreflang="en"
                     href="https://fakephysicist.github.com/en/"
                     /></url><url>
-            <loc>https://fakephysicist.github.com/en/what-is-the-shape-of-a-hanging-chain/</loc><lastmod>2021-08-18T02:04:27-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://fakephysicist.github.com/en/posts/</loc><lastmod>2021-08-18T02:04:27-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://fakephysicist.github.com/en/what-is-the-shape-of-a-hanging-chain/</loc><lastmod>2021-08-18T02:09:06-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://fakephysicist.github.com/en/posts/</loc><lastmod>2021-08-18T02:09:06-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-cn"
                         href="https://fakephysicist.github.com/posts/"

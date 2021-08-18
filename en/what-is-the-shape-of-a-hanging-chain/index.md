@@ -167,7 +167,7 @@ Which gives us
 
 $$\sinh^{-1}(p)=\frac{x}{a}+c_1$$
 
-{{< admonition type=info title="Prove $\int\frac{\mathrm{d}p}{\sqrt{1+p^2}}=\sinh^{-1}(p)+c$" open=true >}}
+{{< admonition type=info title="Proof" open=true >}}
 
 Notice the hyperbolic identity $\cosh^{2}(x)-\sinh^{2}(x)=1$, it is obvious to make a substitution $p=\sinh(u)$.
 
