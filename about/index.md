@@ -1,35 +1,13 @@
-# About FakePhysicist
+# 关于 FakePhysicist
 
 
-{{< image src="./wind_turbine.png" caption="The Road Not Taken" >}}
+{{< image src="./wind_turbine.png" caption="穷且益坚，不坠青云之志" title="The Road Not Taken" width="30%" height="30%" >}}
 
-{{< style "text-align:center;" >}}
-Two roads diverged in a yellow wood,  
-And sorry I could not travel both  
-And be one traveler, long I stood  
-And looked down one as far as I could  
-To where it bent in the undergrowth;  
+时运不齐，命途多舛。冯唐易老，李广难封。屈贾谊于长沙，非无圣主；窜梁鸿于海曲，岂乏明时？所赖君子见机，达人知命。老当益壮，宁移白首之心？穷且益坚，不坠青云之志酌贪泉而觉爽，处涸辙以犹欢。北海虽赊，扶摇可接；东隅已逝，桑榆非晚。孟尝高洁，空余报国之情；阮籍猖狂，岂效穷途之哭！
 
-Then took the other, as just as fair,  
-And having perhaps the better claim,  
-Because it was grassy and wanted wear;  
-Though as for that the passing there  
-Had worn them really about the same,  
-
-And both that morning equally lay  
-In leaves no step had trodden black.  
-Oh, I kept the first for another day!  
-Yet knowing how way leads on to way,  
-I doubted if I should ever come back.  
-
-I shall be telling this with a sigh  
-Somewhere ages and ages hence:  
-Two roads diverged in a wood, and I—  
-I took the one less traveled by,  
-And that has made all the difference.
-{{< /style >}}
+勃，三尺微命，一介书生。无路请缨，等终军之弱冠；有怀投笔，慕宗悫之长风。舍簪笏于百龄，奉晨昏于万里。非谢家之宝树，接孟氏之芳邻。他日趋庭，叨陪鲤对；今兹捧袂，喜托龙门。杨意不逢，抚凌云而自惜；钟期既遇，奏流水以何惭？
 
 ## My Github chart
 
-{{< image src="https://ghchart.rshah.org/fakephysicist" alt="FakePhysicist's Github chart" width="100%">}}
+{{< image src="https://ghchart.rshah.org/fakephysicist" title="FakePhysicist's Github chart" width="100%">}}
 

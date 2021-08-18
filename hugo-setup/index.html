@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">Hugo&#43;DoIt 创建个人主页 - FakePhysicist</title><meta name="Description" content="一名伪·物理学家的笔记"><meta property="og:title" content="Hugo&#43;DoIt 创建个人主页" />
+<meta property="og:description" content="在 wsl 环境下安装 Go, Hugo 并且配置主题 DoIt." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://fakephysicist.github.com/hugo-setup/" /><meta property="og:image" content="https://fakephysicist.github.com/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-08-16T02:43:06-04:00" />
+<meta property="article:modified_time" content="2021-08-18T00:51:42-04:00" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://fakephysicist.github.com/logo.png"/>
+
+<meta name="twitter:title" content="Hugo&#43;DoIt 创建个人主页"/>
+<meta name="twitter:description" content="在 wsl 环境下安装 Go, Hugo 并且配置主题 DoIt."/>
+<meta name="application-name" content="FakePhysicist">
+<meta name="apple-mobile-web-app-title" content="FakePhysicist">
+
+<meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://fakephysicist.github.com/hugo-setup/" /><link rel="prev" href="https://fakephysicist.github.com/hello-world/" /><link rel="next" href="https://fakephysicist.github.com/vscode_usage/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.css">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/animate/animate.min.css">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Hugo+DoIt 创建个人主页",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/fakephysicist.github.com\/hugo-setup\/"
+        },"genre": "posts","keywords": "Hugo, Git, Github, Github Action","wordcount":  3150 ,
+        "url": "https:\/\/fakephysicist.github.com\/hugo-setup\/","datePublished": "2021-08-16T02:43:06-04:00","dateModified": "2021-08-18T00:51:42-04:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/fakephysicist.github.com\/images\/avatar.webp",
+                    "width":  528 ,
+                    "height":  560 
+                }},"authors": [{
+                    "@type": "Person",
+                    "name": "伪·物理学家"
+                }],"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let themeColorMeta = getMeta('theme-color');
+        if (document.body.getAttribute('theme') != 'light') themeColorMeta.content = '#000000';
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="FakePhysicist"><span class="header-title-pre"><i class='far fa-edit fa-fw'></i></span>FakePhysicist</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/series/"> 系列 </a><a class="menu-item" href="/authors/"> 作者 </a><a class="menu-item" href="/categories/documentation/"> 文档 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/fakephysicist" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="#" onclick="return false;" class="menu-item language" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" title="Select Language" id="language-select-desktop" onchange="location = this.value;"><option value="/hugo-setup/" selected>简体中文</option></select>
+                    </a><a href="#" onclick="return false;" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="FakePhysicist"><span class="header-title-pre"><i class='far fa-edit fa-fw'></i></span>FakePhysicist</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/series/" title="">系列</a><a class="menu-item" href="/authors/" title="">作者</a><a class="menu-item" href="/categories/documentation/" title="">文档</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/fakephysicist" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="#" onclick="return false;" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="#" onclick="return false;" class="menu-item" title="选择语言">简体中文<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" title="Select Language" onchange="location = this.value;"><option value="/hugo-setup/" selected>简体中文</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title">目录</h2>
+        <div class="toc-content" id="toc-content-auto"></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Hugo&#43;DoIt 创建个人主页</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://fakephysicist.github.com/authors/fakephysicist'>伪·物理学家</a></span>
+                </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/documentation/"><i class="far fa-folder fa-fw"></i>文档</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-18">2021-08-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3150 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 7 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#go">Go</a>
+      <ul>
+        <li><a href="#下载">下载</a></li>
+        <li><a href="#安装">安装</a></li>
+      </ul>
+    </li>
+    <li><a href="#hugo">Hugo</a>
+      <ul>
+        <li><a href="#安装升级">安装/升级</a></li>
+        <li><a href="#常用命令">常用命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#doit">DoIt</a>
+      <ul>
+        <li><a href="#doit-安装">DoIt 安装</a></li>
+        <li><a href="#项目文件树结构">项目文件树结构</a></li>
+        <li><a href="#配置网站设置">配置网站设置</a></li>
+        <li><a href="#开始写第一篇文章">开始写第一篇文章</a>
+          <ul>
+            <li><a href="#文章前缀参数">文章前缀参数</a></li>
+            <li><a href="#将文章前缀参数保存在-markdown-模版中">将文章前缀参数保存在 markdown 模版中</a></li>
+            <li><a href="#生成新文章">生成新文章</a></li>
+            <li><a href="#本地调试">本地调试</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#github-ssh">Github SSH</a>
+      <ul>
+        <li><a href="#generating-a-new-ssh-key">Generating a new SSH key</a></li>
+        <li><a href="#adding-your-ssh-key-to-the-ssh-agent">Adding your SSH key to the ssh-agent</a></li>
+        <li><a href="#test-ssh-connection">Test SSH connection</a></li>
+        <li><a href="#adding-a-new-ssh-key-to-your-github-account">Adding a new SSH key to your GitHub account</a></li>
+      </ul>
+    </li>
+    <li><a href="#创建-github-仓库">创建 Github 仓库</a>
+      <ul>
+        <li><a href="#第一个仓库">第一个仓库</a>
+          <ul>
+            <li><a href="#链接本地仓库与远端仓库">链接本地仓库与远端仓库</a></li>
+            <li><a href="#创建gitignore">创建.gitignore</a></li>
+          </ul>
+        </li>
+        <li><a href="#第二个仓库">第二个仓库</a>
+          <ul>
+            <li><a href="#创建仓库注意名称">创建仓库，注意名称</a></li>
+            <li><a href="#在仓库设置里设置启用github-pages">在仓库设置里设置启用Github Pages</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#从第一个仓库-push-到第二个仓库">从第一个仓库 push 到第二个仓库</a>
+      <ul>
+        <li><a href="#纯手工操作">纯手工操作</a></li>
+        <li><a href="#给源代码仓库添加-github-action">给源代码仓库添加 Github Action</a>
+          <ul>
+            <li><a href="#创建-ci-脚本">创建 CI 脚本</a></li>
+            <li><a href="#设置-push-用的密钥">设置 Push 用的密钥</a></li>
+            <li><a href="#观察效果">观察效果</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>在 wsl 环境下安装 Go, Hugo 并且配置主题 DoIt.</p>
+<h2 id="go">Go</h2>
+<h3 id="下载">下载</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">wget https://golang.org/dl/go1.16.7.linux-amd64.tar.gz
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="安装">安装</h3>
+<ol>
+<li>
+<p>Extract the archive you downloaded into /usr/local, creating a Go tree in /usr/local/go.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo rm -rf /usr/local/go <span class="o">&amp;&amp;</span>sudo tar -C /usr/local -xzf go1.16.7.linux-amd64.tar.gz
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Add /usr/local/go/bin to the PATH environment variable, or add to ~/.zshrc</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/usr/local/go/bin
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Verify that you&rsquo;ve installed Go by opening a command prompt and typing the following command</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">go version
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h2 id="hugo">Hugo</h2>
+<h3 id="安装升级">安装/升级</h3>
+<ol>
+<li>
+<p>go to <a href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener noreffer">github page</a> and download the Hugo Extended installer for Debian (hugo_extended_<VERSION>_Linux-64bit.deb)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">wget https://github.com/gohugoio/hugo/releases/download/v0.87.0/hugo_extended_0.87.0_Linux-64bit.deb
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>install Hugo with</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo dpkg -i hugo_extended_0.87.0_Linux-64bit.deb
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>update Hugo by repeating the first two steps, overwrite installation.</p>
+</li>
+</ol>
+<h3 id="常用命令">常用命令</h3>
+<ul>
+<li>hugo： 编译项目生成静态网站，默认位置在项目的 public 目录下</li>
+<li>hugo server： 启动你的网站服务</li>
+<li>hugo new {folder}/{name}.md: 创建新文章，使用 markdown 进行排版，一般默认放在 posts 文件夹下；</li>
+</ul>
+<p>基本没了，一般情况下用这三个命令就够了.</p>
+<h2 id="doit">DoIt</h2>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>提示<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>主要参考了<a href="https://xinqi.gq/2021/08/%E4%BD%BF%E7%94%A8hugo-loveit%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/#%E5%AE%89%E8%A3%85-hugo" target="_blank" rel="noopener noreffer">这篇文章</a></p>
+<p>本来是要写 LoveIt 这个主题, 但是她实在是太久没有更新了&hellip; 所以爱是会消失是吗:)</p>
+</div>
+        </div>
+    </div>
+<h3 id="doit-安装">DoIt 安装</h3>
+<ol>
+<li>
+<p>创建你的项目, Hugo 提供了一个 <code>new</code> 命令来创建一个新的网站:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">hugo new site my_website
+<span class="nb">cd</span> my_website
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>初始化你的项目目录为 git 仓库, 并且把主题仓库作为你的网站目录的子模块:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git init
+git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
+</code></pre></td></tr></table>
+</div>
+</div><div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>How to remove a submodule?<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><pre><code>```bash
+# Remove the submodule entry from .git/config
+git submodule deinit -f path/to/submodule
+# Remove the submodule directory from the superproject's .git/modules directory
+rm -rf .git/modules/path/to/submodule
+# Remove the entry in .gitmodules and remove the submodule directory located at path/to/submodule
+git rm -f path/to/submodule
+```
+</code></pre>
+</div>
+        </div>
+    </div>
+</li>
+<li>
+<p>初始化项目：<code>git submodule update --init --recursive</code>，完成安装</p>
+</li>
+<li>
+<p>自动更新 submodule：<code>git submodule update --remote --merge</code>;</p>
+</li>
+</ol>
+<h3 id="项目文件树结构">项目文件树结构</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">.
+├── archetypes <span class="c1"># markdown文章的模版</span>
+├── config.toml <span class="c1"># 配置文件</span>
+├── content <span class="c1"># 网站内容，主要保存文章</span>
+├── data <span class="c1"># 生成网站可用的数据文件，可用在模版中</span>
+├── layouts <span class="c1"># 生成网站时可用的模版</span>
+├── public <span class="c1"># 通过hugo命令生成的静态文件，主要发布这个</span>
+├── resources <span class="c1"># 通过hugo命令一起生成的资源文件，暂时不知道什么用</span>
+├── static <span class="c1"># 静态文件，比如文章中的图片/视频文件、缩略图等</span>
+└── themes <span class="c1"># 保存可用的hugo主题</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>通常，我们只会用到以下几个文件夹的东西</p>
+<ul>
+<li><code>config.toml</code> ：保存 hugo 的配置，包括主题的配置等.详细设置见下方 #网站配置</li>
+<li><code>content</code> ：保存网站的各种内容，比如文章.</li>
+<li><code>archetypes</code> ： 保存文章的 markdown 模版，通常包括文章的前缀注释，是一些在创建新文章时会被用到.</li>
+<li><code>static</code> ：保存文章中用到的静态文件，比如图片、网站缩略图等.</li>
+<li><code>public</code> ：通过hugo命令生成的静态 html 文件、css、js 等.在服务器上发布时主要发布这个文件夹.</li>
+</ul>
+<h3 id="配置网站设置">配置网站设置</h3>
+<p>配置文件位置：<code>./config.toml</code></p>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>提示<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">具体的配置条目参考 <a href="https://hugodoit.pages.dev/theme-documentation-basics/#3-configuration" target="_blank" rel="noopener noreffer">DoIt 官方文档</a></div>
+        </div>
+    </div>
+<h3 id="开始写第一篇文章">开始写第一篇文章</h3>
+<h4 id="文章前缀参数">文章前缀参数</h4>
+<p>在每篇 markdown 文章最前面可以用一部分注释来告诉DoIt主题，这篇文章的属性，譬如文章标签、分类、是否为草稿等.</p>
+<h4 id="将文章前缀参数保存在-markdown-模版中">将文章前缀参数保存在 markdown 模版中</h4>
+<p>模版文件位置：<code>./archetypes/default.md</code></p>
+<h4 id="生成新文章">生成新文章</h4>
+<p>生成新文章中文版<code>HelloWorld</code>的命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">hugo new posts/HelloWorld/index.cn.md
+</code></pre></td></tr></table>
+</div>
+</div><p>执行完成后，在<code>./content/posts</code>目录下应该可以看到新文件，同时里面已经有 markdown 模版中的文章前缀参数.</p>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>技巧<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><ul>
+<li>也可以手动复制旧文章来生成新文章，不通过命令.</li>
+<li>也可以在<code>content</code>文件夹下建新的文件夹，方便管理.这种情况下生成的静态 Html 文件路由效果如下：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">.
+└── content
+    └── about
+    <span class="p">|</span>   └── index.md  // &lt;- https://example.com/about/
+    ├── posts
+    <span class="p">|</span>   ├── firstpost.md   // &lt;- https://example.com/posts/firstpost/
+    <span class="p">|</span>   ├── happy
+    <span class="p">|</span>   <span class="p">|</span>   └── ness.md  // &lt;- https://example.com/posts/happy/ness/
+    <span class="p">|</span>   └── secondpost.md  // &lt;- https://example.com/posts/secondpost/
+    └── quote
+        ├── first.md       // &lt;- https://example.com/quote/first/
+        └── second.md      // &lt;- https://example.com/quote/second/
+</code></pre></td></tr></table>
+</div>
+</div></div>
+        </div>
+    </div>
+<h4 id="本地调试">本地调试</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">hugo server --disableFastRender
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="github-ssh">Github SSH</h2>
+<h3 id="generating-a-new-ssh-key">Generating a new SSH key</h3>
+<ol>
+<li>Open Terminal.</li>
+<li>Paste the text below, substituting in your GitHub email address.
+<code>ssh-keygen -t ed25519 -C &quot;your_email@example.com&quot;</code>
+This creates a new ssh key, using the provided email as a label.</li>
+</ol>
+<h3 id="adding-your-ssh-key-to-the-ssh-agent">Adding your SSH key to the ssh-agent</h3>
+<ol>
+<li>
+<p>Start the ssh-agent in the background.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Add your SSH private key to the ssh-agent. If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_ed25519 in the command with the name of your private key file.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ssh-add ~/.ssh/id_ed25519
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h3 id="test-ssh-connection">Test SSH connection</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ssh -T git@github.com
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="adding-a-new-ssh-key-to-your-github-account">Adding a new SSH key to your GitHub account</h3>
+<p>网页操作,很容易</p>
+<h2 id="创建-github-仓库">创建 Github 仓库</h2>
+<p>个人建议创建两个仓库：</p>
+<ul>
+<li>
+<p>一个用于托管博客项目源文件，包括配置文件等包含后续可能配置 <code>API KEY</code> 的东西.设置权限为 Private（不公开）</p>
+</li>
+<li>
+<p>一个用于托管博客编译后生成的<code>静态 Html 文件</code>(即使用 hugo 命令编译生成的 <code>public</code> 文件夹)，并配置该仓库使用 <code>Github Pages</code>，然后 Github 就会自动检测到它其中的<code>静态 Html 文件</code>并搭建网站.设置权限为 Public（公开）</p>
+</li>
+</ul>
+<figure><a class="lightgallery" href="./git_management.svg" title="Github Workflow" data-thumbnail="./git_management.svg" data-sub-html="<h2>Github Workflow</h2><p>Github Workflow</p>">
+        <img
+            class="lazyload"
+            data-src="./git_management.svg"
+            data-srcset="./git_management.svg, ./git_management.svg 1.5x, ./git_management.svg 2x"
+            data-sizes="auto"
+            alt="./git_management.svg"height="50%"width="50%"
+        />
+    </a><figcaption class="image-caption">Github Workflow</figcaption>
+    </figure>
+<h3 id="第一个仓库">第一个仓库</h3>
+<p>设置为private权限等级，没人看得见</p>
+<h4 id="链接本地仓库与远端仓库">链接本地仓库与远端仓库</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">## 位于博客源代码根目录</span>
+
+<span class="c1">## 初始化本地Git仓库</span>
+git init
+
+<span class="c1">## 设置名为Origin的远端Git仓库</span>
+git remote add origin <span class="o">{{</span>这里替换成你的仓库在Github Clone用的地址<span class="o">}}</span>
+
+<span class="c1">## 选择所有文件</span>
+git add -A
+
+<span class="c1">## Push到github</span>
+git push -u origin master
+</code></pre></td></tr></table>
+</div>
+</div><p>直接用vscode链接本地仓库与远端Github仓库 (vscode yyds)</p>
+<h4 id="创建gitignore">创建.gitignore</h4>
+<p>在源代码项目中创建.gitignore文件，来防止把生成的静态文件上传</p>
+<p>参考 <a href="https://gitignore.io/" target="_blank" rel="noopener noreffer">gitignore.io</a></p>
+<h3 id="第二个仓库">第二个仓库</h3>
+<h4 id="创建仓库注意名称">创建仓库，注意名称</h4>
+<p>第二个仓库名字比较重要，必须是 <code>{{你的github用户名}}.github.io</code>. 比如我的 Github 名字为 <code>FakePhysicist</code>, 那么我需要创建的仓库名称为 <code>fakephysicist.github.io</code>.</p>
+<h4 id="在仓库设置里设置启用github-pages">在仓库设置里设置启用Github Pages</h4>
+<p>设置 <code>Branch</code> 为 <code>master</code>, 静态文件位置为<code>/(root)</code>, 原因是我们在下个步骤中会直接将生成的 <code>public</code> 文件夹中的内容 <code>push</code> 到 <code>master</code> 分支的 <code>/</code> 目录下.</p>
+<h2 id="从第一个仓库-push-到第二个仓库">从第一个仓库 push 到第二个仓库</h2>
+<h3 id="纯手工操作">纯手工操作</h3>
+<ol>
+<li>
+<p>在 <code>My_Website</code> 目录下执行 <code>git submodule update --init --recursive</code> 将子模块更新到最新状态；</p>
+</li>
+<li>
+<p>In your config/_default/config.yaml file, set baseurl = &ldquo;https://<USERNAME>.github.io/&rdquo;, where <USERNAME> is your Github username. Stop Hugo if it’s running and delete the public directory if it exists (by typing rm -r public/).</p>
+</li>
+<li>
+<p>Add your .github.io repository into a submodule in a folder named public, replacing with your Github username:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git submodule add -f -b master https://github.com/&lt;USERNAME&gt;/&lt;USERNAME&gt;.github.io.git public
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Add everything to your local git repository and push it up to your remote repository on GitHub:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git add .
+git commit -m <span class="s2">&#34;Initial commit&#34;</span>
+git push -u origin master
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>regenerate your website’s HTML code by running Hugo and uploading the public submodule to GitHub:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">hugo
+<span class="nb">cd</span> public
+git add .
+git commit -m <span class="s2">&#34;Build website&#34;</span>
+git push origin main
+<span class="nb">cd</span> ..
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>Notice that the default branch of github is <code>main</code> instead of <code>master</code> now.</strong></p>
+</li>
+</ol>
+<h3 id="给源代码仓库添加-github-action">给源代码仓库添加 Github Action</h3>
+<h4 id="创建-ci-脚本">创建 CI 脚本</h4>
+<div class="details admonition info">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw"></i>什么是Github Action?<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>Github Action 是 Github 提供的 CI 系统，可以让用户编写脚本，并在触发指定的操作后（比如新 commit push 到仓库），自动触发脚本.它可以：</p>
+<ul>
+<li>编译项目</li>
+<li>测试项目</li>
+<li>登陆远程服务器</li>
+<li>发布服务</li>
+<li>等等……</li>
+</ul>
+</div>
+        </div>
+    </div>
+<p>在源代码项目根目录下新建<code>.github/workflow/main.yml</code>.(通过 Github Action 网页端操作也可以)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">.
+├── .git
+├── .github
+│   └── workflows
+│       └── main.yml  &lt;---在这里创建
+├── .gitignore
+├── README.md
+├── archetypes
+├── config.toml
+├── content
+├── data
+├── layouts
+├── public
+├── resources
+├── static
+└── themes
+</code></pre></td></tr></table>
+</div>
+</div><p><code>main.yml</code>脚本内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-YAML" data-lang="YAML"><span class="c"># This is a basic workflow to help you get started with Actions</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">CI</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># Controls when the action will run.</span><span class="w">
+</span><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="c"># Triggers the workflow on push or pull request events but only for the master branch</span><span class="w">
+</span><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">master]</span><span class="w">
+</span><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">master]</span><span class="w">
+</span><span class="w">
+</span><span class="w">  </span><span class="c"># Allows you to run this workflow manually from the Actions tab</span><span class="w">
+</span><span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># A workflow run is made up of one or more jobs that can run sequentially or in parallel</span><span class="w">
+</span><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="c"># This workflow contains a single job called &#34;build&#34;</span><span class="w">
+</span><span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="c"># The type of runner that the job will run on</span><span class="w">
+</span><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span><span class="w">
+</span><span class="w">    </span><span class="c"># Steps represent a sequence of tasks that will be executed as part of the job</span><span class="w">
+</span><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="c"># Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v2</span><span class="w">
+</span><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">submodules</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c"># Fetch Hugo themes (true OR recursive)</span><span class="w">
+</span><span class="w">          </span><span class="nt">fetch-depth</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="c"># Fetch all history for .GitInfo and .Lastmod</span><span class="w">
+</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Hugo setup</span><span class="w">
+</span><span class="w">        </span><span class="c"># You may pin to the exact commit or the version.</span><span class="w">
+</span><span class="w">        </span><span class="c"># uses: peaceiris/actions-hugo@2e89aa66d0093e4cd14751b3028fc1a179452c2e</span><span class="w">
+</span><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">peaceiris/actions-hugo@v2.4.13</span><span class="w">
+</span><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="c"># The Hugo version to download (if necessary) and use. Example: 0.58.2</span><span class="w">
+</span><span class="w">          </span><span class="nt">hugo-version</span><span class="p">:</span><span class="w"> </span><span class="l">latest</span><span class="w"> </span><span class="c"># optional, default is latest</span><span class="w">
+</span><span class="w">          </span><span class="c"># Download (if necessary) and use Hugo extended version. Example: true</span><span class="w">
+</span><span class="w">          </span><span class="nt">extended</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c"># optional, default is false</span><span class="w">
+</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build</span><span class="w">
+</span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">hugo</span><span class="w">
+</span><span class="w">
+</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Pushes to another repository</span><span class="w">
+</span><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">cpina/github-action-push-to-another-repository@main</span><span class="w">
+</span><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">API_TOKEN_GITHUB</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.API_TOKEN_GITHUB }}</span><span class="w">
+</span><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span><span class="w">          </span><span class="nt">target-branch</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;main&#34;</span><span class="w">
+</span><span class="w">          </span><span class="nt">source-directory</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;public&#34;</span><span class="w">
+</span><span class="w">          </span><span class="nt">destination-github-username</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;这里输入你的Github用户名&#34;</span><span class="w">
+</span><span class="w">          </span><span class="nt">destination-repository-name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;这里输入你的Github用户名.github.io&#34;</span><span class="w">
+</span><span class="w">          </span><span class="nt">user-email</span><span class="p">:</span><span class="w"> </span><span class="l">这里输入你的 Github no-reply 邮箱</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="details admonition warning">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-exclamation-triangle fa-fw"></i>注意<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">注意trigger on里的 branch 是否和自己的相同. 添加了 <code>target-branch</code>, 因为现在 Github 默认 branch 为 <code>main</code>. 最后三行内容需要自行替换.</div>
+        </div>
+    </div>
+<p>脚本主要做了以下事情：</p>
+<ol>
+<li>创建一个 Hugo 环境</li>
+<li>使用 hugo 命令编译代码，产生 public 文件夹</li>
+<li>将 public 文件 push 到你的Github用户名.github.io仓库.（也就是你之前创建的第二个仓库）</li>
+</ol>
+<h4 id="设置-push-用的密钥">设置 Push 用的密钥</h4>
+<p>为了让 Github Action 脚本有权限将代码 Push 到我们的 <code>xx.github.io</code> 仓库，我们需要申请一个密钥并告诉它.在 Github 设置中找到 <code>Developer settings/Personal access tokens</code></p>
+<p>新建一个密钥，权限设置把 <code>Repo</code> 打勾. 复制密钥.</p>
+<p>回到第一个仓库的设置里，选择<code>Secrets（密钥）</code></p>
+<p>新建密钥，将刚才生成的密钥填进去，名字设为 <code>API_TOKEN_GITHUB</code> (跟 CI 脚本里的名称对应即可)</p>
+<h4 id="观察效果">观察效果</h4>
+<p>在 Push 新修改到第一个仓库后，在<code>Action</code>界面可以看到新的<code>workflow</code>开始运行了.</p>
+<p>在<code>workflow</code>结束后，可以在第二个仓库看到新的<code>Push</code></p>
+<p>在等待 1-2 分钟后，即可在<code>xx.github.io</code>观察到变化.</p></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-08-18</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/hugo/">Hugo</a>,&nbsp;<a href="/tags/git/">Git</a>,&nbsp;<a href="/tags/github/">Github</a>,&nbsp;<a href="/tags/github-action/">Github Action</a></section>
+        <section>
+            <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/hello-world/" class="prev" rel="prev" title="Hello World"><i class="fas fa-angle-left fa-fw"></i>Hello World</a>
+            <a href="/vscode_usage/" class="next" rel="next" title="VS Code 快捷操作">VS Code 快捷操作<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.10"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/fakephysicist" target="_blank" rel="noopener noreferrer">FakePhysicist</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div><script>
+                    if('serviceWorker' in navigator) {
+                        navigator.serviceWorker
+                            .register('/sw.min.js', { scope: '/' })
+                            .then(function(registration) {
+                                
+                            });
+                
+                        navigator.serviceWorker
+                            .ready
+                            .then(function(registration) {
+                                
+                            });
+                    }
+                </script></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script></div>
+
+<div class="pjax-assets"><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{}};</script></div>
+</body>
+
+</html>

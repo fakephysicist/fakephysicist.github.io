@@ -1,0 +1,41 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>All Posts - FakePhysicist</title>
+        <link>https://fakephysicist.github.com/en/posts/</link>
+        <description>All Posts | FakePhysicist</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>fakephysicist@outlook.com (FakePhysicist)</managingEditor>
+            <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Tue, 17 Aug 2021 00:00:00 -0400</lastBuildDate><atom:link href="https://fakephysicist.github.com/en/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>KaTex Test</title>
+    <link>https://fakephysicist.github.com/en/what-is-the-shape-of-a-hanging-chain/</link>
+    <pubDate>Tue, 17 Aug 2021 00:00:00 -0400</pubDate><author>
+                    <name>FakePhysicist</name><uri>https://github.com/fakephysicist</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.com/en/what-is-the-shape-of-a-hanging-chain/</guid>
+    <description><![CDATA[<p>This a $\KaTeX$ functionality test article.</p>
+<div class="details admonition warning">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-exclamation-triangle fa-fw"></i>Warning<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">This article is copied from this <a href="https://planet-cloud.fun/what-is-the-shape-of-a-hanging-chain/" target="_blank" rel="noopener noreffer">page</a>.</div>
+        </div>
+    </div>
+<p>What is the shape of a hanging chain?</p>]]></description>
+</item><item>
+    <title>Liquid Crystals in FDTD</title>
+    <link>https://fakephysicist.github.com/en/fdtd-lc/</link>
+    <pubDate>Mon, 16 Aug 2021 14:00:00 -0400</pubDate><author>
+                    <name>FakePhysicist</name><uri>https://github.com/fakephysicist</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.com/en/fdtd-lc/</guid>
+    <description><![CDATA[<p>Liquid Crystals in FDTD simulation</p>]]></description>
+</item><item>
+    <title>FDTD Usage</title>
+    <link>https://fakephysicist.github.com/en/fdtd/</link>
+    <pubDate>Mon, 16 Aug 2021 13:25:00 -0400</pubDate><author>
+                    <name>FakePhysicist</name><uri>https://github.com/fakephysicist</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.com/en/fdtd/</guid>
+    <description><![CDATA[<p>FDTD basics, Python scripts controlling Lumerical.</p>]]></description>
+</item><item>
+    <title>Hello World</title>
+    <link>https://fakephysicist.github.com/en/hello-world/</link>
+    <pubDate>Mon, 16 Aug 2021 00:53:04 -0400</pubDate><author>
+                    <name>FakePhysicist</name><uri>https://github.com/fakephysicist</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.com/en/hello-world/</guid>
+    <description><![CDATA[<p>Hello World! This is my first note!</p>]]></description>
+</item></channel>
+</rss>
