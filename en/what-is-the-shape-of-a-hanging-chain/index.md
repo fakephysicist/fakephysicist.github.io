@@ -127,7 +127,7 @@ $$
 \end{aligned}
 $$
 
-{{< admonition type=info title="Calculate the value of $\left(\int_{0}^{x}f(x)\mathrm{d}x\right)'$" open=true >}}
+{{< admonition type=info title="Calculation" open=true >}}
 What is the value of $\left(\int_{0}^{x}f(x)\mathrm{d}x\right)'$?
 
 Let $g'(x)=f(x)$.
