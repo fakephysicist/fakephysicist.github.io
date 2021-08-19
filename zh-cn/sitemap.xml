@@ -2,7 +2,7 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://fakephysicist.github.com/authors/fakephysicist/</loc><lastmod>2021-08-18T00:51:42-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://fakephysicist.github.com/authors/fakephysicist/</loc><lastmod>2021-08-19T00:06:12-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://fakephysicist.github.com/en/authors/fakephysicist/"
@@ -11,7 +11,7 @@
                     hreflang="zh-cn"
                     href="https://fakephysicist.github.com/authors/fakephysicist/"
                     /></url><url>
-            <loc>https://fakephysicist.github.com/</loc><lastmod>2021-08-18T00:51:42-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://fakephysicist.github.com/</loc><lastmod>2021-08-19T00:06:12-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://fakephysicist.github.com/en/"
@@ -20,7 +20,7 @@
                     hreflang="zh-cn"
                     href="https://fakephysicist.github.com/"
                     /></url><url>
-            <loc>https://fakephysicist.github.com/posts/</loc><lastmod>2021-08-18T00:51:42-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://fakephysicist.github.com/posts/</loc><lastmod>2021-08-19T00:06:12-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://fakephysicist.github.com/en/posts/"
@@ -29,8 +29,8 @@
                     hreflang="zh-cn"
                     href="https://fakephysicist.github.com/posts/"
                     /></url><url>
-            <loc>https://fakephysicist.github.com/tags/snippets/</loc><lastmod>2021-08-18T00:51:42-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://fakephysicist.github.com/tags/</loc><lastmod>2021-08-18T00:51:42-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://fakephysicist.github.com/tags/snippets/</loc><lastmod>2021-08-19T00:06:12-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://fakephysicist.github.com/tags/</loc><lastmod>2021-08-19T00:06:12-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://fakephysicist.github.com/en/tags/"
@@ -39,10 +39,10 @@
                     hreflang="zh-cn"
                     href="https://fakephysicist.github.com/tags/"
                     /></url><url>
-            <loc>https://fakephysicist.github.com/tags/vs-code/</loc><lastmod>2021-08-18T00:51:42-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://fakephysicist.github.com/series/vs-code/</loc><lastmod>2021-08-18T00:51:42-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://fakephysicist.github.com/snippets_test/</loc><lastmod>2021-08-18T00:51:42-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://fakephysicist.github.com/categories/</loc><lastmod>2021-08-18T00:51:42-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://fakephysicist.github.com/tags/vs-code/</loc><lastmod>2021-08-19T00:06:12-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://fakephysicist.github.com/series/vs-code/</loc><lastmod>2021-08-19T00:06:12-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://fakephysicist.github.com/snippets_test/</loc><lastmod>2021-08-19T00:06:12-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://fakephysicist.github.com/categories/</loc><lastmod>2021-08-19T00:06:12-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://fakephysicist.github.com/en/categories/"
@@ -51,13 +51,13 @@
                     hreflang="zh-cn"
                     href="https://fakephysicist.github.com/categories/"
                     /></url><url>
-            <loc>https://fakephysicist.github.com/vscode_usage/</loc><lastmod>2021-08-18T00:51:42-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://fakephysicist.github.com/tags/git/</loc><lastmod>2021-08-18T00:51:42-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://fakephysicist.github.com/tags/github/</loc><lastmod>2021-08-18T00:51:42-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://fakephysicist.github.com/tags/github-action/</loc><lastmod>2021-08-18T00:51:42-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://fakephysicist.github.com/tags/hugo/</loc><lastmod>2021-08-18T00:51:42-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://fakephysicist.github.com/hugo-setup/</loc><lastmod>2021-08-18T00:51:42-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://fakephysicist.github.com/hello-world/</loc><lastmod>2021-08-18T00:51:42-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
+            <loc>https://fakephysicist.github.com/vscode_usage/</loc><lastmod>2021-08-19T00:06:12-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://fakephysicist.github.com/tags/git/</loc><lastmod>2021-08-19T00:06:12-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://fakephysicist.github.com/tags/github/</loc><lastmod>2021-08-19T00:06:12-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://fakephysicist.github.com/tags/github-action/</loc><lastmod>2021-08-19T00:06:12-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://fakephysicist.github.com/tags/hugo/</loc><lastmod>2021-08-19T00:06:12-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://fakephysicist.github.com/how-build-a-website-with-hugo/</loc><lastmod>2021-08-19T00:06:12-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://fakephysicist.github.com/hello-world/</loc><lastmod>2021-08-19T00:06:12-04:00</lastmod><changefreq>weekly</changefreq><priority>1</priority><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="https://fakephysicist.github.com/en/hello-world/"
