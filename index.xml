@@ -19,6 +19,33 @@
                     <name>伪·物理学家</name><uri>https://github.com/fakephysicist</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.com/vscode_usage/</guid>
     <description><![CDATA[<p>总结<del>抄袭</del>一些 VS Code 的操作技巧</p>]]></description>
 </item><item>
+    <title>KaTex Test</title>
+    <link>https://fakephysicist.github.com/what-is-the-shape-of-a-hanging-chain/</link>
+    <pubDate>Tue, 17 Aug 2021 00:00:00 -0400</pubDate><author>
+                    <name>伪·物理学家</name><uri>https://github.com/fakephysicist</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.com/what-is-the-shape-of-a-hanging-chain/</guid>
+    <description><![CDATA[<p>This a $\KaTeX$ functionality test article.</p>
+<div class="details admonition warning">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-exclamation-triangle fa-fw"></i>Warning<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">This article is copied from this <a href="https://planet-cloud.fun/what-is-the-shape-of-a-hanging-chain/" target="_blank" rel="noopener noreffer">page</a>.</div>
+        </div>
+    </div>
+<p>What is the shape of a hanging chain?</p>]]></description>
+</item><item>
+    <title>Liquid Crystals in FDTD</title>
+    <link>https://fakephysicist.github.com/fdtd-lc/</link>
+    <pubDate>Mon, 16 Aug 2021 14:00:00 -0400</pubDate><author>
+                    <name>伪·物理学家</name><uri>https://github.com/fakephysicist</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.com/fdtd-lc/</guid>
+    <description><![CDATA[<p>Liquid Crystals in FDTD simulation</p>]]></description>
+</item><item>
+    <title>FDTD Usage</title>
+    <link>https://fakephysicist.github.com/fdtd/</link>
+    <pubDate>Mon, 16 Aug 2021 13:25:00 -0400</pubDate><author>
+                    <name>伪·物理学家</name><uri>https://github.com/fakephysicist</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.com/fdtd/</guid>
+    <description><![CDATA[<p>FDTD basics, Python scripts controlling Lumerical.</p>]]></description>
+</item><item>
     <title>Hugo&#43;DoIt 创建个人主页</title>
     <link>https://fakephysicist.github.com/how-build-a-website-with-hugo/</link>
     <pubDate>Mon, 16 Aug 2021 02:43:06 -0400</pubDate><author>

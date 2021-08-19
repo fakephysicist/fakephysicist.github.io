@@ -217,7 +217,10 @@ ssh -T git@github.com
 
 - 一个用于托管博客编译后生成的`静态 Html 文件`(即使用 hugo 命令编译生成的 `public` 文件夹)，并配置该仓库使用 `Github Pages`，然后 Github 就会自动检测到它其中的`静态 Html 文件`并搭建网站.设置权限为 Public（公开）
 
-{{< image src="./git_management.svg" caption="Github Workflow" title="Github Workflow" width="50%" height="50%" >}}
+<figure align="center">
+<img src="./images/git_management.svg" alt="" width="50%" height="50%">
+<figcaption>Github Workflow</figcaption>
+</figure>
 
 ### 第一个仓库
 

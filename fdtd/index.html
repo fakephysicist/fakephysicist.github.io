@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title class="pjax-title">FDTD Usage - FakePhysicist</title><meta name="Description" content="一名伪·物理学家的笔记"><meta property="og:title" content="FDTD Usage" />
+<meta property="og:description" content="FDTD basics, Python scripts controlling Lumerical." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://fakephysicist.github.com/fdtd/" /><meta property="og:image" content="https://fakephysicist.github.com/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-08-16T13:25:00-04:00" />
+<meta property="article:modified_time" content="2021-08-19T01:17:21-04:00" />
+<meta property="og:see_also" content="https://fakephysicist.github.com/fdtd-lc/" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://fakephysicist.github.com/logo.png"/>
+
+<meta name="twitter:title" content="FDTD Usage"/>
+<meta name="twitter:description" content="FDTD basics, Python scripts controlling Lumerical."/>
+<meta name="application-name" content="FakePhysicist">
+<meta name="apple-mobile-web-app-title" content="FakePhysicist">
+
+<meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://fakephysicist.github.com/fdtd/" /><link rel="prev" href="https://fakephysicist.github.com/how-build-a-website-with-hugo/" /><link rel="next" href="https://fakephysicist.github.com/fdtd-lc/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.css">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/animate/animate.min.css">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "FDTD Usage",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/fakephysicist.github.com\/fdtd\/"
+        },"genre": "posts","keywords": "FDTD, Python","wordcount":  3906 ,
+        "url": "https:\/\/fakephysicist.github.com\/fdtd\/","datePublished": "2021-08-16T13:25:00-04:00","dateModified": "2021-08-19T01:17:21-04:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/fakephysicist.github.com\/images\/avatar.webp",
+                    "width":  528 ,
+                    "height":  560 
+                }},"authors": [{
+                    "@type": "Person",
+                    "name": "伪·物理学家"
+                }],"description": ""
+    }
+    </script></head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let themeColorMeta = getMeta('theme-color');
+        if (document.body.getAttribute('theme') != 'light') themeColorMeta.content = '#000000';
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="FakePhysicist"><span class="header-title-pre"><i class='far fa-edit fa-fw'></i></span>FakePhysicist</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/series/"> 系列 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/fakephysicist" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="#" onclick="return false;" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="FakePhysicist"><span class="header-title-pre"><i class='far fa-edit fa-fw'></i></span>FakePhysicist</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/series/" title="">系列</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/fakephysicist" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="#" onclick="return false;" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title">目录</h2>
+        <div class="toc-content" id="toc-content-auto"></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">FDTD Usage</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://fakephysicist.github.com/authors/fakephysicist'>伪·物理学家</a></span>
+                </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/documentation/"><i class="far fa-folder fa-fw"></i>documentation</a></span>&nbsp;<span class="post-category">和</span>&nbsp;<span class="post-series">系列 <a href="/series/fdtd/"><i class="far fa-list-alt fa-fw"></i>FDTD</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-19">2021-08-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3906 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 19 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#solver-physics">Solver Physics</a>
+      <ul>
+        <li><a href="#impulse-response">Impulse response</a></li>
+        <li><a href="#mode">MODE</a></li>
+        <li><a href="#effective-index">effective index</a></li>
+        <li><a href="#loss-dbm">loss (dB/m)</a></li>
+        <li><a href="#te-polarization-fraction">TE polarization fraction</a></li>
+        <li><a href="#waveguide-tetm-fraction">Waveguide TE/TM Fraction</a></li>
+        <li><a href="#effective-area">Effective Area</a></li>
+      </ul>
+    </li>
+    <li><a href="#boundary-condition">Boundary condition</a>
+      <ul>
+        <li><a href="#pml">PML</a></li>
+        <li><a href="#periodic">Periodic</a></li>
+        <li><a href="#bloch">Bloch</a></li>
+        <li><a href="#symmetryanti-symmetry">Symmetry/anti-symmetry</a></li>
+      </ul>
+    </li>
+    <li><a href="#source">Source</a>
+      <ul>
+        <li><a href="#plane-wave">plane wave</a></li>
+        <li><a href="#mode-source">mode source</a></li>
+        <li><a href="#dipole-source">dipole source</a></li>
+        <li><a href="#import-source">import source</a></li>
+      </ul>
+    </li>
+    <li><a href="#monitor">Monitor</a>
+      <ul>
+        <li><a href="#frequency-domain-field-monitor">frequency domain field monitor</a></li>
+      </ul>
+    </li>
+    <li><a href="#analysis-group">Analysis group</a></li>
+    <li><a href="#lumerical-scripting-language">Lumerical scripting language</a>
+      <ul>
+        <li><a href="#general-workflow">General workflow</a></li>
+        <li><a href="#common-commands">Common commands</a></li>
+      </ul>
+    </li>
+    <li><a href="#python-api">Python API</a>
+      <ul>
+        <li><a href="#import-modules">import modules</a></li>
+        <li><a href="#start-a-session">start a session</a></li>
+        <li><a href="#get-help">get help</a></li>
+        <li><a href="#simulation-objects">simulation objects</a>
+          <ul>
+            <li><a href="#add-and-then-set">add and then set</a></li>
+            <li><a href="#add-and-set-at-the-same-time">add and set at the same time</a>
+              <ul>
+                <li><a href="#set-with-parameters">set with parameters</a></li>
+                <li><a href="#set-with-dict">set with dict</a></li>
+              </ul>
+            </li>
+            <li><a href="#set-with-loop">set with loop</a></li>
+          </ul>
+        </li>
+        <li><a href="#run-save-and-close">run, save and close</a></li>
+        <li><a href="#deal-with-data">deal with data</a>
+          <ul>
+            <li><a href="#get-data">get data</a></li>
+            <li><a href="#data-structure">data structure</a></li>
+          </ul>
+        </li>
+        <li><a href="#pass-data-between-python-and-lumerical">pass data between python and lumerical</a></li>
+        <li><a href="#run-lumerical-script-language">run lumerical script language</a></li>
+        <li><a href="#useful-code-snippets">useful code snippets</a>
+          <ul>
+            <li><a href="#1d-plot">1d plot</a></li>
+            <li><a href="#2d-plot-with-interp2d">2d plot with interp2d</a></li>
+            <li><a href="#2d-subplots">2d subplots</a></li>
+            <li><a href="#custom-functions">custom functions</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>FDTD basics, Python scripts controlling Lumerical.</p>
+<h2 id="solver-physics">Solver Physics</h2>
+<p>In three dimensions, Maxwell equations have six electromagnetic field components: Ex, Ey, Ez and Hx, Hy, and Hz. If we assume that <strong>the structure is infinite in the z dimension</strong> and that <strong>the fields are independent of z</strong>, then Maxwell&rsquo;s equations split into two independent sets of equations composed of three vector quantities each which can be solved in the x-y plane only.  These are termed the <strong>TE (transverse electric)</strong>, and <strong>TM (transverse magnetic)</strong> equations. We can solve both sets of equations with the following components:</p>
+<ul>
+<li>TE:   Ex, Ey, Hz</li>
+<li>TM:   Hx, Hy, Ez</li>
+</ul>
+<h3 id="impulse-response">Impulse response</h3>
+<p>FDTD solves for the electric field and magnetic field as a function of time.</p>
+<ul>
+<li>
+<p>the solver calculates $\vec{E}\left(t\right)$ and $\vec{H}\left(t\right)$</p>
+</li>
+<li>
+<p>but, in general, what we want is field as a function of frequency or wavelength</p>
+<ul>
+<li>$\vec{E}\left(\omega\right)$</li>
+<li>poynting vector, transmission, reflection</li>
+</ul>
+</li>
+<li>
+<p>time domain-&gt;freqency domain? Fourier Transform!
+In linear systems, the impulse response of the system:
+$$\vec{E}\left(\omega\right)=\frac{1}{s\left(\omega\right)}\int_{0}^{t_{sim}}e^{i\omega t}\vec{E}\left(t\right)dt$$
+where
+$$s\left(\omega\right)=\int_{0}^{t_{source}}e^{i\omega t}\vec{s}\left(t\right)dt$$
+is the fourier transform of the source pulse.
+It should be independent of the source pulse used in linear optics system (no nonlinearity is considered here).</p>
+</li>
+<li>
+<p>Ideally, $s\left(\omega\right)=1$ and $s\left(t\right)$ is a Dirac delta function</p>
+</li>
+<li>
+<p>$t_{sim}$ should be long enough.</p>
+</li>
+</ul>
+<p>with impulse response $\vec{E}\left(\omega\right)$, $\vec{H}\left(\omega\right)$ and $\varepsilon\left(\omega\right)$,
+one can calculate reflection, transmission, scattering cross sections, absorptions and much more</p>
+<ul>
+<li>
+<p>Poynting Vector
+$$\left&lt;\vec{P}\left(\omega\right)\right&gt;_{t}=\frac{1}{2}\Re\left[\vec{E}\left(\omega\right)\times\vec{H}^{*}\left(\omega\right)\right]$$
+which is not a simple fourier transform of $\vec{P}\left(t\right)$.</p>
+</li>
+<li>
+<p>Power
+$$Power\left(\omega\right)=\int_{S}\left&lt;\vec{P}\left(\omega\right)\right&gt;_{t}\cdot d\vec{S}$$
+But we have the Parseval-Plancherel theorem
+$$\int_{-\infty}^{\infty}\vec{E}\left(t\right)\times\vec{H}^{*}\left(t\right) dt=\frac{1}{2\pi}\int_{-\infty}^{\infty}\vec{E}\left(\omega\right)\times\vec{H}^{*}\left(\omega\right) d\omega$$</p>
+</li>
+<li>
+<p>Transmission
+$$T\left(\omega\right)=\frac{\int_{S}\vec{P}\left(\omega\right)\cdot d\vec{S}}{s\left(\omega\right)}$$</p>
+</li>
+</ul>
+<h3 id="mode">MODE</h3>
+<p>Given a cross section of a waveguide, the finite-difference eigenmode (FDE) solver calculates the <strong>spatial profile</strong> and <strong>frequency dependence of modes</strong>. It can provides us:</p>
+<ul>
+<li>mode field profile</li>
+<li>effective index</li>
+<li>loss</li>
+<li>TE and TM ratio</li>
+<li>combined with frequency sweep, one can calculate group delay, dispresion and etc</li>
+<li>applicable to bent waveguide</li>
+</ul>
+<p>The solver assumes the waveguide structure in the z direction is uniform, and the field can be expressed as:
+$$\vec{E}\left( x, y\right)e^{i\left(\beta z-\omega t\right)}$$
+$$\vec{H}\left( x, y\right)e^{i\left(\beta z-\omega t\right)}$$
+where $\omega$ is the angular frequency and $\beta$ is the propagation constant.</p>
+<p>Once the structure is meshed, the whole problem is converted to a matrix eigenvalue problem and solved by sparse matrix technique.</p>
+<p>It can be seen the physics convention $e^{i\left(\beta z-\omega t\right)}$ is adopted here. If $\beta&gt;0$, the wave is propagating in the positive z direction.</p>
+<h3 id="effective-index">effective index</h3>
+<p>the modal effective index is defined as
+$$n_{eff}=\frac{c\beta}{\omega}$$
+similar to the bulk index definition, except that geometric contributions are taken into account. Since the mode must be guided the effective index is bounded by the indices such that
+$$n_{\text{max(sub,clad)}} &lt; n_{eff} &lt; n_{core}$$</p>
+<h3 id="loss-dbm">loss (dB/m)</h3>
+<p>An electric field propagating in the positive z-direction in a medium with a complex refractive index of $n+i\kappa$ can be expressed as follows:
+$$E(z) = e^{i2\pi(n+i\kappa)z/\lambda_0}$$
+here, $k = 2\pi(n+i\kappa)/\lambda_0$.</p>
+<p>The propagation loss in dB/m for a mode propagating in the z-direction is defined as
+$$loss = -10 \log_{10}(\frac{P(z)|_{z = \ 1\ m}}{P(z)|_{z = \ 0\ m}}) = -10 \log_{10}(\frac{|E(1)|^2}{|E(0)|^2})=-20 \log_{10}(\frac{|E(1)|}{|E(0)|})$$
+Combining the formulas gives
+$$loss = -20 \log_{10}(e^{-2\pi\kappa/\lambda_0})$$</p>
+<h3 id="te-polarization-fraction">TE polarization fraction</h3>
+<p>Two definitions for polarization fractions are provided by MODE. The TE Polarization Fraction definition is typically used in integrated optics, but for fibers, this also helps to determine the polarization of the mode.</p>
+<p>The &ldquo;TE polarization fraction Ex&rdquo; for propagation along the z-direction is defined by the following equation:
+$$\text{TE polarization fraction (Ex)} =  \frac{\int |Ex|^2 dxdy}{\int (|Ex|^2+|Ey|^2)dxdy}$$
+where $|Ex|^2+|Ey|^2$ corresponds to $|E_{||}|^2$ (since we are considering the polarization of the modes, here we only consider the fields parallel to the mode cross section). In this case, if TE polarization fraction (Ex) = 100%, this mode is considered pure TE-polarized. In contrast, 0% refers to a pure TM-polarized mode. Note that some modes may not be perfectly polarized in one direction and in those cases you may find quasi-polarized modes in the Mode List.</p>
+<p>For propagation along the x direction, ie., &ldquo;TE polarization fraction Ey&rdquo;:
+$$\text{TE polarization fraction (Ey)} = \frac{\int |Ey|^2 dydz}{\int (|Ey|^2+|Ez|^2) dydz}$$
+For propagation along the y direction, ie., &ldquo;TE polarization fraction Ex&rdquo;:
+$$\text{TE polarization fraction (Ex)}  =\frac{\int |Ex|^2 dxdz}{\int (|Ex|^2+|Ez|^2) dxdz}$$
+Note that this definition is arbitrary (since we allow for propagation in any direction), the user may have to look carefully at the field components if unusual orientations of the Eigenmode Solver are used.</p>
+<h3 id="waveguide-tetm-fraction">Waveguide TE/TM Fraction</h3>
+<p>There are alternative definitions that are used more frequently for other applications. The waveguide TE/TM fraction indicates the amount of E/H field in the direction of propagation. It is equal to the integrated transverse field intensity divided by the integrated total field intensity. A mode with a waveguide TE/TM fraction of 100%/100% is a TEM mode
+The &ldquo;waveguide TE/TM fraction&rdquo; is defined by the following equations:.
+$$\text{waveguide TE fraction } = 1-\frac{\int\left|E_{\perp}\right|^{2} dA_{||}}{\int\left(|E|^{2}\right) dA_{||}}$$
+$$\text{waveguide TM fraction } =  1-\frac{\int\left|H_{\perp}\right|^{2} dA_{||}}{\int\left(|H|^{2}\right) dA_{||}}$$
+where $E_{\perp}$ and H_{\perp} refer to the field components perpendicular to the mode cross section (ie. in the direction of propagation), $A_{||}$ refers to the integration area on the mode cross section plane.</p>
+<h3 id="effective-area">Effective Area</h3>
+<p>Effective area is a quantitative measure of the modal area. As with TE fraction, there are a number of possible similar definitions which can be easily misinterpreted. We have adopted the definition developed by G. P. Agrawal, Nonlinear Fiber Optics, 4th ed. (Academic, 2007). This method has the benefit of not making any assumptions about the shape of the field distribution beforehand.
+$$\text{Effective Area} = \frac{(\int_{}^{}|E|^{2}dA)^{2} }{\int_{}^{}|E|^{4}dA}$$
+The effective area defined here is similar to the Landau, and Lishitz method, based on the ratio of a mode&rsquo;s total energy density per unit length and its peak energy density.</p>
+<p>For Gaussian beams, and fiber optic modes the most cited quantity is the beam waist w(z) or equivalently mode field diameter (MFD). The MFD corresponds to twice the radial distance, where $I(r) = 1-e^{-2}\approx 13.5$. In with the comparison normal distribution this radial value would correspond to $f( x \approx 3 \sigma )$, and is related to the full width half maximum (FWHM)  as $w(z) \approx 1.18 \text{ FWHM}$. The effective area method cited above is typically in the range of 95-104% of what would be found using through the circle described by the MFD.</p>
+<h2 id="boundary-condition">Boundary condition</h2>
+<h3 id="pml">PML</h3>
+<ul>
+<li>The steep angle profile should be used when the fields are incident on the PML at a <strong>steep or grazing angle</strong>, typically beyond 60 degrees.</li>
+</ul>
+<h3 id="periodic">Periodic</h3>
+<ul>
+<li>With periodic boundaries, the periodicity is determined by the span of the simulation region. It is very important to understand that both the structure, electromagnetic fields and source must be periodic. For this reason, <strong>plane wave sources with normal incidence</strong> are most often used with periodic boundary conditions.</li>
+</ul>
+<h3 id="bloch">Bloch</h3>
+<ul>
+<li>Bloch boundaries are used for periodic simulations where the source is injected at an angle – they are similar to periodic boundaries where light which exits one boundary is re-injected from the opposite boundary, but they add the required phase difference to the light that is re-injected corresponding to the phase accumulated between the unit cells due to <strong>the angle of the source</strong>.</li>
+</ul>
+<h3 id="symmetryanti-symmetry">Symmetry/anti-symmetry</h3>
+<ul>
+<li>When you have a structure and source that have a plane of symmetry through the middle of the simulation region, symmetry boundaries allow you to reduce the size of the solver region that needs to be simulated.</li>
+<li>The main challenge with using symmetry boundaries is determining which type of symmetry exists in the system: Positive Symmetry, or Anti-Symmetry.</li>
+<li>In most cases, the type of symmetry can be determined from the source polarization. If the source polarization arrow is tangential to the plane of symmetry, then the polarization arrow and the boundary shading color should match. If the polarization arrow is normal to the boundary, then the colors should not match.In most cases, monitors automatically unfold field data according to these rules.</li>
+<li>When using symmetry boundaries, the boundary should only be applied to the ‘min’ boundary. The ‘max’ boundary should be set to whatever the boundary would be without symmetry; typically PML.</li>
+<li>The only exception is when using symmetry boundaries with periodic structures. In such cases, set both the min and max boundaries in the periodic direction to use symmetric or anti-symmetric boundaries. You will need to enable the “allow symmetry on all boundaries” option.</li>
+</ul>
+<h2 id="source">Source</h2>
+<h3 id="plane-wave">plane wave</h3>
+<ul>
+<li>normal incidence/ angled incidence</li>
+<li>single frequency/ broadband</li>
+<li>Bloch/Periodic</li>
+<li><strong>BFAST</strong></li>
+<li>diffracting</li>
+</ul>
+<h3 id="mode-source">mode source</h3>
+<ul>
+<li>The mode source can be used to inject the mode of a waveguide or fiber. The mode source includes an integrated mode solver with uses the finite-difference eigenmode solving algorithm to calculate the field profile of the supported modes of a given structure cross section.</li>
+<li>The mode solver assumes that the cross section of the structure constant along the propagation direction. To set up the mode source, the source should be positioned over the cross section of the waveguide or fiber.</li>
+<li>The mode source settings allow you to specify whether you want to find the mode for a straight or bent waveguide with a given bending radius, and also specify rotation angles to match the angle of the waveguide if the waveguide is not aligned with the x, y, or z-axis.</li>
+<li>You can choose to inject the <strong>fundamental mode</strong> which is the mode with <strong>highest effective index</strong>, or <strong>fundamental TE</strong> or <strong>fundamental TM mode</strong> which correspond to the mode with the highest effective index which has the desired <strong>TE-like</strong> or <strong>TM-like</strong> polarization.</li>
+<li>In FDTD Solutions, <strong>TE-like modes</strong> correspond to modes where the electric field polarization is primarily along the <strong>y-direction</strong> for sources injected along the <strong>x-axis</strong>, and primarily along the x-direction for sources injected in the y or z-axis directions.</li>
+<li>After calculating the modes using the specified mode solver settings, modes will appear in the model list at the top of the window, and you can select a mode from the mode list to plot the field profile of the mode. You can also see details about the calculated mode in the mode list table such as <strong>the effective index</strong> of the mode, <strong>loss</strong>, and <strong>polarization fraction</strong>. The formulae for the <strong>polarization fraction</strong> calculation and <strong>waveguide TE/TM fraction</strong> are calculated as:</li>
+<li>TE polarization fraction (for x-axis injection):
+$$\frac{\int\left|E_{y}\right|^2 dydz}{\int\left(\left|E_{y}\right|^2+\left|E_{z}\right|^2\right) dydz}$$</li>
+<li>waveguide TE and TM fraction (for z-axis injection):
+$$1-\frac{\int\left|E_{\perp}\right|^2 dxdy}{\int\left(\left|E\right|^2\right) dxdy}$$
+$$1-\frac{\int\left|H_{\perp}\right|^2 dxdy}{\int\left(\left|H\right|^2\right) dxdy}$$</li>
+<li>Multifrequency mode calculation option. This option should be used whenever injecting a <strong>broadband mode source</strong>. This will calculate the supported mode profile over the broadband range rather than just at the center frequency of the range.</li>
+<li>Ensure that the <strong>source span is wide enough to completely contain the mode of the structure</strong>. You can visually check this by plotting the field profile and making sure that the field amplitude of the mode decays to 0 around the edges of the source, but another way you can test this is by doing convergence testing by changing the span of the source. Start by calculating the mode, then increasing the span of the mode source and re-calculating the mode, then compare the calculated effective index of the mode between the two different source spans. If the mode source region is wide enough to contain the full mode, the calculated effective index should stay the same when you further increase the source span.</li>
+</ul>
+<h3 id="dipole-source">dipole source</h3>
+<ul>
+<li>The dipole source is a point source which emits a dipole radiation pattern. There are 2 types of dipole sources available: electric and magnetic. The electric dipole is equivalent to an oscillating point charge, whereas the magnetic dipole is equivalent to a current loop.</li>
+</ul>
+<h3 id="import-source">import source</h3>
+<ul>
+<li>The import source allows you to specify a custom field profile to inject. The data for the field profile of the source can come from monitor data measured in a previous simulation, or it could be from another software such as a third-party ray tracing tool. It can also be calculated based on a formula using the script. <strong>You might want to use monitor data from a previous simulation as a source in a subsequent simulation, and this can be done in order to break up a large simulation into two or more simulations.</strong></li>
+</ul>
+<h2 id="monitor">Monitor</h2>
+<h3 id="frequency-domain-field-monitor">frequency domain field monitor</h3>
+<ul>
+<li>Frequency domain field monitors return data in the frequency domain by taking the Fourier transform of the time domain fields. By default, <strong>CW normalization</strong> is applied, which means that the data is also normalized by the spectrum of the source pulse to give the result as though the source spectrum is uniform. In other words, by default, the result from a frequency domain monitor at a given frequency point is the response as though the source is injecting a continuous wave at the specified frequency with amplitude 1.</li>
+<li>There are two available frequency domain field monitors: <strong>the frequency-domain field profile monitor</strong> and <strong>the frequency-domain field and power monitor</strong>. The only difference between the two monitor types is the spatial interpolation method used.</li>
+<li>The profile monitor uses the specified position interpolation and the power monitor uses the nearest mesh cell interpolation method. In most cases, the results from these two monitors will be very similar. We recommend using the <strong>Frequency Domain Field and Power monitor</strong> unless you are an advanced user and have a detailed understanding of the monitor interpolation options.</li>
+<li>If all E and H field components are recorded by the monitor, it’s possible to project the fields from the monitor to get the <strong>far field angular distribution</strong>. This result is something that is calculated as a post-processing step after the simulation has been run, so when you first try to visualize the farfield result of the monitor, if it hasn’t yet been calculated, a window will pop up asking you to select the settings you want to use for the far field projection calculation.</li>
+</ul>
+<h2 id="analysis-group">Analysis group</h2>
+<p>Analysis groups can contain <strong>structures</strong>, <strong>sources</strong>, and <strong>monitors</strong>, and they are also capable of setting up the properties of these objects using a <strong>setup script</strong>. The <strong>analysis script</strong> is used to collect the results from monitors contained inside the group and calculate new results.</p>
+<h2 id="lumerical-scripting-language">Lumerical scripting language</h2>
+<h3 id="general-workflow">General workflow</h3>
+<ul>
+<li>Set up simulation
+<ul>
+<li>add simulation objects</li>
+<li>set properties</li>
+</ul>
+</li>
+<li>Run simulation</li>
+<li>Analyze results</li>
+</ul>
+<h3 id="common-commands">Common commands</h3>
+<ul>
+<li>comment: ##</li>
+<li>end the statement with ;</li>
+<li>put the result on screen ?
+-?set; ## return a list of properties of the selected objects</li>
+<li>layoutmode()
+<ul>
+<li>0 No, in analysis mode</li>
+<li>1 Yes</li>
+</ul>
+</li>
+<li>add+&lsquo;object name&rsquo;
+-addrect()
+-addplane()
+-addpower()</li>
+<li>select()</li>
+<li>set(&lsquo;property_name&rsquo;, value)</li>
+<li>setnamed(&lsquo;object_name&rsquo;, &lsquo;property_name&rsquo;, value) ## same as select + set</li>
+<li>getdata(&lsquo;object_name&rsquo;, &lsquo;data_name&rsquo;)</li>
+<li>getresult(&lsquo;object_name&rsquo;, &lsquo;dataset_name&rsquo;)</li>
+<li>getelectric() ## advanced command, return $\left|E_{x}\right|^2+\left|E_{y}\right|^2+\left|E_{z}\right|^2$ from the monitor</li>
+<li>transmission() ## return the fraction of power transmitted through the monitor with respect to the source power</li>
+<li>getsweepdata()</li>
+<li>getsweepresult()</li>
+</ul>
+<h2 id="python-api">Python API</h2>
+<h3 id="import-modules">import modules</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy.lib.scimath</span> <span class="kn">import</span> <span class="n">sqrt</span> <span class="c1">## complex sqrt()</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">constants</span>
+<span class="kn">import</span> <span class="nn">matplotlib.cm</span> <span class="k">as</span> <span class="nn">cm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">interpolate</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="kn">import</span> <span class="nn">importlib</span>
+<span class="c1">## import mplcursors ## for data cursor</span>
+<span class="c1">## import sys</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1">## The default paths for windows</span>
+<span class="n">spec</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">spec_from_file_location</span><span class="p">(</span>
+    <span class="s1">&#39;lumapi&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D:</span><span class="se">\\</span><span class="s1">Program Files</span><span class="se">\\</span><span class="s1">Lumerical</span><span class="se">\\</span><span class="s1">v202</span><span class="se">\\</span><span class="s1">api</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">lumapi.py&#39;</span><span class="p">)</span>
+<span class="c1">## Functions that perform the actual loading</span>
+<span class="n">lumapi</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">module_from_spec</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span> <span class="c1">## </span>
+<span class="n">spec</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">exec_module</span><span class="p">(</span><span class="n">lumapi</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="start-a-session">start a session</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">fdtd</span> <span class="o">=</span> <span class="n">lumapi</span><span class="o">.</span><span class="n">FDTD</span><span class="p">()</span> <span class="c1">## an empty instance</span>
+<span class="n">fdtd</span> <span class="o">=</span> <span class="n">lumapi</span><span class="o">.</span><span class="n">FDTD</span><span class="p">(</span><span class="s1">&#39;instance_name.fsp&#39;</span><span class="p">)</span> <span class="c1">## an existing instance</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="get-help">get help</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="err">?</span><span class="n">fdtd</span><span class="o">.</span><span class="n">addrect</span>
+<span class="n">help</span><span class="p">(</span><span class="n">fdtd</span><span class="o">.</span><span class="n">addrect</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="simulation-objects">simulation objects</h3>
+<h4 id="add-and-then-set">add and then set</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">fdtd</span><span class="o">.</span><span class="n">addrect</span><span class="p">()</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;grating_T&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="add-and-set-at-the-same-time">add and set at the same time</h4>
+<h5 id="set-with-parameters">set with parameters</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">fdtd</span><span class="o">.</span><span class="n">addfdtd</span><span class="p">(</span><span class="n">dimension</span><span class="o">=</span><span class="s2">&#34;2D&#34;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">0.0e-9</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.0e-9</span><span class="p">,</span> <span class="n">x_span</span><span class="o">=</span><span class="mf">3.0e-6</span><span class="p">,</span> <span class="n">y_span</span><span class="o">=</span><span class="mf">1.0e-6</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h5 id="set-with-dict">set with dict</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1">## order matters</span>
+<span class="n">props</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="s2">&#34;power1&#34;</span><span class="p">),(</span><span class="s2">&#34;override global monitor settings&#34;</span><span class="p">,</span> <span class="kc">True</span><span class="p">),(</span><span class="s2">&#34;x&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span> <span class="mf">0.4e-6</span><span class="p">),</span>
+                     <span class="p">(</span><span class="s2">&#34;monitor type&#34;</span><span class="p">,</span> <span class="s2">&#34;linear x&#34;</span><span class="p">),(</span><span class="s2">&#34;frequency points&#34;</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)])</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">addpower</span><span class="p">(</span><span class="n">properties</span><span class="o">=</span><span class="n">props</span><span class="p">)</span>
+<span class="c1">## order doesn&#39;t matter</span>
+<span class="n">props</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;power2&#34;</span><span class="p">,</span>
+         <span class="s2">&#34;x&#34;</span> <span class="p">:</span> <span class="mf">0.</span><span class="p">,</span>
+         <span class="s2">&#34;y&#34;</span> <span class="p">:</span> <span class="mf">0.4e-6</span><span class="p">,</span>
+          <span class="s2">&#34;monitor type&#34;</span> <span class="p">:</span> <span class="s2">&#34;linear x&#34;</span><span class="p">}</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">addpower</span><span class="p">(</span><span class="n">properties</span><span class="o">=</span><span class="n">props</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="set-with-loop">set with loop</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="s2">&#34;&#34;&#34; This function makes is convenient to reconstruct the simulation,
+</span><span class="s2">    while changing a few key properties, a brand new FDTD will start
+</span><span class="s2">    and close within this function
+</span><span class="s2">&#34;&#34;&#34;</span>
+<span class="n">fdtd</span> <span class="o">=</span> <span class="n">lumapi</span><span class="o">.</span><span class="n">FDTD</span><span class="p">()</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">addcircle</span><span class="p">()</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">addfdtd</span><span class="p">()</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">addmesh</span><span class="p">()</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">addtfsf</span><span class="p">()</span>
+
+<span class="n">fdtd</span><span class="o">.</span><span class="n">addobject</span><span class="p">(</span><span class="s2">&#34;cross_section&#34;</span><span class="p">)</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="s2">&#34;scat&#34;</span><span class="p">)</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">addobject</span><span class="p">(</span><span class="s2">&#34;cross_section&#34;</span><span class="p">)</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="s2">&#34;total&#34;</span><span class="p">)</span>
+
+<span class="n">fdtd</span><span class="o">.</span><span class="n">addtime</span><span class="p">()</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="s2">&#34;time&#34;</span><span class="p">)</span>
+
+<span class="n">fdtd</span><span class="o">.</span><span class="n">addprofile</span><span class="p">()</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="s2">&#34;profile&#34;</span><span class="p">)</span>
+
+<span class="n">configuration</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="s2">&#34;source&#34;</span><span class="p">,</span> <span class="p">((</span><span class="s2">&#34;polarization angle&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&#34;injection axis&#34;</span><span class="p">,</span> <span class="s2">&#34;y&#34;</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&#34;x&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&#34;x span&#34;</span><span class="p">,</span> <span class="mf">100.0e-9</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&#34;y span&#34;</span><span class="p">,</span> <span class="mf">100.0e-9</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&#34;wavelength start&#34;</span><span class="p">,</span> <span class="mf">300.0e-9</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&#34;wavelength stop&#34;</span><span class="p">,</span> <span class="mf">400.0e-9</span><span class="p">))),</span>
+
+    <span class="p">(</span><span class="s2">&#34;mesh&#34;</span><span class="p">,</span> <span class="p">((</span><span class="s2">&#34;dx&#34;</span><span class="p">,</span> <span class="mf">0.5e-9</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;dy&#34;</span><span class="p">,</span> <span class="mf">0.5e-9</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;x&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;x span&#34;</span><span class="p">,</span> <span class="mf">110.0e-9</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;y span&#34;</span><span class="p">,</span> <span class="mf">110.0e-9</span><span class="p">))),</span>
+
+    <span class="p">(</span><span class="s2">&#34;FDTD&#34;</span><span class="p">,</span> <span class="p">((</span><span class="s2">&#34;simulation time&#34;</span><span class="p">,</span> <span class="mf">200e-15</span><span class="p">),</span> <span class="c1">## in seconds</span>
+              <span class="p">(</span><span class="s2">&#34;dimension&#34;</span><span class="p">,</span> <span class="s2">&#34;2D&#34;</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;x&#34;</span><span class="p">,</span><span class="mf">0.0e-9</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span><span class="mf">0.</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;z&#34;</span><span class="p">,</span><span class="mf">0.</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;x span&#34;</span><span class="p">,</span> <span class="mf">800.0e-9</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;y span&#34;</span><span class="p">,</span> <span class="mf">800.0e-9</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;mesh refinement&#34;</span><span class="p">,</span> <span class="s2">&#34;conformal variant 1&#34;</span><span class="p">))),</span>
+
+    <span class="p">(</span><span class="s2">&#34;circle&#34;</span><span class="p">,</span> <span class="p">((</span><span class="s2">&#34;x&#34;</span><span class="p">,</span> <span class="mf">0.0e-9</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span> <span class="mf">0.0e-9</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&#34;z&#34;</span><span class="p">,</span> <span class="mf">0.0e-9</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&#34;radius&#34;</span><span class="p">,</span> <span class="mf">25.0e-9</span><span class="p">),</span> <span class="c1">## in meters</span>
+                <span class="p">(</span><span class="s2">&#34;material&#34;</span><span class="p">,</span> <span class="s2">&#34;Ag (Silver) - Palik (0-2um)&#34;</span><span class="p">))),</span>
+
+    <span class="p">(</span><span class="s2">&#34;scat&#34;</span><span class="p">,</span> <span class="p">((</span><span class="s2">&#34;x&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;z&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;x span&#34;</span><span class="p">,</span> <span class="mf">110.0e-9</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;y span&#34;</span><span class="p">,</span> <span class="mf">110.0e-9</span><span class="p">))),</span>
+
+    <span class="p">(</span><span class="s2">&#34;total&#34;</span><span class="p">,</span> <span class="p">((</span><span class="s2">&#34;x&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
+               <span class="p">(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
+               <span class="p">(</span><span class="s2">&#34;z&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
+               <span class="p">(</span><span class="s2">&#34;x span&#34;</span><span class="p">,</span> <span class="mf">90.0e-9</span><span class="p">),</span>
+               <span class="p">(</span><span class="s2">&#34;y span&#34;</span><span class="p">,</span> <span class="mf">90.0e-9</span><span class="p">))),</span>
+
+    <span class="p">(</span><span class="s2">&#34;time&#34;</span><span class="p">,</span> <span class="p">((</span><span class="s2">&#34;x&#34;</span><span class="p">,</span> <span class="mf">28.0e-9</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span> <span class="mf">26.0e-9</span><span class="p">))),</span>
+
+    <span class="p">(</span><span class="s2">&#34;profile&#34;</span><span class="p">,</span> <span class="p">((</span><span class="s2">&#34;x&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
+                 <span class="p">(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
+                 <span class="p">(</span><span class="s2">&#34;x span&#34;</span><span class="p">,</span> <span class="mf">90e-9</span><span class="p">),</span>
+                 <span class="p">(</span><span class="s2">&#34;y span&#34;</span><span class="p">,</span> <span class="mf">90e-9</span><span class="p">),</span>
+                 <span class="p">(</span><span class="s2">&#34;override global monitor settings&#34;</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+                 <span class="p">(</span><span class="s2">&#34;use source limits&#34;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+                 <span class="p">(</span><span class="s2">&#34;frequency points&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                 <span class="p">(</span><span class="s2">&#34;wavelength center&#34;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">profile_monitor_wavelength</span><span class="p">)),</span>
+                 <span class="p">(</span><span class="s2">&#34;wavelength span&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">))),</span>
+<span class="p">)</span>
+<span class="s1">&#39;&#39;&#39;
+</span><span class="s1">To set the geometry, we found that it is more efficient and cleaner to use nested tuple, 
+</span><span class="s1">however, advanced users may use any ordered collection. 
+</span><span class="s1">The order is important if a property depends on the value of another property.
+</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="k">for</span> <span class="n">obj</span><span class="p">,</span> <span class="n">parameters</span> <span class="ow">in</span> <span class="n">configuration</span><span class="p">:</span>
+   <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">parameters</span><span class="p">:</span>
+       <span class="n">fdtd</span><span class="o">.</span><span class="n">setnamed</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="run-save-and-close">run, save and close</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">fdtd</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;filename.fsp&#39;</span><span class="p">)</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="deal-with-data">deal with data</h3>
+<h4 id="get-data">get data</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">Ex</span> <span class="o">=</span> <span class="n">fdtd</span><span class="o">.</span><span class="n">getdata</span><span class="p">(</span><span class="s2">&#34;profile&#34;</span><span class="p">,</span><span class="s2">&#34;Ex&#34;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Frequency field profile data Ex is type&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">Ex</span><span class="p">),</span><span class="s1">&#39; with shape&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">Ex</span><span class="o">.</span><span class="n">shape</span> <span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>Frequency field profile data Ex is type &lt;class &lsquo;numpy.ndarray&rsquo;&gt;  with shape (101, 61, 1, 5)</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">T</span><span class="p">,</span> <span class="n">time</span> <span class="o">=</span> <span class="n">fdtd</span><span class="o">.</span><span class="n">getresult</span><span class="p">(</span><span class="s2">&#34;power&#34;</span><span class="p">,</span> <span class="s2">&#34;T&#34;</span><span class="p">),</span> <span class="n">fdtd</span><span class="o">.</span><span class="n">getresult</span><span class="p">(</span><span class="s2">&#34;time&#34;</span><span class="p">,</span><span class="s2">&#34;E&#34;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Transmission result T is type&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">T</span><span class="p">),</span><span class="s1">&#39; with keys&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">T</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Time monitor result E is type&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">time</span><span class="p">),</span><span class="s1">&#39; with keys&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>Transmission result T is type &lt;class &lsquo;dict&rsquo;&gt;  with keys dict_keys([&lsquo;lambda&rsquo;, &lsquo;f&rsquo;, &lsquo;T&rsquo;, &lsquo;Lumerical_dataset&rsquo;])</p>
+<p>Time monitor result E is type &lt;class &lsquo;dict&rsquo;&gt;  with keys dict_keys([&rsquo;t', &lsquo;x&rsquo;, &lsquo;y&rsquo;, &lsquo;z&rsquo;, &lsquo;E&rsquo;, &lsquo;Lumerical_dataset&rsquo;])</p>
+</blockquote>
+<p>data is numerical data type, usually numpy array.</p>
+<p>dataset is dict type, and should be taken care by</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">T</span><span class="o">=</span><span class="n">T_dataset</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>now T is numpy array type</p>
+<h4 id="data-structure">data structure</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1">## get dataset</span>
+<span class="n">E</span> <span class="o">=</span> <span class="n">fdtd</span><span class="o">.</span><span class="n">getresult</span><span class="p">(</span><span class="s2">&#34;DFT&#34;</span><span class="p">,</span><span class="s2">&#34;E&#34;</span><span class="p">)</span>
+<span class="c1">## electric field</span>
+<span class="n">E</span> <span class="o">=</span> <span class="n">E</span><span class="p">[</span><span class="s1">&#39;E&#39;</span><span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>we see here E is a 5-dimension matrix</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">Ex</span> <span class="o">=</span> <span class="n">E</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">,:,</span><span class="mi">0</span><span class="p">]</span> <span class="c1">## spatial(x,y,z) ,wavelength, Ex</span>
+<span class="n">Ey</span> <span class="o">=</span> <span class="n">E</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">,:,</span><span class="mi">1</span><span class="p">]</span> <span class="c1">## spatial(x,y,z) ,wavelength, Ey</span>
+<span class="n">Ez</span> <span class="o">=</span> <span class="n">E</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">,:,</span><span class="mi">2</span><span class="p">]</span> <span class="c1">## spatial(x,y,z) ,wavelength, Ez</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="pass-data-between-python-and-lumerical">pass data between python and lumerical</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">fdtd</span><span class="o">.</span><span class="n">putv</span><span class="p">(</span><span class="s1">&#39;var_name&#39;</span><span class="p">,</span><span class="n">py_var</span><span class="p">)</span> <span class="c1">## python to lumerical</span>
+<span class="n">py_var</span> <span class="o">=</span> <span class="n">fdtd</span><span class="o">.</span><span class="n">getv</span><span class="p">(</span> <span class="s1">&#39;var_name&#39;</span><span class="p">)</span> <span class="c1">## lumerical to python</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="run-lumerical-script-language">run lumerical script language</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">fdtd</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s1">&#39;x = [0;1;2];y = [0;sqrt(3);0];z = [0;0;0];C = [1,3,2];ds = unstructureddataset(x,y,z,C);&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="useful-code-snippets">useful code snippets</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1">## make sure it is a &#34;1d array&#34;, numpy type</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">fdtd</span><span class="o">.</span><span class="n">gratingn</span><span class="p">(</span><span class="n">mname</span><span class="p">,</span> <span class="n">size_f</span><span class="p">))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="c1">## MATLAB length()</span>
+<span class="n">size_n</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">size</span>
+<span class="c1">## MATLAB zeros(), input should be a tuple</span>
+<span class="n">T_grating</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">size_n</span><span class="p">,</span> <span class="n">size_m</span><span class="p">,</span> <span class="n">size_f</span><span class="p">))</span>
+<span class="c1">## initialize with data type</span>
+<span class="n">grating_S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">size_n</span><span class="p">,</span> <span class="n">size_m</span><span class="p">,</span> <span class="n">size_f</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex_</span><span class="p">)</span> 
+<span class="c1">## MATLAB and Lumerical start from 1, but python starts from 0</span>
+<span class="c1">## 1 dimension closest value&#39;s index</span>
+<span class="n">n1</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">argmin</span><span class="p">()</span> <span class="c1">## n is an array</span>
+<span class="c1">## 2 dimension closest values&#39; index</span>
+<span class="n">u1i</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">u1_new</span> <span class="o">-</span> <span class="n">u1</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">u2i</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">u2_new</span> <span class="o">-</span> <span class="n">u2</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">T_nm_new</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ix_</span><span class="p">(</span><span class="n">u1i</span><span class="p">,</span><span class="n">u2i</span><span class="p">)]</span>  <span class="o">=</span> <span class="n">T_nm</span> <span class="o">+</span> <span class="mf">1e-18</span> <span class="c1">## different with MATLAB</span>
+<span class="c1">## meshgrid indexing, opposite to MATLAB, but more intuitive</span>
+<span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s1">&#39;ij&#39;</span><span class="p">)</span>
+<span class="c1">## real transmitted power</span>
+<span class="n">power1</span> <span class="o">=</span> <span class="n">fdtd</span><span class="o">.</span><span class="n">transmission</span><span class="p">(</span><span class="n">mname</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="n">power1</span> <span class="o">=</span> <span class="n">power1</span><span class="p">[</span><span class="n">fpoint</span><span class="p">]</span> <span class="o">*</span> <span class="n">fdtd</span><span class="o">.</span><span class="n">sourcepower</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="c1">## interp3d method 1</span>
+<span class="n">tempX</span><span class="p">,</span><span class="n">tempY</span><span class="p">,</span><span class="n">tempZ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">tempx</span><span class="p">,</span><span class="n">tempy</span><span class="p">,</span><span class="n">tempz</span><span class="p">,</span><span class="n">indexing</span> <span class="o">=</span> <span class="s1">&#39;ij&#39;</span><span class="p">)</span>
+<span class="n">pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">tempX</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span><span class="n">tempY</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span><span class="n">tempZ</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">temp_interp_func</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">RegularGridInterpolator</span><span class="p">((</span><span class="n">xt</span><span class="p">,</span><span class="n">yt</span><span class="p">,</span><span class="n">zt</span><span class="p">),</span> <span class="n">E2t</span><span class="p">)</span>
+<span class="n">E2t</span> <span class="o">=</span> <span class="n">temp_interp_func</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">xt</span><span class="o">.</span><span class="n">size</span><span class="p">,</span><span class="n">yt</span><span class="o">.</span><span class="n">size</span><span class="p">,</span><span class="n">zt</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
+<span class="c1">## interp3d method 2</span>
+<span class="n">tempX</span><span class="p">,</span> <span class="n">tempY</span><span class="p">,</span> <span class="n">tempZ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">tempx</span><span class="p">,</span> <span class="n">tempy</span><span class="p">,</span> <span class="n">tempz</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s1">&#39;ij&#39;</span><span class="p">)</span>
+<span class="n">pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">tempX</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">tempY</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">tempZ</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">E2t</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interpn</span><span class="p">((</span><span class="n">xt</span><span class="p">,</span> <span class="n">yt</span><span class="p">,</span> <span class="n">zt</span><span class="p">),</span> <span class="n">E2t</span><span class="p">,</span> <span class="n">pts</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">xt</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">yt</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">zt</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="1d-plot">1d plot</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">():</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">dpi</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1">##     ax.set_xticks([])</span>
+<span class="c1">##     ax.set_yticks([])</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lam</span><span class="o">/</span><span class="mf">1e-6</span><span class="p">,</span><span class="n">theta_01</span><span class="p">,</span> 
+            <span class="n">label</span> <span class="o">=</span> <span class="s2">&#34;Theta&#34;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lam</span><span class="o">/</span><span class="mf">1e-6</span><span class="p">,</span><span class="n">phi_01</span><span class="p">,</span> 
+            <span class="n">label</span> <span class="o">=</span> <span class="s2">&#34;Phi&#34;</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mf">0.85</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span><span class="mi">91</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Wavelength ($\mathrm{\mu m}$)&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&#34;Diffraction angle for &#34;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">n_target</span><span class="p">)</span><span class="o">+</span><span class="s2">&#34;,&#34;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">m_target</span><span class="p">)</span><span class="o">+</span><span class="s2">&#34;) order&#34;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="2d-plot-with-interp2d">2d plot with interp2d</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1">## create image</span>
+<span class="n">x</span>  <span class="o">=</span> <span class="n">E_image</span><span class="p">[</span><span class="s2">&#34;x&#34;</span><span class="p">]</span><span class="o">*</span><span class="mf">1e6</span> <span class="c1">## data on uniform grid, convert m to um</span>
+<span class="n">y</span>  <span class="o">=</span> <span class="n">E_image</span><span class="p">[</span><span class="s2">&#34;y&#34;</span><span class="p">]</span><span class="o">*</span><span class="mf">1e6</span> <span class="c1">## data on uniform grid, convert m to um</span>
+<span class="n">Ex</span> <span class="o">=</span> <span class="n">E_image</span><span class="p">[</span><span class="s2">&#34;E&#34;</span><span class="p">][:,:,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="c1">## data on uniform grid, selecting the x-component of first frequency</span>
+<span class="n">Ex_abs</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">Ex</span><span class="p">)</span>
+<span class="n">xi</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">numpy</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">yi</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">y</span><span class="p">),</span><span class="n">numpy</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">y</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="n">f</span><span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp2d</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">Ex_abs</span><span class="p">)</span>
+<span class="n">Exi_abs</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">yi</span><span class="p">,</span> <span class="n">xi</span><span class="p">)</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">Exi_abs</span><span class="p">),</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;bicubic&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">RdYlGn</span><span class="p">,</span>
+                <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="n">xi</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">xi</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">yi</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">yi</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span>
+                <span class="n">vmax</span><span class="o">=</span><span class="n">Exi_abs</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">vmin</span><span class="o">=</span><span class="n">Exi_abs</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x (um)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y (um)&#39;</span><span class="p">)</span>
+
+<span class="n">indices</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Exi_abs</span><span class="o">==</span><span class="n">Exi_abs</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="c1">## finding the location of max abs(Ex)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;local max&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">xi</span><span class="p">[</span><span class="n">indices</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">yi</span><span class="p">[</span><span class="n">indices</span><span class="p">[</span><span class="mi">1</span><span class="p">]]),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">),</span>
+             <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&#34;-&gt;&#34;</span><span class="p">))</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&#34;image_plot.png&#34;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="2d-subplots">2d subplots</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">Xt</span><span class="p">,</span> <span class="n">Zt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">xt</span><span class="p">,</span> <span class="n">zt</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s1">&#39;ij&#39;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">():</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">Xt</span> <span class="o">*</span> <span class="mf">1e6</span><span class="p">,</span> <span class="n">Zt</span> <span class="o">*</span> <span class="mf">1e6</span><span class="p">,</span> <span class="n">E2t</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+    <span class="n">cb</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x (microns)&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;z (microns)&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&#34;|E|^2 by FDTD at &#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">lam</span> <span class="o">*</span> <span class="mf">1e9</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&#34;nm&#34;</span><span class="p">)</span>
+
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">Xt</span> <span class="o">*</span> <span class="mf">1e6</span><span class="p">,</span> <span class="n">Zt</span> <span class="o">*</span> <span class="mf">1e6</span><span class="p">,</span> <span class="n">E2p</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+    <span class="n">cb</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x (microns)&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;z (microns)&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&#34;|E|^2 by projection at &#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">lam</span> <span class="o">*</span> <span class="mf">1e9</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">+</span>
+                 <span class="s2">&#34;nm&#34;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="custom-functions">custom functions</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">addattribute</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">attribute_name</span><span class="p">,</span> <span class="n">attribute_data</span><span class="p">):</span>
+    <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">    Help on method addattribute:
+</span><span class="s1">
+</span><span class="s1">    addattribute(dataset_name, attribute_name, attribute_data) method of lumapi.FDTD instance
+</span><span class="s1">    Adds an attribute to an existing dataset.
+</span><span class="s1">    
+</span><span class="s1">    +--------------------------------------+--------------------------------------+
+</span><span class="s1">    | Syntax                               | Description                          |
+</span><span class="s1">    +--------------------------------------+--------------------------------------+
+</span><span class="s1">    | addattribute(R, &#34;a\_name&#34;, a)        | Adds the scalar attribute a to the   |
+</span><span class="s1">    |                                      | dataset R.                           |
+</span><span class="s1">    |                                      |                                      |
+</span><span class="s1">    |                                      | See Dataset introduction for details |
+</span><span class="s1">    |                                      | about the required dimensions of     |
+</span><span class="s1">    |                                      | attribute data.                      |
+</span><span class="s1">    +--------------------------------------+--------------------------------------+
+</span><span class="s1">
+</span><span class="s1">    
+</span><span class="s1">    See Also
+</span><span class="s1">    
+</span><span class="s1">    rectilineardataset(), addattribute(), addparameter(), visualize(),
+</span><span class="s1">    getparameter(), getattribute(), matrixdataset()
+</span><span class="s1">    
+</span><span class="s1">    https://kb.lumerical.com/en/ref_scripts_addattribute.html
+</span><span class="s1">    &#39;&#39;&#39;</span>
+    <span class="n">dataset_name</span><span class="p">[</span><span class="n">attribute_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">attribute_data</span>
+    <span class="k">if</span> <span class="s1">&#39;attributes&#39;</span> <span class="ow">in</span> <span class="n">dataset_name</span><span class="p">[</span><span class="s1">&#39;Lumerical_dataset&#39;</span><span class="p">]:</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">attribute_name</span>
+        <span class="n">item_list</span> <span class="o">=</span> <span class="n">dataset_name</span><span class="p">[</span><span class="s1">&#39;Lumerical_dataset&#39;</span><span class="p">][</span><span class="s1">&#39;attributes&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">item_list</span><span class="p">:</span>
+            <span class="n">item_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dataset_name</span><span class="p">[</span><span class="s1">&#39;Lumerical_dataset&#39;</span><span class="p">][</span><span class="s1">&#39;attributes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">attribute_name</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">addparameter</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">parameter_name</span><span class="p">,</span> <span class="n">parameter_data</span><span class="p">):</span>
+    <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">    Help on method addparameter:
+</span><span class="s1">
+</span><span class="s1">    addparameter(dataset_name, parameter_name, parameter_data) method of lumapi.FDTD instance
+</span><span class="s1">    Adds a parameter to an existing dataset.
+</span><span class="s1">    
+</span><span class="s1">    +--------------------------------------+--------------------------------------+
+</span><span class="s1">    | Syntax                               | Description                          |
+</span><span class="s1">    +--------------------------------------+--------------------------------------+
+</span><span class="s1">    | addparameter(R, &#34;p\_name&#34;, p)        | Adds the parameter p to the existing |
+</span><span class="s1">    |                                      | dataset R.                           |
+</span><span class="s1">    +--------------------------------------+--------------------------------------+
+</span><span class="s1">    
+</span><span class="s1">    See Also
+</span><span class="s1">    
+</span><span class="s1">    rectilineardataset(), addattribute(), addparameter(), visualize(),
+</span><span class="s1">    getparameter(), getattribute(), matrixdataset()
+</span><span class="s1">    
+</span><span class="s1">    https://kb.lumerical.com/en/ref_scripts_addparameter.html
+</span><span class="s1">    &#39;&#39;&#39;</span>
+    <span class="n">dataset_name</span><span class="p">[</span><span class="n">parameter_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">parameter_data</span>
+    <span class="k">if</span> <span class="s1">&#39;parameters&#39;</span> <span class="ow">in</span> <span class="n">dataset_name</span><span class="p">[</span><span class="s1">&#39;Lumerical_dataset&#39;</span><span class="p">]:</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">parameter_name</span>
+        <span class="n">item_list</span> <span class="o">=</span> <span class="n">dataset_name</span><span class="p">[</span><span class="s1">&#39;Lumerical_dataset&#39;</span><span class="p">][</span><span class="s1">&#39;parameters&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">item_list</span><span class="p">:</span>
+            <span class="n">item_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dataset_name</span><span class="p">[</span><span class="s1">&#39;Lumerical_dataset&#39;</span><span class="p">][</span><span class="s1">&#39;parameters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">parameter_name</span><span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-08-19</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/fdtd/">FDTD</a>,&nbsp;<a href="/tags/python/">Python</a></section>
+        <section>
+            <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/how-build-a-website-with-hugo/" class="prev" rel="prev" title="Hugo&#43;DoIt 创建个人主页"><i class="fas fa-angle-left fa-fw"></i>Hugo&#43;DoIt 创建个人主页</a>
+            <a href="/fdtd-lc/" class="next" rel="next" title="Liquid Crystals in FDTD">Liquid Crystals in FDTD<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.10"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/fakephysicist" target="_blank" rel="noopener noreferrer">FakePhysicist</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div><script>
+                    if('serviceWorker' in navigator) {
+                        navigator.serviceWorker
+                            .register('/sw.min.js', { scope: '/' })
+                            .then(function(registration) {
+                                
+                            });
+                
+                        navigator.serviceWorker
+                            .ready
+                            .then(function(registration) {
+                                
+                            });
+                    }
+                </script></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script></div>
+
+<div class="pjax-assets"><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false}};</script><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"></div>
+</body>
+
+</html>

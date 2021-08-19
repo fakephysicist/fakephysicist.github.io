@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>LC - 标签 - FakePhysicist</title>
+        <link>https://fakephysicist.github.com/tags/lc/</link>
+        <description>LC - 标签 - FakePhysicist</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fakephysicist@outlook.com (FakePhysicist)</managingEditor>
+            <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 16 Aug 2021 14:00:00 -0400</lastBuildDate><atom:link href="https://fakephysicist.github.com/tags/lc/" rel="self" type="application/rss+xml" /><item>
+    <title>Liquid Crystals in FDTD</title>
+    <link>https://fakephysicist.github.com/fdtd-lc/</link>
+    <pubDate>Mon, 16 Aug 2021 14:00:00 -0400</pubDate><author>
+                    <name>伪·物理学家</name><uri>https://github.com/fakephysicist</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.com/fdtd-lc/</guid>
+    <description><![CDATA[<p>Liquid Crystals in FDTD simulation</p>]]></description>
+</item></channel>
+</rss>
