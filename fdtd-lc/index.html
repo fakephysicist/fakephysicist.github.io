@@ -10,7 +10,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://fakephysicist.github.com/fdtd-lc/" /><meta property="og:image" content="https://fakephysicist.github.com/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-08-16T14:00:00-04:00" />
-<meta property="article:modified_time" content="2021-08-19T01:17:21-04:00" />
+<meta property="article:modified_time" content="2021-08-19T23:34:19-04:00" />
 <meta property="og:see_also" content="https://fakephysicist.github.com/fdtd/" />
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -34,8 +34,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/fakephysicist.github.com\/fdtd-lc\/"
-        },"genre": "posts","keywords": "FDTD, LC, Python","wordcount":  2057 ,
-        "url": "https:\/\/fakephysicist.github.com\/fdtd-lc\/","datePublished": "2021-08-16T14:00:00-04:00","dateModified": "2021-08-19T01:17:21-04:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+        },"genre": "posts","keywords": "FDTD, LC, Python","wordcount":  1718 ,
+        "url": "https:\/\/fakephysicist.github.com\/fdtd-lc\/","datePublished": "2021-08-16T14:00:00-04:00","dateModified": "2021-08-19T23:34:19-04:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
             "@type": "Organization",
             "name": "","logo": {
                     "@type": "ImageObject",
@@ -98,8 +98,8 @@
             <div class="post-meta-line">
                 <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://fakephysicist.github.com/authors/fakephysicist'>伪·物理学家</a></span>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/documentation/"><i class="far fa-folder fa-fw"></i>documentation</a></span>&nbsp;<span class="post-category">和</span>&nbsp;<span class="post-series">系列 <a href="/series/fdtd/"><i class="far fa-list-alt fa-fw"></i>FDTD</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-19">2021-08-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2057 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 10 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-19">2021-08-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1718 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 9 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -119,16 +119,6 @@
         </li>
         <li><a href="#importing-data-from-mat-file-using-the-graphical-user-interface">Importing data from .mat file using the graphical user interface</a></li>
         <li><a href="#importing-data-from-a-csv-comma-separated-values-file">Importing data from a CSV (comma-separated values) file</a></li>
-      </ul>
-    </li>
-    <li><a href="#tips-on-grid-attributes">Tips on grid attributes</a>
-      <ul>
-        <li><a href="#rotating-structures">Rotating structures</a></li>
-        <li><a href="#liquid-crystal-grid-attribute-transformation-can-be-disabled-by-setting-the-orientation-unit-vector-to-0">Liquid crystal grid attribute transformation can be disabled by setting the orientation unit vector to 0</a></li>
-        <li><a href="#index-monitor-currently-record-only-diagonal-index">Index monitor currently record only diagonal index</a></li>
-        <li><a href="#the-diagonal-permittivity-tensor-can-be-dispersive">The diagonal permittivity tensor can be dispersive</a></li>
-        <li><a href="#interpolating-spatially-varying-grid-attributes">Interpolating spatially varying grid attributes</a></li>
-        <li><a href="#simulation-speed">Simulation speed</a></li>
       </ul>
     </li>
     <li><a href="#package-version">Package Version</a>
@@ -152,10 +142,16 @@
 </ol>
 <h2 id="lc-rotation">LC rotation</h2>
 <p>The Liquid crystal (LC) rotation grid attribute allows you to specify a spatially varying LC director orientation in terms of $\theta$, $\phi$.</p>
-<figure align="center">
-<img src="./images/LC_rot_obj.png" alt="" width="50%" height="50%">
-<figcaption></figcaption>
-</figure>
+<figure><a class="lightgallery" href="./images/LC_rot_obj.png" title="./images/LC_rot_obj.png" data-thumbnail="./images/LC_rot_obj.png" data-sub-html="<h2>LC director orientation</h2>">
+        <img
+            class="lazyload"
+            data-src="./images/LC_rot_obj.png"
+            data-srcset="./images/LC_rot_obj.png, ./images/LC_rot_obj.png 1.5x, ./images/LC_rot_obj.png 2x"
+            data-sizes="auto"
+            alt="./images/LC_rot_obj.png"height="30%"width="30%"
+        />
+    </a><figcaption class="image-caption">LC director orientation</figcaption>
+    </figure>
 <p>Liquid crystals are composed of rod-like molecular structures which have rotational symmetry with respect to a long axis. Therefore, liquid crystals have spatially varying uni-axial optical properties. The refractive indices with respect to the long and short molecular axes are called extraordinary $n_e$ and ordinary $n_o$ respectively, see figure above.</p>
 <p>Rotational symmetry allows the transformation matrix to reduced to a function of two rotational angles ($\theta$, $\phi$).</p>
 <div class="details admonition tip open">
@@ -333,10 +329,16 @@ $$</p>
 <span class="n">LC_twist_z_axis</span><span class="p">()</span>       
 </code></pre></td></tr></table>
 </div>
-</div><figure align="center">
-<img src="./images/LC_twist_z_axis.png" alt="" width="50%" height="50%">
-<figcaption>LC twist along z-axis</figcaption>
-</figure>
+</div><figure><a class="lightgallery" href="./images/LC_twist_z_axis.png" title="./images/LC_twist_z_axis.png" data-thumbnail="./images/LC_twist_z_axis.png" data-sub-html="<h2>LC directors twisted along z-axis</h2>">
+        <img
+            class="lazyload"
+            data-src="./images/LC_twist_z_axis.png"
+            data-srcset="./images/LC_twist_z_axis.png, ./images/LC_twist_z_axis.png 1.5x, ./images/LC_twist_z_axis.png 2x"
+            data-sizes="auto"
+            alt="./images/LC_twist_z_axis.png"height="50%"width="50%"
+        />
+    </a><figcaption class="image-caption">LC directors twisted along z-axis</figcaption>
+    </figure>
 <p>we define the director distribution in a matrix variable and put the matrix into the LC attribute property. In the following script, matrix &ldquo;n&rdquo; is used to define the director distribution of the twisted nematic LCs, and this information is put into a dataset called LC which contains the x, y, z position data and the director orientations in an attribute called &ldquo;u&rdquo;. At the second last line where addgridattribute command is used, a LC attribute is added to the simulation and the director distribution is set up.</p>
 <p>Note : Magnitude of spatially varying orientation unit vector</p>
 <blockquote>
@@ -547,31 +549,7 @@ matlabsave(&#34;LC_import.mat&#34;,LC);
 <h3 id="importing-data-from-a-csv-comma-separated-values-file">Importing data from a CSV (comma-separated values) file</h3>
 <p>From the Import menu in the top toolbar, click on Import from CSV to open the import wizard which allows you to select the CSV file to import. This file is typically created with TechWiz LCD from Sanayi System Co., Ltd <a href="http://sanayisystem.com/" target="_blank" rel="noopener noreffer">(http://sanayisystem.com/)</a>.</p>
 <p>For more details on the file format and steps for importing the data from the graphical wizard, see Import object - Liquid crystal from CSV.</p>
-<p>The same data can also be imported using the importcsvlc script command.</p>
-<h2 id="tips-on-grid-attributes">Tips on grid attributes</h2>
-<h3 id="rotating-structures">Rotating structures</h3>
-<p>When you rotate a geometric primitive, the permittivity tensor is not rotated. In order to do this, you must define a rotation grid attribute that has the same rotation as the object and associate the object with that grid attribute.</p>
-<h3 id="liquid-crystal-grid-attribute-transformation-can-be-disabled-by-setting-the-orientation-unit-vector-to-0">Liquid crystal grid attribute transformation can be disabled by setting the orientation unit vector to 0</h3>
-<p>As shown in the script in the LC rotation page, it is possible to specify a spatially varying liquid crystal orientation with the Liquid crystal grid attribute using a spatially varying matrix of orientation unit vectors. The magnitude of the orientation vector should be exactly 1 at each position, or the simulation can become unstable.</p>
-<p>Alternatively, the magnitude of the orientation vector can be set to 0. In such cases, the grid attribute transformation is disabled at that location, and the simulation will use the unrotated diagonal permittivity values. For example, if we set |u(x,y,z)|=1 inside the spherical region and set |u(x,y,z)|=0 outside the region as shown below, a spherical LC region can be set up.</p>
-<figure align="center">
-<img src="./images/director01.png" alt="" width="30%" height="30%">
-<figcaption></figcaption>
-</figure>
-<h3 id="index-monitor-currently-record-only-diagonal-index">Index monitor currently record only diagonal index</h3>
-<p>Index monitors to not record any information about the permittivity transformations. Therefore, it is important to do some careful testing to ensure the setup is correct.</p>
-<h3 id="the-diagonal-permittivity-tensor-can-be-dispersive">The diagonal permittivity tensor can be dispersive</h3>
-<p>The diagonal permittivity tensor can be dispersive, but the transformation U is not dispersive.</p>
-<h3 id="interpolating-spatially-varying-grid-attributes">Interpolating spatially varying grid attributes</h3>
-<p>Linear interpolation is used to interpolate grid attribute data at each mesh point.</p>
-<p>Singleton dimensions are extruded uniformly as shown below.</p>
-<figure align="center">
-<img src="./images/U_FDTD.png" alt="" width="70%" height="70%">
-<figcaption></figcaption>
-</figure>
-<p>If the dimensions of a structure object are larger than the grid attribute data, the attribute will not be applied to the portion of the structure that is outside of the attribute data.</p>
-<h3 id="simulation-speed">Simulation speed</h3>
-<p>It is worth noting that using Grid attributes will increase the simulation memory and time requirements. Therefore, when they are not needed, it&rsquo;s best to ensure they are not used. For example, rather than setting the rotation angle to zero (the grid attribute will still be included in the simulation), it&rsquo;s best to disable the grid attribute entirely.</p>
+<p>The same data can also be imported using the <code>importcsvlc</code> script command.</p>
 <h2 id="package-version">Package Version</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

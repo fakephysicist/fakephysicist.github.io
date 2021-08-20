@@ -16,15 +16,9 @@ You may think that the graph of $\cosh{x}$ looks like a parabola, but it is slig
 
 We can find many different "hanging strings" or "hanging chains" in our daily life. When a string has its two ends fixed, the gravity will bend it into a nice convex curve.
 
-<figure align="center">
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Kette_Kettenkurve_Catenary_2008_PD.JPG" alt="" width="2272" height="1704">
-<figcaption>A hanging chain</figcaption>
-</figure>
+{{< image src="https://upload.wikimedia.org/wikipedia/commons/0/04/Kette_Kettenkurve_Catenary_2008_PD.JPG" caption="A hanging chain (Image Source: [Wikipedia](https://en.wikipedia.org/wiki/File:Kette_Kettenkurve_Catenary_2008_PD.JPG))" width="2272" height="1704" >}}
 
-<figure align="center">
-<img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/PylonsSunset-5982.jpg" alt="" width="2816" height="1872">
-<figcaption>Hanging electric wires</figcaption>
-</figure>
+{{< image src="https://upload.wikimedia.org/wikipedia/commons/f/f3/PylonsSunset-5982.jpg" caption="Hanging electric wires (Image Source: [Wikipedia](https://commons.wikimedia.org/wiki/File:PylonsSunset-5982.jpg))" width="2816" height="1872">}}
 
 So here comes the question: what is the expression of this curve? Is it $y=x^2$ or $y=\sin(x)$ or something else?
 
@@ -52,10 +46,7 @@ But how can we derive this result?
 
 Assume we have a thin and inextensible chain hangs stationary in the air. Let $A$ be the lowest point of the chain. We select another arbitrary point $B$ and let's consider the chain $AB$. There are $3$ forces acting on the chain $AB$, a horizontal force $F$ to the left acting on point $A$, a force $T$ acting on point $B$ along its tangent and the gravity of the chain $AB$.
 
-<figure align="center">
-<img src="./images/catenary.svg" alt="" width="80%" height="80%">
-<figcaption>Catenary</figcaption>
-</figure>
+{{< image src="./images/catenary.svg" caption="Catenary" >}}
 
 {{< admonition type=tip title="Rewind" open=true >}}
 How to split a force into components in two perpendicular directions is covered in A Level Mathematics Student Book 2, Chapter 21 - Forces in context, Section 1 - Resolving forces

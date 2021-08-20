@@ -14,10 +14,7 @@ Liquid Crystals in FDTD simulation
 
 The Liquid crystal (LC) rotation grid attribute allows you to specify a spatially varying LC director orientation in terms of $\theta$, $\phi$.
 
-<figure align="center">
-<img src="./images/LC_rot_obj.png" alt="" width="50%" height="50%">
-<figcaption></figcaption>
-</figure>
+{{< image src="./images/LC_rot_obj.png" caption="LC director orientation" title="" width="30%" height="30%">}}
 
 Liquid crystals are composed of rod-like molecular structures which have rotational symmetry with respect to a long axis. Therefore, liquid crystals have spatially varying uni-axial optical properties. The refractive indices with respect to the long and short molecular axes are called extraordinary $n_e$ and ordinary $n_o$ respectively, see figure above.
 
@@ -139,10 +136,7 @@ def LC_twist_z_axis():
 LC_twist_z_axis()       
 ```
 
-<figure align="center">
-<img src="./images/LC_twist_z_axis.png" alt="" width="50%" height="50%">
-<figcaption>LC twist along z-axis</figcaption>
-</figure>
+{{< image src="./images/LC_twist_z_axis.png" caption="LC directors twisted along z-axis" title="" width="50%" height="50%" >}}
 
 we define the director distribution in a matrix variable and put the matrix into the LC attribute property. In the following script, matrix "n" is used to define the director distribution of the twisted nematic LCs, and this information is put into a dataset called LC which contains the x, y, z position data and the director orientations in an attribute called "u". At the second last line where addgridattribute command is used, a LC attribute is added to the simulation and the director distribution is set up.
 
@@ -266,49 +260,7 @@ From the Import menu in the top toolbar, click on Import from CSV to open the im
 
 For more details on the file format and steps for importing the data from the graphical wizard, see Import object - Liquid crystal from CSV.
 
-The same data can also be imported using the importcsvlc script command.
-
-## Tips on grid attributes
-
-### Rotating structures
-
-When you rotate a geometric primitive, the permittivity tensor is not rotated. In order to do this, you must define a rotation grid attribute that has the same rotation as the object and associate the object with that grid attribute.
-
-### Liquid crystal grid attribute transformation can be disabled by setting the orientation unit vector to 0
-
-As shown in the script in the LC rotation page, it is possible to specify a spatially varying liquid crystal orientation with the Liquid crystal grid attribute using a spatially varying matrix of orientation unit vectors. The magnitude of the orientation vector should be exactly 1 at each position, or the simulation can become unstable.
-
-Alternatively, the magnitude of the orientation vector can be set to 0. In such cases, the grid attribute transformation is disabled at that location, and the simulation will use the unrotated diagonal permittivity values. For example, if we set |u(x,y,z)|=1 inside the spherical region and set |u(x,y,z)|=0 outside the region as shown below, a spherical LC region can be set up.
-
-<figure align="center">
-<img src="./images/director01.png" alt="" width="30%" height="30%">
-<figcaption></figcaption>
-</figure>
-
-### Index monitor currently record only diagonal index
-
-Index monitors to not record any information about the permittivity transformations. Therefore, it is important to do some careful testing to ensure the setup is correct.
-
-### The diagonal permittivity tensor can be dispersive
-
-The diagonal permittivity tensor can be dispersive, but the transformation U is not dispersive.
-
-### Interpolating spatially varying grid attributes
-
-Linear interpolation is used to interpolate grid attribute data at each mesh point.
-
-Singleton dimensions are extruded uniformly as shown below.
-
-<figure align="center">
-<img src="./images/U_FDTD.png" alt="" width="70%" height="70%">
-<figcaption></figcaption>
-</figure>
-
-If the dimensions of a structure object are larger than the grid attribute data, the attribute will not be applied to the portion of the structure that is outside of the attribute data.
-
-### Simulation speed
-
-It is worth noting that using Grid attributes will increase the simulation memory and time requirements. Therefore, when they are not needed, it's best to ensure they are not used. For example, rather than setting the rotation angle to zero (the grid attribute will still be included in the simulation), it's best to disable the grid attribute entirely.
+The same data can also be imported using the `importcsvlc` script command.
 
 ## Package Version
 
