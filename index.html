@@ -6,16 +6,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title class="pjax-title">FakePhysicist</title><meta name="Description" content="一名伪·物理学家的笔记"><meta property="og:title" content="FakePhysicist" />
-<meta property="og:description" content="一名伪·物理学家的笔记" />
+    <title class="pjax-title">FakePhysicist</title><meta name="Description" content="A fake physicist&#39;s notes"><meta property="og:title" content="FakePhysicist" />
+<meta property="og:description" content="A fake physicist&#39;s notes" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://fakephysicist.github.com/" /><meta property="og:image" content="https://fakephysicist.github.com/logo.png"/>
+<meta property="og:url" content="https://fakephysicist.github.com/" /><meta property="og:image" content="https://fakephysicist.github.com/favicon.ico"/>
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://fakephysicist.github.com/logo.png"/>
+<meta name="twitter:image" content="https://fakephysicist.github.com/favicon.ico"/>
 
 <meta name="twitter:title" content="FakePhysicist"/>
-<meta name="twitter:description" content="一名伪·物理学家的笔记"/>
+<meta name="twitter:description" content="A fake physicist&#39;s notes"/>
 <meta name="application-name" content="FakePhysicist">
 <meta name="apple-mobile-web-app-title" content="FakePhysicist">
 
@@ -31,7 +31,7 @@
         "url": "https:\/\/fakephysicist.github.com\/","inLanguage": "zh-CN","author": {
                 "@type": "Person",
                 "name": "FakePhysicist"
-            },"description": "一名伪·物理学家的笔记","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","name": "FakePhysicist"
+            },"description": "A fake physicist's notes","name": "FakePhysicist"
     }
     </script></head>
 
@@ -47,10 +47,21 @@
     <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
-            <a href="/" title="FakePhysicist"><span class="header-title-pre"><i class='far fa-edit fa-fw'></i></span>FakePhysicist</a>
+            <a href="/" title="FakePhysicist"><span class="header-title-pre"><i class="fas fa-wave-square" aria-hidden="true"></i></span>FakePhysicist</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 所有文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/series/"> 系列 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="https://github.com/fakephysicist" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="#" onclick="return false;" class="menu-item theme-switch" title="切换主题">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/series/"> Series </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="#" onclick="return false;" class="menu-item theme-switch" title="切换主题">
                     <i class="fas fa-adjust fa-fw"></i>
                 </a></div>
         </div>
@@ -59,13 +70,29 @@
     <div class="header-container">
         <div class="header-wrapper">
             <div class="header-title">
-                <a href="/" title="FakePhysicist"><span class="header-title-pre"><i class='far fa-edit fa-fw'></i></span>FakePhysicist</a>
+                <a href="/" title="FakePhysicist"><span class="header-title-pre"><i class="fas fa-wave-square" aria-hidden="true"></i></span>FakePhysicist</a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
             </div>
         </div>
-        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">所有文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/series/" title="">系列</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="https://github.com/fakephysicist" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="#" onclick="return false;" class="menu-item theme-switch" title="切换主题">
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="#" onclick="return false;" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/series/" title="">Series</a><a class="menu-item" href="/about/" title="">About</a><a href="#" onclick="return false;" class="menu-item theme-switch" title="切换主题">
                 <i class="fas fa-adjust fa-fw"></i>
             </a></div>
     </div>
@@ -77,13 +104,13 @@
     <div id="search-dropdown-mobile"></div>
 </div>
 <main class="main">
-            <div class="container"><div class="page home" posts><div class="home-profile"><div class="home-avatar"><a href="/posts/" title="所有文章"><img
+            <div class="container"><div class="page home" posts><div class="home-profile"><div class="home-avatar"><a href="/posts/" title="Posts"><img
         class="lazyload"
-        data-src="/images/avatar.webp"
-        data-srcset="/images/avatar.webp, /images/avatar.webp 1.5x, /images/avatar.webp 2x"
+        data-src="avatar.png"
+        data-srcset="avatar.png, avatar.png 1.5x, avatar.png 2x"
         data-sizes="auto"
-        alt="/images/avatar.webp"
-        title="/images/avatar.webp" height="6rem" width="6rem"
+        alt="avatar.png"
+        title="avatar.png" height="6rem" width="6rem"
     /></a></div><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/fakephysicist" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="mailto:fakephysicist@outlook.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/snippets_test/">VS Code Snippets 测试</a>
@@ -144,7 +171,7 @@
 </article></div></div>
         </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.87.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.10"><i class="far fa-edit fa-fw"></i> DoIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/fakephysicist" target="_blank" rel="noopener noreferrer">FakePhysicist</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/about/" target="_blank" rel="noopener noreferrer">FakePhysicist</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
         </div><script>
                     if('serviceWorker' in navigator) {
                         navigator.serviceWorker
@@ -166,9 +193,9 @@
         </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
             <i class="fas fa-comment fa-fw"></i>
         </a>
-    </div><div class="assets"><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script></div>
+    </div><div class="assets"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/fuse/fuse.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script></div>
 
-<div class="pjax-assets"><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/typeit/typeit.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"data":{"id-1":"一名伪·物理学家的笔记"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"]},"duration":-1,"speed":100}};</script><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"></div>
+<div class="pjax-assets"><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/typeit/typeit.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"data":{"id-1":"A hero \"for the fun of it\""},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"]},"duration":-1,"speed":100}};</script><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"></div>
 </body>
 
 </html>
