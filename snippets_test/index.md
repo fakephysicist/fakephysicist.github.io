@@ -23,13 +23,13 @@ This is a warning.
 
 ## image
 
-![this is alt text](/images/lighthouse.webp "this is a caption")
+![this is alt text](./images/lighthouse.webp "this is a caption")
 
-{{< image src="/images/lighthouse.webp" caption="this is a caption" title="this is alt text" width="50%" height="50%" >}}
+{{< image src="./images/lighthouse.webp" caption="this is a caption" title="this is alt text" width="50%" height="50%" >}}
 
 ## music
 
-{{< music url="/music/Wavelength.mp3" name="Wavelength" artist="oldmanyoung " cover="/images/Wavelength.webp" >}}
+{{< music url="./music/Wavelength.mp3" name="Wavelength" artist="oldmanyoung " cover="./images/Wavelength.webp" >}}
 
 ## Bilibili
 
