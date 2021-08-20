@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Hugo - 标签 - FakePhysicist</title>
-        <link>https://fakephysicist.github.com/tags/hugo/</link>
+        <link>https://fakephysicist.github.io/tags/hugo/</link>
         <description>Hugo - 标签 - FakePhysicist</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fakephysicist@outlook.com (FakePhysicist)</managingEditor>
-            <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><lastBuildDate>Mon, 16 Aug 2021 02:43:06 -0400</lastBuildDate><atom:link href="https://fakephysicist.github.com/tags/hugo/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><lastBuildDate>Mon, 16 Aug 2021 02:43:06 -0400</lastBuildDate><atom:link href="https://fakephysicist.github.io/tags/hugo/" rel="self" type="application/rss+xml" /><item>
     <title>Hugo&#43;DoIt 创建个人主页</title>
-    <link>https://fakephysicist.github.com/how-build-a-website-with-hugo/</link>
+    <link>https://fakephysicist.github.io/how-build-a-website-with-hugo/</link>
     <pubDate>Mon, 16 Aug 2021 02:43:06 -0400</pubDate><author>
-                    <name>伪·物理学家</name><uri>https://fakephysicist.github.com/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.com/how-build-a-website-with-hugo/</guid>
+                    <name>伪·物理学家</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/how-build-a-website-with-hugo/</guid>
     <description><![CDATA[<p>在 wsl 环境下安装 Go, Hugo 并且配置主题 DoIt.</p>]]></description>
 </item></channel>
 </rss>
