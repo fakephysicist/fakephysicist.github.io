@@ -10,7 +10,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://fakephysicist.github.com/fdtd/" /><meta property="og:image" content="https://fakephysicist.github.com/favicon.ico"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-08-16T13:25:00-04:00" />
-<meta property="article:modified_time" content="2021-08-19T01:17:21-04:00" />
+<meta property="article:modified_time" content="2021-08-20T01:26:10-04:00" />
 <meta property="og:see_also" content="https://fakephysicist.github.com/fdtd-lc/" />
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -35,7 +35,7 @@
             "@type": "WebPage",
             "@id": "https:\/\/fakephysicist.github.com\/fdtd\/"
         },"genre": "posts","keywords": "FDTD, Python","wordcount":  3906 ,
-        "url": "https:\/\/fakephysicist.github.com\/fdtd\/","datePublished": "2021-08-16T13:25:00-04:00","dateModified": "2021-08-19T01:17:21-04:00","publisher": {
+        "url": "https:\/\/fakephysicist.github.com\/fdtd\/","datePublished": "2021-08-16T13:25:00-04:00","dateModified": "2021-08-20T01:26:10-04:00","publisher": {
             "@type": "Organization",
             "name": ""},"authors": [{
                     "@type": "Person",
@@ -120,7 +120,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://fakephysicist.github.com/authors/fakephysicist'>伪·物理学家</a></span>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/documentation/"><i class="far fa-folder fa-fw"></i>documentation</a></span>&nbsp;<span class="post-category">和</span>&nbsp;<span class="post-series">系列 <a href="/series/fdtd/"><i class="far fa-list-alt fa-fw"></i>FDTD</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-19">2021-08-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3906 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-20">2021-08-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3906 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 19 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -129,10 +129,10 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#solver-physics">Solver Physics</a>
+    <li><a href="#solver-physics">Solver Physics</a></li>
+    <li><a href="#impulse-response">Impulse response</a></li>
+    <li><a href="#mode">MODE</a>
       <ul>
-        <li><a href="#impulse-response">Impulse response</a></li>
-        <li><a href="#mode">MODE</a></li>
         <li><a href="#effective-index">effective index</a></li>
         <li><a href="#loss-dbm">loss (dB/m)</a></li>
         <li><a href="#te-polarization-fraction">TE polarization fraction</a></li>
@@ -213,7 +213,7 @@
 <li>TE:   Ex, Ey, Hz</li>
 <li>TM:   Hx, Hy, Ez</li>
 </ul>
-<h3 id="impulse-response">Impulse response</h3>
+<h2 id="impulse-response">Impulse response</h2>
 <p>FDTD solves for the electric field and magnetic field as a function of time.</p>
 <ul>
 <li>
@@ -261,7 +261,7 @@ $$\int_{-\infty}^{\infty}\vec{E}\left(t\right)\times\vec{H}^{*}\left(t\right) dt
 $$T\left(\omega\right)=\frac{\int_{S}\vec{P}\left(\omega\right)\cdot d\vec{S}}{s\left(\omega\right)}$$</p>
 </li>
 </ul>
-<h3 id="mode">MODE</h3>
+<h2 id="mode">MODE</h2>
 <p>Given a cross section of a waveguide, the finite-difference eigenmode (FDE) solver calculates the <strong>spatial profile</strong> and <strong>frequency dependence of modes</strong>. It can provides us:</p>
 <ul>
 <li>mode field profile</li>
@@ -1173,8 +1173,8 @@ $$1-\frac{\int\left|H_{\perp}\right|^2 dxdy}{\int\left(\left|H\right|^2\right) d
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-08-19&nbsp;<a class="git-hash" href="https://github.com/FakePhysicist/fakephysicist.github.io/commit/bde54acdaa8a099af33177b8814e2f0228623c5f" target="_blank" title="commit by fakephysicist(20970845&#43;FakePhysicist@users.noreply.github.com) bde54acdaa8a099af33177b8814e2f0228623c5f: add new figure snippet" rel="noopener noreferrer">
-                                    <i class="fas fa-hashtag fa-fw"></i>bde54ac</a></span>
+                <span>更新于 2021-08-20&nbsp;<a class="git-hash" href="https://github.com/FakePhysicist/fakephysicist.github.io/commit/9a3ba675eb6ac64ae57a8d1f3a7f6e957aa70ea1" target="_blank" title="commit by fakephysicist(20970845&#43;FakePhysicist@users.noreply.github.com) 9a3ba675eb6ac64ae57a8d1f3a7f6e957aa70ea1: fix a heading" rel="noopener noreferrer">
+                                    <i class="fas fa-hashtag fa-fw"></i>9a3ba67</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>

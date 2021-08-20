@@ -10,7 +10,7 @@ In three dimensions, Maxwell equations have six electromagnetic field components
 - TE:   Ex, Ey, Hz
 - TM:   Hx, Hy, Ez
 
-### Impulse response
+## Impulse response
 
 FDTD solves for the electric field and magnetic field as a function of time.
 
@@ -45,7 +45,7 @@ $$\int_{-\infty}^{\infty}\vec{E}\left(t\right)\times\vec{H}^{*}\left(t\right) dt
 - Transmission
 $$T\left(\omega\right)=\frac{\int_{S}\vec{P}\left(\omega\right)\cdot d\vec{S}}{s\left(\omega\right)}$$
 
-### MODE
+## MODE
 
 Given a cross section of a waveguide, the finite-difference eigenmode (FDE) solver calculates the **spatial profile** and **frequency dependence of modes**. It can provides us:
 
