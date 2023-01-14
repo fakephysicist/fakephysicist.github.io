@@ -21,11 +21,15 @@
 <meta name="application-name" content="FakePhysicist">
 <meta name="apple-mobile-web-app-title" content="FakePhysicist">
 
-<meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<meta name="theme-color" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://fakephysicist.github.io/vscode_usage/" /><link rel="prev" href="https://fakephysicist.github.io/what-is-the-shape-of-a-hanging-chain/" /><link rel="next" href="https://fakephysicist.github.io/snippets_test/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/fontawesome-free/all.min.css">
-    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/animate/animate.min.css">
-    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/animate/animate.min.css">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript>
+    
+    
+    
+    <script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -34,23 +38,23 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/fakephysicist.github.io\/vscode_usage\/"
-        },"genre": "posts","keywords": "VS Code","wordcount":  835 ,
+        },"genre": "posts","keywords": "VS Code","wordcount":  855 ,
         "url": "https:\/\/fakephysicist.github.io\/vscode_usage\/","datePublished": "2021-08-17T14:32:44-04:00","dateModified": "2021-08-19T01:17:21-04:00","publisher": {
             "@type": "Organization",
             "name": ""},"authors": [{
-                    "@type": "Person",
-                    "name": "伪·物理学家"
-                }],"description": ""
+                        "@type": "Person",
+                        "name": "FakePhysicist"                    
+                    }],"description": ""
     }
     </script></head>
 
 <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
-        function setTheme(theme) {document.body.setAttribute('theme', theme);}
+        function setTheme(theme) {document.body.setAttribute('theme', theme); document.documentElement.style.setProperty('color-scheme', theme === 'light' ? 'light' : 'dark');}
         function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
         function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
         if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
-        let themeColorMeta = getMeta('theme-color');
-        if (document.body.getAttribute('theme') != 'light') themeColorMeta.content = '#000000';
+        let metaColors = {'light': '#f8f8f8','dark': '#252627','black': '#000000'}
+        getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
     </script>
     <div id="back-to-top"></div>
     <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
@@ -115,12 +119,37 @@
 <main class="main">
             <div class="container"><div class="toc" id="toc-auto">
         <h2 class="toc-title">目录</h2>
-        <div class="toc-content" id="toc-content-auto"></div>
+        <div class="toc-content" id="toc-content-auto"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#智能感知-">智能感知 ⭐</a></li>
+    <li><a href="#文件和文件夹-">文件和文件夹 ⭐</a>
+      <ul>
+        <li><a href="#打开关闭边栏">打开关闭边栏</a></li>
+        <li><a href="#禅模式">禅模式</a></li>
+        <li><a href="#快速打开文件">快速打开文件</a></li>
+      </ul>
+    </li>
+    <li><a href="#编辑技巧-">编辑技巧 ⭐</a>
+      <ul>
+        <li><a href="#多光标修饰符">多光标修饰符</a></li>
+        <li><a href="#通用操作">通用操作</a></li>
+        <li><a href="#光标操作">光标操作</a></li>
+        <li><a href="#光标移动">光标移动</a></li>
+        <li><a href="#界面移动">界面移动</a></li>
+        <li><a href="#选中操作">选中操作</a></li>
+        <li><a href="#文本行操作">文本行操作</a></li>
+        <li><a href="#导航到特定行">导航到特定行</a></li>
+        <li><a href="#导航到文件的开头和结尾">导航到文件的开头和结尾</a></li>
+        <li><a href="#括号匹配">括号匹配</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
     </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">VS Code 快捷操作</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://fakephysicist.github.io/authors/fakephysicist'>伪·物理学家</a></span>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/documentation/"><i class="far fa-folder fa-fw"></i>documentation</a></span>&nbsp;<span class="post-category">和</span>&nbsp;<span class="post-series">系列 <a href="/series/vs-code/"><i class="far fa-list-alt fa-fw"></i>VS Code</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-17">2021-08-17</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-19">2021-08-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 835 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-17">2021-08-17</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-19">2021-08-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 855 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -154,25 +183,25 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>总结<del>抄袭</del>一些 VS Code 的操作技巧</p>
-<h2 id="智能感知-">智能感知 ⭐</h2>
-<p><code>Ctrl + Space</code> 触发&quot;建议&quot;小部件</p>
+<h2 id="智能感知-" class="headerLink">
+    <a href="#%e6%99%ba%e8%83%bd%e6%84%9f%e7%9f%a5-" class="header-mark"></a>智能感知 ⭐</h2><p><code>Ctrl + Space</code> 触发&quot;建议&quot;小部件</p>
 <p>默认情况下，<code>Tab</code> 或 <code>Enter</code> 表示接受当前选项</p>
-<h2 id="文件和文件夹-">文件和文件夹 ⭐</h2>
-<h3 id="打开关闭边栏">打开关闭边栏</h3>
-<p><code>Ctrl+B</code></p>
-<h3 id="禅模式">禅模式</h3>
-<p><code>Ctrl + K, Z</code> 进入无干扰的禅模式；按两次 Esc 退出</p>
-<h3 id="快速打开文件">快速打开文件</h3>
-<p><code>Ctrl + P</code> 可以搜索</p>
-<h2 id="编辑技巧-">编辑技巧 ⭐</h2>
-<blockquote>
+<h2 id="文件和文件夹-" class="headerLink">
+    <a href="#%e6%96%87%e4%bb%b6%e5%92%8c%e6%96%87%e4%bb%b6%e5%a4%b9-" class="header-mark"></a>文件和文件夹 ⭐</h2><h3 id="打开关闭边栏" class="headerLink">
+    <a href="#%e6%89%93%e5%bc%80%e5%85%b3%e9%97%ad%e8%be%b9%e6%a0%8f" class="header-mark"></a>打开关闭边栏</h3><p><code>Ctrl+B</code></p>
+<h3 id="禅模式" class="headerLink">
+    <a href="#%e7%a6%85%e6%a8%a1%e5%bc%8f" class="header-mark"></a>禅模式</h3><p><code>Ctrl + K, Z</code> 进入无干扰的禅模式；按两次 Esc 退出</p>
+<h3 id="快速打开文件" class="headerLink">
+    <a href="#%e5%bf%ab%e9%80%9f%e6%89%93%e5%bc%80%e6%96%87%e4%bb%b6" class="header-mark"></a>快速打开文件</h3><p><code>Ctrl + P</code> 可以搜索</p>
+<h2 id="编辑技巧-" class="headerLink">
+    <a href="#%e7%bc%96%e8%be%91%e6%8a%80%e5%b7%a7-" class="header-mark"></a>编辑技巧 ⭐</h2><blockquote>
 <p>当然这些操作都可以通过 菜单 👉 选择 来进行操作</p>
 </blockquote>
-<h3 id="多光标修饰符">多光标修饰符</h3>
-<p>多光标修饰符是用来设置我们如果配合鼠标单击来添加多个光标。比如，当我们可以通过 <code>Alt + 单击</code> 添加多个光标时, <code>Alt</code> 键就是多光标修饰符</p>
+<h3 id="多光标修饰符" class="headerLink">
+    <a href="#%e5%a4%9a%e5%85%89%e6%a0%87%e4%bf%ae%e9%a5%b0%e7%ac%a6" class="header-mark"></a>多光标修饰符</h3><p>多光标修饰符是用来设置我们如果配合鼠标单击来添加多个光标。比如，当我们可以通过 <code>Alt + 单击</code> 添加多个光标时, <code>Alt</code> 键就是多光标修饰符</p>
 <p>插入多个光标后, 可以同时移动或者选择</p>
-<h3 id="通用操作">通用操作</h3>
-<ul>
+<h3 id="通用操作" class="headerLink">
+    <a href="#%e9%80%9a%e7%94%a8%e6%93%8d%e4%bd%9c" class="header-mark"></a>通用操作</h3><ul>
 <li><code>Ctrl + C</code>, 复制当前文本</li>
 <li><code>Ctrl + V</code>, 粘贴当前文本</li>
 <li><code>Ctrl + Z</code>, 撤销</li>
@@ -180,25 +209,25 @@
 <li><code>Shift + Alt + F</code>, 整理代码</li>
 <li><code>Ctrl + /</code>, 将当前行注释 / 反注释, 当多行文本被选中时, 将多行文本注释</li>
 </ul>
-<h3 id="光标操作">光标操作</h3>
-<ul>
+<h3 id="光标操作" class="headerLink">
+    <a href="#%e5%85%89%e6%a0%87%e6%93%8d%e4%bd%9c" class="header-mark"></a>光标操作</h3><ul>
 <li><code>Ctrl + Alt + ↑</code>, 向上加入一个光标</li>
 <li><code>Ctrl + Alt + ↓</code>, 向下加入一个光标</li>
 <li><code>Ctrl + U</code>, 撤销上次光标操作</li>
 </ul>
-<h3 id="光标移动">光标移动</h3>
-<ul>
+<h3 id="光标移动" class="headerLink">
+    <a href="#%e5%85%89%e6%a0%87%e7%a7%bb%e5%8a%a8" class="header-mark"></a>光标移动</h3><ul>
 <li><code>Ctrl + ←</code> 将光标向左移动一个单词</li>
 <li><code>Ctrl + →</code> 将光标向右移动一个单词</li>
 </ul>
-<h3 id="界面移动">界面移动</h3>
-<ul>
+<h3 id="界面移动" class="headerLink">
+    <a href="#%e7%95%8c%e9%9d%a2%e7%a7%bb%e5%8a%a8" class="header-mark"></a>界面移动</h3><ul>
 <li><code>Ctrl + ↑</code> 向上移动当前界面</li>
 <li><code>Ctrl + ↓</code> 向下移动当前界面</li>
 <li><code>Alt</code> 键可在编辑器和资源管理器中（5 倍）快速滚动</li>
 </ul>
-<h3 id="选中操作">选中操作</h3>
-<ul>
+<h3 id="选中操作" class="headerLink">
+    <a href="#%e9%80%89%e4%b8%ad%e6%93%8d%e4%bd%9c" class="header-mark"></a>选中操作</h3><ul>
 <li><code>Shift + ← 向左选中</code> / 反选中一个字符 (重要)</li>
 <li><code>Shift + → 向右选中</code> / 反选中一个字符 (重要)</li>
 <li><code>Ctrl + Shift + ← 向左选中</code> / 反选中一个单词 (重要)</li>
@@ -210,8 +239,8 @@
 <li><code>Shift + Alt + Right</code> 扩大选中区域</li>
 <li><code>Shift + Alt + Left</code> 缩小当前选择</li>
 </ul>
-<h3 id="文本行操作">文本行操作</h3>
-<ul>
+<h3 id="文本行操作" class="headerLink">
+    <a href="#%e6%96%87%e6%9c%ac%e8%a1%8c%e6%93%8d%e4%bd%9c" class="header-mark"></a>文本行操作</h3><ul>
 <li><code>Ctrl + C</code> 当前无选中文本时, 复制当前行</li>
 <li><code>Shift + Alt + ↑</code> 向上复制当前行, 当多行文本被选中时, 向上复制多行 (重要)</li>
 <li><code>Shift + Alt + ↓</code> 向下复制当前行, 当多行文本被选中时, 向下复制多行 (重要)</li>
@@ -220,12 +249,14 @@
 <li><code>Ctrl+Enter</code> 在当前行下边插入一行</li>
 <li><code>Ctrl+Shift+Enter</code> 在当前行上方插入一行</li>
 </ul>
-<h3 id="导航到特定行">导航到特定行</h3>
-<p>键盘快捷键：<code>Ctrl + G</code></p>
-<h3 id="导航到文件的开头和结尾">导航到文件的开头和结尾</h3>
-<p>键盘快捷键：<code>Ctrl + Home</code> 和 <code>Ctrl + End</code></p>
-<h3 id="括号匹配">括号匹配</h3>
-<p>Windows / Linux: <code>ctrl+shift+\</code></p></div><div class="post-footer" id="post-footer">
+<h3 id="导航到特定行" class="headerLink">
+    <a href="#%e5%af%bc%e8%88%aa%e5%88%b0%e7%89%b9%e5%ae%9a%e8%a1%8c" class="header-mark"></a>导航到特定行</h3><p>键盘快捷键：<code>Ctrl + G</code></p>
+<h3 id="导航到文件的开头和结尾" class="headerLink">
+    <a href="#%e5%af%bc%e8%88%aa%e5%88%b0%e6%96%87%e4%bb%b6%e7%9a%84%e5%bc%80%e5%a4%b4%e5%92%8c%e7%bb%93%e5%b0%be" class="header-mark"></a>导航到文件的开头和结尾</h3><p>键盘快捷键：<code>Ctrl + Home</code> 和 <code>Ctrl + End</code></p>
+<h3 id="括号匹配" class="headerLink">
+    <a href="#%e6%8b%ac%e5%8f%b7%e5%8c%b9%e9%85%8d" class="header-mark"></a>括号匹配</h3><p>Windows / Linux: <code>ctrl+shift+\</code></p></div>
+
+        <div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -245,7 +276,7 @@
     <div class="post-info-more">
         <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/vs-code/">VS Code</a></section>
         <section>
-            <span><a href="#" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
@@ -254,20 +285,22 @@
 </div>
 </article></div>
         </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.101.0">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreffer" title="DoIt 0.2.10"><i class="far fa-edit fa-fw"></i> DoIt</a>
-                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/about/" target="_blank" rel="noopener noreferrer">FakePhysicist</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        <div class="footer-container"><div class="footer-line">
+                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.109.0">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/about/" target="_blank" rel="noopener noreferrer">FakePhysicist</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+            <div class="footer-line"></div>
+            <div class="footer-line">
+            </div>
         </div><script>
                     if('serviceWorker' in navigator) {
                         navigator.serviceWorker
                             .register('/sw.min.js', { scope: '/' })
                             .then(function(registration) {
-                                
                             });
                 
                         navigator.serviceWorker
                             .ready
                             .then(function(registration) {
-                                
                             });
                     }
                 </script></footer></div>
@@ -277,9 +310,10 @@
         </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
             <i class="fas fa-comment fa-fw"></i>
         </a>
-    </div><div class="assets"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/fuse/fuse.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script></div>
+    </div><div class="assets"><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/fuse/fuse.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/topbar/topbar.min.js"></script><script type="text/javascript" src="/lib/pjax/pjax.min.js"></script><script type="text/javascript" src="/js/theme.min.js" defer></script></div>
 
-<div class="pjax-assets"><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false}};</script><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"></div>
+<div class="pjax-assets"><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":30,"threshold":0.3,"type":"fuse","useExtendedSearch":false}};</script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js" defer></script><script type="text/javascript" src="/lib/katex/auto-render.min.js" defer></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js" defer></script><script type="text/javascript" src="/lib/katex/mhchem.min.js" defer></script><script type="text/javascript" src="/js/katex.min.js" defer></script><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="/lib/katex/copy-tex.min.css">
+        <noscript><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"></noscript></div>
 </body>
 
 </html>

@@ -8,7 +8,7 @@
     <title>Hugo&#43;DoIt 创建个人主页</title>
     <link>https://fakephysicist.github.io/how-build-a-website-with-hugo/</link>
     <pubDate>Mon, 16 Aug 2021 02:43:06 -0400</pubDate><author>
-                    <name>伪·物理学家</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/how-build-a-website-with-hugo/</guid>
+                        <name>伪·物理学家</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/how-build-a-website-with-hugo/</guid>
     <description><![CDATA[<p>在 wsl 环境下安装 Go, Hugo 并且配置主题 DoIt.</p>]]></description>
 </item></channel>
 </rss>
