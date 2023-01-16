@@ -120,83 +120,83 @@
             <div class="container"><div class="toc" id="toc-auto">
         <h2 class="toc-title">目录</h2>
         <div class="toc-content" id="toc-content-auto"><nav id="TableOfContents">
-  <ul>
+  <ol>
     <li><a href="#solver-physics">Solver Physics</a></li>
     <li><a href="#impulse-response">Impulse response</a></li>
     <li><a href="#mode">MODE</a>
-      <ul>
+      <ol>
         <li><a href="#effective-index">effective index</a></li>
         <li><a href="#loss-dbm">loss (dB/m)</a></li>
         <li><a href="#te-polarization-fraction">TE polarization fraction</a></li>
         <li><a href="#waveguide-tetm-fraction">Waveguide TE/TM Fraction</a></li>
         <li><a href="#effective-area">Effective Area</a></li>
-      </ul>
+      </ol>
     </li>
     <li><a href="#boundary-condition">Boundary condition</a>
-      <ul>
+      <ol>
         <li><a href="#pml">PML</a></li>
         <li><a href="#periodic">Periodic</a></li>
         <li><a href="#bloch">Bloch</a></li>
         <li><a href="#symmetryanti-symmetry">Symmetry/anti-symmetry</a></li>
-      </ul>
+      </ol>
     </li>
     <li><a href="#source">Source</a>
-      <ul>
+      <ol>
         <li><a href="#plane-wave">plane wave</a></li>
         <li><a href="#mode-source">mode source</a></li>
         <li><a href="#dipole-source">dipole source</a></li>
         <li><a href="#import-source">import source</a></li>
-      </ul>
+      </ol>
     </li>
     <li><a href="#monitor">Monitor</a>
-      <ul>
+      <ol>
         <li><a href="#frequency-domain-field-monitor">frequency domain field monitor</a></li>
-      </ul>
+      </ol>
     </li>
     <li><a href="#analysis-group">Analysis group</a></li>
     <li><a href="#lumerical-scripting-language">Lumerical scripting language</a>
-      <ul>
+      <ol>
         <li><a href="#general-workflow">General workflow</a></li>
         <li><a href="#common-commands">Common commands</a></li>
-      </ul>
+      </ol>
     </li>
     <li><a href="#python-api">Python API</a>
-      <ul>
+      <ol>
         <li><a href="#import-modules">import modules</a></li>
         <li><a href="#start-a-session">start a session</a></li>
         <li><a href="#get-help">get help</a></li>
         <li><a href="#simulation-objects">simulation objects</a>
-          <ul>
+          <ol>
             <li><a href="#add-and-then-set">add and then set</a></li>
             <li><a href="#add-and-set-at-the-same-time">add and set at the same time</a>
-              <ul>
+              <ol>
                 <li><a href="#set-with-parameters">set with parameters</a></li>
                 <li><a href="#set-with-dict">set with dict</a></li>
-              </ul>
+              </ol>
             </li>
             <li><a href="#set-with-loop">set with loop</a></li>
-          </ul>
+          </ol>
         </li>
         <li><a href="#run-save-and-close">run, save and close</a></li>
         <li><a href="#deal-with-data">deal with data</a>
-          <ul>
+          <ol>
             <li><a href="#get-data">get data</a></li>
             <li><a href="#data-structure">data structure</a></li>
-          </ul>
+          </ol>
         </li>
         <li><a href="#pass-data-between-python-and-lumerical">pass data between python and lumerical</a></li>
         <li><a href="#run-lumerical-script-language">run lumerical script language</a></li>
         <li><a href="#useful-code-snippets">useful code snippets</a>
-          <ul>
+          <ol>
             <li><a href="#1d-plot">1d plot</a></li>
             <li><a href="#2d-plot-with-interp2d">2d plot with interp2d</a></li>
             <li><a href="#2d-subplots">2d subplots</a></li>
             <li><a href="#custom-functions">custom functions</a></li>
-          </ul>
+          </ol>
         </li>
-      </ul>
+      </ol>
     </li>
-  </ul>
+  </ol>
 </nav></div>
     </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">FDTD Usage</h1><div class="post-meta">
             <div class="post-meta-line">
@@ -210,83 +210,83 @@
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
-  <ul>
+  <ol>
     <li><a href="#solver-physics">Solver Physics</a></li>
     <li><a href="#impulse-response">Impulse response</a></li>
     <li><a href="#mode">MODE</a>
-      <ul>
+      <ol>
         <li><a href="#effective-index">effective index</a></li>
         <li><a href="#loss-dbm">loss (dB/m)</a></li>
         <li><a href="#te-polarization-fraction">TE polarization fraction</a></li>
         <li><a href="#waveguide-tetm-fraction">Waveguide TE/TM Fraction</a></li>
         <li><a href="#effective-area">Effective Area</a></li>
-      </ul>
+      </ol>
     </li>
     <li><a href="#boundary-condition">Boundary condition</a>
-      <ul>
+      <ol>
         <li><a href="#pml">PML</a></li>
         <li><a href="#periodic">Periodic</a></li>
         <li><a href="#bloch">Bloch</a></li>
         <li><a href="#symmetryanti-symmetry">Symmetry/anti-symmetry</a></li>
-      </ul>
+      </ol>
     </li>
     <li><a href="#source">Source</a>
-      <ul>
+      <ol>
         <li><a href="#plane-wave">plane wave</a></li>
         <li><a href="#mode-source">mode source</a></li>
         <li><a href="#dipole-source">dipole source</a></li>
         <li><a href="#import-source">import source</a></li>
-      </ul>
+      </ol>
     </li>
     <li><a href="#monitor">Monitor</a>
-      <ul>
+      <ol>
         <li><a href="#frequency-domain-field-monitor">frequency domain field monitor</a></li>
-      </ul>
+      </ol>
     </li>
     <li><a href="#analysis-group">Analysis group</a></li>
     <li><a href="#lumerical-scripting-language">Lumerical scripting language</a>
-      <ul>
+      <ol>
         <li><a href="#general-workflow">General workflow</a></li>
         <li><a href="#common-commands">Common commands</a></li>
-      </ul>
+      </ol>
     </li>
     <li><a href="#python-api">Python API</a>
-      <ul>
+      <ol>
         <li><a href="#import-modules">import modules</a></li>
         <li><a href="#start-a-session">start a session</a></li>
         <li><a href="#get-help">get help</a></li>
         <li><a href="#simulation-objects">simulation objects</a>
-          <ul>
+          <ol>
             <li><a href="#add-and-then-set">add and then set</a></li>
             <li><a href="#add-and-set-at-the-same-time">add and set at the same time</a>
-              <ul>
+              <ol>
                 <li><a href="#set-with-parameters">set with parameters</a></li>
                 <li><a href="#set-with-dict">set with dict</a></li>
-              </ul>
+              </ol>
             </li>
             <li><a href="#set-with-loop">set with loop</a></li>
-          </ul>
+          </ol>
         </li>
         <li><a href="#run-save-and-close">run, save and close</a></li>
         <li><a href="#deal-with-data">deal with data</a>
-          <ul>
+          <ol>
             <li><a href="#get-data">get data</a></li>
             <li><a href="#data-structure">data structure</a></li>
-          </ul>
+          </ol>
         </li>
         <li><a href="#pass-data-between-python-and-lumerical">pass data between python and lumerical</a></li>
         <li><a href="#run-lumerical-script-language">run lumerical script language</a></li>
         <li><a href="#useful-code-snippets">useful code snippets</a>
-          <ul>
+          <ol>
             <li><a href="#1d-plot">1d plot</a></li>
             <li><a href="#2d-plot-with-interp2d">2d plot with interp2d</a></li>
             <li><a href="#2d-subplots">2d subplots</a></li>
             <li><a href="#custom-functions">custom functions</a></li>
-          </ul>
+          </ol>
         </li>
-      </ul>
+      </ol>
     </li>
-  </ul>
+  </ol>
 </nav></div>
             </div><div class="content" id="content"><p>FDTD basics, Python scripts controlling Lumerical.</p>
 <h2 id="solver-physics" class="headerLink">

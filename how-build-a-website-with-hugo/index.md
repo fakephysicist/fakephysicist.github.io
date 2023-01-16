@@ -59,9 +59,7 @@ wget https://golang.org/dl/go1.16.7.linux-amd64.tar.gz
 ## DoIt
 
 {{< admonition type=tip title="提示" open=false >}}
-主要参考了[这篇文章](https://xinqi.gq/2021/08/%E4%BD%BF%E7%94%A8hugo-loveit%E4%B8%BB%E9%A2%98%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/#%E5%AE%89%E8%A3%85-hugo)
-
-本来是要写 LoveIt 这个主题, 但是她实在是太久没有更新了... 所以爱是会消失是吗:)
+主要参考了xx(原网页居然已经没了)
 {{< /admonition >}}
 
 ### DoIt 安装
@@ -140,10 +138,10 @@ wget https://golang.org/dl/go1.16.7.linux-amd64.tar.gz
 
 #### 生成新文章
 
-生成新文章中文版`HelloWorld`的命令：
+生成新文章`HelloWorld`的命令：
 
 ```bash
-hugo new posts/HelloWorld/index.cn.md
+hugo new posts/HelloWorld/index.md
 ```
 
 执行完成后，在`./content/posts`目录下应该可以看到新文件，同时里面已经有 markdown 模版中的文章前缀参数.
@@ -207,15 +205,15 @@ ssh -T git@github.com
 
 ### Adding a new SSH key to your GitHub account
 
-网页操作,很容易
+[网页操作,很容易](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
-## 创建 Github 仓库
+## 创建 相应的 Github 仓库
 
 个人建议创建两个仓库：
 
-- 一个用于托管博客项目源文件，包括配置文件等包含后续可能配置 `API KEY` 的东西.设置权限为 Private（不公开）
+- 一个用于托管博客项目源文件，包括配置文件等包含后续可能配置 `API KEY` 的东西.设置权限为 Private（不公开),并配置该仓库使用 `Github Pages`，这样每次同步时, Github 会自动编译并且生成`静态 Html 文件`, 同时与第二个仓库同步.
 
-- 一个用于托管博客编译后生成的`静态 Html 文件`(即使用 hugo 命令编译生成的 `public` 文件夹)，并配置该仓库使用 `Github Pages`，然后 Github 就会自动检测到它其中的`静态 Html 文件`并搭建网站.设置权限为 Public（公开）
+- 一个用于托管博客编译后生成的`静态 Html 文件`(即使用 hugo 命令编译生成的 `public` 文件夹), 设置权限为 Public（公开）
 
 {{< image src="./images/git_management.svg" caption="GitHub Workflow" title="" width="50%" height="50%" >}}
 
@@ -232,7 +230,7 @@ ssh -T git@github.com
 git init
 
 ## 设置名为Origin的远端Git仓库
-git remote add origin {{这里替换成你的仓库在Github Clone用的地址}}
+git remote add origin {{这里替换成你的仓库在Github `git clone`用的地址}}
 
 ## 选择所有文件
 git add -A
@@ -241,7 +239,7 @@ git add -A
 git push -u origin master
 ```
 
-直接用vscode链接本地仓库与远端Github仓库 (vscode yyds)
+或者直接用vscode链接本地仓库与远端Github仓库 (vscode yyds)
 
 #### 创建.gitignore
 
@@ -253,19 +251,19 @@ git push -u origin master
 
 #### 创建仓库，注意名称
 
-第二个仓库名字比较重要，必须是 `{{你的github用户名}}.github.io`. 比如我的 Github 名字为 `FakePhysicist`, 那么我需要创建的仓库名称为 `fakephysicist.github.io`.
+第二个仓库名字比较重要，必须是 `{{你的github用户名}}.github.io`. 比如我的 Github 名字为 `FakePhysicist`, 那么我需要创建的仓库名称为 `fakephysicist.github.io`. 同时注意要设置为 Public 权限等级.
 
 #### 在仓库设置里设置启用Github Pages
 
 设置 `Branch` 为 `master`, 静态文件位置为`/(root)`, 原因是我们在下个步骤中会直接将生成的 `public` 文件夹中的内容 `push` 到 `master` 分支的 `/` 目录下.
 
-## 从第一个仓库 push 到第二个仓库
+## 发布
 
 ### 纯手工操作
 
 1. 在 `My_Website` 目录下执行 `git submodule update --init --recursive` 将子模块更新到最新状态；
-2. In your config/_default/config.yaml file, set baseurl = "https://<USERNAME>.github.io/", where <USERNAME> is your Github username. Stop Hugo if it’s running and delete the public directory if it exists (by typing rm -r public/).
-3. Add your .github.io repository into a submodule in a folder named public, replacing with your Github username:
+2. In your config.toml file, set `baseurl = https://<USERNAME>.github.io/`, where `<USERNAME>` is your Github username. Stop Hugo if it’s running and delete the public directory if it exists (by typing rm -r public/).
+3. set your `<USERNAME>.github.io` repository into a submodule, in the folder named `public`. Still, replacing `<USERNAME>` with your Github username:
 
     ```bash
     git submodule add -f -b master https://github.com/<USERNAME>/<USERNAME>.github.io.git public
@@ -290,9 +288,9 @@ git push -u origin master
     cd ..
     ```
 
-    **Notice that the default branch of github is `main` instead of `master` now.**
+    Notice that the default branch of github is `main` instead of `master` now.
 
-### 给源代码仓库添加 Github Action
+### 自动操作 (Github Action)
 
 #### 创建 CI 脚本
 
