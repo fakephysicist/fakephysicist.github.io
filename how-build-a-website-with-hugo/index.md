@@ -207,7 +207,7 @@ ssh -T git@github.com
 
 [网页操作,很容易](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
-## 创建 相应的 Github 仓库
+## 创建相应的 Github 仓库
 
 个人建议创建两个仓库：
 
