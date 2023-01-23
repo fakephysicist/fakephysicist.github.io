@@ -7,53 +7,67 @@
             <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><lastBuildDate>Tue, 17 Aug 2021 22:32:00 -0400</lastBuildDate><atom:link href="https://fakephysicist.github.io/authors/fakephysicist/" rel="self" type="application/rss+xml" /><item>
     <title>VS Code Snippets 测试</title>
     <link>https://fakephysicist.github.io/snippets_test/</link>
-    <pubDate>Tue, 17 Aug 2021 22:32:00 -0400</pubDate><author>
-                        <name>伪·物理学家</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/snippets_test/</guid>
+    <pubDate>Tue, 17 Aug 2021 22:32:00 -0400</pubDate>
+    <author>FakePhysicist</author>
+    <guid>https://fakephysicist.github.io/snippets_test/</guid>
     <description><![CDATA[<p>测试一下 VS Code Snippets.</p>]]></description>
-</item><item>
+</item>
+<item>
     <title>VS Code 快捷操作</title>
     <link>https://fakephysicist.github.io/vscode_usage/</link>
-    <pubDate>Tue, 17 Aug 2021 14:32:44 -0400</pubDate><author>
-                        <name>伪·物理学家</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/vscode_usage/</guid>
+    <pubDate>Tue, 17 Aug 2021 14:32:44 -0400</pubDate>
+    <author>FakePhysicist</author>
+    <guid>https://fakephysicist.github.io/vscode_usage/</guid>
     <description><![CDATA[<p>总结<del>抄袭</del>一些 VS Code 的操作技巧</p>]]></description>
-</item><item>
+</item>
+<item>
     <title>KaTex Test</title>
     <link>https://fakephysicist.github.io/what-is-the-shape-of-a-hanging-chain/</link>
-    <pubDate>Tue, 17 Aug 2021 00:00:00 -0400</pubDate><author>
-                        <name>伪·物理学家</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/what-is-the-shape-of-a-hanging-chain/</guid>
+    <pubDate>Tue, 17 Aug 2021 00:00:00 -0400</pubDate>
+    <author>FakePhysicist</author>
+    <guid>https://fakephysicist.github.io/what-is-the-shape-of-a-hanging-chain/</guid>
     <description><![CDATA[<p>This a $\KaTeX$ functionality test article.</p>
 <div class="details admonition warning">
         <div class="details-summary admonition-title">
-            <i class="icon fas fa-exclamation-triangle fa-fw"></i>Warning<i class="details-icon fas fa-angle-right fa-fw"></i>
+            <i class="icon fas fa-exclamation-triangle fa-fw" aria-hidden="true"></i>Warning<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
         </div>
         <div class="details-content">
-            <div class="admonition-content">This article is copied from this <a href="https://planet-cloud.fun/what-is-the-shape-of-a-hanging-chain/" target="_blank" rel="noopener noreferrer">page</a>.</div>
+            <div class="admonition-content">This article is copied from this <a href="https://planet-cloud.fun/what-is-the-shape-of-a-hanging-chain/" target="_blank" rel="noopener noreffer ">page</a>.</div>
         </div>
     </div>
 <p>What is the shape of a hanging chain?</p>]]></description>
-</item><item>
+</item>
+<item>
     <title>Liquid Crystals in FDTD</title>
-    <link>https://fakephysicist.github.io/fdtd-lc/</link>
-    <pubDate>Mon, 16 Aug 2021 14:00:00 -0400</pubDate><author>
-                        <name>伪·物理学家</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/fdtd-lc/</guid>
+    <link>https://fakephysicist.github.io/liquid_crystal_in_fdtd/</link>
+    <pubDate>Mon, 16 Aug 2021 14:00:00 -0400</pubDate>
+    <author>FakePhysicist</author>
+    <guid>https://fakephysicist.github.io/liquid_crystal_in_fdtd/</guid>
     <description><![CDATA[<p>Liquid Crystals in FDTD simulation</p>]]></description>
-</item><item>
+</item>
+<item>
     <title>FDTD Usage</title>
-    <link>https://fakephysicist.github.io/fdtd/</link>
-    <pubDate>Mon, 16 Aug 2021 13:25:00 -0400</pubDate><author>
-                        <name>伪·物理学家</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/fdtd/</guid>
+    <link>https://fakephysicist.github.io/fdtd_usage/</link>
+    <pubDate>Mon, 16 Aug 2021 13:25:00 -0400</pubDate>
+    <author>FakePhysicist</author>
+    <guid>https://fakephysicist.github.io/fdtd_usage/</guid>
     <description><![CDATA[<p>FDTD basics, Python scripts controlling Lumerical.</p>]]></description>
-</item><item>
-    <title>Hugo&#43;DoIt 创建个人主页</title>
+</item>
+<item>
+    <title>Hugo &#43; LoveIt 创建个人主页</title>
     <link>https://fakephysicist.github.io/how-build-a-website-with-hugo/</link>
-    <pubDate>Mon, 16 Aug 2021 02:43:06 -0400</pubDate><author>
-                        <name>伪·物理学家</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/how-build-a-website-with-hugo/</guid>
-    <description><![CDATA[<p>在 wsl 环境下安装 Go, Hugo 并且配置主题 DoIt.</p>]]></description>
-</item><item>
+    <pubDate>Mon, 16 Aug 2021 02:43:06 -0400</pubDate>
+    <author>FakePhysicist</author>
+    <guid>https://fakephysicist.github.io/how-build-a-website-with-hugo/</guid>
+    <description><![CDATA[<p>在 wsl 环境下安装 Go, Hugo 并且配置主题 LoveIt.</p>]]></description>
+</item>
+<item>
     <title>Hello World</title>
     <link>https://fakephysicist.github.io/hello-world/</link>
-    <pubDate>Mon, 16 Aug 2021 00:53:04 -0400</pubDate><author>
-                        <name>伪·物理学家</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/hello-world/</guid>
+    <pubDate>Mon, 16 Aug 2021 00:53:04 -0400</pubDate>
+    <author>FakePhysicist</author>
+    <guid>https://fakephysicist.github.io/hello-world/</guid>
     <description><![CDATA[<p>Hello World! This is my first note!</p>]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>
