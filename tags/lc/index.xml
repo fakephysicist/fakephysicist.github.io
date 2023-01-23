@@ -7,10 +7,8 @@
             <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><lastBuildDate>Mon, 16 Aug 2021 14:00:00 -0400</lastBuildDate><atom:link href="https://fakephysicist.github.io/tags/lc/" rel="self" type="application/rss+xml" /><item>
     <title>Liquid Crystals in FDTD</title>
     <link>https://fakephysicist.github.io/liquid_crystal_in_fdtd/</link>
-    <pubDate>Mon, 16 Aug 2021 14:00:00 -0400</pubDate>
-    <author>FakePhysicist</author>
-    <guid>https://fakephysicist.github.io/liquid_crystal_in_fdtd/</guid>
+    <pubDate>Mon, 16 Aug 2021 14:00:00 -0400</pubDate><author>
+                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/liquid_crystal_in_fdtd/</guid>
     <description><![CDATA[<p>Liquid Crystals in FDTD simulation</p>]]></description>
-</item>
-</channel>
+</item></channel>
 </rss>
