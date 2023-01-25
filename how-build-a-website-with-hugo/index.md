@@ -1,6 +1,6 @@
-# Hugo + LoveIt 创建个人主页
+# Hugo + DoIt 创建个人主页
 
-在 wsl 环境下安装 Go, Hugo 并且配置主题 LoveIt.
+在 wsl 环境下安装 Go, Hugo 并且配置主题 DoIt.
 <!--more-->
 ## Go
 
@@ -56,13 +56,13 @@ wget https://golang.org/dl/go1.16.7.linux-amd64.tar.gz
 
 基本没了，一般情况下用这三个命令就够了.
 
-## LoveIt
+## DoIt
 
 {{< admonition type=tip title="提示" open=false >}}
 主要参考了xx(原网页居然已经没了)
 {{< /admonition >}}
 
-### LoveIt 安装
+### DoIt 安装
 
 1. 创建你的项目, Hugo 提供了一个 `new` 命令来创建一个新的网站:
 
@@ -75,7 +75,7 @@ wget https://golang.org/dl/go1.16.7.linux-amd64.tar.gz
 
     ```bash
     git init
-    git submodule add https://github.com/dillonzq/LoveIt.git themes/LoveIt
+    git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
     ```
 
     {{< admonition type=tip title="How to remove a submodule?" open=false >}}
@@ -123,14 +123,14 @@ wget https://golang.org/dl/go1.16.7.linux-amd64.tar.gz
 配置文件位置：`./config.toml`
 
 {{< admonition type=tip title="提示" open=false >}}
-具体的配置条目参考 [LoveIt 官方文档](https://hugoloveit.com/theme-documentation-basics/#3-configuration)
+具体的配置条目参考 [DoIt 官方文档](https://hugodoit.pages.dev/theme-documentation-basics/#configuration)
 {{< /admonition >}}
 
 ### 开始写第一篇文章
 
 #### 文章前缀参数
 
-在每篇 markdown 文章最前面可以用一部分注释来告诉 LoveIt 主题，这篇文章的属性，譬如文章标签、分类、是否为草稿等.
+在每篇 markdown 文章最前面可以用一部分注释来告诉 DoIt 主题，这篇文章的属性，譬如文章标签、分类、是否为草稿等.
 
 #### 将文章前缀参数保存在 markdown 模版中
 

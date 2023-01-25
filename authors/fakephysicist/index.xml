@@ -44,11 +44,11 @@
                         <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/fdtd_usage/</guid>
     <description><![CDATA[<p>FDTD basics, Python scripts controlling Lumerical.</p>]]></description>
 </item><item>
-    <title>Hugo &#43; LoveIt 创建个人主页</title>
+    <title>Hugo &#43; DoIt 创建个人主页</title>
     <link>https://fakephysicist.github.io/how-build-a-website-with-hugo/</link>
     <pubDate>Mon, 16 Aug 2021 02:43:06 -0400</pubDate><author>
                         <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/how-build-a-website-with-hugo/</guid>
-    <description><![CDATA[<p>在 wsl 环境下安装 Go, Hugo 并且配置主题 LoveIt.</p>]]></description>
+    <description><![CDATA[<p>在 wsl 环境下安装 Go, Hugo 并且配置主题 DoIt.</p>]]></description>
 </item><item>
     <title>Hello World</title>
     <link>https://fakephysicist.github.io/hello-world/</link>
