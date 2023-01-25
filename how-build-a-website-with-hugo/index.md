@@ -98,41 +98,6 @@ hugo new posts/hello-world/index.md
 hugo server --disableFastRender
 ```
 
-## Github SSH
-
-### Generating a new SSH key
-
-1. Open Terminal.
-2. Paste the text below, substituting in your GitHub email address. This creates a new ssh key, using the provided email as a label. 
-
-    ```bash
-    ssh-keygen -t ed25519 -C "your_email@example.com"
-    ```
-
-### Adding your SSH key to the ssh-agent
-
-1. Start the ssh-agent in the background.
-
-    ```bash
-    eval "$(ssh-agent -s)"
-    ```
-
-2. Add your SSH private key to the ssh-agent. If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_ed25519 in the command with the name of your private key file.
-
-    ```bash
-    ssh-add ~/.ssh/id_ed25519
-    ```
-
-### Test SSH connection
-
-```bash
-ssh -T git@github.com
-```
-
-### Adding a new SSH key to your GitHub account
-
-[网页操作, 很容易](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
-
 ## Github Repository
 
 两个 Repositories
@@ -210,15 +175,7 @@ hugo.linux
     git submodule add -f -b main https://github.com/<USERNAME>/<USERNAME>.github.io.git public
     ```
 
-4. add, commit and push repository 1.
-
-    ```bash
-    git add .
-    git commit -m "Initial commit"
-    git push -u origin master
-    ```
-
-5. 生成网页, 并将其推送到 repository 2.
+4. 生成网页, 并将其推送到 repository 2.
 
     ```bash
     hugo
@@ -227,6 +184,14 @@ hugo.linux
     git commit -m "Build website"
     git push origin main
     cd ..
+    ```
+
+5. add, commit and push repository 1.
+
+    ```bash
+    git add .
+    git commit -m "Initial commit"
+    git push -u origin master
     ```
 
 ## 通过 Github Action 发布 (不推荐, 会有网页渲染问题)

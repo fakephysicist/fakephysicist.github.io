@@ -10,7 +10,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://fakephysicist.github.io/fdtd_basics/" /><meta property="og:image" content="https://fakephysicist.github.io/favicon.ico"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-08-16T13:25:00-04:00" />
-<meta property="article:modified_time" content="2021-08-16T13:25:00-04:00" /><meta property="og:site_name" content="FakePhysicist" />
+<meta property="article:modified_time" content="2023-01-25T00:00:40-05:00" /><meta property="og:site_name" content="FakePhysicist" />
 <meta property="og:see_also" content="https://fakephysicist.github.io/fdtd_lc/" />
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -44,7 +44,7 @@
                             "width":  3200 ,
                             "height":  2048 
                         }],"genre": "posts","keywords": "Python","wordcount":  3872 ,
-        "url": "https:\/\/fakephysicist.github.io\/fdtd_basics\/","datePublished": "2021-08-16T13:25:00-04:00","dateModified": "2021-08-16T13:25:00-04:00","publisher": {
+        "url": "https:\/\/fakephysicist.github.io\/fdtd_basics\/","datePublished": "2021-08-16T13:25:00-04:00","dateModified": "2023-01-25T00:00:40-05:00","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
                     "@type": "ImageObject",
@@ -224,7 +224,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://fakephysicist.github.io/authors/fakephysicist'>FakePhysicist</a></span>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/documentation/"><i class="far fa-folder fa-fw"></i>documentation</a></span>&nbsp;<span class="post-category">和</span>&nbsp;<span class="post-series">系列 <a href="/series/fdtd/"><i class="far fa-list-alt fa-fw"></i>FDTD</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3872 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-01-25">2023-01-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3872 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 19 分钟&nbsp;</div>
         </div><div class="details series-nav open">
                                 <div class="details-summary series-title">
@@ -321,15 +321,7 @@
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><div class="details admonition warning open">
-                <div class="details-summary admonition-title">
-                    <i class="icon fas fa-exclamation-triangle fa-fwwarning"></i>警告<i class="details-icon fas fa-angle-right fa-fw"></i>
-                </div>
-                <div class="details-content">
-                    <div class="admonition-content">
-                        本文最后更新于 <span class="timeago" datetime="2021-08-16T13:25:00" title="August 16, 2021">2021-08-16</span>，文中内容可能已过时。</div>
-                </div>
-            </div><p>FDTD basics, Python scripts controlling Lumerical.</p>
+            </div><div class="content" id="content"><p>FDTD basics, Python scripts controlling Lumerical.</p>
 <h2 id="solver-physics" class="headerLink">
     <a href="#solver-physics" class="header-mark"></a>Solver Physics</h2><p>In three dimensions, Maxwell equations have six electromagnetic field components: Ex, Ey, Ez and Hx, Hy, and Hz. If we assume that <strong>the structure is infinite in the z dimension</strong> and that <strong>the fields are independent of z</strong>, then Maxwell&rsquo;s equations split into two independent sets of equations composed of three vector quantities each which can be solved in the x-y plane only.  These are termed the <strong>TE (transverse electric)</strong>, and <strong>TM (transverse magnetic)</strong> equations. We can solve both sets of equations with the following components:</p>
 <ul>
@@ -375,9 +367,9 @@ which is not a simple fourier transform of $\vec{P}\left(t\right)$.</p>
 </li>
 <li>
 <p>Power
-$$Power\left(\omega\right)=\int_{S}\left&lt;\vec{P}\left(\omega\right)\right&gt;_{t}\cdot d\vec{S}$$
+$$Power\left(\omega\right)=\int_{S}\left&lt;\vec{P}\left(\omega\right)\right&gt;<em>{t}\cdot d\vec{S}$$
 But we have the Parseval-Plancherel theorem
-$$\int_{-\infty}^{\infty}\vec{E}\left(t\right)\times\vec{H}^{*}\left(t\right) dt=\frac{1}{2\pi}\int_{-\infty}^{\infty}\vec{E}\left(\omega\right)\times\vec{H}^{*}\left(\omega\right) d\omega$$</p>
+$$\int</em>{-\infty}^{\infty}\vec{E}\left(t\right)\times\vec{H}^{<em>}\left(t\right) dt=\frac{1}{2\pi}\int_{-\infty}^{\infty}\vec{E}\left(\omega\right)\times\vec{H}^{</em>}\left(\omega\right) d\omega$$</p>
 </li>
 <li>
 <p>Transmission
@@ -410,7 +402,7 @@ $$n_{\text{max(sub,clad)}} &lt; n_{eff} &lt; n_{core}$$</p>
 $$E(z) = e^{i2\pi(n+i\kappa)z/\lambda_0}$$
 here, $k = 2\pi(n+i\kappa)/\lambda_0$.</p>
 <p>The propagation loss in dB/m for a mode propagating in the z-direction is defined as
-$$loss = -10 \log_{10}(\frac{P(z)|_{z = \ 1\ m}}{P(z)|_{z = \ 0\ m}}) = -10 \log_{10}(\frac{|E(1)|^2}{|E(0)|^2})=-20 \log_{10}(\frac{|E(1)|}{|E(0)|})$$
+$$loss = -10 \log_{10}(\frac{P(z)|<em>{z = \ 1\ m}}{P(z)|</em>{z = \ 0\ m}}) = -10 \log_{10}(\frac{|E(1)|^2}{|E(0)|^2})=-20 \log_{10}(\frac{|E(1)|}{|E(0)|})$$
 Combining the formulas gives
 $$loss = -20 \log_{10}(e^{-2\pi\kappa/\lambda_0})$$</p>
 <h3 id="te-polarization-fraction" class="headerLink">
@@ -1298,7 +1290,8 @@ $$1-\frac{\int\left|H_{\perp}\right|^2 dxdy}{\int\left(\left|H\right|^2\right) d
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-08-16</span>
+                <span>更新于 2023-01-25&nbsp;<a class="git-hash" href="https://github.com/FakePhysicist/fakephysicist.github.io/commit/4c23fcc03ca41cda99eab9c3f559f2b34967a89b" target="_blank" title="commit by fakephysicist(20970845&#43;FakePhysicist@users.noreply.github.com) 4c23fcc03ca41cda99eab9c3f559f2b34967a89b: remove some obsolete objects" rel="noopener noreferrer">
+                                    <i class="fas fa-hashtag fa-fw"></i>4c23fcc</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>
@@ -1324,7 +1317,7 @@ $$1-\frac{\int\left|H_{\perp}\right|^2 dxdy}{\int\left(\left|H\right|^2\right) d
 </article></div>
         </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">
-                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.87.0">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
+                    由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer" title="Hugo 0.92.2">Hugo</a> 强力驱动&nbsp;|&nbsp;主题 - <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer" title="DoIt 0.2.13"><i class="far fa-edit fa-fw"></i> DoIt</a>
                 </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://fakephysicist.github.io" target="_blank" rel="noopener noreferrer">FakePhysicist</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
             <div class="footer-line"></div>
             <div class="footer-line">
