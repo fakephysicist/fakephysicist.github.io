@@ -135,13 +135,13 @@ ssh -T git@github.com
 
 ## Github Repository
 
-两个仓库：
+两个 Repositories
 
-- 一个用于托管博客项目源文件, 设置权限为 Private（私有）
+- Repository 1: 一个用于托管博客项目源文件, 设置权限为 Private
 
-- 一个用于托管博客编译后生成的静态文件, 设置权限为 Public（公开）
+- Repository 2: 一个用于托管博客编译后生成的静态文件, 设置权限为 Public
 
-### 第一个仓库
+### Repository 1
 
 设置为private权限等级，没人看得见
 
@@ -188,7 +188,7 @@ hugo.linux
 # End of https://www.toptal.com/developers/gitignore/api/hugo
 ```
 
-### 第二个仓库
+### Repository 2
 
 #### 创建仓库，注意名称
 
@@ -198,19 +198,19 @@ hugo.linux
 
 设置 `Branch` 为 `main`, 静态文件位置为`/(root)`, 原因是我们在下个步骤中会直接将生成的 `public` 文件夹中的内容 `push` 到 `main` 分支的 `/` 目录下.
 
-## 手工发布
+## 手工发布 (更好, 不会有网页渲染问题)
 
 **将**`hugo`**命令生成的**`public`**文件夹上传到 GitHub pages 项目下。**
 
-1. 在 `my_website` 目录下执行 `git submodule update --init --recursive` 将子模块更新到最新状态；
-2. In your `config.toml` file, set `baseurl = https://<USERNAME>.github.io/`, where `<USERNAME>` is your Github username.
-3. set your `<USERNAME>.github.io` repository into a submodule, in the folder named `public`. Still, replacing `<USERNAME>` with your Github username:
+1. 在 `my_website` 目录下执行 `git submodule update --init --recursive` 将子模块更新到最新状态.
+2. 在 `config.toml` 中, 设置 `baseurl = https://<USERNAME>.github.io/`.
+3. **确保 `public` 文件夹被删除.** 将 `<USERNAME>.github.io` repository 设置为一个 submodule, 并设置其在文件夹 `public` 中. 
 
     ```bash
     git submodule add -f -b main https://github.com/<USERNAME>/<USERNAME>.github.io.git public
     ```
 
-4. Add everything to your local git repository and push it up to your remote repository on GitHub:
+4. add, commit and push repository 1.
 
     ```bash
     git add .
@@ -218,7 +218,7 @@ hugo.linux
     git push -u origin master
     ```
 
-5. regenerate your website’s HTML code by running Hugo and uploading the public submodule to GitHub:
+5. 生成网页, 并将其推送到 repository 2.
 
     ```bash
     hugo
@@ -229,7 +229,7 @@ hugo.linux
     cd ..
     ```
 
-## 通过 Github Action 发布
+## 通过 Github Action 发布 (不推荐, 会有网页渲染问题)
 
 ### 创建 CI 脚本
 

@@ -4,34 +4,28 @@
         <link>https://fakephysicist.github.io/categories/documentation/</link>
         <description>documentation - 分类 - FakePhysicist</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fakephysicist@outlook.com (FakePhysicist)</managingEditor>
-            <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><lastBuildDate>Tue, 17 Aug 2021 22:32:00 -0400</lastBuildDate><atom:link href="https://fakephysicist.github.io/categories/documentation/" rel="self" type="application/rss+xml" /><item>
-    <title>VS Code Snippets 测试</title>
-    <link>https://fakephysicist.github.io/snippets_test/</link>
-    <pubDate>Tue, 17 Aug 2021 22:32:00 -0400</pubDate><author>
-                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/snippets_test/</guid>
-    <description><![CDATA[<p>测试一下 VS Code Snippets.</p>]]></description>
-</item><item>
-    <title>VS Code 快捷操作</title>
-    <link>https://fakephysicist.github.io/vscode_usage/</link>
+            <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><lastBuildDate>Tue, 17 Aug 2021 14:32:44 -0400</lastBuildDate><atom:link href="https://fakephysicist.github.io/categories/documentation/" rel="self" type="application/rss+xml" /><item>
+    <title>VSCode Shortcuts</title>
+    <link>https://fakephysicist.github.io/vscode_shortcuts/</link>
     <pubDate>Tue, 17 Aug 2021 14:32:44 -0400</pubDate><author>
-                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/vscode_usage/</guid>
-    <description><![CDATA[<p>总结<del>抄袭</del>一些 VS Code 的操作技巧</p>]]></description>
+                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/vscode_shortcuts/</guid>
+    <description><![CDATA[<p>总结<del>抄袭</del>一些 VSCode 的快捷键</p>]]></description>
 </item><item>
-    <title>Liquid Crystals in FDTD</title>
-    <link>https://fakephysicist.github.io/liquid_crystal_in_fdtd/</link>
+    <title>FDTD Liquid Crystals</title>
+    <link>https://fakephysicist.github.io/fdtd_lc/</link>
     <pubDate>Mon, 16 Aug 2021 14:00:00 -0400</pubDate><author>
-                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/liquid_crystal_in_fdtd/</guid>
+                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/fdtd_lc/</guid>
     <description><![CDATA[<p>Liquid Crystals in FDTD simulation</p>]]></description>
 </item><item>
-    <title>FDTD Usage</title>
-    <link>https://fakephysicist.github.io/fdtd_usage/</link>
+    <title>FDTD Basics</title>
+    <link>https://fakephysicist.github.io/fdtd_basics/</link>
     <pubDate>Mon, 16 Aug 2021 13:25:00 -0400</pubDate><author>
-                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/fdtd_usage/</guid>
+                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/fdtd_basics/</guid>
     <description><![CDATA[<p>FDTD basics, Python scripts controlling Lumerical.</p>]]></description>
 </item><item>
     <title>Hugo &#43; DoIt 创建个人主页</title>
     <link>https://fakephysicist.github.io/how-build-a-website-with-hugo/</link>
-    <pubDate>Mon, 16 Aug 2021 02:43:06 -0400</pubDate><author>
+    <pubDate>Fri, 01 Jan 2021 02:43:06 -0400</pubDate><author>
                         <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/how-build-a-website-with-hugo/</guid>
     <description><![CDATA[<p>在 wsl 环境下安装 Hugo 并且配置主题 DoIt.</p>]]></description>
 </item></channel>
