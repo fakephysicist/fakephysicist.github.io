@@ -207,7 +207,7 @@ hugo.linux
 3. set your `<USERNAME>.github.io` repository into a submodule, in the folder named `public`. Still, replacing `<USERNAME>` with your Github username:
 
     ```bash
-    git submodule add -f -b master https://github.com/<USERNAME>/<USERNAME>.github.io.git public
+    git submodule add -f -b main https://github.com/<USERNAME>/<USERNAME>.github.io.git public
     ```
 
 4. Add everything to your local git repository and push it up to your remote repository on GitHub:
