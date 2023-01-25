@@ -1,68 +1,24 @@
 # Hugo + DoIt 创建个人主页
 
-在 wsl 环境下安装 Go, Hugo 并且配置主题 DoIt.
+在 wsl 环境下安装 Hugo 并且配置主题 DoIt.
 <!--more-->
-## Go
-
-### 下载
-
-```bash
-wget https://golang.org/dl/go1.16.7.linux-amd64.tar.gz
-```
-
-### 安装
-
-1. Extract the archive you downloaded into /usr/local, creating a Go tree in /usr/local/go.
-
-    ```bash
-    sudo rm -rf /usr/local/go &&sudo tar -C /usr/local -xzf go1.16.7.linux-amd64.tar.gz
-    ```
-
-2. Add /usr/local/go/bin to the PATH environment variable, or add to ~/.zshrc
-
-    ```bash
-    export PATH=$PATH:/usr/local/go/bin
-    ```
-
-3. Verify that you've installed Go by opening a command prompt and typing the following command
-
-    ```bash
-    go version
-    ```
 
 ## Hugo
 
-### 安装/升级
-
-1. go to [github page](https://github.com/gohugoio/hugo/releases) and download the Hugo Extended installer for Debian (hugo_extended_<VERSION>_Linux-64bit.deb)
-
-    ```bash
-    wget https://github.com/gohugoio/hugo/releases/download/v0.87.0/hugo_extended_0.87.0_Linux-64bit.deb
-    ```
-
-2. install Hugo with
-
-    ```bash
-    sudo dpkg -i hugo_extended_0.87.0_Linux-64bit.deb
-    ```
-
-3. update Hugo by repeating the first two steps, overwrite installation.
+### 安装
+[Install Hugo](https://gohugo.io/installation/)
 
 ### 常用命令
 
-- hugo： 编译项目生成静态网站，默认位置在项目的 public 目录下
-- hugo server： 启动你的网站服务
-- hugo new {folder}/{name}.md: 创建新文章，使用 markdown 进行排版，一般默认放在 posts 文件夹下；
+- `hugo` 编译项目生成静态网站，默认位置在项目的 public 目录下
+- `hugo server --disableFastRender -D` 预览网站内容
+- `hugo new {folder}/{name}.md` 创建新文章，使用 markdown 进行排版，一般默认放在 posts 文件夹下；
 
 基本没了，一般情况下用这三个命令就够了.
 
 ## DoIt
 
-{{< admonition type=tip title="提示" open=false >}}
-主要参考了xx(原网页居然已经没了)
-{{< /admonition >}}
-
-### DoIt 安装
+### 安装
 
 1. 创建你的项目, Hugo 提供了一个 `new` 命令来创建一个新的网站:
 
@@ -77,19 +33,6 @@ wget https://golang.org/dl/go1.16.7.linux-amd64.tar.gz
     git init
     git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
     ```
-
-    {{< admonition type=tip title="How to remove a submodule?" open=false >}}
-
-    ```bash
-    # Remove the submodule entry from .git/config
-    git submodule deinit -f path/to/submodule
-    # Remove the submodule directory from the superproject's .git/modules directory
-    rm -rf .git/modules/path/to/submodule
-    # Remove the entry in .gitmodules and remove the submodule directory located at path/to/submodule
-    git rm -f path/to/submodule
-    ```
-
-    {{< /admonition >}}
 
 3. 初始化项目：`git submodule update --init --recursive`，完成安装
 
@@ -118,38 +61,21 @@ wget https://golang.org/dl/go1.16.7.linux-amd64.tar.gz
 - `static` ：保存文章中用到的静态文件，比如图片、网站缩略图等.
 - `public` ：通过hugo命令生成的静态 html 文件、css、js 等.在服务器上发布时主要发布这个文件夹.
 
-### 配置网站设置
+## 开始写第一篇文章
 
-配置文件位置：`./config.toml`
+### 生成新文章
 
-{{< admonition type=tip title="提示" open=false >}}
-具体的配置条目参考 [DoIt 官方文档](https://hugodoit.pages.dev/theme-documentation-basics/#configuration)
-{{< /admonition >}}
-
-### 开始写第一篇文章
-
-#### 文章前缀参数
-
-在每篇 markdown 文章最前面可以用一部分注释来告诉 DoIt 主题，这篇文章的属性，譬如文章标签、分类、是否为草稿等.
-
-#### 将文章前缀参数保存在 markdown 模版中
-
-模版文件位置：`./archetypes/default.md`
-
-#### 生成新文章
-
-生成新文章`HelloWorld`的命令：
+生成新文章`hello-world`的命令：
 
 ```bash
-hugo new posts/HelloWorld/index.md
+hugo new posts/hello-world/index.md
 ```
 
 执行完成后，在`./content/posts`目录下应该可以看到新文件，同时里面已经有 markdown 模版中的文章前缀参数.
 
-{{< admonition type=tip title="技巧" open=open >}}
+也可以手动复制旧文章来生成新文章，不通过命令.
 
-- 也可以手动复制旧文章来生成新文章，不通过命令.
-- 也可以在`content`文件夹下建新的文件夹，方便管理.这种情况下生成的静态 Html 文件路由效果如下：
+也可以在`content`文件夹下建新的文件夹，方便管理.这种情况下生成的静态 Html 文件路由效果如下：
 
 ```bash
 .
@@ -166,9 +92,7 @@ hugo new posts/HelloWorld/index.md
         └── second.md      // <- https://example.com/quote/second/
 ```
 
-{{< /admonition >}}
-
-#### 本地调试
+### 本地调试
 
 ```bash
 hugo server --disableFastRender
@@ -179,9 +103,11 @@ hugo server --disableFastRender
 ### Generating a new SSH key
 
 1. Open Terminal.
-2. Paste the text below, substituting in your GitHub email address.
-    ```ssh-keygen -t ed25519 -C "your_email@example.com"```
-This creates a new ssh key, using the provided email as a label.
+2. Paste the text below, substituting in your GitHub email address. This creates a new ssh key, using the provided email as a label. 
+
+    ```bash
+    ssh-keygen -t ed25519 -C "your_email@example.com"
+    ```
 
 ### Adding your SSH key to the ssh-agent
 
@@ -205,17 +131,15 @@ ssh -T git@github.com
 
 ### Adding a new SSH key to your GitHub account
 
-[网页操作,很容易](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+[网页操作, 很容易](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
-## 创建相应的 Github 仓库
+## Github Repository
 
-个人建议创建两个仓库：
+两个仓库：
 
-- 一个用于托管博客项目源文件，包括配置文件等包含后续可能配置 `API KEY` 的东西.设置权限为 Private（不公开),并配置该仓库使用 `Github Pages`，这样每次同步时, Github 会自动编译并且生成`静态 Html 文件`, 同时与第二个仓库同步.
+- 一个用于托管博客项目源文件, 设置权限为 Private（私有）
 
-- 一个用于托管博客编译后生成的`静态 Html 文件`(即使用 hugo 命令编译生成的 `public` 文件夹), 设置权限为 Public（公开）
-
-{{< image src="./images/git_management.svg" caption="GitHub Workflow" title="" width="50%" height="50%" >}}
+- 一个用于托管博客编译后生成的静态文件, 设置权限为 Public（公开）
 
 ### 第一个仓库
 
@@ -229,7 +153,7 @@ ssh -T git@github.com
 ## 初始化本地Git仓库
 git init
 
-## 设置名为Origin的远端Git仓库
+## 添加名为 Origin 的远端Git仓库
 git remote add origin {{这里替换成你的仓库在Github `git clone`用的地址}}
 
 ## 选择所有文件
@@ -239,13 +163,30 @@ git add -A
 git push -u origin master
 ```
 
-或者直接用vscode链接本地仓库与远端Github仓库 (vscode yyds)
+或者直接用 VSCode 链接本地仓库与远端 Github 仓库.
 
 #### 创建.gitignore
 
 在源代码项目中创建.gitignore文件，来防止把生成的静态文件上传
 
 参考 [gitignore.io](https://gitignore.io/)
+
+```bash
+# Created by https://www.toptal.com/developers/gitignore/api/hugo
+# Edit at https://www.toptal.com/developers/gitignore?templates=hugo
+
+### Hugo ###
+# Generated files by hugo
+/public/
+/resources/_gen/
+
+# Executable may be added to repository
+hugo.exe
+hugo.darwin
+hugo.linux
+
+# End of https://www.toptal.com/developers/gitignore/api/hugo
+```
 
 ### 第二个仓库
 
@@ -255,24 +196,14 @@ git push -u origin master
 
 #### 在仓库设置里设置启用Github Pages
 
-设置 `Branch` 为 `master`, 静态文件位置为`/(root)`, 原因是我们在下个步骤中会直接将生成的 `public` 文件夹中的内容 `push` 到 `master` 分支的 `/` 目录下.
+设置 `Branch` 为 `main`, 静态文件位置为`/(root)`, 原因是我们在下个步骤中会直接将生成的 `public` 文件夹中的内容 `push` 到 `main` 分支的 `/` 目录下.
 
-## 发布
-
-### 原理
-
-网上介绍的办法很多，但核心其实就一句：
+## 手工发布
 
 **将**`hugo`**命令生成的**`public`**文件夹上传到 GitHub pages 项目下。**
 
-`public` 文件夹相当于编译完成的静态网站，你在本地打开其实就能看。换句话说，你每次手动将这个目录下的内容上传到你的 GitHub page 项目也是可以的。
-
-然后为了达到这个目的，Academic 给出的做法是利用 `git submodule` 将你的 GitHub page 项目作为 My_Website 项目的子模块存放到 public 目录。那么当你更新你的文章之后，只提交 public 文件夹内的变更到 GitHub page 项目即可。
-
-### 纯手工操作
-
-1. 在 `My_Website` 目录下执行 `git submodule update --init --recursive` 将子模块更新到最新状态；
-2. In your config.toml file, set `baseurl = https://<USERNAME>.github.io/`, where `<USERNAME>` is your Github username. Stop Hugo if it’s running and delete the public directory if it exists (by typing rm -r public/).
+1. 在 `my_website` 目录下执行 `git submodule update --init --recursive` 将子模块更新到最新状态；
+2. In your `config.toml` file, set `baseurl = https://<USERNAME>.github.io/`, where `<USERNAME>` is your Github username.
 3. set your `<USERNAME>.github.io` repository into a submodule, in the folder named `public`. Still, replacing `<USERNAME>` with your Github username:
 
     ```bash
@@ -298,42 +229,11 @@ git push -u origin master
     cd ..
     ```
 
-    Notice that the default branch of github is `main` instead of `master` now.
+## 通过 Github Action 发布
 
-### 自动操作 (Github Action)
-
-#### 创建 CI 脚本
-
-{{< admonition type=info title="什么是Github Action?" open=false >}}
-Github Action 是 Github 提供的 CI 系统，可以让用户编写脚本，并在触发指定的操作后（比如新 commit push 到仓库），自动触发脚本.它可以：
-
-- 编译项目
-- 测试项目
-- 登陆远程服务器
-- 发布服务
-- 等等……
-{{< /admonition >}}
+### 创建 CI 脚本
 
 在源代码项目根目录下新建`.github/workflow/main.yml`.(通过 Github Action 网页端操作也可以)
-
-```bash
-.
-├── .git
-├── .github
-│   └── workflows
-│       └── main.yml  <---在这里创建
-├── .gitignore
-├── README.md
-├── archetypes
-├── config.toml
-├── content
-├── data
-├── layouts
-├── public
-├── resources
-├── static
-└── themes
-```
 
 `main.yml`脚本内容：
 
@@ -363,15 +263,14 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           submodules: true # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
 
-      - name: Hugo setup
+      - name: Setup Hugo
         # You may pin to the exact commit or the version.
-        # uses: peaceiris/actions-hugo@2e89aa66d0093e4cd14751b3028fc1a179452c2e
-        uses: peaceiris/actions-hugo@v2.4.13
+        uses: peaceiris/actions-hugo@v2
         with:
           # The Hugo version to download (if necessary) and use. Example: 0.58.2
           hugo-version: latest # optional, default is latest
@@ -379,7 +278,7 @@ jobs:
           extended: true # optional, default is false
 
       - name: Build
-        run: hugo
+        run: hugo --minify
 
       - name: Pushes to another repository
         uses: cpina/github-action-push-to-another-repository@main
@@ -393,31 +292,13 @@ jobs:
           user-email: 这里输入你的 Github no-reply 邮箱
 ```
 
-{{< admonition type=warning title="注意" open=false >}}
-注意trigger on里的 branch 是否和自己的相同. 添加了 `target-branch`, 因为现在 Github 默认 branch 为 `main`. 最后三行内容需要自行替换.
-{{< /admonition >}}
-
-脚本主要做了以下事情：
-
-1. 创建一个 Hugo 环境
-2. 使用 hugo 命令编译代码，产生 public 文件夹
-3. 将 public 文件 push 到你的Github用户名.github.io仓库.（也就是你之前创建的第二个仓库）
-
-#### 设置 Push 用的密钥
+### 设置 Push 用的密钥
 
 为了让 Github Action 脚本有权限将代码 Push 到我们的 `xx.github.io` 仓库，我们需要申请一个密钥并告诉它.在 Github 设置中找到 `Developer settings/Personal access tokens`
 
 新建一个密钥，权限设置把 `Repo` 打勾. 复制密钥.
 
-回到第一个仓库的设置里，选择`Secrets（密钥）`
+回到第一个仓库的设置里，选择`Secrets`
 
 新建密钥，将刚才生成的密钥填进去，名字设为 `API_TOKEN_GITHUB` (跟 CI 脚本里的名称对应即可)
-
-#### 观察效果
-
-在 Push 新修改到第一个仓库后，在`Action`界面可以看到新的`workflow`开始运行了.
-
-在`workflow`结束后，可以在第二个仓库看到新的`Push`
-
-在等待 1-2 分钟后，即可在`xx.github.io`观察到变化.
 

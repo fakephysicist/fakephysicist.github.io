@@ -1,14 +1,1 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>LC - 标签 - FakePhysicist</title>
-        <link>https://fakephysicist.github.io/tags/lc/</link>
-        <description>LC - 标签 - FakePhysicist</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fakephysicist@outlook.com (FakePhysicist)</managingEditor>
-            <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><lastBuildDate>Mon, 16 Aug 2021 14:00:00 -0400</lastBuildDate><atom:link href="https://fakephysicist.github.io/tags/lc/" rel="self" type="application/rss+xml" /><item>
-    <title>Liquid Crystals in FDTD</title>
-    <link>https://fakephysicist.github.io/liquid_crystal_in_fdtd/</link>
-    <pubDate>Mon, 16 Aug 2021 14:00:00 -0400</pubDate><author>
-                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/liquid_crystal_in_fdtd/</guid>
-    <description><![CDATA[<p>Liquid Crystals in FDTD simulation</p>]]></description>
-</item></channel>
-</rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>LC - 标签 - FakePhysicist</title><link>https://fakephysicist.github.io/tags/lc/</link><description>LC - 标签 - FakePhysicist</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fakephysicist@outlook.com (FakePhysicist)</managingEditor><webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><lastBuildDate>Mon, 16 Aug 2021 14:00:00 -0400</lastBuildDate><atom:link href="https://fakephysicist.github.io/tags/lc/" rel="self" type="application/rss+xml"/><item><title>Liquid Crystals in FDTD</title><link>https://fakephysicist.github.io/liquid_crystal_in_fdtd/</link><pubDate>Mon, 16 Aug 2021 14:00:00 -0400</pubDate><author><name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/liquid_crystal_in_fdtd/</guid><description>&lt;p>Liquid Crystals in FDTD simulation&lt;/p></description></item></channel></rss>
