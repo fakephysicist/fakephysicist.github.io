@@ -1,0 +1,20 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Tricks - 分类 - FakePhysicist</title>
+        <link>https://fakephysicist.github.io/categories/tricks/</link>
+        <description>Tricks - 分类 - FakePhysicist</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fakephysicist@outlook.com (FakePhysicist)</managingEditor>
+            <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><lastBuildDate>Mon, 30 Jan 2023 21:03:25 -0500</lastBuildDate><atom:link href="https://fakephysicist.github.io/categories/tricks/" rel="self" type="application/rss+xml" /><item>
+    <title>Windows Terminal 分割快捷键</title>
+    <link>https://fakephysicist.github.io/windows-terminal-splitting-shorcuts/</link>
+    <pubDate>Mon, 30 Jan 2023 21:03:25 -0500</pubDate><author>
+                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/windows-terminal-splitting-shorcuts/</guid>
+    <description><![CDATA[<p>老是忘记的分割窗口的快捷键, 所以记录一下.</p>]]></description>
+</item><item>
+    <title>VSCode 技巧</title>
+    <link>https://fakephysicist.github.io/vscode_shortcuts/</link>
+    <pubDate>Tue, 17 Aug 2021 14:32:44 -0500</pubDate><author>
+                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/vscode_shortcuts/</guid>
+    <description><![CDATA[]]></description>
+</item></channel>
+</rss>
