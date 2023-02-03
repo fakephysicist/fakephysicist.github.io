@@ -1,0 +1,14 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Android - 标签 - FakePhysicist</title>
+        <link>https://fakephysicist.github.io/tags/android/</link>
+        <description>Android - 标签 - FakePhysicist</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fakephysicist@outlook.com (FakePhysicist)</managingEditor>
+            <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><lastBuildDate>Thu, 02 Feb 2023 23:00:20 -0500</lastBuildDate><atom:link href="https://fakephysicist.github.io/tags/android/" rel="self" type="application/rss+xml" /><item>
+    <title>折腾 OnePlus 5T</title>
+    <link>https://fakephysicist.github.io/toss-oneplus-5t/</link>
+    <pubDate>Thu, 02 Feb 2023 23:00:20 -0500</pubDate><author>
+                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/toss-oneplus-5t/</guid>
+    <description><![CDATA[<p>我不想让我的 OnePlus 5T 变成一个摆设, 所以我想折腾一下. 让他发挥余力.</p>]]></description>
+</item></channel>
+</rss>
