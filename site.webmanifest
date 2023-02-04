@@ -2,11 +2,6 @@
     "name": "A Fake Physicist's notes",
     "short_name": "FP's notes",
     "description": "a Fake Physicist's notes",
-    "start_url": "/",
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
-    "orientation": "portrait",
-    "display": "standalone",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -17,12 +12,9 @@
             "src": "/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
-        },
-        {
-            "src": "/apple-touch-icon.png",
-            "sizes": "180x180",
-            "type": "image/png",
-            "purpose": "any maskable"
         }
-    ]
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone"
 }
