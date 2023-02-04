@@ -14,9 +14,9 @@
             "type": "image/png"
         }
     ],
-    "start_url": "/?utm_source=pwa",
-    "scope": "/",
+    "start_url": "/index.html",
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
-    "display": "standalone"
+    "display": "standalone",
+    "purpose": "maskable any"
 }
