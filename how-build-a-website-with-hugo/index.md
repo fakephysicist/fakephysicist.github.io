@@ -267,3 +267,24 @@ jobs:
 
 新建密钥，将刚才生成的密钥填进去，名字设为 `API_TOKEN_GITHUB` (跟 CI 脚本里的名称对应即可)
 
+## 使用 Math shortcode
+
+可以顺利使用 KaTeX 的 Math shortcode.
+
+这样可以省去使用转义字符`\`的麻烦. 不用出现`\\\\`, `\_`, `\*` 这样奇奇怪怪的东西.
+
+```markdown
+{{< math >}}
+\begin{aligned}
+\frac{1}{2} &= \frac{1}{2} \\
+\end{aligned}
+{{< /math >}}
+```
+
+[参考](https://hugodoit.pages.dev/zh-cn/theme-documentation-extended-shortcodes/#math)
+
+## 评论系统 giscus
+
+在 `config.toml` 中启用评论系统
+
+具体配置参考 [giscus](https://giscus.app/zh-CN).
