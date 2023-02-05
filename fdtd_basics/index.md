@@ -39,11 +39,22 @@ $$\left<\vec{P}\left(\omega\right)\right>_{t}=\frac{1}{2}\Re\left[\vec{E}\left(\
 which is not a simple fourier transform of $\vec{P}\left(t\right)$.
 
 - Power
+
+{{< math >}}
 $$Power\left(\omega\right)=\int_{S}\left<\vec{P}\left(\omega\right)\right>_{t}\cdot d\vec{S}$$
+{{< /math >}}
+
 But we have the Parseval-Plancherel theorem
+
+{{< math >}}
 $$\int_{-\infty}^{\infty}\vec{E}\left(t\right)\times\vec{H}^{*}\left(t\right) dt=\frac{1}{2\pi}\int_{-\infty}^{\infty}\vec{E}\left(\omega\right)\times\vec{H}^{*}\left(\omega\right) d\omega$$
+{{< /math >}}
+
 - Transmission
+
+{{< math >}}
 $$T\left(\omega\right)=\frac{\int_{S}\vec{P}\left(\omega\right)\cdot d\vec{S}}{s\left(\omega\right)}$$
+{{< /math >}}
 
 ## MODE
 
@@ -79,9 +90,16 @@ $$E(z) = e^{i2\pi(n+i\kappa)z/\lambda_0}$$
 here, $k = 2\pi(n+i\kappa)/\lambda_0$.
 
 The propagation loss in dB/m for a mode propagating in the z-direction is defined as
+
+{{< math >}}
 $$loss = -10 \log_{10}(\frac{P(z)|_{z = \ 1\ m}}{P(z)|_{z = \ 0\ m}}) = -10 \log_{10}(\frac{|E(1)|^2}{|E(0)|^2})=-20 \log_{10}(\frac{|E(1)|}{|E(0)|})$$
+{{< /math >}}
+
 Combining the formulas gives
+
+{{< math >}}
 $$loss = -20 \log_{10}(e^{-2\pi\kappa/\lambda_0})$$
+{{< /math >}}
 
 ### TE polarization fraction
 

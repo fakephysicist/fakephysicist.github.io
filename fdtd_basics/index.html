@@ -367,16 +367,22 @@ $$\left&lt;\vec{P}\left(\omega\right)\right&gt;_{t}=\frac{1}{2}\Re\left[\vec{E}\
 which is not a simple fourier transform of $\vec{P}\left(t\right)$.</p>
 </li>
 <li>
-<p>Power
-$$Power\left(\omega\right)=\int_{S}\left&lt;\vec{P}\left(\omega\right)\right&gt;<em>{t}\cdot d\vec{S}$$
-But we have the Parseval-Plancherel theorem
-$$\int</em>{-\infty}^{\infty}\vec{E}\left(t\right)\times\vec{H}^{<em>}\left(t\right) dt=\frac{1}{2\pi}\int_{-\infty}^{\infty}\vec{E}\left(\omega\right)\times\vec{H}^{</em>}\left(\omega\right) d\omega$$</p>
-</li>
-<li>
-<p>Transmission
-$$T\left(\omega\right)=\frac{\int_{S}\vec{P}\left(\omega\right)\cdot d\vec{S}}{s\left(\omega\right)}$$</p>
+<p>Power</p>
 </li>
 </ul>
+
+$$Power\left(\omega\right)=\int_{S}\left<\vec{P}\left(\omega\right)\right>_{t}\cdot d\vec{S}$$
+
+<p>But we have the Parseval-Plancherel theorem</p>
+
+$$\int_{-\infty}^{\infty}\vec{E}\left(t\right)\times\vec{H}^{*}\left(t\right) dt=\frac{1}{2\pi}\int_{-\infty}^{\infty}\vec{E}\left(\omega\right)\times\vec{H}^{*}\left(\omega\right) d\omega$$
+
+<ul>
+<li>Transmission</li>
+</ul>
+
+$$T\left(\omega\right)=\frac{\int_{S}\vec{P}\left(\omega\right)\cdot d\vec{S}}{s\left(\omega\right)}$$
+
 <h2 id="mode" class="headerLink">
     <a href="#mode" class="header-mark"></a>MODE</h2><p>Given a cross section of a waveguide, the finite-difference eigenmode (FDE) solver calculates the <strong>spatial profile</strong> and <strong>frequency dependence of modes</strong>. It can provides us:</p>
 <ul>
@@ -402,10 +408,14 @@ $$n_{\text{max(sub,clad)}} &lt; n_{eff} &lt; n_{core}$$</p>
     <a href="#loss-dbm" class="header-mark"></a>loss (dB/m)</h3><p>An electric field propagating in the positive z-direction in a medium with a complex refractive index of $n+i\kappa$ can be expressed as follows:
 $$E(z) = e^{i2\pi(n+i\kappa)z/\lambda_0}$$
 here, $k = 2\pi(n+i\kappa)/\lambda_0$.</p>
-<p>The propagation loss in dB/m for a mode propagating in the z-direction is defined as
-$$loss = -10 \log_{10}(\frac{P(z)|<em>{z = \ 1\ m}}{P(z)|</em>{z = \ 0\ m}}) = -10 \log_{10}(\frac{|E(1)|^2}{|E(0)|^2})=-20 \log_{10}(\frac{|E(1)|}{|E(0)|})$$
-Combining the formulas gives
-$$loss = -20 \log_{10}(e^{-2\pi\kappa/\lambda_0})$$</p>
+<p>The propagation loss in dB/m for a mode propagating in the z-direction is defined as</p>
+
+$$loss = -10 \log_{10}(\frac{P(z)|_{z = \ 1\ m}}{P(z)|_{z = \ 0\ m}}) = -10 \log_{10}(\frac{|E(1)|^2}{|E(0)|^2})=-20 \log_{10}(\frac{|E(1)|}{|E(0)|})$$
+
+<p>Combining the formulas gives</p>
+
+$$loss = -20 \log_{10}(e^{-2\pi\kappa/\lambda_0})$$
+
 <h3 id="te-polarization-fraction" class="headerLink">
     <a href="#te-polarization-fraction" class="header-mark"></a>TE polarization fraction</h3><p>Two definitions for polarization fractions are provided by MODE. The TE Polarization Fraction definition is typically used in integrated optics, but for fibers, this also helps to determine the polarization of the mode.</p>
 <p>The &ldquo;TE polarization fraction Ex&rdquo; for propagation along the z-direction is defined by the following equation:

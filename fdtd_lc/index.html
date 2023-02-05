@@ -249,22 +249,28 @@
 </div>
         </div>
     </div>
-<p>$$
+
+$$
 \mathbf{U} =
 U_z U_y =
-\begin{bmatrix} \cos\phi &amp; -\sin\phi&amp; 0 \\  \sin\phi &amp; \cos\phi &amp; 0 \\  0 &amp; 0 &amp; 1 \end{bmatrix}
-\begin{bmatrix} \cos\theta &amp; 0 &amp; \sin\theta \\ 0 &amp; 1 &amp; 0 \\ -\sin\theta &amp; 0 &amp; \cos\theta \end{bmatrix} =
-\begin{bmatrix} \cos\theta \cos\phi &amp; -\sin\theta &amp; \sin\theta \sin\phi \\ \cos\theta \sin\phi &amp; \cos\phi &amp; \sin\theta \sin\phi \\ -\sin\theta &amp; 0 &amp; \cos\theta \end{bmatrix}
-$$</p>
+\begin{bmatrix} \cos\phi & -\sin\phi& 0 \\  \sin\phi & \cos\phi & 0 \\  0 & 0 & 1 \end{bmatrix}
+\begin{bmatrix} \cos\theta & 0 & \sin\theta \\ 0 & 1 & 0 \\ -\sin\theta & 0 & \cos\theta \end{bmatrix} =
+\begin{bmatrix} \cos\theta \cos\phi & -\sin\theta & \sin\theta \sin\phi \\ \cos\theta \sin\phi & \cos\phi & \sin\theta \sin\phi \\ -\sin\theta & 0 & \cos\theta \end{bmatrix}
+$$
+
 <p>and the permittivity tensor in the reference (or simulation ) coordinate system $(x,y,z)$ is transformed to the principal coordinate system $(X,Y,Z)$ via a rotation about $z$, and the $y$.</p>
 <p>we have the transform relation:</p>
-<p>$$\begin{bmatrix} X\\ Y\\ Z \end{bmatrix} = U(\theta, \phi) \begin{bmatrix} x\\ y\\ z \end{bmatrix} $$</p>
+
+$$\begin{bmatrix} X\\ Y\\ Z \end{bmatrix} = U(\theta, \phi) \begin{bmatrix} x\\ y\\ z \end{bmatrix} $$
+
 <p>and the permittivity in two coordinate systems</p>
 <p>$$\mathbf{\tilde \varepsilon}_D =U^\ast(\theta,\phi)\tilde\varepsilon U(\theta,\phi)$$</p>
 <p>where</p>
-<p>$$
-\tilde\varepsilon_{D}= \begin{bmatrix} \varepsilon_0 &amp;0&amp; 0 \\ 0&amp; \varepsilon_0 &amp; 0 \\ 0 &amp; 0 &amp; \varepsilon_0 \end{bmatrix}=\begin{bmatrix} n_0^2 &amp;0&amp; 0 \\ 0&amp; n_0^2 &amp; 0 \\ 0 &amp; 0 &amp; n_e^2\end{bmatrix}
-$$</p>
+
+$$
+\tilde\varepsilon_{D}= \begin{bmatrix} \varepsilon_0 &0& 0 \\ 0& \varepsilon_0 & 0 \\ 0 & 0 & \varepsilon_0 \end{bmatrix}=\begin{bmatrix} n_0^2 &0& 0 \\ 0& n_0^2 & 0 \\ 0 & 0 & n_e^2\end{bmatrix}
+$$
+
 <p>is the permittivity in the principle coordinate system $(X,Y,Z)$.</p>
 <h2 id="uniform-distribution" class="headerLink">
     <a href="#uniform-distribution" class="header-mark"></a>Uniform distribution</h2><p>It is quite simple.</p>
@@ -272,7 +278,9 @@ $$</p>
 <h2 id="spatially-varying-orientation-distribution-of-lcs" class="headerLink">
     <a href="#spatially-varying-orientation-distribution-of-lcs" class="header-mark"></a>Spatially varying orientation distribution of LCs</h2><h3 id="importing-data-using-the-script-environment" class="headerLink">
     <a href="#importing-data-using-the-script-environment" class="header-mark"></a>Importing data using the script environment</h3><p>In this case, we can use the <strong>addgridattribute</strong> , and optionally the <strong>importdataset</strong> script command to add the LC attribute and to set the spatially varying LC orientation. For example, if we want to set up LCs which are twisted in z direction as shown below, where the components of the LC director are given by</p>
-<p>$$\begin{align*}u_{x}(x,y,z) &amp;=\cos(\pi z) \\ u_{y}(x,y,z) &amp;=\sin(\pi z) \\ u_{z}(x,y,z) &amp;=0\end{align*}$$</p>
+
+$$\begin{align*}u_{x}(x,y,z) &=\cos(\pi z) \\ u_{y}(x,y,z) &=\sin(\pi z) \\ u_{z}(x,y,z) &=0\end{align*}$$
+
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
