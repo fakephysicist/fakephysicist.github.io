@@ -55,7 +55,7 @@
 
 通常，我们只会用到以下几个文件夹的东西
 
-- `config.toml` ：保存 hugo 的配置，包括主题的配置等.详细设置见下方 #网站配置
+- `config.toml` ：保存 hugo 的配置，包括主题的配置等.详细设置见[这里](https://hugodoit.pages.dev/zh-cn/theme-documentation-basics/#site-configuration).
 - `content` ：保存网站的各种内容，比如文章.
 - `archetypes` ： 保存文章的 markdown 模版，通常包括文章的前缀注释，是一些在创建新文章时会被用到.
 - `static` ：保存文章中用到的静态文件，比如图片、网站缩略图等.
