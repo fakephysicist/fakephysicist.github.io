@@ -92,7 +92,7 @@ here, $k = 2\pi(n+i\kappa)/\lambda_0$.
 The propagation loss in dB/m for a mode propagating in the z-direction is defined as
 
 {{< math >}}
-$$loss = -10 \log_{10}(\frac{P(z)|_{z = \ 1\ m}}{P(z)|_{z = \ 0\ m}}) = -10 \log_{10}(\frac{|E(1)|^2}{|E(0)|^2})=-20 \log_{10}(\frac{|E(1)|}{|E(0)|})$$
+$$loss = -10 \log_{10}(\frac{P(z)|*{z = \ 1\ m}}{P(z)|*{z = \ 0\ m}}) = -10 \log_{10}(\frac{|E(1)|^2}{|E(0)|^2})=-20 \log_{10}(\frac{|E(1)|}{|E(0)|})$$
 {{< /math >}}
 
 Combining the formulas gives

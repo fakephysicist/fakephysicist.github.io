@@ -9,6 +9,6 @@
     <link>https://fakephysicist.github.io/winget-basics/</link>
     <pubDate>Wed, 09 Aug 2023 21:03:25 -0500</pubDate><author>
                         <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/winget-basics/</guid>
-    <description><![CDATA[Search 1 winget search &lt;app name&gt; Install 1 winget install &lt;app name&gt; The &lt;app name&gt; can be found by winget search. It does not have to be the full name, but it has to be unique.]]></description>
+    <description><![CDATA[<p>Windows Package Manager (winget) is a package manager for Windows. It is similar to <code>apt</code> in Linux. It is a command-line tool that allows you to search for and install apps from the command line. It is a great tool for setting up a new Windows machine.</p>]]></description>
 </item></channel>
 </rss>

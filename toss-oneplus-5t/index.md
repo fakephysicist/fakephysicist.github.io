@@ -9,7 +9,7 @@ The phone was running on Android 10, and I would like to upgrade it to Android 1
 
 [XDA](https://forum.xda-developers.com/t/rom-oss-13-september-oneplus-5t-dumpling-project-elixir-beta-official-gapps.4487743/).
 
-Dumpling is the codename for the OnePlus 5T. 
+Dumpling is the codename for the OnePlus 5T.
 
 Download the ROM from here: [ProjectElixir Downloads](https://downloads.projectelixiros.com/thirteen/dumpling/)
 

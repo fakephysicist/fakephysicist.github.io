@@ -1,114 +1,188 @@
 # SSH Basics
 
-## Use windows as an ssh remote host
+SSH is a protocol that allows you to connect to a remote computer. It is widely used in remote computing, such as connecting to a remote server or running Jupyter Lab in a remote host.
+<!--more-->
 
-A good tutorial can be found [here](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_overview).
+## 1. SSH Access to Windows
 
+For an in-depth tutorial, refer to [this link](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_overview).
 
-## Create an ssh key in local ssh client
+### Creating an SSH Key in Local SSH Client
 
-This part can refer to my [previous post](../github-basics/).
+For a detailed explanation, refer to my [previous post](../github-basics/).
 
-Simply speaking, this can be done in two steps:
+In summary:
 
-1. Generate a key pair in local ssh client.
-2. Run `ssh-agent` and add the private key to it.
+1. Generate a key pair in the local SSH client.
+2. Activate the `ssh-agent` and link the private key to it.
 
-In windows, this can be done in powershell:
+In Windows, this process can be executed in PowerShell:
 
 ```powershell
 # Generate a key pair
 ssh-keygen -t ed25519
 
-# By default the ssh-agent service is disabled. Configure it to start automatically.
-# Make sure you're running as an Administrator.
+# By default, the ssh-agent service is disabled. Configure it to start automatically. Ensure you're running as an Administrator.
 Get-Service ssh-agent | Set-Service -StartupType Automatic
 
-# Start the service
+# Activate the service
 Start-Service ssh-agent
 
 # This should return a status of Running
 Get-Service ssh-agent
 
-# Now load your key files into ssh-agent
+# Load your key files into ssh-agent
 ssh-add $env:USERPROFILE\.ssh\id_ed25519
 ```
 
-## Run sshd in remote host
+### Starting SSHD on the Remote Host
 
 ```powershell
-# Set the sshd service to be started automatically
+# Set the sshd service to start automatically
 Get-Service -Name sshd | Set-Service -StartupType Automatic
 
-# Now start the sshd service
+# Activate the sshd service
 Start-Service sshd
 ```
 
-## Deploy the public key to remote host
+### Deploying the Public Key to the Remote Host
 
-### As an administrator user
+Your public key, `\.ssh\id_ed25519.pub`, should be placed on the server in a text file named `administrators_authorized_keys` located in `C:\ProgramData\ssh\`.
 
-The contents of your public key `\.ssh\id_ed25519.pub` needs to be placed on the server into a text file called `administrators_authorized_keys` in `C:\ProgramData\ssh\`.
+### Using VSCode as an SSH Client
 
-## Use VSCode as an ssh client
+To connect, you need to know the `username` and `hostname` of the remote host.
 
-We need to know the `username` and `hostname` of the remote host.
+#### Determining the Username
 
-### Username
-
-`username` is the account name of the remote host, which can be retrieved by executing
+The `username` typically matches the account name of the remote host, retrievable by:
 
 ```powershell
 echo $env:USERNAME
 ```
 
-But sometimes the `username` is not the same as the `account name`, since windows allows us to login with Microsoft account. In this case, we can use the email address of the Microsoft account as the `username`.
+However, if you're using a Microsoft account to log in, the `username` might be the associated email address.
 
-### Hostname
+#### Determining the Hostname
 
-`hostname` is the ip address of the remote host, which can be retrieved by executing
+The `hostname`, which is the IP address of the remote host, can be retrieved with:
 
 ```powershell
 ipconfig
 ```
 
-## Running Jupyter Lab in remote host
+## 2. SSH Access to WSL2
 
-We can use `ssh` to run `jupyter lab` in remote host and access it in local browser.
+For a comprehensive guide, refer [here](<https://jmmv.dev/2022/02/wsl-ssh-access.html>).
 
-### Redirect traffic from remote port to local port
+Since Windows uses port 22 by default for SSH, consider changing the SSH port in WSL2 to 2222 to prevent conflicts.
 
-If we set the remote port to be `<remote_port>` and the local port to be `<local_port>`, then we can redirect the traffic from `<local_port>` to `<remote_port>` by
+### On the Remote Host (WSL2)
+
+```bash
+# Install openssh-server
+sudo apt install openssh-server
+
+# Modify the SSH configuration to use port 2222
+sudo sed -i -E 's,^#?Port.*$,Port 2222,' /etc/ssh/sshd_config
+sudo service ssh restart
+
+# Allow passwordless sudo for the current user to start the SSH service
+sudo sh -c "echo '${USER} ALL=(root) NOPASSWD: /usr/sbin/service ssh start' >/etc/sudoers.d/service-ssh-start"
+
+# Start the SSH service without requiring a password
+sudo /usr/sbin/service ssh start
+```
+
+### On the Remote Host (Windows)
+
+#### Unblock Port 2222
+
+```powershell
+New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH Server (sshd) for WSL' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 2222
+```
+
+#### Automatically Start SSHD Service
+
+Create a CMD script to initiate the SSHD service in WSL2.
+
+```cmd
+@echo off
+setlocal
+
+C:\Windows\System32\bash.exe -c "sudo /usr/sbin/service ssh start"
+
+C:\Windows\System32\netsh.exe interface portproxy delete v4tov4 listenport=2022 listenaddress=0.0.0.0 protocol=tcp
+
+for /f %%i in ('wsl hostname -I') do set IP=%%i
+C:\Windows\System32\netsh.exe interface portproxy add v4tov4 listenport=2022 listenaddress=0.0.0.0 connectport=2022 connectaddress=%IP%
+
+endlocal
+```
+
+### Connecting to WSL2
+
+```bash
+ssh -p 2222 <username>@<hostname>
+```
+
+Note that the `username` here is distinct from the Windows host username; it pertains to the Linux system. Determine it using:
+
+```bash
+whoami
+```
+
+The `hostname`, however, remains consistent with the Windows host.
+
+#### VSCode Remote - SSH
+
+Edit the `~/.ssh/config` on the local client:
+
+```bash
+Host <hostname>
+    HostName <nickname_windows>
+    User <username_windows>
+    Port 22
+
+Host <hostname>
+    HostName <nickname_wsl>
+    User <username_wsl>
+    Port 2222
+```
+
+## 3. Running Jupyter Lab on a Remote Host
+
+Use `ssh` to run `jupyter lab` on a remote host and access it from a local browser.
+
+### Redirect Traffic from Remote Port to Local Port
+
+If you designate `<remote_port>` for the remote and `<local_port>` for the local, redirect the traffic as:
 
 ```powershell
 ssh -L <local_port>:localhost:<remote_port> <username>@<hostname>
 ```
 
-### Run Jupyter Lab in remote host
+### Running Jupyter Lab on the Remote Host
 
 ```powershell
 jupyter lab --no-browser --port=<remote_port>
 ```
 
+## 4. Using `croc` to Transfer Files
 
-jupyter lab --no-browser --port=8080
+For more details, consult [this link](https://github.com/schollz/croc).
 
+### On the Local Machine
 
-## Use `croc` to transfer files
-
-The details can be found [here](https://github.com/schollz/croc)
-
-### Local
-
-You can navigate to the directory you want to sync and run the following command:
+Navigate to the directory you wish to sync:
 
 ```bash
 croc send --code <code> .
 ```
 
-### Remote
+### On the Remote Machine
 
-You can run the following command to receive the files:
+To receive the files:
 
 ```bash
 croc --yes --overwrite <code>

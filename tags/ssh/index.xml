@@ -9,10 +9,6 @@
     <link>https://fakephysicist.github.io/ssh-basics/</link>
     <pubDate>Wed, 09 Aug 2023 21:03:25 -0500</pubDate><author>
                         <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/ssh-basics/</guid>
-    <description><![CDATA[Use windows as an ssh remote hostA good tutorial can be found here.
-Create an ssh key in local ssh clientThis part can refer to my previous post.
-Simply speaking, this can be done in two steps:
-Generate a key pair in local ssh client. Run ssh-agent and add the private key to it. In windows, this can be done in powershell:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 # Generate a key pair ssh-keygen -t ed25519 # By default the ssh-agent service is disabled.]]></description>
+    <description><![CDATA[<p>SSH is a protocol that allows you to connect to a remote computer. It is widely used in remote computing, such as connecting to a remote server or running Jupyter Lab in a remote host.</p>]]></description>
 </item></channel>
 </rss>

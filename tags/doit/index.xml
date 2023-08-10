@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>DoIt - 标签 - FakePhysicist</title>
+        <title>doit - 标签 - FakePhysicist</title>
         <link>https://fakephysicist.github.io/tags/doit/</link>
-        <description>DoIt - 标签 - FakePhysicist</description>
+        <description>doit - 标签 - FakePhysicist</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fakephysicist@outlook.com (FakePhysicist)</managingEditor>
             <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><lastBuildDate>Fri, 01 Jan 2021 02:43:06 -0500</lastBuildDate><atom:link href="https://fakephysicist.github.io/tags/doit/" rel="self" type="application/rss+xml" /><item>
     <title>Hugo &#43; DoIt 创建个人主页</title>

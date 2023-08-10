@@ -1,5 +1,7 @@
 # Winget Basics
 
+Windows Package Manager (winget) is a package manager for Windows. It is similar to `apt` in Linux. It is a command-line tool that allows you to search for and install apps from the command line. It is a great tool for setting up a new Windows machine.
+<!--more-->
 
 ## Search
 

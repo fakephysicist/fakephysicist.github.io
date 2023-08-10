@@ -6,6 +6,7 @@
 ## Hugo
 
 ### 安装
+
 [Install Hugo](https://gohugo.io/installation/)
 
 ### 常用命令
@@ -175,7 +176,7 @@ hugo.linux
 
 1. 在 `my_website` 目录下执行 `git submodule update --init --recursive` 将子模块更新到最新状态.
 2. 在 `config.toml` 中, 设置 `baseurl = https://<USERNAME>.github.io/`.
-3. **确保 `public` 文件夹被删除.** 将 `<USERNAME>.github.io` repository 设置为一个 submodule, 并设置其在文件夹 `public` 中. 
+3. **确保 `public` 文件夹被删除.** 将 `<USERNAME>.github.io` repository 设置为一个 submodule, 并设置其在文件夹 `public` 中.
 
     ```bash
     git submodule add -f -b main https://github.com/<USERNAME>/<USERNAME>.github.io.git public
@@ -200,7 +201,7 @@ hugo.linux
     git push -u origin master
     ```
 
-## Github Action 发布 
+## Github Action 发布
 
 (不推荐, 会有网页渲染问题)
 
@@ -305,3 +306,4 @@ jobs:
 
 - 中英文之间要有空格
 - 中文与数字之间要有空格
+
