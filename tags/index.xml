@@ -1,0 +1,78 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Tags - 标签 - FakePhysicist</title>
+        <link>https://fakephysicist.github.io/tags/</link>
+        <description>Tags - 标签 - FakePhysicist</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fakephysicist@outlook.com (FakePhysicist)</managingEditor>
+            <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><lastBuildDate>Wed, 09 Aug 2023 21:03:25 -0500</lastBuildDate><atom:link href="https://fakephysicist.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>ssh</title>
+    <link>https://fakephysicist.github.io/tags/ssh/</link>
+    <pubDate>Wed, 09 Aug 2023 21:03:25 -0500</pubDate><author>
+        <name>FakePhysicist</name>
+    </author><guid>https://fakephysicist.github.io/tags/ssh/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>vscode</title>
+    <link>https://fakephysicist.github.io/tags/vscode/</link>
+    <pubDate>Wed, 09 Aug 2023 21:03:25 -0500</pubDate><author>
+        <name>FakePhysicist</name>
+    </author><guid>https://fakephysicist.github.io/tags/vscode/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>winget</title>
+    <link>https://fakephysicist.github.io/tags/winget/</link>
+    <pubDate>Wed, 09 Aug 2023 21:03:25 -0500</pubDate><author>
+        <name>FakePhysicist</name>
+    </author><guid>https://fakephysicist.github.io/tags/winget/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Android</title>
+    <link>https://fakephysicist.github.io/tags/android/</link>
+    <pubDate>Thu, 02 Feb 2023 23:00:20 -0500</pubDate><author>
+        <name>FakePhysicist</name>
+    </author><guid>https://fakephysicist.github.io/tags/android/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Windows Terminal</title>
+    <link>https://fakephysicist.github.io/tags/windows-terminal/</link>
+    <pubDate>Mon, 30 Jan 2023 21:03:25 -0500</pubDate><author>
+        <name>FakePhysicist</name>
+    </author><guid>https://fakephysicist.github.io/tags/windows-terminal/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>git, github</title>
+    <link>https://fakephysicist.github.io/tags/git-github/</link>
+    <pubDate>Wed, 25 Jan 2023 00:06:00 -0400</pubDate><author>
+        <name>FakePhysicist</name>
+    </author><guid>https://fakephysicist.github.io/tags/git-github/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>LC</title>
+    <link>https://fakephysicist.github.io/tags/lc/</link>
+    <pubDate>Mon, 16 Aug 2021 14:00:00 -0400</pubDate><author>
+        <name>FakePhysicist</name>
+    </author><guid>https://fakephysicist.github.io/tags/lc/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Python</title>
+    <link>https://fakephysicist.github.io/tags/python/</link>
+    <pubDate>Mon, 16 Aug 2021 14:00:00 -0400</pubDate><author>
+        <name>FakePhysicist</name>
+    </author><guid>https://fakephysicist.github.io/tags/python/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>DoIt</title>
+    <link>https://fakephysicist.github.io/tags/doit/</link>
+    <pubDate>Fri, 01 Jan 2021 02:43:06 -0500</pubDate><author>
+        <name>FakePhysicist</name>
+    </author><guid>https://fakephysicist.github.io/tags/doit/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Hugo</title>
+    <link>https://fakephysicist.github.io/tags/hugo/</link>
+    <pubDate>Fri, 01 Jan 2021 02:43:06 -0500</pubDate><author>
+        <name>FakePhysicist</name>
+    </author><guid>https://fakephysicist.github.io/tags/hugo/</guid>
+    <description><![CDATA[]]></description>
+</item></channel>
+</rss>

@@ -22,7 +22,7 @@
 
 <meta name="theme-color" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://fakephysicist.github.io/how-to-build-a-website-with-hugo/" /><link rel="next" href="https://fakephysicist.github.io/fdtd_basics/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/color.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://fakephysicist.github.io/how-to-build-a-website-with-hugo/" /><link rel="next" href="https://fakephysicist.github.io/fdtd-basics/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/color.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript>
     
@@ -42,7 +42,7 @@
                             "url": "https:\/\/fakephysicist.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "Hugo, DoIt","wordcount":  2362 ,
+                        }],"genre": "posts","keywords": "Hugo, DoIt","wordcount":  2287 ,
         "url": "https:\/\/fakephysicist.github.io\/how-to-build-a-website-with-hugo\/","datePublished": "2021-01-01T02:43:06-05:00","dateModified": "2021-01-01T02:43:06-05:00","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -193,7 +193,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://fakephysicist.github.io/authors/fakephysicist'>FakePhysicist</a></span>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/tossing/"><i class="far fa-folder fa-fw"></i>Tossing</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-01-01">2021-01-01</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-01-01">2021-01-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2362 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-01-01">2021-01-01</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-01-01">2021-01-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2287 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -280,9 +280,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">hugo new site my_website
-<span class="nb">cd</span> my_website
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo new site my_website
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> my_website
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -293,9 +293,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git init
-git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git init
+</span></span><span class="line"><span class="cl">git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -320,17 +320,17 @@ git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">.
-├── archetypes <span class="c1"># markdown文章的模版</span>
-├── config.toml <span class="c1"># 配置文件</span>
-├── content <span class="c1"># 网站内容，主要保存文章</span>
-├── data <span class="c1"># 生成网站可用的数据文件，可用在模版中</span>
-├── layouts <span class="c1"># 生成网站时可用的模版</span>
-├── public <span class="c1"># 通过hugo命令生成的静态文件，主要发布这个</span>
-├── resources <span class="c1"># 通过hugo命令一起生成的资源文件，暂时不知道什么用</span>
-├── static <span class="c1"># 静态文件，比如文章中的图片/视频文件、缩略图等</span>
-└── themes <span class="c1"># 保存可用的hugo主题</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">.
+</span></span><span class="line"><span class="cl">├── archetypes <span class="c1"># markdown文章的模版</span>
+</span></span><span class="line"><span class="cl">├── config.toml <span class="c1"># 配置文件</span>
+</span></span><span class="line"><span class="cl">├── content <span class="c1"># 网站内容，主要保存文章</span>
+</span></span><span class="line"><span class="cl">├── data <span class="c1"># 生成网站可用的数据文件，可用在模版中</span>
+</span></span><span class="line"><span class="cl">├── layouts <span class="c1"># 生成网站时可用的模版</span>
+</span></span><span class="line"><span class="cl">├── public <span class="c1"># 通过hugo命令生成的静态文件，主要发布这个</span>
+</span></span><span class="line"><span class="cl">├── resources <span class="c1"># 通过hugo命令一起生成的资源文件，暂时不知道什么用</span>
+</span></span><span class="line"><span class="cl">├── static <span class="c1"># 静态文件，比如文章中的图片/视频文件、缩略图等</span>
+</span></span><span class="line"><span class="cl">└── themes <span class="c1"># 保存可用的hugo主题</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>通常，我们只会用到以下几个文件夹的东西</p>
 <ul>
@@ -348,8 +348,8 @@ git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">hugo new posts/hello-world/index.md
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo new posts/hello-world/index.md
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>执行完成后，在<code>./content/posts</code>目录下应该可以看到新文件，同时里面已经有 markdown 模版中的文章前缀参数.</p>
 <p>也可以手动复制旧文章来生成新文章，不通过命令.</p>
@@ -370,19 +370,19 @@ git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">.
-└── content
-    └── about
-    <span class="p">|</span>   └── index.md  // &lt;- https://example.com/about/
-    ├── posts
-    <span class="p">|</span>   ├── firstpost.md   // &lt;- https://example.com/posts/firstpost/
-    <span class="p">|</span>   ├── happy
-    <span class="p">|</span>   <span class="p">|</span>   └── ness.md  // &lt;- https://example.com/posts/happy/ness/
-    <span class="p">|</span>   └── secondpost.md  // &lt;- https://example.com/posts/secondpost/
-    └── quote
-        ├── first.md       // &lt;- https://example.com/quote/first/
-        └── second.md      // &lt;- https://example.com/quote/second/
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">.
+</span></span><span class="line"><span class="cl">└── content
+</span></span><span class="line"><span class="cl">    └── about
+</span></span><span class="line"><span class="cl">    <span class="p">|</span>   └── index.md  // &lt;- https://example.com/about/
+</span></span><span class="line"><span class="cl">    ├── posts
+</span></span><span class="line"><span class="cl">    <span class="p">|</span>   ├── firstpost.md   // &lt;- https://example.com/posts/firstpost/
+</span></span><span class="line"><span class="cl">    <span class="p">|</span>   ├── happy
+</span></span><span class="line"><span class="cl">    <span class="p">|</span>   <span class="p">|</span>   └── ness.md  // &lt;- https://example.com/posts/happy/ness/
+</span></span><span class="line"><span class="cl">    <span class="p">|</span>   └── secondpost.md  // &lt;- https://example.com/posts/secondpost/
+</span></span><span class="line"><span class="cl">    └── quote
+</span></span><span class="line"><span class="cl">        ├── first.md       // &lt;- https://example.com/quote/first/
+</span></span><span class="line"><span class="cl">        └── second.md      // &lt;- https://example.com/quote/second/
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="本地调试" class="headerLink">
     <a href="#%e6%9c%ac%e5%9c%b0%e8%b0%83%e8%af%95" class="header-mark"></a>本地调试</h3><div class="highlight"><div class="chroma">
@@ -390,8 +390,8 @@ git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">hugo server --disableFastRender
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo server --disableFastRender
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="github-repository" class="headerLink">
     <a href="#github-repository" class="header-mark"></a>Github Repository</h2><p>两个 Repositories</p>
@@ -423,20 +423,20 @@ git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">## 位于博客源代码根目录</span>
-
-<span class="c1">## 初始化本地Git仓库</span>
-git init
-
-<span class="c1">## 添加名为 Origin 的远端Git仓库</span>
-git remote add origin <span class="o">{{</span>这里替换成你的仓库在Github <span class="sb">`</span>git clone<span class="sb">`</span>用的地址<span class="o">}}</span>
-
-<span class="c1">## 选择所有文件</span>
-git add -A
-
-<span class="c1">## Push到github</span>
-git push -u origin master
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">## 位于博客源代码根目录</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## 初始化本地Git仓库</span>
+</span></span><span class="line"><span class="cl">git init
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## 添加名为 Origin 的远端Git仓库</span>
+</span></span><span class="line"><span class="cl">git remote add origin <span class="o">{{</span>这里替换成你的仓库在Github <span class="sb">`</span>git clone<span class="sb">`</span>用的地址<span class="o">}}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## 选择所有文件</span>
+</span></span><span class="line"><span class="cl">git add -A
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## Push到github</span>
+</span></span><span class="line"><span class="cl">git push -u origin master
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>或者直接用 VSCode 链接本地仓库与远端 Github 仓库.</p>
 <h4 id="创建gitignore" class="headerLink">
@@ -460,21 +460,21 @@ git push -u origin master
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Created by https://www.toptal.com/developers/gitignore/api/hugo</span>
-<span class="c1"># Edit at https://www.toptal.com/developers/gitignore?templates=hugo</span>
-
-<span class="c1">### Hugo ###</span>
-<span class="c1"># Generated files by hugo</span>
-/public/
-/resources/_gen/
-
-<span class="c1"># Executable may be added to repository</span>
-hugo.exe
-hugo.darwin
-hugo.linux
-
-<span class="c1"># End of https://www.toptal.com/developers/gitignore/api/hugo</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Created by https://www.toptal.com/developers/gitignore/api/hugo</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Edit at https://www.toptal.com/developers/gitignore?templates=hugo</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">### Hugo ###</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Generated files by hugo</span>
+</span></span><span class="line"><span class="cl">/public/
+</span></span><span class="line"><span class="cl">/resources/_gen/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Executable may be added to repository</span>
+</span></span><span class="line"><span class="cl">hugo.exe
+</span></span><span class="line"><span class="cl">hugo.darwin
+</span></span><span class="line"><span class="cl">hugo.linux
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># End of https://www.toptal.com/developers/gitignore/api/hugo</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="repository-2" class="headerLink">
     <a href="#repository-2" class="header-mark"></a>Repository 2</h3><h4 id="创建仓库注意名称" class="headerLink">
@@ -498,8 +498,8 @@ hugo.linux
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git submodule add -f -b main https://github.com/&lt;USERNAME&gt;/&lt;USERNAME&gt;.github.io.git public
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git submodule add -f -b main https://github.com/&lt;USERNAME&gt;/&lt;USERNAME&gt;.github.io.git public
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -514,13 +514,13 @@ hugo.linux
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">hugo
-<span class="nb">cd</span> public
-git add .
-git commit -m <span class="s2">&#34;Build website&#34;</span>
-git push origin main
-<span class="nb">cd</span> ..
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> public
+</span></span><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;Build website&#34;</span>
+</span></span><span class="line"><span class="cl">git push origin main
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ..
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -532,10 +532,10 @@ git push origin main
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git add .
-git commit -m <span class="s2">&#34;Initial commit&#34;</span>
-git push -u origin master
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;Initial commit&#34;</span>
+</span></span><span class="line"><span class="cl">git push -u origin master
+</span></span></code></pre></td></tr></table>
 </div>
 </div></li>
 </ol>
@@ -600,59 +600,59 @@ git push -u origin master
 </span><span class="lnt">52
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-YAML" data-lang="YAML"><span class="c"># This is a basic workflow to help you get started with Actions</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">CI</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="c"># Controls when the action will run.</span><span class="w">
-</span><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="c"># Triggers the workflow on push or pull request events but only for the master branch</span><span class="w">
-</span><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">master]</span><span class="w">
-</span><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">master]</span><span class="w">
-</span><span class="w">
-</span><span class="w">  </span><span class="c"># Allows you to run this workflow manually from the Actions tab</span><span class="w">
-</span><span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span><span class="c"># A workflow run is made up of one or more jobs that can run sequentially or in parallel</span><span class="w">
-</span><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="c"># This workflow contains a single job called &#34;build&#34;</span><span class="w">
-</span><span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span><span class="c"># The type of runner that the job will run on</span><span class="w">
-</span><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
-</span><span class="w">
-</span><span class="w">    </span><span class="c"># Steps represent a sequence of tasks that will be executed as part of the job</span><span class="w">
-</span><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span><span class="w">      </span><span class="c"># Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it</span><span class="w">
-</span><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v3</span><span class="w">
-</span><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="nt">submodules</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c"># Fetch Hugo themes (true OR recursive)</span><span class="w">
-</span><span class="w">          </span><span class="nt">fetch-depth</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="c"># Fetch all history for .GitInfo and .Lastmod</span><span class="w">
-</span><span class="w">
-</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Setup Hugo</span><span class="w">
-</span><span class="w">        </span><span class="c"># You may pin to the exact commit or the version.</span><span class="w">
-</span><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">peaceiris/actions-hugo@v2</span><span class="w">
-</span><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="c"># The Hugo version to download (if necessary) and use. Example: 0.58.2</span><span class="w">
-</span><span class="w">          </span><span class="nt">hugo-version</span><span class="p">:</span><span class="w"> </span><span class="l">latest</span><span class="w"> </span><span class="c"># optional, default is latest</span><span class="w">
-</span><span class="w">          </span><span class="c"># Download (if necessary) and use Hugo extended version. Example: true</span><span class="w">
-</span><span class="w">          </span><span class="nt">extended</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c"># optional, default is false</span><span class="w">
-</span><span class="w">
-</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build</span><span class="w">
-</span><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">hugo --minify</span><span class="w">
-</span><span class="w">
-</span><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Pushes to another repository</span><span class="w">
-</span><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">cpina/github-action-push-to-another-repository@main</span><span class="w">
-</span><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="nt">API_TOKEN_GITHUB</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.API_TOKEN_GITHUB }}</span><span class="w">
-</span><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
-</span><span class="w">          </span><span class="nt">target-branch</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;main&#34;</span><span class="w">
-</span><span class="w">          </span><span class="nt">source-directory</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;public&#34;</span><span class="w">
-</span><span class="w">          </span><span class="nt">destination-github-username</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;这里输入你的Github用户名&#34;</span><span class="w">
-</span><span class="w">          </span><span class="nt">destination-repository-name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;这里输入你的Github用户名.github.io&#34;</span><span class="w">
-</span><span class="w">          </span><span class="nt">user-email</span><span class="p">:</span><span class="w"> </span><span class="l">这里输入你的 Github no-reply 邮箱</span><span class="w">
-</span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-YAML" data-lang="YAML"><span class="line"><span class="cl"><span class="c"># This is a basic workflow to help you get started with Actions</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">CI</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Controls when the action will run.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Triggers the workflow on push or pull request events but only for the master branch</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">master]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">master]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Allows you to run this workflow manually from the Actions tab</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># A workflow run is made up of one or more jobs that can run sequentially or in parallel</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># This workflow contains a single job called &#34;build&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The type of runner that the job will run on</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Steps represent a sequence of tasks that will be executed as part of the job</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">submodules</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c"># Fetch Hugo themes (true OR recursive)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">fetch-depth</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="c"># Fetch all history for .GitInfo and .Lastmod</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Setup Hugo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c"># You may pin to the exact commit or the version.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">peaceiris/actions-hugo@v2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="c"># The Hugo version to download (if necessary) and use. Example: 0.58.2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">hugo-version</span><span class="p">:</span><span class="w"> </span><span class="l">latest</span><span class="w"> </span><span class="c"># optional, default is latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="c"># Download (if necessary) and use Hugo extended version. Example: true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">extended</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c"># optional, default is false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">hugo --minify</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Pushes to another repository</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">cpina/github-action-push-to-another-repository@main</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">API_TOKEN_GITHUB</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.API_TOKEN_GITHUB }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">target-branch</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;main&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">source-directory</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;public&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">destination-github-username</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;这里输入你的Github用户名&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">destination-repository-name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;这里输入你的Github用户名.github.io&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">user-email</span><span class="p">:</span><span class="w"> </span><span class="l">这里输入你的 Github no-reply 邮箱</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="设置-push-用的密钥" class="headerLink">
     <a href="#%e8%ae%be%e7%bd%ae-push-%e7%94%a8%e7%9a%84%e5%af%86%e9%92%a5" class="header-mark"></a>设置 Push 用的密钥</h3><p>为了让 Github Action 脚本有权限将代码 Push 到我们的 <code>xxx.github.io</code> 仓库，我们需要申请一个密钥并告诉它.在 Github 设置中找到 <code>Developer settings/Personal access tokens</code></p>
@@ -668,12 +668,12 @@ git push -u origin master
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown">
+<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">
 \begin{aligned}
 \frac{1}{2} &= \frac{1}{2} \\
 \end{aligned}
 
-</code></pre></td></tr></table>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="评论系统-giscus" class="headerLink">
     <a href="#%e8%af%84%e8%ae%ba%e7%b3%bb%e7%bb%9f-giscus" class="header-mark"></a>评论系统 giscus</h2><p>在 <code>config.toml</code> 中启用评论系统</p>
@@ -711,7 +711,7 @@ git push -u origin master
     </div>
 
     <div class="post-nav">
-            <a href="/fdtd_basics/" class="next" rel="next" title="FDTD Basics">FDTD Basics<i class="fas fa-angle-right fa-fw"></i></a></div>
+            <a href="/fdtd-basics/" class="next" rel="next" title="FDTD Basics">FDTD Basics<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="giscus"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app/">giscus</a>.

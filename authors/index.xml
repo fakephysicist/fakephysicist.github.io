@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Authors - 作者 - FakePhysicist</title>
+        <link>https://fakephysicist.github.io/authors/</link>
+        <description>Authors - 作者 - FakePhysicist</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fakephysicist@outlook.com (FakePhysicist)</managingEditor>
+            <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><lastBuildDate>Wed, 09 Aug 2023 21:03:25 -0500</lastBuildDate><atom:link href="https://fakephysicist.github.io/authors/" rel="self" type="application/rss+xml" /><item>
+    <title>FakePhysicist</title>
+    <link>https://fakephysicist.github.io/authors/fakephysicist/</link>
+    <pubDate>Wed, 09 Aug 2023 21:03:25 -0500</pubDate><author>
+        <name>FakePhysicist</name>
+    </author><guid>https://fakephysicist.github.io/authors/fakephysicist/</guid>
+    <description><![CDATA[]]></description>
+</item></channel>
+</rss>

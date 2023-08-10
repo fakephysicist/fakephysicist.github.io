@@ -4,9 +4,25 @@
         <link>https://fakephysicist.github.io/</link>
         <description>a fake physicist&#39;s notes</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fakephysicist@outlook.com (FakePhysicist)</managingEditor>
-            <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><lastBuildDate>Thu, 02 Feb 2023 23:00:20 -0500</lastBuildDate>
+            <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><lastBuildDate>Wed, 09 Aug 2023 21:03:25 -0500</lastBuildDate>
             <atom:link href="https://fakephysicist.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>SSH Basics</title>
+    <link>https://fakephysicist.github.io/ssh-basics/</link>
+    <pubDate>Wed, 09 Aug 2023 21:03:25 -0500</pubDate><author>
+                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/ssh-basics/</guid>
+    <description><![CDATA[Use windows as an ssh remote hostA good tutorial can be found here.
+Create an ssh key in local ssh clientThis part can refer to my previous post.
+Simply speaking, this can be done in two steps:
+Generate a key pair in local ssh client. Run ssh-agent and add the private key to it. In windows, this can be done in powershell:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 # Generate a key pair ssh-keygen -t ed25519 # By default the ssh-agent service is disabled.]]></description>
+</item><item>
+    <title>Winget Basics</title>
+    <link>https://fakephysicist.github.io/winget-basics/</link>
+    <pubDate>Wed, 09 Aug 2023 21:03:25 -0500</pubDate><author>
+                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/winget-basics/</guid>
+    <description><![CDATA[Search 1 winget search &lt;app name&gt; Install 1 winget install &lt;app name&gt; The &lt;app name&gt; can be found by winget search. It does not have to be the full name, but it has to be unique.]]></description>
+</item><item>
     <title>折腾 OnePlus 5T</title>
     <link>https://fakephysicist.github.io/toss-oneplus-5t/</link>
     <pubDate>Thu, 02 Feb 2023 23:00:20 -0500</pubDate><author>
@@ -20,27 +36,27 @@
     <description><![CDATA[<p>老是忘记的分割窗口的快捷键, 所以记录一下.</p>]]></description>
 </item><item>
     <title>Git Basics</title>
-    <link>https://fakephysicist.github.io/github_basics/</link>
+    <link>https://fakephysicist.github.io/github-basics/</link>
     <pubDate>Wed, 25 Jan 2023 00:06:00 -0400</pubDate><author>
-                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/github_basics/</guid>
+                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/github-basics/</guid>
     <description><![CDATA[<p>Some basics about Git and GitHub. 其实上网一搜到处都有, 但还是记录一下, 方便自己查阅.</p>]]></description>
 </item><item>
     <title>VSCode 技巧</title>
-    <link>https://fakephysicist.github.io/vscode_shortcuts/</link>
+    <link>https://fakephysicist.github.io/vscode-shortcuts/</link>
     <pubDate>Tue, 17 Aug 2021 14:32:44 -0500</pubDate><author>
-                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/vscode_shortcuts/</guid>
+                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/vscode-shortcuts/</guid>
     <description><![CDATA[]]></description>
 </item><item>
     <title>FDTD Liquid Crystals</title>
-    <link>https://fakephysicist.github.io/fdtd_lc/</link>
+    <link>https://fakephysicist.github.io/fdtd-lc/</link>
     <pubDate>Mon, 16 Aug 2021 14:00:00 -0400</pubDate><author>
-                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/fdtd_lc/</guid>
+                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/fdtd-lc/</guid>
     <description><![CDATA[<p>Liquid Crystals in FDTD simulation</p>]]></description>
 </item><item>
     <title>FDTD Basics</title>
-    <link>https://fakephysicist.github.io/fdtd_basics/</link>
+    <link>https://fakephysicist.github.io/fdtd-basics/</link>
     <pubDate>Mon, 16 Aug 2021 13:25:00 -0400</pubDate><author>
-                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/fdtd_basics/</guid>
+                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/fdtd-basics/</guid>
     <description><![CDATA[<p>FDTD basics, Python scripts controlling Lumerical.</p>]]></description>
 </item><item>
     <title>Hugo &#43; DoIt 创建个人主页</title>
