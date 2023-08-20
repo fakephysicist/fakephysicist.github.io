@@ -5,7 +5,7 @@
 
 ## Hugo
 
-### 安装
+### 安装 {#Hugo-installation}
 
 [Install Hugo](https://gohugo.io/installation/)
 
@@ -19,7 +19,7 @@
 
 ## DoIt
 
-### 安装
+### 安装 {#DoIt-installation}
 
 项目主页 [DoIt](https://github.com/HEIGE-PCloud/DoIt)
 
@@ -64,7 +64,7 @@
 - `content` ：保存网站的各种内容，比如文章.
 - `archetypes` ： 保存文章的 markdown 模版，通常包括文章的前缀注释，是一些在创建新文章时会被用到.
 - `static` ：保存文章中用到的静态文件，比如图片、网站缩略图等.
-- `public` ：通过hugo命令生成的静态 html 文件、css、js 等.在服务器上发布时主要发布这个文件夹.
+- `public` ：通过 `hugo` 命令生成的静态 HTML, CSS, JS 等.在服务器上发布时主要发布这个文件夹.
 
 ## 开始写第一篇文章
 
@@ -80,7 +80,7 @@ hugo new posts/hello-world/index.md
 
 也可以手动复制旧文章来生成新文章，不通过命令.
 
-也可以在`content`文件夹下建新的文件夹，方便管理.这种情况下生成的静态 Html 文件路由效果如下：
+也可以在`content`文件夹下建新的文件夹，方便管理.这种情况下生成的静态 HTML 文件路由效果如下：
 
 ```bash
 .
@@ -103,7 +103,7 @@ hugo new posts/hello-world/index.md
 hugo server --disableFastRender
 ```
 
-## Github Repository
+## GitHub Repository
 
 两个 Repositories
 
@@ -113,7 +113,7 @@ hugo server --disableFastRender
 
 ### Repository 1
 
-设置为private权限等级，没人看得见
+设置为 `private` 权限等级，用于托管博客项目源文件. 别人看不到你的源代码.
 
 #### 链接本地仓库与远端仓库
 
@@ -133,11 +133,11 @@ git add -A
 git push -u origin master
 ```
 
-或者直接用 VSCode 链接本地仓库与远端 Github 仓库.
+或者直接用 VSCode 链接本地仓库与远端 GitHub 仓库.
 
 #### 创建.gitignore
 
-在源代码项目中创建.gitignore文件，来防止把生成的静态文件上传
+在源代码项目中创建 `.gitignore` 文件，来防止把生成的静态文件上传
 
 参考 [gitignore.io](https://gitignore.io/)
 
@@ -162,15 +162,15 @@ hugo.linux
 
 #### 创建仓库，注意名称
 
-第二个仓库名字比较重要，必须是 `{{你的github用户名}}.github.io`. 比如我的 Github 名字为 `FakePhysicist`, 那么我需要创建的仓库名称为 `fakephysicist.github.io`. 同时注意要设置为 Public 权限等级.
+第二个仓库名字比较重要，必须是 `{{你的github用户名}}.github.io`. 比如我的 GitHub 名字为 `FakePhysicist`, 那么我需要创建的仓库名称为 `fakephysicist.github.io`. 同时注意要设置为 Public 权限等级.
 
-#### 在仓库设置里设置启用Github Pages
+#### 在仓库设置里设置启用 GitHub Pages
 
 设置 `Branch` 为 `main`, 静态文件位置为`/(root)`, 原因是我们在下个步骤中会直接将生成的 `public` 文件夹中的内容 `push` 到 `main` 分支的 `/` 目录下.
 
 ## 手工发布
 
-(更好, 不会有网页渲染问题)
+(更好, 不会有网页渲染问题. GitHub Actions 会有网页渲染问题)
 
 **将**`hugo`**命令生成的**`public`**文件夹上传到 GitHub pages 项目下。**
 
@@ -179,7 +179,7 @@ hugo.linux
 3. **确保 `public` 文件夹被删除.** 将 `<USERNAME>.github.io` repository 设置为一个 submodule, 并设置其在文件夹 `public` 中.
 
     ```bash
-    git submodule add -f -b main https://github.com/<USERNAME>/<USERNAME>.github.io.git public
+    git submodule add -f -b main https://github.com/FakePhysicist/fakephysicist.github.io.git public
     ```
 
 4. 生成网页, 并将其推送到 repository 2.
@@ -193,7 +193,7 @@ hugo.linux
     cd ..
     ```
 
-5. add, commit and push repository 1.
+5. Add, commit and push repository 1.
 
     ```bash
     git add .
@@ -201,82 +201,9 @@ hugo.linux
     git push -u origin master
     ```
 
-## Github Action 发布
+## Tips
 
-(不推荐, 会有网页渲染问题)
-
-### 创建 CI 脚本
-
-在源代码项目根目录下新建`.github/workflow/main.yml`.(通过 Github Action 网页端操作也可以)
-
-`main.yml`脚本内容：
-
-```YAML
-# This is a basic workflow to help you get started with Actions
-
-name: CI
-
-# Controls when the action will run.
-on:
-  # Triggers the workflow on push or pull request events but only for the master branch
-  push:
-    branches: [master]
-  pull_request:
-    branches: [master]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-        with:
-          submodules: true # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
-
-      - name: Setup Hugo
-        # You may pin to the exact commit or the version.
-        uses: peaceiris/actions-hugo@v2
-        with:
-          # The Hugo version to download (if necessary) and use. Example: 0.58.2
-          hugo-version: latest # optional, default is latest
-          # Download (if necessary) and use Hugo extended version. Example: true
-          extended: true # optional, default is false
-
-      - name: Build
-        run: hugo --minify
-
-      - name: Pushes to another repository
-        uses: cpina/github-action-push-to-another-repository@main
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-        with:
-          target-branch: "main"
-          source-directory: "public"
-          destination-github-username: "这里输入你的Github用户名"
-          destination-repository-name: "这里输入你的Github用户名.github.io"
-          user-email: 这里输入你的 Github no-reply 邮箱
-```
-
-### 设置 Push 用的密钥
-
-为了让 Github Action 脚本有权限将代码 Push 到我们的 `xxx.github.io` 仓库，我们需要申请一个密钥并告诉它.在 Github 设置中找到 `Developer settings/Personal access tokens`
-
-新建一个密钥，权限设置把 `Repo` 打勾. 复制密钥.
-
-回到第一个仓库的设置里，选择`Secrets`
-
-新建密钥，将刚才生成的密钥填进去，名字设为 `API_TOKEN_GITHUB` (跟 CI 脚本里的名称对应即可)
-
-## 使用 Math shortcode
+### 使用 Math shortcode
 
 可以顺利使用 KaTeX 的 Math shortcode. [参考](https://hugodoit.pages.dev/zh-cn/theme-documentation-extended-shortcodes/#math)
 
@@ -284,7 +211,7 @@ jobs:
 
 使用方法:
 
-```markdown
+```bash
 {{< math >}}
 \begin{aligned}
 \frac{1}{2} &= \frac{1}{2} \\
@@ -292,13 +219,13 @@ jobs:
 {{< /math >}}
 ```
 
-## 评论系统 giscus
+### 评论系统 giscus
 
 在 `config.toml` 中启用评论系统
 
 具体配置参考 [giscus](https://giscus.app/zh-CN).
 
-## 中文排版指南
+### 中文排版指南
 
 [中文文案排版指北](https://github.com/mzlogin/chinese-copywriting-guidelines)
 

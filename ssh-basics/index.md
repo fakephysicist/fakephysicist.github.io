@@ -188,3 +188,14 @@ To receive the files:
 croc --yes --overwrite <code>
 ```
 
+## 5. Avoiding SSH passphrase prompt
+
+To avoid the SSH passphrase prompt, you can use
+
+```bash
+ssh-add
+```
+
+to add the key to the `ssh-agent` cache.
+
+

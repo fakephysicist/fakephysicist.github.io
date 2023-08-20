@@ -42,7 +42,7 @@
                             "url": "https:\/\/fakephysicist.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "ssh, vscode","wordcount":  679 ,
+                        }],"genre": "posts","keywords": "ssh, vscode","wordcount":  702 ,
         "url": "https:\/\/fakephysicist.github.io\/ssh-basics\/","datePublished": "2023-08-09T21:03:25-05:00","dateModified": "2023-08-09T21:03:25-05:00","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -184,13 +184,14 @@
         <li><a href="#on-the-remote-machine">On the Remote Machine</a></li>
       </ul>
     </li>
+    <li><a href="#5-avoiding-ssh-passphrase-prompt">5. Avoiding SSH passphrase prompt</a></li>
   </ul>
 </nav></div>
     </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">SSH Basics</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://fakephysicist.github.io/authors/fakephysicist'>FakePhysicist</a></span>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/tricks/"><i class="far fa-folder fa-fw"></i>tricks</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-08-09">2023-08-09</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-08-09">2023-08-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 679 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-08-09">2023-08-09</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-08-09">2023-08-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 702 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -240,6 +241,7 @@
         <li><a href="#on-the-remote-machine">On the Remote Machine</a></li>
       </ul>
     </li>
+    <li><a href="#5-avoiding-ssh-passphrase-prompt">5. Avoiding SSH passphrase prompt</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>SSH is a protocol that allows you to connect to a remote computer. It is widely used in remote computing, such as connecting to a remote server or running Jupyter Lab in a remote host.</p>
@@ -491,7 +493,17 @@
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">croc --yes --overwrite &lt;code&gt;
 </span></span></code></pre></td></tr></table>
 </div>
-</div></div>
+</div><h2 id="5-avoiding-ssh-passphrase-prompt" class="headerLink">
+    <a href="#5-avoiding-ssh-passphrase-prompt" class="header-mark"></a>5. Avoiding SSH passphrase prompt</h2><p>To avoid the SSH passphrase prompt, you can use</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh-add
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>to add the key to the <code>ssh-agent</code> cache.</p></div>
 
         <div class="post-footer" id="post-footer">
     <div class="post-info">
