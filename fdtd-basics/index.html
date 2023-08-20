@@ -43,7 +43,7 @@
                             "url": "https:\/\/fakephysicist.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "python","wordcount":  3897 ,
+                        }],"genre": "posts","keywords": "python","wordcount":  3872 ,
         "url": "https:\/\/fakephysicist.github.io\/fdtd-basics\/","datePublished": "2021-08-16T13:25:00-04:00","dateModified": "2021-08-16T13:25:00-04:00","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -225,7 +225,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://fakephysicist.github.io/authors/fakephysicist'>FakePhysicist</a></span>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/academic/"><i class="far fa-folder fa-fw"></i>academic</a></span>&nbsp;<span class="post-category">和</span>&nbsp;<span class="post-series">系列 <a href="/series/fdtd/"><i class="far fa-list-alt fa-fw"></i>fdtd</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3897 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 3872 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 19 分钟&nbsp;</div>
         </div><div class="details series-nav open">
                                 <div class="details-summary series-title">
@@ -564,18 +564,18 @@ $$1-\frac{\int\left|H_{\perp}\right|^2 dxdy}{\int\left(\left|H\right|^2\right) d
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">numpy.lib.scimath</span> <span class="kn">import</span> <span class="n">sqrt</span> <span class="c1">## complex sqrt()</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">constants</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.cm</span> <span class="k">as</span> <span class="nn">cm</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</span></span><span class="line"><span class="cl"><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">interpolate</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">importlib</span>
-</span></span><span class="line"><span class="cl"><span class="c1">## import mplcursors ## for data cursor</span>
-</span></span><span class="line"><span class="cl"><span class="c1">## import sys</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy.lib.scimath</span> <span class="kn">import</span> <span class="n">sqrt</span> <span class="c1">## complex sqrt()</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">constants</span>
+<span class="kn">import</span> <span class="nn">matplotlib.cm</span> <span class="k">as</span> <span class="nn">cm</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">interpolate</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="kn">import</span> <span class="nn">importlib</span>
+<span class="c1">## import mplcursors ## for data cursor</span>
+<span class="c1">## import sys</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -588,14 +588,14 @@ $$1-\frac{\int\left|H_{\perp}\right|^2 dxdy}{\int\left(\left|H\right|^2\right) d
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">## The default paths for windows</span>
-</span></span><span class="line"><span class="cl"><span class="n">spec</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">spec_from_file_location</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="s1">&#39;lumapi&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="s1">&#39;D:</span><span class="se">\\</span><span class="s1">Program Files</span><span class="se">\\</span><span class="s1">Lumerical</span><span class="se">\\</span><span class="s1">v202</span><span class="se">\\</span><span class="s1">api</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">lumapi.py&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1">## Functions that perform the actual loading</span>
-</span></span><span class="line"><span class="cl"><span class="n">lumapi</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">module_from_spec</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span> <span class="c1">## </span>
-</span></span><span class="line"><span class="cl"><span class="n">spec</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">exec_module</span><span class="p">(</span><span class="n">lumapi</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1">## The default paths for windows</span>
+<span class="n">spec</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">spec_from_file_location</span><span class="p">(</span>
+    <span class="s1">&#39;lumapi&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D:</span><span class="se">\\</span><span class="s1">Program Files</span><span class="se">\\</span><span class="s1">Lumerical</span><span class="se">\\</span><span class="s1">v202</span><span class="se">\\</span><span class="s1">api</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">lumapi.py&#39;</span><span class="p">)</span>
+<span class="c1">## Functions that perform the actual loading</span>
+<span class="n">lumapi</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">module_from_spec</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span> <span class="c1">## </span>
+<span class="n">spec</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">exec_module</span><span class="p">(</span><span class="n">lumapi</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="start-a-session" class="headerLink">
     <a href="#start-a-session" class="header-mark"></a>start a session</h3><div class="highlight"><div class="chroma">
@@ -604,9 +604,9 @@ $$1-\frac{\int\left|H_{\perp}\right|^2 dxdy}{\int\left(\left|H\right|^2\right) d
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">fdtd</span> <span class="o">=</span> <span class="n">lumapi</span><span class="o">.</span><span class="n">FDTD</span><span class="p">()</span> <span class="c1">## an empty instance</span>
-</span></span><span class="line"><span class="cl"><span class="n">fdtd</span> <span class="o">=</span> <span class="n">lumapi</span><span class="o">.</span><span class="n">FDTD</span><span class="p">(</span><span class="s1">&#39;instance_name.fsp&#39;</span><span class="p">)</span> <span class="c1">## an existing instance</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">fdtd</span> <span class="o">=</span> <span class="n">lumapi</span><span class="o">.</span><span class="n">FDTD</span><span class="p">()</span> <span class="c1">## an empty instance</span>
+<span class="n">fdtd</span> <span class="o">=</span> <span class="n">lumapi</span><span class="o">.</span><span class="n">FDTD</span><span class="p">(</span><span class="s1">&#39;instance_name.fsp&#39;</span><span class="p">)</span> <span class="c1">## an existing instance</span>
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="get-help" class="headerLink">
     <a href="#get-help" class="header-mark"></a>get help</h3><div class="highlight"><div class="chroma">
@@ -615,9 +615,9 @@ $$1-\frac{\int\left|H_{\perp}\right|^2 dxdy}{\int\left(\left|H\right|^2\right) d
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="err">?</span><span class="n">fdtd</span><span class="o">.</span><span class="n">addrect</span>
-</span></span><span class="line"><span class="cl"><span class="n">help</span><span class="p">(</span><span class="n">fdtd</span><span class="o">.</span><span class="n">addrect</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="err">?</span><span class="n">fdtd</span><span class="o">.</span><span class="n">addrect</span>
+<span class="n">help</span><span class="p">(</span><span class="n">fdtd</span><span class="o">.</span><span class="n">addrect</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="simulation-objects" class="headerLink">
     <a href="#simulation-objects" class="header-mark"></a>simulation objects</h3><h4 id="add-and-then-set" class="headerLink">
@@ -627,9 +627,9 @@ $$1-\frac{\int\left|H_{\perp}\right|^2 dxdy}{\int\left(\left|H\right|^2\right) d
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">fdtd</span><span class="o">.</span><span class="n">addrect</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="n">fdtd</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;grating_T&#39;</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">fdtd</span><span class="o">.</span><span class="n">addrect</span><span class="p">()</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;grating_T&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
 </div><h4 id="add-and-set-at-the-same-time" class="headerLink">
     <a href="#add-and-set-at-the-same-time" class="header-mark"></a>add and set at the same time</h4><h5 id="set-with-parameters" class="headerLink">
@@ -638,8 +638,8 @@ $$1-\frac{\int\left|H_{\perp}\right|^2 dxdy}{\int\left(\left|H\right|^2\right) d
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">fdtd</span><span class="o">.</span><span class="n">addfdtd</span><span class="p">(</span><span class="n">dimension</span><span class="o">=</span><span class="s2">&#34;2D&#34;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">0.0e-9</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.0e-9</span><span class="p">,</span> <span class="n">x_span</span><span class="o">=</span><span class="mf">3.0e-6</span><span class="p">,</span> <span class="n">y_span</span><span class="o">=</span><span class="mf">1.0e-6</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">fdtd</span><span class="o">.</span><span class="n">addfdtd</span><span class="p">(</span><span class="n">dimension</span><span class="o">=</span><span class="s2">&#34;2D&#34;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">0.0e-9</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.0e-9</span><span class="p">,</span> <span class="n">x_span</span><span class="o">=</span><span class="mf">3.0e-6</span><span class="p">,</span> <span class="n">y_span</span><span class="o">=</span><span class="mf">1.0e-6</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
 </div><h5 id="set-with-dict" class="headerLink">
     <a href="#set-with-dict" class="header-mark"></a>set with dict</h5><div class="highlight"><div class="chroma">
@@ -656,17 +656,17 @@ $$1-\frac{\int\left|H_{\perp}\right|^2 dxdy}{\int\left(\left|H\right|^2\right) d
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">## order matters</span>
-</span></span><span class="line"><span class="cl"><span class="n">props</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="s2">&#34;power1&#34;</span><span class="p">),(</span><span class="s2">&#34;override global monitor settings&#34;</span><span class="p">,</span> <span class="kc">True</span><span class="p">),(</span><span class="s2">&#34;x&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span> <span class="mf">0.4e-6</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">                     <span class="p">(</span><span class="s2">&#34;monitor type&#34;</span><span class="p">,</span> <span class="s2">&#34;linear x&#34;</span><span class="p">),(</span><span class="s2">&#34;frequency points&#34;</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)])</span>
-</span></span><span class="line"><span class="cl"><span class="n">fdtd</span><span class="o">.</span><span class="n">addpower</span><span class="p">(</span><span class="n">properties</span><span class="o">=</span><span class="n">props</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1">## order doesn&#39;t matter</span>
-</span></span><span class="line"><span class="cl"><span class="n">props</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;power2&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">         <span class="s2">&#34;x&#34;</span> <span class="p">:</span> <span class="mf">0.</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">         <span class="s2">&#34;y&#34;</span> <span class="p">:</span> <span class="mf">0.4e-6</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="s2">&#34;monitor type&#34;</span> <span class="p">:</span> <span class="s2">&#34;linear x&#34;</span><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="n">fdtd</span><span class="o">.</span><span class="n">addpower</span><span class="p">(</span><span class="n">properties</span><span class="o">=</span><span class="n">props</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1">## order matters</span>
+<span class="n">props</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="s2">&#34;power1&#34;</span><span class="p">),(</span><span class="s2">&#34;override global monitor settings&#34;</span><span class="p">,</span> <span class="kc">True</span><span class="p">),(</span><span class="s2">&#34;x&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span> <span class="mf">0.4e-6</span><span class="p">),</span>
+                     <span class="p">(</span><span class="s2">&#34;monitor type&#34;</span><span class="p">,</span> <span class="s2">&#34;linear x&#34;</span><span class="p">),(</span><span class="s2">&#34;frequency points&#34;</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)])</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">addpower</span><span class="p">(</span><span class="n">properties</span><span class="o">=</span><span class="n">props</span><span class="p">)</span>
+<span class="c1">## order doesn&#39;t matter</span>
+<span class="n">props</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;power2&#34;</span><span class="p">,</span>
+         <span class="s2">&#34;x&#34;</span> <span class="p">:</span> <span class="mf">0.</span><span class="p">,</span>
+         <span class="s2">&#34;y&#34;</span> <span class="p">:</span> <span class="mf">0.4e-6</span><span class="p">,</span>
+          <span class="s2">&#34;monitor type&#34;</span> <span class="p">:</span> <span class="s2">&#34;linear x&#34;</span><span class="p">}</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">addpower</span><span class="p">(</span><span class="n">properties</span><span class="o">=</span><span class="n">props</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
 </div><h4 id="set-with-loop" class="headerLink">
     <a href="#set-with-loop" class="header-mark"></a>set with loop</h4><div class="highlight"><div class="chroma">
@@ -759,93 +759,93 @@ $$1-\frac{\int\left|H_{\perp}\right|^2 dxdy}{\int\left(\left|H\right|^2\right) d
 </span><span class="lnt">86
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34; This function makes is convenient to reconstruct the simulation,
-</span></span></span><span class="line"><span class="cl"><span class="s2">    while changing a few key properties, a brand new FDTD will start
-</span></span></span><span class="line"><span class="cl"><span class="s2">    and close within this function
-</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">fdtd</span> <span class="o">=</span> <span class="n">lumapi</span><span class="o">.</span><span class="n">FDTD</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="n">fdtd</span><span class="o">.</span><span class="n">addcircle</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="n">fdtd</span><span class="o">.</span><span class="n">addfdtd</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="n">fdtd</span><span class="o">.</span><span class="n">addmesh</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="n">fdtd</span><span class="o">.</span><span class="n">addtfsf</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">fdtd</span><span class="o">.</span><span class="n">addobject</span><span class="p">(</span><span class="s2">&#34;cross_section&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">fdtd</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="s2">&#34;scat&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">fdtd</span><span class="o">.</span><span class="n">addobject</span><span class="p">(</span><span class="s2">&#34;cross_section&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">fdtd</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="s2">&#34;total&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">fdtd</span><span class="o">.</span><span class="n">addtime</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="n">fdtd</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="s2">&#34;time&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">fdtd</span><span class="o">.</span><span class="n">addprofile</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="n">fdtd</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="s2">&#34;profile&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">configuration</span> <span class="o">=</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;source&#34;</span><span class="p">,</span> <span class="p">((</span><span class="s2">&#34;polarization angle&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">                <span class="p">(</span><span class="s2">&#34;injection axis&#34;</span><span class="p">,</span> <span class="s2">&#34;y&#34;</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">                <span class="p">(</span><span class="s2">&#34;x&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">                <span class="p">(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">                <span class="p">(</span><span class="s2">&#34;x span&#34;</span><span class="p">,</span> <span class="mf">100.0e-9</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">                <span class="p">(</span><span class="s2">&#34;y span&#34;</span><span class="p">,</span> <span class="mf">100.0e-9</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">                <span class="p">(</span><span class="s2">&#34;wavelength start&#34;</span><span class="p">,</span> <span class="mf">300.0e-9</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">                <span class="p">(</span><span class="s2">&#34;wavelength stop&#34;</span><span class="p">,</span> <span class="mf">400.0e-9</span><span class="p">))),</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;mesh&#34;</span><span class="p">,</span> <span class="p">((</span><span class="s2">&#34;dx&#34;</span><span class="p">,</span> <span class="mf">0.5e-9</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">              <span class="p">(</span><span class="s2">&#34;dy&#34;</span><span class="p">,</span> <span class="mf">0.5e-9</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">              <span class="p">(</span><span class="s2">&#34;x&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">              <span class="p">(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">              <span class="p">(</span><span class="s2">&#34;x span&#34;</span><span class="p">,</span> <span class="mf">110.0e-9</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">              <span class="p">(</span><span class="s2">&#34;y span&#34;</span><span class="p">,</span> <span class="mf">110.0e-9</span><span class="p">))),</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;FDTD&#34;</span><span class="p">,</span> <span class="p">((</span><span class="s2">&#34;simulation time&#34;</span><span class="p">,</span> <span class="mf">200e-15</span><span class="p">),</span> <span class="c1">## in seconds</span>
-</span></span><span class="line"><span class="cl">              <span class="p">(</span><span class="s2">&#34;dimension&#34;</span><span class="p">,</span> <span class="s2">&#34;2D&#34;</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">              <span class="p">(</span><span class="s2">&#34;x&#34;</span><span class="p">,</span><span class="mf">0.0e-9</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">              <span class="p">(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span><span class="mf">0.</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">              <span class="p">(</span><span class="s2">&#34;z&#34;</span><span class="p">,</span><span class="mf">0.</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">              <span class="p">(</span><span class="s2">&#34;x span&#34;</span><span class="p">,</span> <span class="mf">800.0e-9</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">              <span class="p">(</span><span class="s2">&#34;y span&#34;</span><span class="p">,</span> <span class="mf">800.0e-9</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">              <span class="p">(</span><span class="s2">&#34;mesh refinement&#34;</span><span class="p">,</span> <span class="s2">&#34;conformal variant 1&#34;</span><span class="p">))),</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;circle&#34;</span><span class="p">,</span> <span class="p">((</span><span class="s2">&#34;x&#34;</span><span class="p">,</span> <span class="mf">0.0e-9</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">                <span class="p">(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span> <span class="mf">0.0e-9</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">                <span class="p">(</span><span class="s2">&#34;z&#34;</span><span class="p">,</span> <span class="mf">0.0e-9</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">                <span class="p">(</span><span class="s2">&#34;radius&#34;</span><span class="p">,</span> <span class="mf">25.0e-9</span><span class="p">),</span> <span class="c1">## in meters</span>
-</span></span><span class="line"><span class="cl">                <span class="p">(</span><span class="s2">&#34;material&#34;</span><span class="p">,</span> <span class="s2">&#34;Ag (Silver) - Palik (0-2um)&#34;</span><span class="p">))),</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;scat&#34;</span><span class="p">,</span> <span class="p">((</span><span class="s2">&#34;x&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">              <span class="p">(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">              <span class="p">(</span><span class="s2">&#34;z&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">              <span class="p">(</span><span class="s2">&#34;x span&#34;</span><span class="p">,</span> <span class="mf">110.0e-9</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">              <span class="p">(</span><span class="s2">&#34;y span&#34;</span><span class="p">,</span> <span class="mf">110.0e-9</span><span class="p">))),</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;total&#34;</span><span class="p">,</span> <span class="p">((</span><span class="s2">&#34;x&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">               <span class="p">(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">               <span class="p">(</span><span class="s2">&#34;z&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">               <span class="p">(</span><span class="s2">&#34;x span&#34;</span><span class="p">,</span> <span class="mf">90.0e-9</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">               <span class="p">(</span><span class="s2">&#34;y span&#34;</span><span class="p">,</span> <span class="mf">90.0e-9</span><span class="p">))),</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;time&#34;</span><span class="p">,</span> <span class="p">((</span><span class="s2">&#34;x&#34;</span><span class="p">,</span> <span class="mf">28.0e-9</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">              <span class="p">(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span> <span class="mf">26.0e-9</span><span class="p">))),</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="s2">&#34;profile&#34;</span><span class="p">,</span> <span class="p">((</span><span class="s2">&#34;x&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">                 <span class="p">(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">                 <span class="p">(</span><span class="s2">&#34;x span&#34;</span><span class="p">,</span> <span class="mf">90e-9</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">                 <span class="p">(</span><span class="s2">&#34;y span&#34;</span><span class="p">,</span> <span class="mf">90e-9</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">                 <span class="p">(</span><span class="s2">&#34;override global monitor settings&#34;</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">                 <span class="p">(</span><span class="s2">&#34;use source limits&#34;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">                 <span class="p">(</span><span class="s2">&#34;frequency points&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">                 <span class="p">(</span><span class="s2">&#34;wavelength center&#34;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">profile_monitor_wavelength</span><span class="p">)),</span>
-</span></span><span class="line"><span class="cl">                 <span class="p">(</span><span class="s2">&#34;wavelength span&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">))),</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
-</span></span></span><span class="line"><span class="cl"><span class="s1">To set the geometry, we found that it is more efficient and cleaner to use nested tuple, 
-</span></span></span><span class="line"><span class="cl"><span class="s1">however, advanced users may use any ordered collection. 
-</span></span></span><span class="line"><span class="cl"><span class="s1">The order is important if a property depends on the value of another property.
-</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">obj</span><span class="p">,</span> <span class="n">parameters</span> <span class="ow">in</span> <span class="n">configuration</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">   <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">parameters</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">       <span class="n">fdtd</span><span class="o">.</span><span class="n">setnamed</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="s2">&#34;&#34;&#34; This function makes is convenient to reconstruct the simulation,
+</span><span class="s2">    while changing a few key properties, a brand new FDTD will start
+</span><span class="s2">    and close within this function
+</span><span class="s2">&#34;&#34;&#34;</span>
+<span class="n">fdtd</span> <span class="o">=</span> <span class="n">lumapi</span><span class="o">.</span><span class="n">FDTD</span><span class="p">()</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">addcircle</span><span class="p">()</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">addfdtd</span><span class="p">()</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">addmesh</span><span class="p">()</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">addtfsf</span><span class="p">()</span>
+
+<span class="n">fdtd</span><span class="o">.</span><span class="n">addobject</span><span class="p">(</span><span class="s2">&#34;cross_section&#34;</span><span class="p">)</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="s2">&#34;scat&#34;</span><span class="p">)</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">addobject</span><span class="p">(</span><span class="s2">&#34;cross_section&#34;</span><span class="p">)</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="s2">&#34;total&#34;</span><span class="p">)</span>
+
+<span class="n">fdtd</span><span class="o">.</span><span class="n">addtime</span><span class="p">()</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="s2">&#34;time&#34;</span><span class="p">)</span>
+
+<span class="n">fdtd</span><span class="o">.</span><span class="n">addprofile</span><span class="p">()</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="s2">&#34;profile&#34;</span><span class="p">)</span>
+
+<span class="n">configuration</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="s2">&#34;source&#34;</span><span class="p">,</span> <span class="p">((</span><span class="s2">&#34;polarization angle&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&#34;injection axis&#34;</span><span class="p">,</span> <span class="s2">&#34;y&#34;</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&#34;x&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&#34;x span&#34;</span><span class="p">,</span> <span class="mf">100.0e-9</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&#34;y span&#34;</span><span class="p">,</span> <span class="mf">100.0e-9</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&#34;wavelength start&#34;</span><span class="p">,</span> <span class="mf">300.0e-9</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&#34;wavelength stop&#34;</span><span class="p">,</span> <span class="mf">400.0e-9</span><span class="p">))),</span>
+
+    <span class="p">(</span><span class="s2">&#34;mesh&#34;</span><span class="p">,</span> <span class="p">((</span><span class="s2">&#34;dx&#34;</span><span class="p">,</span> <span class="mf">0.5e-9</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;dy&#34;</span><span class="p">,</span> <span class="mf">0.5e-9</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;x&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;x span&#34;</span><span class="p">,</span> <span class="mf">110.0e-9</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;y span&#34;</span><span class="p">,</span> <span class="mf">110.0e-9</span><span class="p">))),</span>
+
+    <span class="p">(</span><span class="s2">&#34;FDTD&#34;</span><span class="p">,</span> <span class="p">((</span><span class="s2">&#34;simulation time&#34;</span><span class="p">,</span> <span class="mf">200e-15</span><span class="p">),</span> <span class="c1">## in seconds</span>
+              <span class="p">(</span><span class="s2">&#34;dimension&#34;</span><span class="p">,</span> <span class="s2">&#34;2D&#34;</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;x&#34;</span><span class="p">,</span><span class="mf">0.0e-9</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span><span class="mf">0.</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;z&#34;</span><span class="p">,</span><span class="mf">0.</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;x span&#34;</span><span class="p">,</span> <span class="mf">800.0e-9</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;y span&#34;</span><span class="p">,</span> <span class="mf">800.0e-9</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;mesh refinement&#34;</span><span class="p">,</span> <span class="s2">&#34;conformal variant 1&#34;</span><span class="p">))),</span>
+
+    <span class="p">(</span><span class="s2">&#34;circle&#34;</span><span class="p">,</span> <span class="p">((</span><span class="s2">&#34;x&#34;</span><span class="p">,</span> <span class="mf">0.0e-9</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span> <span class="mf">0.0e-9</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&#34;z&#34;</span><span class="p">,</span> <span class="mf">0.0e-9</span><span class="p">),</span>
+                <span class="p">(</span><span class="s2">&#34;radius&#34;</span><span class="p">,</span> <span class="mf">25.0e-9</span><span class="p">),</span> <span class="c1">## in meters</span>
+                <span class="p">(</span><span class="s2">&#34;material&#34;</span><span class="p">,</span> <span class="s2">&#34;Ag (Silver) - Palik (0-2um)&#34;</span><span class="p">))),</span>
+
+    <span class="p">(</span><span class="s2">&#34;scat&#34;</span><span class="p">,</span> <span class="p">((</span><span class="s2">&#34;x&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;z&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;x span&#34;</span><span class="p">,</span> <span class="mf">110.0e-9</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;y span&#34;</span><span class="p">,</span> <span class="mf">110.0e-9</span><span class="p">))),</span>
+
+    <span class="p">(</span><span class="s2">&#34;total&#34;</span><span class="p">,</span> <span class="p">((</span><span class="s2">&#34;x&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
+               <span class="p">(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
+               <span class="p">(</span><span class="s2">&#34;z&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
+               <span class="p">(</span><span class="s2">&#34;x span&#34;</span><span class="p">,</span> <span class="mf">90.0e-9</span><span class="p">),</span>
+               <span class="p">(</span><span class="s2">&#34;y span&#34;</span><span class="p">,</span> <span class="mf">90.0e-9</span><span class="p">))),</span>
+
+    <span class="p">(</span><span class="s2">&#34;time&#34;</span><span class="p">,</span> <span class="p">((</span><span class="s2">&#34;x&#34;</span><span class="p">,</span> <span class="mf">28.0e-9</span><span class="p">),</span>
+              <span class="p">(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span> <span class="mf">26.0e-9</span><span class="p">))),</span>
+
+    <span class="p">(</span><span class="s2">&#34;profile&#34;</span><span class="p">,</span> <span class="p">((</span><span class="s2">&#34;x&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
+                 <span class="p">(</span><span class="s2">&#34;y&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">),</span>
+                 <span class="p">(</span><span class="s2">&#34;x span&#34;</span><span class="p">,</span> <span class="mf">90e-9</span><span class="p">),</span>
+                 <span class="p">(</span><span class="s2">&#34;y span&#34;</span><span class="p">,</span> <span class="mf">90e-9</span><span class="p">),</span>
+                 <span class="p">(</span><span class="s2">&#34;override global monitor settings&#34;</span><span class="p">,</span> <span class="kc">True</span><span class="p">),</span>
+                 <span class="p">(</span><span class="s2">&#34;use source limits&#34;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+                 <span class="p">(</span><span class="s2">&#34;frequency points&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                 <span class="p">(</span><span class="s2">&#34;wavelength center&#34;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">profile_monitor_wavelength</span><span class="p">)),</span>
+                 <span class="p">(</span><span class="s2">&#34;wavelength span&#34;</span><span class="p">,</span> <span class="mf">0.</span><span class="p">))),</span>
+<span class="p">)</span>
+<span class="s1">&#39;&#39;&#39;
+</span><span class="s1">To set the geometry, we found that it is more efficient and cleaner to use nested tuple, 
+</span><span class="s1">however, advanced users may use any ordered collection. 
+</span><span class="s1">The order is important if a property depends on the value of another property.
+</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="k">for</span> <span class="n">obj</span><span class="p">,</span> <span class="n">parameters</span> <span class="ow">in</span> <span class="n">configuration</span><span class="p">:</span>
+   <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">parameters</span><span class="p">:</span>
+       <span class="n">fdtd</span><span class="o">.</span><span class="n">setnamed</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="run-save-and-close" class="headerLink">
     <a href="#run-save-and-close" class="header-mark"></a>run, save and close</h3><div class="highlight"><div class="chroma">
@@ -855,10 +855,10 @@ $$1-\frac{\int\left|H_{\perp}\right|^2 dxdy}{\int\left(\left|H\right|^2\right) d
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">fdtd</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="n">fdtd</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;filename.fsp&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">fdtd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">fdtd</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;filename.fsp&#39;</span><span class="p">)</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="deal-with-data" class="headerLink">
     <a href="#deal-with-data" class="header-mark"></a>deal with data</h3><h4 id="get-data" class="headerLink">
@@ -868,12 +868,12 @@ $$1-\frac{\int\left|H_{\perp}\right|^2 dxdy}{\int\left(\left|H\right|^2\right) d
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">Ex</span> <span class="o">=</span> <span class="n">fdtd</span><span class="o">.</span><span class="n">getdata</span><span class="p">(</span><span class="s2">&#34;profile&#34;</span><span class="p">,</span><span class="s2">&#34;Ex&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Frequency field profile data Ex is type&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">Ex</span><span class="p">),</span><span class="s1">&#39; with shape&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">Ex</span><span class="o">.</span><span class="n">shape</span> <span class="p">))</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">Ex</span> <span class="o">=</span> <span class="n">fdtd</span><span class="o">.</span><span class="n">getdata</span><span class="p">(</span><span class="s2">&#34;profile&#34;</span><span class="p">,</span><span class="s2">&#34;Ex&#34;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Frequency field profile data Ex is type&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">Ex</span><span class="p">),</span><span class="s1">&#39; with shape&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">Ex</span><span class="o">.</span><span class="n">shape</span> <span class="p">))</span>
+</code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>Frequency field profile data Ex is type &lt;class &rsquo;numpy.ndarray&rsquo;&gt;  with shape (101, 61, 1, 5)</p>
+<p>Frequency field profile data Ex is type &lt;class &lsquo;numpy.ndarray&rsquo;&gt;  with shape (101, 61, 1, 5)</p>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -882,14 +882,14 @@ $$1-\frac{\int\left|H_{\perp}\right|^2 dxdy}{\int\left(\left|H\right|^2\right) d
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">T</span><span class="p">,</span> <span class="n">time</span> <span class="o">=</span> <span class="n">fdtd</span><span class="o">.</span><span class="n">getresult</span><span class="p">(</span><span class="s2">&#34;power&#34;</span><span class="p">,</span> <span class="s2">&#34;T&#34;</span><span class="p">),</span> <span class="n">fdtd</span><span class="o">.</span><span class="n">getresult</span><span class="p">(</span><span class="s2">&#34;time&#34;</span><span class="p">,</span><span class="s2">&#34;E&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Transmission result T is type&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">T</span><span class="p">),</span><span class="s1">&#39; with keys&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">T</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Time monitor result E is type&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">time</span><span class="p">),</span><span class="s1">&#39; with keys&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="p">)</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">T</span><span class="p">,</span> <span class="n">time</span> <span class="o">=</span> <span class="n">fdtd</span><span class="o">.</span><span class="n">getresult</span><span class="p">(</span><span class="s2">&#34;power&#34;</span><span class="p">,</span> <span class="s2">&#34;T&#34;</span><span class="p">),</span> <span class="n">fdtd</span><span class="o">.</span><span class="n">getresult</span><span class="p">(</span><span class="s2">&#34;time&#34;</span><span class="p">,</span><span class="s2">&#34;E&#34;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Transmission result T is type&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">T</span><span class="p">),</span><span class="s1">&#39; with keys&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">T</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Time monitor result E is type&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">time</span><span class="p">),</span><span class="s1">&#39; with keys&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>Transmission result T is type &lt;class &lsquo;dict&rsquo;&gt;  with keys dict_keys([&rsquo;lambda&rsquo;, &lsquo;f&rsquo;, &lsquo;T&rsquo;, &lsquo;Lumerical_dataset&rsquo;])</p>
-<p>Time monitor result E is type &lt;class &lsquo;dict&rsquo;&gt;  with keys dict_keys([&rsquo;t&rsquo;, &lsquo;x&rsquo;, &lsquo;y&rsquo;, &lsquo;z&rsquo;, &lsquo;E&rsquo;, &lsquo;Lumerical_dataset&rsquo;])</p>
+<p>Transmission result T is type &lt;class &lsquo;dict&rsquo;&gt;  with keys dict_keys([&lsquo;lambda&rsquo;, &lsquo;f&rsquo;, &lsquo;T&rsquo;, &lsquo;Lumerical_dataset&rsquo;])</p>
+<p>Time monitor result E is type &lt;class &lsquo;dict&rsquo;&gt;  with keys dict_keys([&rsquo;t', &lsquo;x&rsquo;, &lsquo;y&rsquo;, &lsquo;z&rsquo;, &lsquo;E&rsquo;, &lsquo;Lumerical_dataset&rsquo;])</p>
 </blockquote>
 <p>data is numerical data type, usually numpy array.</p>
 <p>dataset is dict type, and should be taken care by</p>
@@ -898,8 +898,8 @@ $$1-\frac{\int\left|H_{\perp}\right|^2 dxdy}{\int\left(\left|H\right|^2\right) d
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">T</span><span class="o">=</span><span class="n">T_dataset</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">T</span><span class="o">=</span><span class="n">T_dataset</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>now T is numpy array type</p>
 <h4 id="data-structure" class="headerLink">
@@ -911,11 +911,11 @@ $$1-\frac{\int\left|H_{\perp}\right|^2 dxdy}{\int\left(\left|H\right|^2\right) d
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">## get dataset</span>
-</span></span><span class="line"><span class="cl"><span class="n">E</span> <span class="o">=</span> <span class="n">fdtd</span><span class="o">.</span><span class="n">getresult</span><span class="p">(</span><span class="s2">&#34;DFT&#34;</span><span class="p">,</span><span class="s2">&#34;E&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1">## electric field</span>
-</span></span><span class="line"><span class="cl"><span class="n">E</span> <span class="o">=</span> <span class="n">E</span><span class="p">[</span><span class="s1">&#39;E&#39;</span><span class="p">]</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1">## get dataset</span>
+<span class="n">E</span> <span class="o">=</span> <span class="n">fdtd</span><span class="o">.</span><span class="n">getresult</span><span class="p">(</span><span class="s2">&#34;DFT&#34;</span><span class="p">,</span><span class="s2">&#34;E&#34;</span><span class="p">)</span>
+<span class="c1">## electric field</span>
+<span class="n">E</span> <span class="o">=</span> <span class="n">E</span><span class="p">[</span><span class="s1">&#39;E&#39;</span><span class="p">]</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>we see here E is a 5-dimension matrix</p>
 <div class="highlight"><div class="chroma">
@@ -925,10 +925,10 @@ $$1-\frac{\int\left|H_{\perp}\right|^2 dxdy}{\int\left(\left|H\right|^2\right) d
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">Ex</span> <span class="o">=</span> <span class="n">E</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">,:,</span><span class="mi">0</span><span class="p">]</span> <span class="c1">## spatial(x,y,z) ,wavelength, Ex</span>
-</span></span><span class="line"><span class="cl"><span class="n">Ey</span> <span class="o">=</span> <span class="n">E</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">,:,</span><span class="mi">1</span><span class="p">]</span> <span class="c1">## spatial(x,y,z) ,wavelength, Ey</span>
-</span></span><span class="line"><span class="cl"><span class="n">Ez</span> <span class="o">=</span> <span class="n">E</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">,:,</span><span class="mi">2</span><span class="p">]</span> <span class="c1">## spatial(x,y,z) ,wavelength, Ez</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">Ex</span> <span class="o">=</span> <span class="n">E</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">,:,</span><span class="mi">0</span><span class="p">]</span> <span class="c1">## spatial(x,y,z) ,wavelength, Ex</span>
+<span class="n">Ey</span> <span class="o">=</span> <span class="n">E</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">,:,</span><span class="mi">1</span><span class="p">]</span> <span class="c1">## spatial(x,y,z) ,wavelength, Ey</span>
+<span class="n">Ez</span> <span class="o">=</span> <span class="n">E</span><span class="p">[:,:,</span><span class="mi">0</span><span class="p">,:,</span><span class="mi">2</span><span class="p">]</span> <span class="c1">## spatial(x,y,z) ,wavelength, Ez</span>
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="pass-data-between-python-and-lumerical" class="headerLink">
     <a href="#pass-data-between-python-and-lumerical" class="header-mark"></a>pass data between python and lumerical</h3><div class="highlight"><div class="chroma">
@@ -937,9 +937,9 @@ $$1-\frac{\int\left|H_{\perp}\right|^2 dxdy}{\int\left(\left|H\right|^2\right) d
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">fdtd</span><span class="o">.</span><span class="n">putv</span><span class="p">(</span><span class="s1">&#39;var_name&#39;</span><span class="p">,</span><span class="n">py_var</span><span class="p">)</span> <span class="c1">## python to lumerical</span>
-</span></span><span class="line"><span class="cl"><span class="n">py_var</span> <span class="o">=</span> <span class="n">fdtd</span><span class="o">.</span><span class="n">getv</span><span class="p">(</span> <span class="s1">&#39;var_name&#39;</span><span class="p">)</span> <span class="c1">## lumerical to python</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">fdtd</span><span class="o">.</span><span class="n">putv</span><span class="p">(</span><span class="s1">&#39;var_name&#39;</span><span class="p">,</span><span class="n">py_var</span><span class="p">)</span> <span class="c1">## python to lumerical</span>
+<span class="n">py_var</span> <span class="o">=</span> <span class="n">fdtd</span><span class="o">.</span><span class="n">getv</span><span class="p">(</span> <span class="s1">&#39;var_name&#39;</span><span class="p">)</span> <span class="c1">## lumerical to python</span>
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="run-lumerical-script-language" class="headerLink">
     <a href="#run-lumerical-script-language" class="header-mark"></a>run lumerical script language</h3><div class="highlight"><div class="chroma">
@@ -947,8 +947,8 @@ $$1-\frac{\int\left|H_{\perp}\right|^2 dxdy}{\int\left(\left|H\right|^2\right) d
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">fdtd</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s1">&#39;x = [0;1;2];y = [0;sqrt(3);0];z = [0;0;0];C = [1,3,2];ds = unstructureddataset(x,y,z,C);&#39;</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">fdtd</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="s1">&#39;x = [0;1;2];y = [0;sqrt(3);0];z = [0;0;0];C = [1,3,2];ds = unstructureddataset(x,y,z,C);&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="useful-code-snippets" class="headerLink">
     <a href="#useful-code-snippets" class="header-mark"></a>useful code snippets</h3><div class="highlight"><div class="chroma">
@@ -986,38 +986,38 @@ $$1-\frac{\int\left|H_{\perp}\right|^2 dxdy}{\int\left(\left|H\right|^2\right) d
 </span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">## make sure it is a &#34;1d array&#34;, numpy type</span>
-</span></span><span class="line"><span class="cl"><span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">fdtd</span><span class="o">.</span><span class="n">gratingn</span><span class="p">(</span><span class="n">mname</span><span class="p">,</span> <span class="n">size_f</span><span class="p">))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="c1">## MATLAB length()</span>
-</span></span><span class="line"><span class="cl"><span class="n">size_n</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">size</span>
-</span></span><span class="line"><span class="cl"><span class="c1">## MATLAB zeros(), input should be a tuple</span>
-</span></span><span class="line"><span class="cl"><span class="n">T_grating</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">size_n</span><span class="p">,</span> <span class="n">size_m</span><span class="p">,</span> <span class="n">size_f</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="c1">## initialize with data type</span>
-</span></span><span class="line"><span class="cl"><span class="n">grating_S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">size_n</span><span class="p">,</span> <span class="n">size_m</span><span class="p">,</span> <span class="n">size_f</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex_</span><span class="p">)</span> 
-</span></span><span class="line"><span class="cl"><span class="c1">## MATLAB and Lumerical start from 1, but python starts from 0</span>
-</span></span><span class="line"><span class="cl"><span class="c1">## 1 dimension closest value&#39;s index</span>
-</span></span><span class="line"><span class="cl"><span class="n">n1</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">argmin</span><span class="p">()</span> <span class="c1">## n is an array</span>
-</span></span><span class="line"><span class="cl"><span class="c1">## 2 dimension closest values&#39; index</span>
-</span></span><span class="line"><span class="cl"><span class="n">u1i</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">u1_new</span> <span class="o">-</span> <span class="n">u1</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">u2i</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">u2_new</span> <span class="o">-</span> <span class="n">u2</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">T_nm_new</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ix_</span><span class="p">(</span><span class="n">u1i</span><span class="p">,</span><span class="n">u2i</span><span class="p">)]</span>  <span class="o">=</span> <span class="n">T_nm</span> <span class="o">+</span> <span class="mf">1e-18</span> <span class="c1">## different with MATLAB</span>
-</span></span><span class="line"><span class="cl"><span class="c1">## meshgrid indexing, opposite to MATLAB, but more intuitive</span>
-</span></span><span class="line"><span class="cl"><span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s1">&#39;ij&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1">## real transmitted power</span>
-</span></span><span class="line"><span class="cl"><span class="n">power1</span> <span class="o">=</span> <span class="n">fdtd</span><span class="o">.</span><span class="n">transmission</span><span class="p">(</span><span class="n">mname</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="n">power1</span> <span class="o">=</span> <span class="n">power1</span><span class="p">[</span><span class="n">fpoint</span><span class="p">]</span> <span class="o">*</span> <span class="n">fdtd</span><span class="o">.</span><span class="n">sourcepower</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1">## interp3d method 1</span>
-</span></span><span class="line"><span class="cl"><span class="n">tempX</span><span class="p">,</span><span class="n">tempY</span><span class="p">,</span><span class="n">tempZ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">tempx</span><span class="p">,</span><span class="n">tempy</span><span class="p">,</span><span class="n">tempz</span><span class="p">,</span><span class="n">indexing</span> <span class="o">=</span> <span class="s1">&#39;ij&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">tempX</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span><span class="n">tempY</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span><span class="n">tempZ</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="n">temp_interp_func</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">RegularGridInterpolator</span><span class="p">((</span><span class="n">xt</span><span class="p">,</span><span class="n">yt</span><span class="p">,</span><span class="n">zt</span><span class="p">),</span> <span class="n">E2t</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">E2t</span> <span class="o">=</span> <span class="n">temp_interp_func</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">xt</span><span class="o">.</span><span class="n">size</span><span class="p">,</span><span class="n">yt</span><span class="o">.</span><span class="n">size</span><span class="p">,</span><span class="n">zt</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="c1">## interp3d method 2</span>
-</span></span><span class="line"><span class="cl"><span class="n">tempX</span><span class="p">,</span> <span class="n">tempY</span><span class="p">,</span> <span class="n">tempZ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">tempx</span><span class="p">,</span> <span class="n">tempy</span><span class="p">,</span> <span class="n">tempz</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s1">&#39;ij&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="n">tempX</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">tempY</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">tempZ</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="n">E2t</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interpn</span><span class="p">((</span><span class="n">xt</span><span class="p">,</span> <span class="n">yt</span><span class="p">,</span> <span class="n">zt</span><span class="p">),</span> <span class="n">E2t</span><span class="p">,</span> <span class="n">pts</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="n">xt</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">yt</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">zt</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1">## make sure it is a &#34;1d array&#34;, numpy type</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">fdtd</span><span class="o">.</span><span class="n">gratingn</span><span class="p">(</span><span class="n">mname</span><span class="p">,</span> <span class="n">size_f</span><span class="p">))</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="c1">## MATLAB length()</span>
+<span class="n">size_n</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="n">size</span>
+<span class="c1">## MATLAB zeros(), input should be a tuple</span>
+<span class="n">T_grating</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">size_n</span><span class="p">,</span> <span class="n">size_m</span><span class="p">,</span> <span class="n">size_f</span><span class="p">))</span>
+<span class="c1">## initialize with data type</span>
+<span class="n">grating_S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">size_n</span><span class="p">,</span> <span class="n">size_m</span><span class="p">,</span> <span class="n">size_f</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex_</span><span class="p">)</span> 
+<span class="c1">## MATLAB and Lumerical start from 1, but python starts from 0</span>
+<span class="c1">## 1 dimension closest value&#39;s index</span>
+<span class="n">n1</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">argmin</span><span class="p">()</span> <span class="c1">## n is an array</span>
+<span class="c1">## 2 dimension closest values&#39; index</span>
+<span class="n">u1i</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">u1_new</span> <span class="o">-</span> <span class="n">u1</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">u2i</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">u2_new</span> <span class="o">-</span> <span class="n">u2</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">T_nm_new</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ix_</span><span class="p">(</span><span class="n">u1i</span><span class="p">,</span><span class="n">u2i</span><span class="p">)]</span>  <span class="o">=</span> <span class="n">T_nm</span> <span class="o">+</span> <span class="mf">1e-18</span> <span class="c1">## different with MATLAB</span>
+<span class="c1">## meshgrid indexing, opposite to MATLAB, but more intuitive</span>
+<span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s1">&#39;ij&#39;</span><span class="p">)</span>
+<span class="c1">## real transmitted power</span>
+<span class="n">power1</span> <span class="o">=</span> <span class="n">fdtd</span><span class="o">.</span><span class="n">transmission</span><span class="p">(</span><span class="n">mname</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="n">power1</span> <span class="o">=</span> <span class="n">power1</span><span class="p">[</span><span class="n">fpoint</span><span class="p">]</span> <span class="o">*</span> <span class="n">fdtd</span><span class="o">.</span><span class="n">sourcepower</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="c1">## interp3d method 1</span>
+<span class="n">tempX</span><span class="p">,</span><span class="n">tempY</span><span class="p">,</span><span class="n">tempZ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">tempx</span><span class="p">,</span><span class="n">tempy</span><span class="p">,</span><span class="n">tempz</span><span class="p">,</span><span class="n">indexing</span> <span class="o">=</span> <span class="s1">&#39;ij&#39;</span><span class="p">)</span>
+<span class="n">pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">tempX</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span><span class="n">tempY</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span><span class="n">tempZ</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">temp_interp_func</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">RegularGridInterpolator</span><span class="p">((</span><span class="n">xt</span><span class="p">,</span><span class="n">yt</span><span class="p">,</span><span class="n">zt</span><span class="p">),</span> <span class="n">E2t</span><span class="p">)</span>
+<span class="n">E2t</span> <span class="o">=</span> <span class="n">temp_interp_func</span><span class="p">(</span><span class="n">pts</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">xt</span><span class="o">.</span><span class="n">size</span><span class="p">,</span><span class="n">yt</span><span class="o">.</span><span class="n">size</span><span class="p">,</span><span class="n">zt</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
+<span class="c1">## interp3d method 2</span>
+<span class="n">tempX</span><span class="p">,</span> <span class="n">tempY</span><span class="p">,</span> <span class="n">tempZ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">tempx</span><span class="p">,</span> <span class="n">tempy</span><span class="p">,</span> <span class="n">tempz</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s1">&#39;ij&#39;</span><span class="p">)</span>
+<span class="n">pts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">tempX</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">tempY</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">tempZ</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">E2t</span> <span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interpn</span><span class="p">((</span><span class="n">xt</span><span class="p">,</span> <span class="n">yt</span><span class="p">,</span> <span class="n">zt</span><span class="p">),</span> <span class="n">E2t</span><span class="p">,</span> <span class="n">pts</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">xt</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">yt</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">zt</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
+</code></pre></td></tr></table>
 </div>
 </div><h4 id="1d-plot" class="headerLink">
     <a href="#1d-plot" class="header-mark"></a>1d plot</h4><div class="highlight"><div class="chroma">
@@ -1041,24 +1041,24 @@ $$1-\frac{\int\left|H_{\perp}\right|^2 dxdy}{\int\left(\left|H\right|^2\right) d
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">():</span>
-</span></span><span class="line"><span class="cl">    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">dpi</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1">##     ax.set_xticks([])</span>
-</span></span><span class="line"><span class="cl"><span class="c1">##     ax.set_yticks([])</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lam</span><span class="o">/</span><span class="mf">1e-6</span><span class="p">,</span><span class="n">theta_01</span><span class="p">,</span> 
-</span></span><span class="line"><span class="cl">            <span class="n">label</span> <span class="o">=</span> <span class="s2">&#34;Theta&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lam</span><span class="o">/</span><span class="mf">1e-6</span><span class="p">,</span><span class="n">phi_01</span><span class="p">,</span> 
-</span></span><span class="line"><span class="cl">            <span class="n">label</span> <span class="o">=</span> <span class="s2">&#34;Phi&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mf">0.85</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span><span class="mi">91</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Wavelength ($\mathrm{\mu m}$)&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&#34;Diffraction angle for &#34;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">n_target</span><span class="p">)</span><span class="o">+</span><span class="s2">&#34;,&#34;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">m_target</span><span class="p">)</span><span class="o">+</span><span class="s2">&#34;) order&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">():</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">dpi</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1">##     ax.set_xticks([])</span>
+<span class="c1">##     ax.set_yticks([])</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lam</span><span class="o">/</span><span class="mf">1e-6</span><span class="p">,</span><span class="n">theta_01</span><span class="p">,</span> 
+            <span class="n">label</span> <span class="o">=</span> <span class="s2">&#34;Theta&#34;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lam</span><span class="o">/</span><span class="mf">1e-6</span><span class="p">,</span><span class="n">phi_01</span><span class="p">,</span> 
+            <span class="n">label</span> <span class="o">=</span> <span class="s2">&#34;Phi&#34;</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mf">0.85</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span><span class="mi">91</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Wavelength ($\mathrm{\mu m}$)&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&#34;Diffraction angle for &#34;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">n_target</span><span class="p">)</span><span class="o">+</span><span class="s2">&#34;,&#34;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">m_target</span><span class="p">)</span><span class="o">+</span><span class="s2">&#34;) order&#34;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</code></pre></td></tr></table>
 </div>
 </div><h4 id="2d-plot-with-interp2d" class="headerLink">
     <a href="#2d-plot-with-interp2d" class="header-mark"></a>2d plot with interp2d</h4><div class="highlight"><div class="chroma">
@@ -1089,31 +1089,31 @@ $$1-\frac{\int\left|H_{\perp}\right|^2 dxdy}{\int\left(\left|H\right|^2\right) d
 </span><span class="lnt">24
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1">## create image</span>
-</span></span><span class="line"><span class="cl"><span class="n">x</span>  <span class="o">=</span> <span class="n">E_image</span><span class="p">[</span><span class="s2">&#34;x&#34;</span><span class="p">]</span><span class="o">*</span><span class="mf">1e6</span> <span class="c1">## data on uniform grid, convert m to um</span>
-</span></span><span class="line"><span class="cl"><span class="n">y</span>  <span class="o">=</span> <span class="n">E_image</span><span class="p">[</span><span class="s2">&#34;y&#34;</span><span class="p">]</span><span class="o">*</span><span class="mf">1e6</span> <span class="c1">## data on uniform grid, convert m to um</span>
-</span></span><span class="line"><span class="cl"><span class="n">Ex</span> <span class="o">=</span> <span class="n">E_image</span><span class="p">[</span><span class="s2">&#34;E&#34;</span><span class="p">][:,:,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="c1">## data on uniform grid, selecting the x-component of first frequency</span>
-</span></span><span class="line"><span class="cl"><span class="n">Ex_abs</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">Ex</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">xi</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">numpy</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">yi</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">y</span><span class="p">),</span><span class="n">numpy</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">y</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">f</span><span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp2d</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">Ex_abs</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">Exi_abs</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">yi</span><span class="p">,</span> <span class="n">xi</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">im</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">Exi_abs</span><span class="p">),</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;bicubic&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">RdYlGn</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="n">xi</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">xi</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">yi</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">yi</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span>
-</span></span><span class="line"><span class="cl">                <span class="n">vmax</span><span class="o">=</span><span class="n">Exi_abs</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">vmin</span><span class="o">=</span><span class="n">Exi_abs</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x (um)&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y (um)&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">indices</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Exi_abs</span><span class="o">==</span><span class="n">Exi_abs</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="c1">## finding the location of max abs(Ex)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;local max&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">xi</span><span class="p">[</span><span class="n">indices</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">yi</span><span class="p">[</span><span class="n">indices</span><span class="p">[</span><span class="mi">1</span><span class="p">]]),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">             <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&#34;-&gt;&#34;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&#34;image_plot.png&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1">## create image</span>
+<span class="n">x</span>  <span class="o">=</span> <span class="n">E_image</span><span class="p">[</span><span class="s2">&#34;x&#34;</span><span class="p">]</span><span class="o">*</span><span class="mf">1e6</span> <span class="c1">## data on uniform grid, convert m to um</span>
+<span class="n">y</span>  <span class="o">=</span> <span class="n">E_image</span><span class="p">[</span><span class="s2">&#34;y&#34;</span><span class="p">]</span><span class="o">*</span><span class="mf">1e6</span> <span class="c1">## data on uniform grid, convert m to um</span>
+<span class="n">Ex</span> <span class="o">=</span> <span class="n">E_image</span><span class="p">[</span><span class="s2">&#34;E&#34;</span><span class="p">][:,:,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="c1">## data on uniform grid, selecting the x-component of first frequency</span>
+<span class="n">Ex_abs</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">Ex</span><span class="p">)</span>
+<span class="n">xi</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="n">numpy</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">yi</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">y</span><span class="p">),</span><span class="n">numpy</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">y</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="n">f</span><span class="o">=</span> <span class="n">interpolate</span><span class="o">.</span><span class="n">interp2d</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">Ex_abs</span><span class="p">)</span>
+<span class="n">Exi_abs</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">yi</span><span class="p">,</span> <span class="n">xi</span><span class="p">)</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">Exi_abs</span><span class="p">),</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;bicubic&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">RdYlGn</span><span class="p">,</span>
+                <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">[</span><span class="n">xi</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">xi</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">yi</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">yi</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span>
+                <span class="n">vmax</span><span class="o">=</span><span class="n">Exi_abs</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">vmin</span><span class="o">=</span><span class="n">Exi_abs</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x (um)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y (um)&#39;</span><span class="p">)</span>
+
+<span class="n">indices</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Exi_abs</span><span class="o">==</span><span class="n">Exi_abs</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="c1">## finding the location of max abs(Ex)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;local max&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">xi</span><span class="p">[</span><span class="n">indices</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">yi</span><span class="p">[</span><span class="n">indices</span><span class="p">[</span><span class="mi">1</span><span class="p">]]),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">),</span>
+             <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&#34;-&gt;&#34;</span><span class="p">))</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&#34;image_plot.png&#34;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></td></tr></table>
 </div>
 </div><h4 id="2d-subplots" class="headerLink">
     <a href="#2d-subplots" class="header-mark"></a>2d subplots</h4><div class="highlight"><div class="chroma">
@@ -1143,30 +1143,30 @@ $$1-\frac{\int\left|H_{\perp}\right|^2 dxdy}{\int\left(\left|H\right|^2\right) d
 </span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">Xt</span><span class="p">,</span> <span class="n">Zt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">xt</span><span class="p">,</span> <span class="n">zt</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s1">&#39;ij&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">():</span>
-</span></span><span class="line"><span class="cl">    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">    <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">p</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">Xt</span> <span class="o">*</span> <span class="mf">1e6</span><span class="p">,</span> <span class="n">Zt</span> <span class="o">*</span> <span class="mf">1e6</span><span class="p">,</span> <span class="n">E2t</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">cb</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x (microns)&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;z (microns)&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&#34;|E|^2 by FDTD at &#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">lam</span> <span class="o">*</span> <span class="mf">1e9</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&#34;nm&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">p</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">Xt</span> <span class="o">*</span> <span class="mf">1e6</span><span class="p">,</span> <span class="n">Zt</span> <span class="o">*</span> <span class="mf">1e6</span><span class="p">,</span> <span class="n">E2p</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">cb</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x (microns)&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;z (microns)&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&#34;|E|^2 by projection at &#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">lam</span> <span class="o">*</span> <span class="mf">1e9</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">+</span>
-</span></span><span class="line"><span class="cl">                 <span class="s2">&#34;nm&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">Xt</span><span class="p">,</span> <span class="n">Zt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">xt</span><span class="p">,</span> <span class="n">zt</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s1">&#39;ij&#39;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">():</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">Xt</span> <span class="o">*</span> <span class="mf">1e6</span><span class="p">,</span> <span class="n">Zt</span> <span class="o">*</span> <span class="mf">1e6</span><span class="p">,</span> <span class="n">E2t</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+    <span class="n">cb</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x (microns)&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;z (microns)&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&#34;|E|^2 by FDTD at &#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">lam</span> <span class="o">*</span> <span class="mf">1e9</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&#34;nm&#34;</span><span class="p">)</span>
+
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">Xt</span> <span class="o">*</span> <span class="mf">1e6</span><span class="p">,</span> <span class="n">Zt</span> <span class="o">*</span> <span class="mf">1e6</span><span class="p">,</span> <span class="n">E2p</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+    <span class="n">cb</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x (microns)&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;z (microns)&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&#34;|E|^2 by projection at &#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">lam</span> <span class="o">*</span> <span class="mf">1e9</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">+</span>
+                 <span class="s2">&#34;nm&#34;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</code></pre></td></tr></table>
 </div>
 </div><h4 id="custom-functions" class="headerLink">
     <a href="#custom-functions" class="header-mark"></a>custom functions</h4><div class="highlight"><div class="chroma">
@@ -1237,71 +1237,71 @@ $$1-\frac{\int\left|H_{\perp}\right|^2 dxdy}{\int\left(\left|H\right|^2\right) d
 </span><span class="lnt">64
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">addattribute</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">attribute_name</span><span class="p">,</span> <span class="n">attribute_data</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="s1">&#39;&#39;&#39;
-</span></span></span><span class="line"><span class="cl"><span class="s1">    Help on method addattribute:
-</span></span></span><span class="line"><span class="cl"><span class="s1">
-</span></span></span><span class="line"><span class="cl"><span class="s1">    addattribute(dataset_name, attribute_name, attribute_data) method of lumapi.FDTD instance
-</span></span></span><span class="line"><span class="cl"><span class="s1">    Adds an attribute to an existing dataset.
-</span></span></span><span class="line"><span class="cl"><span class="s1">    
-</span></span></span><span class="line"><span class="cl"><span class="s1">    +--------------------------------------+--------------------------------------+
-</span></span></span><span class="line"><span class="cl"><span class="s1">    | Syntax                               | Description                          |
-</span></span></span><span class="line"><span class="cl"><span class="s1">    +--------------------------------------+--------------------------------------+
-</span></span></span><span class="line"><span class="cl"><span class="s1">    | addattribute(R, &#34;a\_name&#34;, a)        | Adds the scalar attribute a to the   |
-</span></span></span><span class="line"><span class="cl"><span class="s1">    |                                      | dataset R.                           |
-</span></span></span><span class="line"><span class="cl"><span class="s1">    |                                      |                                      |
-</span></span></span><span class="line"><span class="cl"><span class="s1">    |                                      | See Dataset introduction for details |
-</span></span></span><span class="line"><span class="cl"><span class="s1">    |                                      | about the required dimensions of     |
-</span></span></span><span class="line"><span class="cl"><span class="s1">    |                                      | attribute data.                      |
-</span></span></span><span class="line"><span class="cl"><span class="s1">    +--------------------------------------+--------------------------------------+
-</span></span></span><span class="line"><span class="cl"><span class="s1">
-</span></span></span><span class="line"><span class="cl"><span class="s1">    
-</span></span></span><span class="line"><span class="cl"><span class="s1">    See Also
-</span></span></span><span class="line"><span class="cl"><span class="s1">    
-</span></span></span><span class="line"><span class="cl"><span class="s1">    rectilineardataset(), addattribute(), addparameter(), visualize(),
-</span></span></span><span class="line"><span class="cl"><span class="s1">    getparameter(), getattribute(), matrixdataset()
-</span></span></span><span class="line"><span class="cl"><span class="s1">    
-</span></span></span><span class="line"><span class="cl"><span class="s1">    https://kb.lumerical.com/en/ref_scripts_addattribute.html
-</span></span></span><span class="line"><span class="cl"><span class="s1">    &#39;&#39;&#39;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">dataset_name</span><span class="p">[</span><span class="n">attribute_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">attribute_data</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="s1">&#39;attributes&#39;</span> <span class="ow">in</span> <span class="n">dataset_name</span><span class="p">[</span><span class="s1">&#39;Lumerical_dataset&#39;</span><span class="p">]:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">item</span> <span class="o">=</span> <span class="n">attribute_name</span>
-</span></span><span class="line"><span class="cl">        <span class="n">item_list</span> <span class="o">=</span> <span class="n">dataset_name</span><span class="p">[</span><span class="s1">&#39;Lumerical_dataset&#39;</span><span class="p">][</span><span class="s1">&#39;attributes&#39;</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">item</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">item_list</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">item_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">dataset_name</span><span class="p">[</span><span class="s1">&#39;Lumerical_dataset&#39;</span><span class="p">][</span><span class="s1">&#39;attributes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">attribute_name</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">addparameter</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">parameter_name</span><span class="p">,</span> <span class="n">parameter_data</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="s1">&#39;&#39;&#39;
-</span></span></span><span class="line"><span class="cl"><span class="s1">    Help on method addparameter:
-</span></span></span><span class="line"><span class="cl"><span class="s1">
-</span></span></span><span class="line"><span class="cl"><span class="s1">    addparameter(dataset_name, parameter_name, parameter_data) method of lumapi.FDTD instance
-</span></span></span><span class="line"><span class="cl"><span class="s1">    Adds a parameter to an existing dataset.
-</span></span></span><span class="line"><span class="cl"><span class="s1">    
-</span></span></span><span class="line"><span class="cl"><span class="s1">    +--------------------------------------+--------------------------------------+
-</span></span></span><span class="line"><span class="cl"><span class="s1">    | Syntax                               | Description                          |
-</span></span></span><span class="line"><span class="cl"><span class="s1">    +--------------------------------------+--------------------------------------+
-</span></span></span><span class="line"><span class="cl"><span class="s1">    | addparameter(R, &#34;p\_name&#34;, p)        | Adds the parameter p to the existing |
-</span></span></span><span class="line"><span class="cl"><span class="s1">    |                                      | dataset R.                           |
-</span></span></span><span class="line"><span class="cl"><span class="s1">    +--------------------------------------+--------------------------------------+
-</span></span></span><span class="line"><span class="cl"><span class="s1">    
-</span></span></span><span class="line"><span class="cl"><span class="s1">    See Also
-</span></span></span><span class="line"><span class="cl"><span class="s1">    
-</span></span></span><span class="line"><span class="cl"><span class="s1">    rectilineardataset(), addattribute(), addparameter(), visualize(),
-</span></span></span><span class="line"><span class="cl"><span class="s1">    getparameter(), getattribute(), matrixdataset()
-</span></span></span><span class="line"><span class="cl"><span class="s1">    
-</span></span></span><span class="line"><span class="cl"><span class="s1">    https://kb.lumerical.com/en/ref_scripts_addparameter.html
-</span></span></span><span class="line"><span class="cl"><span class="s1">    &#39;&#39;&#39;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">dataset_name</span><span class="p">[</span><span class="n">parameter_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">parameter_data</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="s1">&#39;parameters&#39;</span> <span class="ow">in</span> <span class="n">dataset_name</span><span class="p">[</span><span class="s1">&#39;Lumerical_dataset&#39;</span><span class="p">]:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">item</span> <span class="o">=</span> <span class="n">parameter_name</span>
-</span></span><span class="line"><span class="cl">        <span class="n">item_list</span> <span class="o">=</span> <span class="n">dataset_name</span><span class="p">[</span><span class="s1">&#39;Lumerical_dataset&#39;</span><span class="p">][</span><span class="s1">&#39;parameters&#39;</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">item</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">item_list</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">item_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">dataset_name</span><span class="p">[</span><span class="s1">&#39;Lumerical_dataset&#39;</span><span class="p">][</span><span class="s1">&#39;parameters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">parameter_name</span><span class="p">]</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">addattribute</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">attribute_name</span><span class="p">,</span> <span class="n">attribute_data</span><span class="p">):</span>
+    <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">    Help on method addattribute:
+</span><span class="s1">
+</span><span class="s1">    addattribute(dataset_name, attribute_name, attribute_data) method of lumapi.FDTD instance
+</span><span class="s1">    Adds an attribute to an existing dataset.
+</span><span class="s1">    
+</span><span class="s1">    +--------------------------------------+--------------------------------------+
+</span><span class="s1">    | Syntax                               | Description                          |
+</span><span class="s1">    +--------------------------------------+--------------------------------------+
+</span><span class="s1">    | addattribute(R, &#34;a\_name&#34;, a)        | Adds the scalar attribute a to the   |
+</span><span class="s1">    |                                      | dataset R.                           |
+</span><span class="s1">    |                                      |                                      |
+</span><span class="s1">    |                                      | See Dataset introduction for details |
+</span><span class="s1">    |                                      | about the required dimensions of     |
+</span><span class="s1">    |                                      | attribute data.                      |
+</span><span class="s1">    +--------------------------------------+--------------------------------------+
+</span><span class="s1">
+</span><span class="s1">    
+</span><span class="s1">    See Also
+</span><span class="s1">    
+</span><span class="s1">    rectilineardataset(), addattribute(), addparameter(), visualize(),
+</span><span class="s1">    getparameter(), getattribute(), matrixdataset()
+</span><span class="s1">    
+</span><span class="s1">    https://kb.lumerical.com/en/ref_scripts_addattribute.html
+</span><span class="s1">    &#39;&#39;&#39;</span>
+    <span class="n">dataset_name</span><span class="p">[</span><span class="n">attribute_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">attribute_data</span>
+    <span class="k">if</span> <span class="s1">&#39;attributes&#39;</span> <span class="ow">in</span> <span class="n">dataset_name</span><span class="p">[</span><span class="s1">&#39;Lumerical_dataset&#39;</span><span class="p">]:</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">attribute_name</span>
+        <span class="n">item_list</span> <span class="o">=</span> <span class="n">dataset_name</span><span class="p">[</span><span class="s1">&#39;Lumerical_dataset&#39;</span><span class="p">][</span><span class="s1">&#39;attributes&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">item_list</span><span class="p">:</span>
+            <span class="n">item_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dataset_name</span><span class="p">[</span><span class="s1">&#39;Lumerical_dataset&#39;</span><span class="p">][</span><span class="s1">&#39;attributes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">attribute_name</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">addparameter</span><span class="p">(</span><span class="n">dataset_name</span><span class="p">,</span> <span class="n">parameter_name</span><span class="p">,</span> <span class="n">parameter_data</span><span class="p">):</span>
+    <span class="s1">&#39;&#39;&#39;
+</span><span class="s1">    Help on method addparameter:
+</span><span class="s1">
+</span><span class="s1">    addparameter(dataset_name, parameter_name, parameter_data) method of lumapi.FDTD instance
+</span><span class="s1">    Adds a parameter to an existing dataset.
+</span><span class="s1">    
+</span><span class="s1">    +--------------------------------------+--------------------------------------+
+</span><span class="s1">    | Syntax                               | Description                          |
+</span><span class="s1">    +--------------------------------------+--------------------------------------+
+</span><span class="s1">    | addparameter(R, &#34;p\_name&#34;, p)        | Adds the parameter p to the existing |
+</span><span class="s1">    |                                      | dataset R.                           |
+</span><span class="s1">    +--------------------------------------+--------------------------------------+
+</span><span class="s1">    
+</span><span class="s1">    See Also
+</span><span class="s1">    
+</span><span class="s1">    rectilineardataset(), addattribute(), addparameter(), visualize(),
+</span><span class="s1">    getparameter(), getattribute(), matrixdataset()
+</span><span class="s1">    
+</span><span class="s1">    https://kb.lumerical.com/en/ref_scripts_addparameter.html
+</span><span class="s1">    &#39;&#39;&#39;</span>
+    <span class="n">dataset_name</span><span class="p">[</span><span class="n">parameter_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">parameter_data</span>
+    <span class="k">if</span> <span class="s1">&#39;parameters&#39;</span> <span class="ow">in</span> <span class="n">dataset_name</span><span class="p">[</span><span class="s1">&#39;Lumerical_dataset&#39;</span><span class="p">]:</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">parameter_name</span>
+        <span class="n">item_list</span> <span class="o">=</span> <span class="n">dataset_name</span><span class="p">[</span><span class="s1">&#39;Lumerical_dataset&#39;</span><span class="p">][</span><span class="s1">&#39;parameters&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">item_list</span><span class="p">:</span>
+            <span class="n">item_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dataset_name</span><span class="p">[</span><span class="s1">&#39;Lumerical_dataset&#39;</span><span class="p">][</span><span class="s1">&#39;parameters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">parameter_name</span><span class="p">]</span>
+</code></pre></td></tr></table>
 </div>
 </div></div>
 

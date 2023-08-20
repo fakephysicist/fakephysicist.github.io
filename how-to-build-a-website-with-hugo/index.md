@@ -201,6 +201,49 @@ hugo.linux
     git push -u origin master
     ```
 
+This can be done automatically by creating a bash script:
+
+```bash
+#!/bin/bash
+
+# Ensure we exit on any error
+set -e
+
+# Function to check current directory is the root of the repository
+check_root_dir() {
+    if [ ! -d ".git" ]; then
+        echo "Error: The script needs to be run from the root of the repository."
+        exit 1
+    fi
+}
+
+# Step 1: Update submodules
+check_root_dir
+git submodule update --init --recursive
+
+# Step 2: Ensure public folder is deleted
+if [ -d "public" ]; then
+    rm -rf public
+fi
+# git submodule add -f -b main https://github.com/FakePhysicist/fakephysicist.github.io.git public
+
+# Step 3: Generate the website and push it to the submodule repository
+hugo
+cd public
+git add .
+git commit -m "Build website"
+git push origin main
+cd ..
+rm -rf public
+
+Step 4: Add, commit and push the main repository
+git add .
+git commit -m "Update website content"
+git push -u origin master
+
+echo "Deployment completed successfully!"
+```
+
 ## Tips
 
 ### 使用 Math shortcode

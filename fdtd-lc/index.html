@@ -43,7 +43,7 @@
                             "url": "https:\/\/fakephysicist.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "liquid crystal, python","wordcount":  1709 ,
+                        }],"genre": "posts","keywords": "liquid crystal, python","wordcount":  1710 ,
         "url": "https:\/\/fakephysicist.github.io\/fdtd-lc\/","datePublished": "2021-08-16T14:00:00-04:00","dateModified": "2021-08-16T14:00:00-04:00","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -169,7 +169,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://fakephysicist.github.io/authors/fakephysicist'>FakePhysicist</a></span>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/academic/"><i class="far fa-folder fa-fw"></i>academic</a></span>&nbsp;<span class="post-category">和</span>&nbsp;<span class="post-series">系列 <a href="/series/fdtd/"><i class="far fa-list-alt fa-fw"></i>fdtd</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1709 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2021-08-16">2021-08-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1710 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 9 分钟&nbsp;</div>
         </div><div class="details series-nav open">
                                 <div class="details-summary series-title">
@@ -359,73 +359,73 @@ $$\begin{align*}u_{x}(x,y,z) &=\cos(\pi z) \\ u_{y}(x,y,z) &=\sin(\pi z) \\ u_{z
 </span><span class="lnt">66
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># %matplotlib widget</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># %matplotlib widget</span>
-</span></span><span class="line"><span class="cl"><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-</span></span><span class="line"><span class="cl"><span class="o">%</span><span class="n">config</span> <span class="n">InlineBackend</span><span class="o">.</span><span class="n">figure_format</span> <span class="o">=</span> <span class="s1">&#39;svg&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># %config InlineBackend.figure_format = &#39;retina&#39;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d.proj3d</span> <span class="kn">import</span> <span class="n">proj_transform</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d.axes3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">FancyArrowPatch</span>
-</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Arrow3D</span><span class="p">(</span><span class="n">FancyArrowPatch</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">_xyz</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">_dxdydz</span> <span class="o">=</span> <span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">renderer</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xyz</span>
-</span></span><span class="line"><span class="cl">        <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dxdydz</span>
-</span></span><span class="line"><span class="cl">        <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z2</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1</span> <span class="o">+</span> <span class="n">dx</span><span class="p">,</span> <span class="n">y1</span> <span class="o">+</span> <span class="n">dy</span><span class="p">,</span> <span class="n">z1</span> <span class="o">+</span> <span class="n">dz</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">zs</span> <span class="o">=</span> <span class="n">proj_transform</span><span class="p">((</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">),</span> <span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">),</span> <span class="p">(</span><span class="n">z1</span><span class="p">,</span> <span class="n">z2</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">M</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">set_positions</span><span class="p">((</span><span class="n">xs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ys</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="p">(</span><span class="n">xs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">ys</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">_arrow3D</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="s1">&#39;&#39;&#39;Add an 3d arrow to an `Axes3D` instance.&#39;&#39;&#39;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">arrow</span> <span class="o">=</span> <span class="n">Arrow3D</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">ax</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">arrow</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">setattr</span><span class="p">(</span><span class="n">Axes3D</span><span class="p">,</span> <span class="s1">&#39;arrow3D&#39;</span><span class="p">,</span> <span class="n">_arrow3D</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">LC_twist_z_axis</span><span class="p">():</span>
-</span></span><span class="line"><span class="cl">    <span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">context</span><span class="p">([</span><span class="s1">&#39;science&#39;</span><span class="p">,</span> <span class="s1">&#39;notebook&#39;</span><span class="p">]):</span>
-</span></span><span class="line"><span class="cl">        <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="c1"># Make the grid</span>
-</span></span><span class="line"><span class="cl">        <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="c1"># Make the direction data for the arrows</span>
-</span></span><span class="line"><span class="cl">        <span class="n">ux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">uy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">uz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">ax</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">ux</span><span class="p">,</span> <span class="n">uy</span><span class="p">,</span> <span class="n">uz</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                  <span class="n">arrow_length_ratio</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pivot</span> <span class="o">=</span> <span class="s1">&#39;middle&#39;</span><span class="p">,</span> <span class="n">normalize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                  <span class="n">colors</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">linestyles</span> <span class="o">=</span> <span class="s1">&#39;solid&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">ax</span><span class="o">.</span><span class="n">arrow3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="n">mutation_scale</span><span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&#34;-|&gt;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                   <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;solid&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">ax</span><span class="o">.</span><span class="n">arrow3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="n">mutation_scale</span><span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&#34;-|&gt;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                   <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;solid&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">ax</span><span class="o">.</span><span class="n">arrow3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span> <span class="n">mutation_scale</span><span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&#34;-|&gt;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                   <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;solid&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">ax</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="n">elev</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">azim</span><span class="o">=-</span><span class="mi">45</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">LC_twist_z_axis</span><span class="p">()</span>       
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># %matplotlib widget</span>
+<span class="c1"># %matplotlib widget</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="o">%</span><span class="n">config</span> <span class="n">InlineBackend</span><span class="o">.</span><span class="n">figure_format</span> <span class="o">=</span> <span class="s1">&#39;svg&#39;</span>
+<span class="c1"># %config InlineBackend.figure_format = &#39;retina&#39;</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d.proj3d</span> <span class="kn">import</span> <span class="n">proj_transform</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d.axes3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">FancyArrowPatch</span>
+<span class="k">class</span> <span class="nc">Arrow3D</span><span class="p">(</span><span class="n">FancyArrowPatch</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_xyz</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dxdydz</span> <span class="o">=</span> <span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">renderer</span><span class="p">):</span>
+        <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_xyz</span>
+        <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dxdydz</span>
+        <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">z2</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1</span> <span class="o">+</span> <span class="n">dx</span><span class="p">,</span> <span class="n">y1</span> <span class="o">+</span> <span class="n">dy</span><span class="p">,</span> <span class="n">z1</span> <span class="o">+</span> <span class="n">dz</span><span class="p">)</span>
+
+        <span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">zs</span> <span class="o">=</span> <span class="n">proj_transform</span><span class="p">((</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">),</span> <span class="p">(</span><span class="n">y1</span><span class="p">,</span> <span class="n">y2</span><span class="p">),</span> <span class="p">(</span><span class="n">z1</span><span class="p">,</span> <span class="n">z2</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">M</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_positions</span><span class="p">((</span><span class="n">xs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ys</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="p">(</span><span class="n">xs</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">ys</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">_arrow3D</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="s1">&#39;&#39;&#39;Add an 3d arrow to an `Axes3D` instance.&#39;&#39;&#39;</span>
+
+    <span class="n">arrow</span> <span class="o">=</span> <span class="n">Arrow3D</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">dz</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">arrow</span><span class="p">)</span>
+<span class="nb">setattr</span><span class="p">(</span><span class="n">Axes3D</span><span class="p">,</span> <span class="s1">&#39;arrow3D&#39;</span><span class="p">,</span> <span class="n">_arrow3D</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">LC_twist_z_axis</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">context</span><span class="p">([</span><span class="s1">&#39;science&#39;</span><span class="p">,</span> <span class="s1">&#39;notebook&#39;</span><span class="p">]):</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Make the grid</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">))</span>
+
+        <span class="c1"># Make the direction data for the arrows</span>
+        <span class="n">ux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span>
+        <span class="n">uy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span>
+        <span class="n">uz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">ux</span><span class="p">,</span> <span class="n">uy</span><span class="p">,</span> <span class="n">uz</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span>
+                  <span class="n">arrow_length_ratio</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">pivot</span> <span class="o">=</span> <span class="s1">&#39;middle&#39;</span><span class="p">,</span> <span class="n">normalize</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+                  <span class="n">colors</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span> <span class="n">linestyles</span> <span class="o">=</span> <span class="s1">&#39;solid&#39;</span><span class="p">)</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">arrow3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="n">mutation_scale</span><span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&#34;-|&gt;&#34;</span><span class="p">,</span>
+                   <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;solid&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">arrow3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="n">mutation_scale</span><span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&#34;-|&gt;&#34;</span><span class="p">,</span>
+                   <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;solid&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">arrow3D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mf">0.25</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span> <span class="n">mutation_scale</span><span class="o">=</span> <span class="mi">30</span><span class="p">,</span> <span class="n">arrowstyle</span><span class="o">=</span><span class="s2">&#34;-|&gt;&#34;</span><span class="p">,</span>
+                   <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;solid&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">view_init</span><span class="p">(</span><span class="n">elev</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">azim</span><span class="o">=-</span><span class="mi">45</span><span class="p">)</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">LC_twist_z_axis</span><span class="p">()</span>       
+</code></pre></td></tr></table>
 </div>
 </div><figure><a class="lightgallery" href="./images/LC_twist_z_axis.png" title="./images/LC_twist_z_axis.png" data-thumbnail="./images/LC_twist_z_axis.png" data-sub-html="<h2>LC directors twisted along z-axis</h2>">
         <img
@@ -467,28 +467,28 @@ $$\begin{align*}u_{x}(x,y,z) &=\cos(\pi z) \\ u_{y}(x,y,z) &=\sin(\pi z) \\ u_{z
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># define x/y/z
-</span></span><span class="line"><span class="cl">x = 0;
-</span></span><span class="line"><span class="cl">y = 0;
-</span></span><span class="line"><span class="cl">z = linspace(0e-6,5e-6,100);
-</span></span><span class="line"><span class="cl">X = meshgrid3dx(x,y,z);
-</span></span><span class="line"><span class="cl">Y = meshgrid3dy(x,y,z);
-</span></span><span class="line"><span class="cl">Z = meshgrid3dz(x,y,z);
-</span></span><span class="line"><span class="cl">n = matrix(length(x),length(y),length(z),3);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"># define the orientation function
-</span></span><span class="line"><span class="cl">n(1:length(x),1:length(y),1:length(z),1) = cos(Z*pi*1e5);
-</span></span><span class="line"><span class="cl">n(1:length(x),1:length(y),1:length(z),2) = sin(Z*pi*1e5);
-</span></span><span class="line"><span class="cl">n(1:length(x),1:length(y),1:length(z),3) = 0;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"># create dataset containing orientation vectors and position parameters
-</span></span><span class="line"><span class="cl">LC=rectilineardataset(&#34;LC&#34;,x,y,z);
-</span></span><span class="line"><span class="cl">LC.addattribute(&#34;u&#34;,n);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"># add LC import grid attribute
-</span></span><span class="line"><span class="cl">addgridattribute(&#34;lc orientation&#34;,LC);
-</span></span><span class="line"><span class="cl">setnamed(&#34;LC attribute&#34;,&#34;nz&#34;,50); # set resolution
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"># define x/y/z
+x = 0;
+y = 0;
+z = linspace(0e-6,5e-6,100);
+X = meshgrid3dx(x,y,z);
+Y = meshgrid3dy(x,y,z);
+Z = meshgrid3dz(x,y,z);
+n = matrix(length(x),length(y),length(z),3);
+
+# define the orientation function
+n(1:length(x),1:length(y),1:length(z),1) = cos(Z*pi*1e5);
+n(1:length(x),1:length(y),1:length(z),2) = sin(Z*pi*1e5);
+n(1:length(x),1:length(y),1:length(z),3) = 0;
+
+# create dataset containing orientation vectors and position parameters
+LC=rectilineardataset(&#34;LC&#34;,x,y,z);
+LC.addattribute(&#34;u&#34;,n);
+
+# add LC import grid attribute
+addgridattribute(&#34;lc orientation&#34;,LC);
+setnamed(&#34;LC attribute&#34;,&#34;nz&#34;,50); # set resolution
+</code></pre></td></tr></table>
 </div>
 </div><p>Note : When setting angle theta via &lsquo;set&rsquo; script command, the input must be in radians. For example:</p>
 <div class="highlight"><div class="chroma">
@@ -496,8 +496,8 @@ $$\begin{align*}u_{x}(x,y,z) &=\cos(\pi z) \\ u_{y}(x,y,z) &=\sin(\pi z) \\ u_{z
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">setnamed(&#34;LC attribute&#34;,&#34;theta&#34;,pi/4);
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">setnamed(&#34;LC attribute&#34;,&#34;theta&#34;,pi/4);
+</code></pre></td></tr></table>
 </div>
 </div><p>We then add a material with diagonal anisotropy components and set up the object to use the LC attribute similarly to the case of uniform distribution.</p>
 <h4 id="realizaton-in-python" class="headerLink">
@@ -549,51 +549,51 @@ $$\begin{align*}u_{x}(x,y,z) &=\cos(\pi z) \\ u_{y}(x,y,z) &=\sin(\pi z) \\ u_{z
 </span><span class="lnt">44
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">importlib</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">interpolate</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.cm</span> <span class="k">as</span> <span class="nn">cm</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">constants</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">numpy.lib.scimath</span> <span class="kn">import</span> <span class="n">sqrt</span>  <span class="c1"># complex sqrt()</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</span></span><span class="line"><span class="cl"><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># import mplcursors # for data cursor</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># import sys</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># The default paths for windows</span>
-</span></span><span class="line"><span class="cl"><span class="n">spec</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">spec_from_file_location</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="s1">&#39;lumapi&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="s1">&#39;D:</span><span class="se">\\</span><span class="s1">Program Files</span><span class="se">\\</span><span class="s1">Lumerical</span><span class="se">\\</span><span class="s1">v202</span><span class="se">\\</span><span class="s1">api</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">lumapi.py&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Functions that perform the actual loading</span>
-</span></span><span class="line"><span class="cl"><span class="n">lumapi</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">module_from_spec</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">spec</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">exec_module</span><span class="p">(</span><span class="n">lumapi</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">fdtd</span> <span class="o">=</span> <span class="n">lumapi</span><span class="o">.</span><span class="n">FDTD</span><span class="p">()</span>  <span class="c1"># an empty instance</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># define x/y/z</span>
-</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl"><span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0e-6</span><span class="p">,</span> <span class="mf">5e-6</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># define n</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># n = np.zeros((x.size,y.size,z.size,3));</span>
-</span></span><span class="line"><span class="cl"><span class="n">nx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">Z</span><span class="o">*</span><span class="mf">1e5</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">ny</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">Z</span><span class="o">*</span><span class="mf">1e5</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">nz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">Z</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># The newaxis object can be used in all slicing operations to</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># create an axis of length one. np.newaxis is an alias for ‘None’</span>
-</span></span><span class="line"><span class="cl"><span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">nx</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span> <span class="n">ny</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">nz</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># create dataset containing orientation vectors and position parameters</span>
-</span></span><span class="line"><span class="cl"><span class="n">LC</span> <span class="o">=</span> <span class="n">fdtd</span><span class="o">.</span><span class="n">rectilineardataset</span><span class="p">(</span><span class="s2">&#34;LC&#34;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">lumapi</span><span class="o">.</span><span class="n">addattribute</span><span class="p">(</span><span class="n">LC</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># add LC import grid attribute</span>
-</span></span><span class="line"><span class="cl"><span class="n">fdtd</span><span class="o">.</span><span class="n">addgridattribute</span><span class="p">(</span><span class="s2">&#34;lc orientation&#34;</span><span class="p">,</span> <span class="n">LC</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">fdtd</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;LC_attribute&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">fdtd</span><span class="o">.</span><span class="n">setnamed</span><span class="p">(</span><span class="s2">&#34;LC_attribute&#34;</span><span class="p">,</span> <span class="s2">&#34;nz&#34;</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>  <span class="c1"># set resolution</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">importlib</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">interpolate</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.cm</span> <span class="k">as</span> <span class="nn">cm</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">constants</span>
+<span class="kn">from</span> <span class="nn">numpy.lib.scimath</span> <span class="kn">import</span> <span class="n">sqrt</span>  <span class="c1"># complex sqrt()</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="c1"># import mplcursors # for data cursor</span>
+<span class="c1"># import sys</span>
+
+<span class="c1"># The default paths for windows</span>
+<span class="n">spec</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">spec_from_file_location</span><span class="p">(</span>
+    <span class="s1">&#39;lumapi&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;D:</span><span class="se">\\</span><span class="s1">Program Files</span><span class="se">\\</span><span class="s1">Lumerical</span><span class="se">\\</span><span class="s1">v202</span><span class="se">\\</span><span class="s1">api</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">lumapi.py&#39;</span><span class="p">)</span>
+<span class="c1"># Functions that perform the actual loading</span>
+<span class="n">lumapi</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">module_from_spec</span><span class="p">(</span><span class="n">spec</span><span class="p">)</span>
+<span class="n">spec</span><span class="o">.</span><span class="n">loader</span><span class="o">.</span><span class="n">exec_module</span><span class="p">(</span><span class="n">lumapi</span><span class="p">)</span>
+
+<span class="n">fdtd</span> <span class="o">=</span> <span class="n">lumapi</span><span class="o">.</span><span class="n">FDTD</span><span class="p">()</span>  <span class="c1"># an empty instance</span>
+
+<span class="c1"># define x/y/z</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0e-6</span><span class="p">,</span> <span class="mf">5e-6</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="c1"># define n</span>
+<span class="c1"># n = np.zeros((x.size,y.size,z.size,3));</span>
+<span class="n">nx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">Z</span><span class="o">*</span><span class="mf">1e5</span><span class="p">)</span>
+<span class="n">ny</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">Z</span><span class="o">*</span><span class="mf">1e5</span><span class="p">)</span>
+<span class="n">nz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">Z</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="c1"># The newaxis object can be used in all slicing operations to</span>
+<span class="c1"># create an axis of length one. np.newaxis is an alias for ‘None’</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">nx</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span> <span class="n">ny</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">nz</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># create dataset containing orientation vectors and position parameters</span>
+<span class="n">LC</span> <span class="o">=</span> <span class="n">fdtd</span><span class="o">.</span><span class="n">rectilineardataset</span><span class="p">(</span><span class="s2">&#34;LC&#34;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="n">lumapi</span><span class="o">.</span><span class="n">addattribute</span><span class="p">(</span><span class="n">LC</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+
+<span class="c1"># add LC import grid attribute</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">addgridattribute</span><span class="p">(</span><span class="s2">&#34;lc orientation&#34;</span><span class="p">,</span> <span class="n">LC</span><span class="p">)</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;LC_attribute&#39;</span><span class="p">)</span>
+<span class="n">fdtd</span><span class="o">.</span><span class="n">setnamed</span><span class="p">(</span><span class="s2">&#34;LC_attribute&#34;</span><span class="p">,</span> <span class="s2">&#34;nz&#34;</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>  <span class="c1"># set resolution</span>
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="importing-data-from-mat-file-using-the-graphical-user-interface" class="headerLink">
     <a href="#importing-data-from-mat-file-using-the-graphical-user-interface" class="header-mark"></a>Importing data from .mat file using the graphical user interface</h3><p>In the edit window of the grid attribute, it is possible to import a .mat file containing a dataset with the required director distribution data by clicking on the &ldquo;Import data&hellip;&rdquo; button. The following code shows an example of how to save a .mat file to be imported by using the matlabsave script command.</p>
@@ -621,27 +621,27 @@ $$\begin{align*}u_{x}(x,y,z) &=\cos(\pi z) \\ u_{y}(x,y,z) &=\sin(\pi z) \\ u_{z
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># define x/y/z
-</span></span><span class="line"><span class="cl">x = 0;
-</span></span><span class="line"><span class="cl">y = 0;
-</span></span><span class="line"><span class="cl">z = linspace(0e-6,5e-6,100);
-</span></span><span class="line"><span class="cl">X = meshgrid3dx(x,y,z);
-</span></span><span class="line"><span class="cl">Y = meshgrid3dy(x,y,z);
-</span></span><span class="line"><span class="cl">Z = meshgrid3dz(x,y,z);
-</span></span><span class="line"><span class="cl">n = matrix(length(x),length(y),length(z),3);
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"># define the orientation function
-</span></span><span class="line"><span class="cl">n(1:length(x),1:length(y),1:length(z),1) = cos(Z*pi*1e5);
-</span></span><span class="line"><span class="cl">n(1:length(x),1:length(y),1:length(z),2) = sin(Z*pi*1e5);
-</span></span><span class="line"><span class="cl">n(1:length(x),1:length(y),1:length(z),3) = 0;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"># create dataset containing orientation vectors and position parameters
-</span></span><span class="line"><span class="cl">LC=rectilineardataset(&#34;LC&#34;,x,y,z);
-</span></span><span class="line"><span class="cl">LC.addattribute(&#34;u&#34;,n);
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl"># save data to .mat file
-</span></span><span class="line"><span class="cl">matlabsave(&#34;LC_import.mat&#34;,LC);
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"># define x/y/z
+x = 0;
+y = 0;
+z = linspace(0e-6,5e-6,100);
+X = meshgrid3dx(x,y,z);
+Y = meshgrid3dy(x,y,z);
+Z = meshgrid3dz(x,y,z);
+n = matrix(length(x),length(y),length(z),3);
+
+# define the orientation function
+n(1:length(x),1:length(y),1:length(z),1) = cos(Z*pi*1e5);
+n(1:length(x),1:length(y),1:length(z),2) = sin(Z*pi*1e5);
+n(1:length(x),1:length(y),1:length(z),3) = 0;
+
+# create dataset containing orientation vectors and position parameters
+LC=rectilineardataset(&#34;LC&#34;,x,y,z);
+LC.addattribute(&#34;u&#34;,n);
+ 
+# save data to .mat file
+matlabsave(&#34;LC_import.mat&#34;,LC);
+</code></pre></td></tr></table>
 </div>
 </div><p>We then add a material with diagonal anisotropy components and set up the object to use the LC attribute similarly to the case of uniform distribution.</p>
 <h3 id="importing-data-from-a-csv-comma-separated-values-file" class="headerLink">
@@ -674,28 +674,28 @@ $$\begin{align*}u_{x}(x,y,z) &=\cos(\pi z) \\ u_{y}(x,y,z) &=\sin(\pi z) \\ u_{z
 </span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">sys</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">importlib.metadata</span> <span class="kn">import</span> <span class="n">metadata</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">IPython.display</span> <span class="k">as</span> <span class="nn">IPd</span>
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">notebook_manifest</span><span class="p">(</span><span class="o">*</span><span class="n">packages</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">manifest</span> <span class="o">=</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="s1">&#39;| Component                         | Version                    | Description          |&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="s1">&#39;| --------------------------------- | -------------------------- | -------------------- |&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">       <span class="sa">f</span><span class="s1">&#39;| [Python](https://www.python.org/) | </span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">   | Programming Language |&#39;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">]</span>
-</span></span><span class="line"><span class="cl">    <span class="n">sorted_packages</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="n">packages</span><span class="p">];</span> <span class="c1"># convert arguments to a list</span>
-</span></span><span class="line"><span class="cl">    <span class="n">sorted_packages</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">sorted_packages</span><span class="p">:</span> <span class="c1"># build the markdown table of module metadata</span>
-</span></span><span class="line"><span class="cl">        <span class="k">try</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">meta</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">metadata</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
-</span></span><span class="line"><span class="cl">            <span class="n">manifest</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">                <span class="sa">f</span><span class="s1">&#39;| [</span><span class="si">{</span><span class="n">meta</span><span class="p">[</span><span class="s2">&#34;Name&#34;</span><span class="p">]</span><span class="si">}</span><span class="s1">](</span><span class="si">{</span><span class="n">meta</span><span class="p">[</span><span class="s2">&#34;Home-page&#34;</span><span class="p">]</span><span class="si">}</span><span class="s1">) | </span><span class="si">{</span><span class="n">meta</span><span class="p">[</span><span class="s2">&#34;Version&#34;</span><span class="p">]</span><span class="si">}</span><span class="s1"> | </span><span class="si">{</span><span class="n">meta</span><span class="p">[</span><span class="s2">&#34;Summary&#34;</span><span class="p">]</span><span class="si">}</span><span class="s1"> |&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">except</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="n">manifest</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">                <span class="sa">f</span><span class="s1">&#39;| </span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s1"> | ? | **Unrecognized module!** |&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">IPd</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">manifest</span><span class="p">))</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">importlib.metadata</span> <span class="kn">import</span> <span class="n">metadata</span>
+<span class="kn">import</span> <span class="nn">IPython.display</span> <span class="k">as</span> <span class="nn">IPd</span>
+<span class="k">def</span> <span class="nf">notebook_manifest</span><span class="p">(</span><span class="o">*</span><span class="n">packages</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">manifest</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;| Component                         | Version                    | Description          |&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;| --------------------------------- | -------------------------- | -------------------- |&#39;</span><span class="p">,</span>
+       <span class="sa">f</span><span class="s1">&#39;| [Python](https://www.python.org/) | </span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">   | Programming Language |&#39;</span>
+    <span class="p">]</span>
+    <span class="n">sorted_packages</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="n">packages</span><span class="p">];</span> <span class="c1"># convert arguments to a list</span>
+    <span class="n">sorted_packages</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">sorted_packages</span><span class="p">:</span> <span class="c1"># build the markdown table of module metadata</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">meta</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">metadata</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+            <span class="n">manifest</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;| [</span><span class="si">{</span><span class="n">meta</span><span class="p">[</span><span class="s2">&#34;Name&#34;</span><span class="p">]</span><span class="si">}</span><span class="s1">](</span><span class="si">{</span><span class="n">meta</span><span class="p">[</span><span class="s2">&#34;Home-page&#34;</span><span class="p">]</span><span class="si">}</span><span class="s1">) | </span><span class="si">{</span><span class="n">meta</span><span class="p">[</span><span class="s2">&#34;Version&#34;</span><span class="p">]</span><span class="si">}</span><span class="s1"> | </span><span class="si">{</span><span class="n">meta</span><span class="p">[</span><span class="s2">&#34;Summary&#34;</span><span class="p">]</span><span class="si">}</span><span class="s1"> |&#39;</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">manifest</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;| </span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s1"> | ? | **Unrecognized module!** |&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">IPd</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">manifest</span><span class="p">))</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -703,9 +703,9 @@ $$\begin{align*}u_{x}(x,y,z) &=\cos(\pi z) \\ u_{y}(x,y,z) &=\sin(\pi z) \\ u_{z
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">display</span><span class="p">(</span><span class="n">IPd</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">&#39;**Packages used in This Notebook**&#39;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="n">notebook_manifest</span><span class="p">(</span><span class="s1">&#39;jupyterlab&#39;</span><span class="p">,</span> <span class="s1">&#39;numpy&#39;</span><span class="p">,</span> <span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;scipy&#39;</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">display</span><span class="p">(</span><span class="n">IPd</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="s1">&#39;**Packages used in This Notebook**&#39;</span><span class="p">))</span>
+<span class="n">notebook_manifest</span><span class="p">(</span><span class="s1">&#39;jupyterlab&#39;</span><span class="p">,</span> <span class="s1">&#39;numpy&#39;</span><span class="p">,</span> <span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;scipy&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="packages-used-in-this-notebook" class="headerLink">
     <a href="#packages-used-in-this-notebook" class="header-mark"></a>Packages used in This Notebook</h3><table>

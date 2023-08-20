@@ -42,7 +42,7 @@
                             "url": "https:\/\/fakephysicist.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "git, github","wordcount":  258 ,
+                        }],"genre": "posts","keywords": "git, github","wordcount":  254 ,
         "url": "https:\/\/fakephysicist.github.io\/github-basics\/","datePublished": "2023-01-25T00:06:00-04:00","dateModified": "2023-01-25T00:06:00-04:00","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -161,7 +161,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://fakephysicist.github.io/authors/fakephysicist'>FakePhysicist</a></span>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/tricks/"><i class="far fa-folder fa-fw"></i>tricks</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-01-25">2023-01-25</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-01-25">2023-01-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 258 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-01-25">2023-01-25</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-01-25">2023-01-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 254 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -205,9 +205,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config --global user.name <span class="s2">&#34;Your Name Here&#34;</span>
-</span></span><span class="line"><span class="cl">git config --global user.email <span class="s2">&#34;your_email@youremail.com&#34;</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git config --global user.name <span class="s2">&#34;Your Name Here&#34;</span>
+git config --global user.email <span class="s2">&#34;your_email@youremail.com&#34;</span>
+</code></pre></td></tr></table>
 </div>
 </div><h2 id="git-clone" class="headerLink">
     <a href="#git-clone" class="header-mark"></a>Git Clone</h2><div class="highlight"><div class="chroma">
@@ -216,9 +216,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/&lt;username&gt;/&lt;repo-name&gt;.git <span class="c1"># https</span>
-</span></span><span class="line"><span class="cl">git clone git@github.com:&lt;username&gt;/&lt;repo-name&gt;.git <span class="c1"># SSH</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/&lt;username&gt;/&lt;repo-name&gt;.git <span class="c1"># https</span>
+git clone git@github.com:&lt;username&gt;/&lt;repo-name&gt;.git <span class="c1"># SSH</span>
+</code></pre></td></tr></table>
 </div>
 </div><h2 id="ssh-config-for-github" class="headerLink">
     <a href="#ssh-config-for-github" class="header-mark"></a>SSH Config for GitHub</h2><h3 id="check-for-existing-ssh-keys" class="headerLink">
@@ -229,9 +229,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls -al ~/.ssh
-</span></span><span class="line"><span class="cl"><span class="c1"># Lists the files in your .ssh directory, if they exist</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ls -al ~/.ssh
+<span class="c1"># Lists the files in your .ssh directory, if they exist</span>
+</code></pre></td></tr></table>
 </div>
 </div><p>Check the directory listing to see if you have files named either <code>id_rsa.pub</code> or <code>id_dsa.pub</code>. If you don&rsquo;t have either of those files then read on, otherwise skip the next section.</p>
 <h3 id="generate--a-new-ssh-key" class="headerLink">
@@ -246,8 +246,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh-keygen -t ed25519 -C <span class="s2">&#34;your_email@example.com&#34;</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ssh-keygen -t ed25519 -C <span class="s2">&#34;your_email@example.com&#34;</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
 </ol>
@@ -260,8 +260,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&#34;</span>
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&#34;</span>
+</code></pre></td></tr></table>
 </div>
 </div></li>
 <li>
@@ -271,8 +271,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh-add ~/.ssh/id_ed25519
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ssh-add ~/.ssh/id_ed25519
+</code></pre></td></tr></table>
 </div>
 </div></li>
 </ol>
@@ -282,8 +282,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh -T git@github.com
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ssh -T git@github.com
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="add-a-new-ssh-key-to-your-github-account" class="headerLink">
     <a href="#add-a-new-ssh-key-to-your-github-account" class="header-mark"></a>Add a new SSH key to your GitHub account</h3><p><a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account" target="_blank" rel="noopener noreferrer">See GitHub documents</a></p></div>
