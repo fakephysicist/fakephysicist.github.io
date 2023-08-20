@@ -236,7 +236,7 @@ git push origin main
 cd ..
 rm -rf public
 
-Step 4: Add, commit and push the main repository
+# Step 4: Add, commit and push the main repository
 git add .
 git commit -m "Update website content"
 git push -u origin master

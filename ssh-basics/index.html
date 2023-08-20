@@ -42,7 +42,7 @@
                             "url": "https:\/\/fakephysicist.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "ssh, vscode","wordcount":  692 ,
+                        }],"genre": "posts","keywords": "ssh, vscode","wordcount":  702 ,
         "url": "https:\/\/fakephysicist.github.io\/ssh-basics\/","datePublished": "2023-08-09T21:03:25-05:00","dateModified": "2023-08-09T21:03:25-05:00","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -191,7 +191,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://fakephysicist.github.io/authors/fakephysicist'>FakePhysicist</a></span>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/tricks/"><i class="far fa-folder fa-fw"></i>tricks</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-08-09">2023-08-09</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-08-09">2023-08-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 692 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-08-09">2023-08-09</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-08-09">2023-08-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 702 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -273,21 +273,21 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="c"># Generate a key pair</span>
-<span class="nb">ssh-keygen</span> <span class="n">-t</span> <span class="n">ed25519</span>
-
-<span class="c"># By default, the ssh-agent service is disabled. Configure it to start automatically. Ensure you&#39;re running as an Administrator.</span>
-<span class="nb">Get-Service</span> <span class="nb">ssh-agent</span> <span class="p">|</span> <span class="nb">Set-Service</span> <span class="n">-StartupType</span> <span class="n">Automatic</span>
-
-<span class="c"># Activate the service</span>
-<span class="nb">Start-Service</span> <span class="nb">ssh-agent</span>
-
-<span class="c"># This should return a status of Running</span>
-<span class="nb">Get-Service</span> <span class="nb">ssh-agent</span>
-
-<span class="c"># Load your key files into ssh-agent</span>
-<span class="nb">ssh-add</span> <span class="nv">$env:USERPROFILE</span><span class="p">\.</span><span class="n">ssh</span><span class="p">\</span><span class="n">id_ed25519</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c"># Generate a key pair</span>
+</span></span><span class="line"><span class="cl"><span class="nb">ssh-keygen</span> <span class="n">-t</span> <span class="n">ed25519</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># By default, the ssh-agent service is disabled. Configure it to start automatically. Ensure you&#39;re running as an Administrator.</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Get-Service</span> <span class="nb">ssh-agent</span> <span class="p">|</span> <span class="nb">Set-Service</span> <span class="n">-StartupType</span> <span class="n">Automatic</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Activate the service</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Start-Service</span> <span class="nb">ssh-agent</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># This should return a status of Running</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Get-Service</span> <span class="nb">ssh-agent</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Load your key files into ssh-agent</span>
+</span></span><span class="line"><span class="cl"><span class="nb">ssh-add</span> <span class="nv">$env:USERPROFILE</span><span class="p">\.</span><span class="n">ssh</span><span class="p">\</span><span class="n">id_ed25519</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="starting-sshd-on-the-remote-host" class="headerLink">
     <a href="#starting-sshd-on-the-remote-host" class="header-mark"></a>Starting SSHD on the Remote Host</h3><div class="highlight"><div class="chroma">
@@ -299,12 +299,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="c"># Set the sshd service to start automatically</span>
-<span class="nb">Get-Service</span> <span class="n">-Name</span> <span class="n">sshd</span> <span class="p">|</span> <span class="nb">Set-Service</span> <span class="n">-StartupType</span> <span class="n">Automatic</span>
-
-<span class="c"># Activate the sshd service</span>
-<span class="nb">Start-Service</span> <span class="n">sshd</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c"># Set the sshd service to start automatically</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Get-Service</span> <span class="n">-Name</span> <span class="n">sshd</span> <span class="p">|</span> <span class="nb">Set-Service</span> <span class="n">-StartupType</span> <span class="n">Automatic</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c"># Activate the sshd service</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Start-Service</span> <span class="n">sshd</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="deploying-the-public-key-to-the-remote-host" class="headerLink">
     <a href="#deploying-the-public-key-to-the-remote-host" class="header-mark"></a>Deploying the Public Key to the Remote Host</h3><p>Your public key, <code>\.ssh\id_ed25519.pub</code>, should be placed on the server in a text file named <code>administrators_authorized_keys</code> located in <code>C:\ProgramData\ssh\</code>.</p>
@@ -317,8 +317,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="nb">echo </span><span class="nv">$env:USERNAME</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">echo </span><span class="nv">$env:USERNAME</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>However, if you&rsquo;re using a Microsoft account to log in, the <code>username</code> might be the associated email address.</p>
 <h4 id="determining-the-hostname" class="headerLink">
@@ -328,8 +328,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">ipconfig</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">ipconfig</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="2-ssh-access-to-wsl2" class="headerLink">
     <a href="#2-ssh-access-to-wsl2" class="header-mark"></a>2. SSH Access to WSL2</h2><p>For a comprehensive guide, refer <a href="https://jmmv.dev/2022/02/wsl-ssh-access.html" target="_blank" rel="noopener noreferrer">here</a>.</p>
@@ -351,19 +351,19 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Install openssh-server</span>
-sudo apt install openssh-server
-
-<span class="c1"># Modify the SSH configuration to use port 2222</span>
-sudo sed -i -E <span class="s1">&#39;s,^#?Port.*$,Port 2222,&#39;</span> /etc/ssh/sshd_config
-sudo service ssh restart
-
-<span class="c1"># Allow passwordless sudo for the current user to start the SSH service</span>
-sudo sh -c <span class="s2">&#34;echo &#39;</span><span class="si">${</span><span class="nv">USER</span><span class="si">}</span><span class="s2"> ALL=(root) NOPASSWD: /usr/sbin/service ssh start&#39; &gt;/etc/sudoers.d/service-ssh-start&#34;</span>
-
-<span class="c1"># Start the SSH service without requiring a password</span>
-sudo /usr/sbin/service ssh start
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Install openssh-server</span>
+</span></span><span class="line"><span class="cl">sudo apt install openssh-server
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Modify the SSH configuration to use port 2222</span>
+</span></span><span class="line"><span class="cl">sudo sed -i -E <span class="s1">&#39;s,^#?Port.*$,Port 2222,&#39;</span> /etc/ssh/sshd_config
+</span></span><span class="line"><span class="cl">sudo service ssh restart
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Allow passwordless sudo for the current user to start the SSH service</span>
+</span></span><span class="line"><span class="cl">sudo sh -c <span class="s2">&#34;echo &#39;</span><span class="si">${</span><span class="nv">USER</span><span class="si">}</span><span class="s2"> ALL=(root) NOPASSWD: /usr/sbin/service ssh start&#39; &gt;/etc/sudoers.d/service-ssh-start&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Start the SSH service without requiring a password</span>
+</span></span><span class="line"><span class="cl">sudo /usr/sbin/service ssh start
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="on-the-remote-host-windows" class="headerLink">
     <a href="#on-the-remote-host-windows" class="header-mark"></a>On the Remote Host (Windows)</h3><h4 id="unblock-port-2222" class="headerLink">
@@ -372,8 +372,8 @@ sudo /usr/sbin/service ssh start
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="nb">New-NetFirewallRule</span> <span class="n">-Name</span> <span class="n">sshd</span> <span class="n">-DisplayName</span> <span class="s1">&#39;OpenSSH Server (sshd) for WSL&#39;</span> <span class="n">-Enabled</span> <span class="n">True</span> <span class="n">-Direction</span> <span class="n">Inbound</span> <span class="n">-Protocol</span> <span class="n">TCP</span> <span class="n">-Action</span> <span class="n">Allow</span> <span class="n">-LocalPort</span> <span class="n">2222</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">New-NetFirewallRule</span> <span class="n">-Name</span> <span class="n">sshd</span> <span class="n">-DisplayName</span> <span class="s1">&#39;OpenSSH Server (sshd) for WSL&#39;</span> <span class="n">-Enabled</span> <span class="n">True</span> <span class="n">-Direction</span> <span class="n">Inbound</span> <span class="n">-Protocol</span> <span class="n">TCP</span> <span class="n">-Action</span> <span class="n">Allow</span> <span class="n">-LocalPort</span> <span class="mf">2222</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h4 id="automatically-start-sshd-service" class="headerLink">
     <a href="#automatically-start-sshd-service" class="header-mark"></a>Automatically Start SSHD Service</h4><p>Create a CMD script to initiate the SSHD service in WSL2.</p>
@@ -392,18 +392,18 @@ sudo /usr/sbin/service ssh start
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="p">@</span><span class="k">echo</span> off
-<span class="k">setlocal</span>
-
-C<span class="p">:</span><span class="nl">\Windows\System32\bash.exe</span><span class="c1"> -c &#34;sudo /usr/sbin/service ssh start&#34;</span>
-
-C<span class="p">:</span><span class="nl">\Windows\System32\netsh.exe</span><span class="c1"> interface portproxy delete v4tov4 listenport=2022 listenaddress=0.0.0.0 protocol=tcp</span>
-
-<span class="k">for</span> <span class="k">/f</span> <span class="se">%%</span>i <span class="k">in</span> <span class="p">(</span><span class="s1">&#39;wsl hostname -I&#39;</span><span class="p">)</span> <span class="k">do</span> <span class="k">set</span> <span class="nv">IP</span><span class="p">=</span><span class="se">%%</span>i
-C<span class="p">:</span><span class="nl">\Windows\System32\netsh.exe</span><span class="c1"> interface portproxy add v4tov4 listenport=2022 listenaddress=0.0.0.0 connectport=2022 connectaddress=%IP%</span>
-
-<span class="k">endlocal</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-cmd" data-lang="cmd"><span class="line"><span class="cl"><span class="p">@</span><span class="k">echo</span> off
+</span></span><span class="line"><span class="cl"><span class="k">setlocal</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">C<span class="p">:</span><span class="nl">\Windows\System32\bash.exe</span><span class="c1"> -c &#34;sudo /usr/sbin/service ssh start&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">C<span class="p">:</span><span class="nl">\Windows\System32\netsh.exe</span><span class="c1"> interface portproxy delete v4tov4 listenport=2022 listenaddress=0.0.0.0 protocol=tcp</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="k">/f</span> <span class="se">%%</span>i <span class="k">in</span> <span class="p">(</span><span class="s1">&#39;wsl hostname -I&#39;</span><span class="p">)</span> <span class="k">do</span> <span class="k">set</span> <span class="nv">IP</span><span class="p">=</span><span class="se">%%</span>i
+</span></span><span class="line"><span class="cl">C<span class="p">:</span><span class="nl">\Windows\System32\netsh.exe</span><span class="c1"> interface portproxy add v4tov4 listenport=2022 listenaddress=0.0.0.0 connectport=2022 connectaddress=%IP%</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">endlocal</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="connecting-to-wsl2" class="headerLink">
     <a href="#connecting-to-wsl2" class="header-mark"></a>Connecting to WSL2</h3><div class="highlight"><div class="chroma">
@@ -411,8 +411,8 @@ C<span class="p">:</span><span class="nl">\Windows\System32\netsh.exe</span><spa
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ssh -p <span class="m">2222</span> &lt;username&gt;@&lt;hostname&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh -p <span class="m">2222</span> &lt;username&gt;@&lt;hostname&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Note that the <code>username</code> here is distinct from the Windows host username; it pertains to the Linux system. Determine it using:</p>
 <div class="highlight"><div class="chroma">
@@ -420,8 +420,8 @@ C<span class="p">:</span><span class="nl">\Windows\System32\netsh.exe</span><spa
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">whoami
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">whoami
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>The <code>hostname</code>, however, remains consistent with the Windows host.</p>
 <h4 id="vscode-remote---ssh" class="headerLink">
@@ -439,16 +439,16 @@ C<span class="p">:</span><span class="nl">\Windows\System32\netsh.exe</span><spa
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">Host &lt;hostname&gt;
-    HostName &lt;nickname_windows&gt;
-    User &lt;username_windows&gt;
-    Port <span class="m">22</span>
-
-Host &lt;hostname&gt;
-    HostName &lt;nickname_wsl&gt;
-    User &lt;username_wsl&gt;
-    Port <span class="m">2222</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Host &lt;hostname&gt;
+</span></span><span class="line"><span class="cl">    HostName &lt;nickname_windows&gt;
+</span></span><span class="line"><span class="cl">    User &lt;username_windows&gt;
+</span></span><span class="line"><span class="cl">    Port <span class="m">22</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Host &lt;hostname&gt;
+</span></span><span class="line"><span class="cl">    HostName &lt;nickname_wsl&gt;
+</span></span><span class="line"><span class="cl">    User &lt;username_wsl&gt;
+</span></span><span class="line"><span class="cl">    Port <span class="m">2222</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="3-running-jupyter-lab-on-a-remote-host" class="headerLink">
     <a href="#3-running-jupyter-lab-on-a-remote-host" class="header-mark"></a>3. Running Jupyter Lab on a Remote Host</h2><p>Use <code>ssh</code> to run <code>jupyter lab</code> on a remote host and access it from a local browser.</p>
@@ -459,8 +459,8 @@ Host &lt;hostname&gt;
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">ssh</span> <span class="n">-L</span> <span class="p">&lt;</span><span class="n">local_port</span><span class="p">&gt;</span><span class="err">:</span><span class="n">localhost</span><span class="err">:</span><span class="p">&lt;</span><span class="n">remote_port</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="n">username</span><span class="p">&gt;@&lt;</span><span class="n">hostname</span><span class="p">&gt;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">ssh</span> <span class="n">-L</span> <span class="p">&lt;</span><span class="n">local_port</span><span class="p">&gt;</span><span class="err">:</span><span class="n">localhost</span><span class="err">:</span><span class="p">&lt;</span><span class="n">remote_port</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="n">username</span><span class="p">&gt;@&lt;</span><span class="n">hostname</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="running-jupyter-lab-on-the-remote-host" class="headerLink">
     <a href="#running-jupyter-lab-on-the-remote-host" class="header-mark"></a>Running Jupyter Lab on the Remote Host</h3><div class="highlight"><div class="chroma">
@@ -468,8 +468,8 @@ Host &lt;hostname&gt;
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">jupyter</span> <span class="n">lab</span> <span class="p">-</span><span class="n">-no-browser</span> <span class="p">-</span><span class="n">-port</span><span class="p">=&lt;</span><span class="n">remote_port</span><span class="p">&gt;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">jupyter</span> <span class="n">lab</span> <span class="p">-</span><span class="n">-no-browser</span> <span class="p">-</span><span class="n">-port</span><span class="p">=&lt;</span><span class="n">remote_port</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="4-using-croc-to-transfer-files" class="headerLink">
     <a href="#4-using-croc-to-transfer-files" class="header-mark"></a>4. Using <code>croc</code> to Transfer Files</h2><p>For more details, consult <a href="https://github.com/schollz/croc" target="_blank" rel="noopener noreferrer">this link</a>.</p>
@@ -480,8 +480,8 @@ Host &lt;hostname&gt;
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">croc send --code &lt;code&gt; .
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">croc send --code &lt;code&gt; .
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="on-the-remote-machine" class="headerLink">
     <a href="#on-the-remote-machine" class="header-mark"></a>On the Remote Machine</h3><p>To receive the files:</p>
@@ -490,8 +490,8 @@ Host &lt;hostname&gt;
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">croc --yes --overwrite &lt;code&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">croc --yes --overwrite &lt;code&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="5-avoiding-ssh-passphrase-prompt" class="headerLink">
     <a href="#5-avoiding-ssh-passphrase-prompt" class="header-mark"></a>5. Avoiding SSH passphrase prompt</h2><p>To avoid the SSH passphrase prompt, you can use</p>
@@ -500,8 +500,8 @@ Host &lt;hostname&gt;
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ssh-add
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh-add
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>to add the key to the <code>ssh-agent</code> cache.</p></div>
 
