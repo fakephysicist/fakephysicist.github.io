@@ -1,6 +1,8 @@
 # Hugo + DoIt 创建个人主页
 
+
 在 wsl 环境下安装 Hugo 并且配置主题 DoIt.
+
 <!--more-->
 
 ## Hugo
@@ -27,17 +29,17 @@
 
 1. 创建你的项目, Hugo 提供了一个 `new` 命令来创建一个新的网站:
 
-    ```bash
-    hugo new site my_website
-    cd my_website
-    ```
+   ```bash
+   hugo new site my_website
+   cd my_website
+   ```
 
 2. 初始化你的项目目录为 git 仓库, 并且把主题仓库作为你的网站目录的子模块:
 
-    ```bash
-    git init
-    git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
-    ```
+   ```bash
+   git init
+   git submodule add https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt
+   ```
 
 3. 初始化项目：`git submodule update --init --recursive`，完成安装
 
@@ -178,28 +180,28 @@ hugo.linux
 2. 在 `config.toml` 中, 设置 `baseurl = https://<USERNAME>.github.io/`.
 3. **确保 `public` 文件夹被删除.** 将 `<USERNAME>.github.io` repository 设置为一个 submodule, 并设置其在文件夹 `public` 中.
 
-    ```bash
-    git submodule add -f -b main https://github.com/FakePhysicist/fakephysicist.github.io.git public
-    ```
+   ```bash
+   git submodule add -f -b main https://github.com/FakePhysicist/fakephysicist.github.io.git public
+   ```
 
 4. 生成网页, 并将其推送到 repository 2.
 
-    ```bash
-    hugo
-    cd public
-    git add .
-    git commit -m "Build website"
-    git push origin main
-    cd ..
-    ```
+   ```bash
+   hugo
+   cd public
+   git add .
+   git commit -m "Build website"
+   git push origin main
+   cd ..
+   ```
 
 5. Add, commit and push repository 1.
 
-    ```bash
-    git add .
-    git commit -m "Initial commit"
-    git push -u origin master
-    ```
+   ```bash
+   git add .
+   git commit -m "Initial commit"
+   git push -u origin master
+   ```
 
 This can be done automatically by creating a bash script:
 
