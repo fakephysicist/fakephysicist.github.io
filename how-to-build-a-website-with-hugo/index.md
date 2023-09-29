@@ -279,3 +279,7 @@ echo "Deployment completed successfully!"
 - 中英文之间要有空格
 - 中文与数字之间要有空格
 
+### Update `lastmod` automatically
+
+在 `config.toml` 中设置 `enableGitInfo = true`，这样每次 `git push` 时，`lastmod` 就会自动更新.
+

@@ -6,23 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
     <title>Git Basics - FakePhysicist</title><meta name="Description" content="a fake physicist&#39;s notes"><meta property="og:title" content="Git Basics" />
-<meta property="og:description" content="Some basics about Git and GitHub. 其实上网一搜到处都有, 但还是记录一下, 方便自己查阅." />
+<meta property="og:description" content="Some basics about Git and GitHub.
+Although there are many tutorials online, I still want to record some of them here for my own reference." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://fakephysicist.github.io/github-basics/" /><meta property="og:image" content="https://fakephysicist.github.io/favicon.ico"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-01-25T00:06:00-04:00" />
-<meta property="article:modified_time" content="2023-01-25T00:06:00-04:00" /><meta property="og:site_name" content="FakePhysicist" />
+<meta property="article:modified_time" content="2023-08-10T01:56:58-04:00" /><meta property="og:site_name" content="FakePhysicist" />
 
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://fakephysicist.github.io/favicon.ico"/>
 
 <meta name="twitter:title" content="Git Basics"/>
-<meta name="twitter:description" content="Some basics about Git and GitHub. 其实上网一搜到处都有, 但还是记录一下, 方便自己查阅."/>
+<meta name="twitter:description" content="Some basics about Git and GitHub.
+Although there are many tutorials online, I still want to record some of them here for my own reference."/>
 <meta name="application-name" content="FakePhysicist">
 <meta name="apple-mobile-web-app-title" content="FakePhysicist">
 
 <meta name="theme-color" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://fakephysicist.github.io/github-basics/" /><link rel="prev" href="https://fakephysicist.github.io/vscode-basics/" /><link rel="next" href="https://fakephysicist.github.io/windows-terminal-splitting-shorcuts/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/color.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://fakephysicist.github.io/github-basics/" /><link rel="prev" href="https://fakephysicist.github.io/fdtd-lc/" /><link rel="next" href="https://fakephysicist.github.io/windows-terminal-splitting-shorcuts/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/color.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript>
     
@@ -42,8 +44,8 @@
                             "url": "https:\/\/fakephysicist.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "git, github","wordcount":  258 ,
-        "url": "https:\/\/fakephysicist.github.io\/github-basics\/","datePublished": "2023-01-25T00:06:00-04:00","dateModified": "2023-01-25T00:06:00-04:00","publisher": {
+                        }],"genre": "posts","keywords": "git, github","wordcount":  263 ,
+        "url": "https:\/\/fakephysicist.github.io\/github-basics\/","datePublished": "2023-01-25T00:06:00-04:00","dateModified": "2023-08-10T01:56:58-04:00","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
                     "@type": "ImageObject",
@@ -149,8 +151,8 @@
     <li><a href="#ssh-config-for-github">SSH Config for GitHub</a>
       <ul>
         <li><a href="#check-for-existing-ssh-keys">Check for existing SSH keys</a></li>
-        <li><a href="#generate--a-new-ssh-key">Generate  a new SSH key</a></li>
-        <li><a href="#add--your-ssh-key-to-the-ssh-agent">Add  your SSH key to the ssh-agent</a></li>
+        <li><a href="#generate-a-new-ssh-key">Generate a new SSH key</a></li>
+        <li><a href="#add-your-ssh-key-to-the-ssh-agent">Add your SSH key to the ssh-agent</a></li>
         <li><a href="#test-ssh-connection">Test SSH connection</a></li>
         <li><a href="#add-a-new-ssh-key-to-your-github-account">Add a new SSH key to your GitHub account</a></li>
       </ul>
@@ -161,7 +163,7 @@
             <div class="post-meta-line">
                 <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://fakephysicist.github.io/authors/fakephysicist'>FakePhysicist</a></span>
                 </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/tricks/"><i class="far fa-folder fa-fw"></i>tricks</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-01-25">2023-01-25</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-01-25">2023-01-25</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 258 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-01-25">2023-01-25</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-08-10">2023-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 263 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -176,23 +178,16 @@
     <li><a href="#ssh-config-for-github">SSH Config for GitHub</a>
       <ul>
         <li><a href="#check-for-existing-ssh-keys">Check for existing SSH keys</a></li>
-        <li><a href="#generate--a-new-ssh-key">Generate  a new SSH key</a></li>
-        <li><a href="#add--your-ssh-key-to-the-ssh-agent">Add  your SSH key to the ssh-agent</a></li>
+        <li><a href="#generate-a-new-ssh-key">Generate a new SSH key</a></li>
+        <li><a href="#add-your-ssh-key-to-the-ssh-agent">Add your SSH key to the ssh-agent</a></li>
         <li><a href="#test-ssh-connection">Test SSH connection</a></li>
         <li><a href="#add-a-new-ssh-key-to-your-github-account">Add a new SSH key to your GitHub account</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><div class="details admonition warning open">
-                <div class="details-summary admonition-title">
-                    <i class="icon fas fa-exclamation-triangle fa-fwwarning"></i>警告<i class="details-icon fas fa-angle-right fa-fw"></i>
-                </div>
-                <div class="details-content">
-                    <div class="admonition-content">
-                        本文最后更新于 <span class="timeago" datetime="2023-01-25T00:06:00" title="January 25, 2023">2023-01-25</span>，文中内容可能已过时。</div>
-                </div>
-            </div><p>Some basics about Git and GitHub. 其实上网一搜到处都有, 但还是记录一下, 方便自己查阅.</p>
+            </div><div class="content" id="content"><p>Some basics about Git and GitHub.</p>
+<p>Although there are many tutorials online, I still want to record some of them here for my own reference.</p>
 <h2 id="some-references" class="headerLink">
     <a href="#some-references" class="header-mark"></a>Some References</h2><ul>
 <li><a href="https://sourabhbajaj.com/mac-setup/Git/" target="_blank" rel="noopener noreferrer">Git and GitHub</a> (Concise)</li>
@@ -209,7 +204,8 @@
 </span></span><span class="line"><span class="cl">git config --global user.email <span class="s2">&#34;your_email@youremail.com&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="git-clone" class="headerLink">
+</div><p>NOTE: <code>your_email@@youremail.com</code> should be the <code>noreply</code> email address of your GitHub account.</p>
+<h2 id="git-clone" class="headerLink">
     <a href="#git-clone" class="header-mark"></a>Git Clone</h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -234,8 +230,8 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Check the directory listing to see if you have files named either <code>id_rsa.pub</code> or <code>id_dsa.pub</code>. If you don&rsquo;t have either of those files then read on, otherwise skip the next section.</p>
-<h3 id="generate--a-new-ssh-key" class="headerLink">
-    <a href="#generate--a-new-ssh-key" class="header-mark"></a>Generate  a new SSH key</h3><ol>
+<h3 id="generate-a-new-ssh-key" class="headerLink">
+    <a href="#generate-a-new-ssh-key" class="header-mark"></a>Generate a new SSH key</h3><ol>
 <li>
 <p>Open Terminal.</p>
 </li>
@@ -251,8 +247,8 @@
 </div>
 </div></li>
 </ol>
-<h3 id="add--your-ssh-key-to-the-ssh-agent" class="headerLink">
-    <a href="#add--your-ssh-key-to-the-ssh-agent" class="header-mark"></a>Add  your SSH key to the ssh-agent</h3><ol>
+<h3 id="add-your-ssh-key-to-the-ssh-agent" class="headerLink">
+    <a href="#add-your-ssh-key-to-the-ssh-agent" class="header-mark"></a>Add your SSH key to the ssh-agent</h3><ol>
 <li>
 <p>Start the ssh-agent in the background.</p>
 <div class="highlight"><div class="chroma">
@@ -292,7 +288,8 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2023-01-25</span>
+                <span>更新于 2023-08-10&nbsp;<a class="git-hash" href="https://github.com/FakePhysicist/fakephysicist.github.io/commit/8a2ca17a089eaeeea08ca5fb8d38b5441dfc6f77" target="_blank" title="commit by FakePhysicist(20970845&#43;FakePhysicist@users.noreply.github.com) 8a2ca17a089eaeeea08ca5fb8d38b5441dfc6f77: update ssh" rel="noopener noreferrer">
+                                    <i class="fas fa-hashtag fa-fw"></i>8a2ca17</a></span>
             </div>
             <div class="post-info-license"></div>
         </div>
@@ -312,7 +309,7 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/vscode-basics/" class="prev" rel="prev" title="VSCode Basics"><i class="fas fa-angle-left fa-fw"></i>VSCode Basics</a>
+    <div class="post-nav"><a href="/fdtd-lc/" class="prev" rel="prev" title="FDTD Liquid Crystals"><i class="fas fa-angle-left fa-fw"></i>FDTD Liquid Crystals</a>
             <a href="/windows-terminal-splitting-shorcuts/" class="next" rel="next" title="Windows Terminal 分割快捷键">Windows Terminal 分割快捷键<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="giscus"></div><noscript>

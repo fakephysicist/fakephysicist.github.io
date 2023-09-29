@@ -5,14 +5,14 @@
 
 ## 快捷键
 
-总结~~抄袭~~一些 VSCode 的快捷键
+总结~~抄袭~~一些 VS Code 的快捷键
 
 最常用的应该就是`Ctrl + Shift + P`了，这个是打开命令面板的快捷键，可以通过命令面板来执行各种操作.
 
 ### ⭐ 智能感知
 
-- `Ctrl + Space` 触发"建议"小部件 (Option + Escape on macOS)
-- `Alt + \` 触发 Github Copilot
+- `Ctrl + Space` 触发"建议"小部件 (`Option + Escape` on macOS)
+- `Alt + \` 触发 GitHub Copilot
 - 默认情况下，`Tab` 或 `Enter` 表示接受当前选项
 
 ### ⭐ 文件和文件夹
@@ -44,8 +44,8 @@
 
 - 光标移动
 
-  - `Ctrl + ←` 将光标向左移动一个单词
-  - `Ctrl + →` 将光标向右移动一个单词
+  - `Ctrl + ←` 将光标向左移动一个单词 (`Ctrl + Option + ←` on macOS)
+  - `Ctrl + →` 将光标向右移动一个单词 (`Ctrl + Option + →` on macOS)
 
 - 光标操作
 

@@ -9,6 +9,8 @@
     <link>https://fakephysicist.github.io/conda-basics/</link>
     <pubDate>Wed, 09 Aug 2023 21:03:25 -0500</pubDate><author>
                         <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/conda-basics/</guid>
-    <description><![CDATA[<p><code>conda</code> is a package manager for Python.</p>]]></description>
+    <description><![CDATA[<p><code>mamba</code> is a package manager for Python. It is a reimplementation of <code>conda</code> in C++. The syntax is the same as <code>conda</code>, but it is much faster. It is recommended to use <code>mamba</code> instead of <code>conda</code> for package management.</p>
+<p>It is recommended to create a new environment for each project and leave the base environment untouched.</p>
+<p>In the following, we assume the environment name is <code>cs101</code>.</p>]]></description>
 </item></channel>
 </rss>

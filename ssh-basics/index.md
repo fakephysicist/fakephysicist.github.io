@@ -1,6 +1,8 @@
 # SSH Basics
 
+
 SSH is a protocol that allows you to connect to a remote computer. It is widely used in remote computing, such as connecting to a remote server or running Jupyter Lab in a remote host.
+
 <!--more-->
 
 ## 1. SSH Access to Windows
@@ -49,7 +51,46 @@ Start-Service sshd
 
 Your public key, `\.ssh\id_ed25519.pub`, should be placed on the server in a text file named `administrators_authorized_keys` located in `C:\ProgramData\ssh\`.
 
-### Using VSCode as an SSH Client
+### Configuring the default shell for OpenSSH in Windows
+
+For example, to use PowerShell as the default shell:
+
+```powershell
+New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell -Value "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -PropertyType String -Force
+```
+
+### Windows Configurations
+
+In Windows, sshd reads configuration data from `%programdata%\ssh\sshd_config`` by default.
+
+You can modify the configuration file to change the default port, for example:
+
+```powershell
+# Port 22 is the default port for SSH
+Port 22
+```
+
+You can also disable password authentication to prevent brute-force attacks:
+
+```powershell
+# Disable password authentication
+PasswordAuthentication no
+```
+
+You can enable public key authentication:
+
+```powershell
+# Enable public key authentication
+PubkeyAuthentication yes
+```
+
+### Connecting to Windows in terminal
+
+```bash
+ssh <username>@<hostname>
+```
+
+### Connecting to Windows in VS Code
 
 To connect, you need to know the `username` and `hostname` of the remote host.
 
@@ -71,9 +112,19 @@ The `hostname`, which is the IP address of the remote host, can be retrieved wit
 ipconfig
 ```
 
+#### If it doesn't work
+
+Try enable `Port 22`
+
+```powershell
+netsh advfirewall firewall add rule name="Open SSH Port 22" dir=in action=allow protocol=TCP localport=22 remoteip=any
+```
+
+Try enabling `Remote server listen on socket` in VS Code.
+
 ## 2. SSH Access to WSL2
 
-For a comprehensive guide, refer [here](<https://jmmv.dev/2022/02/wsl-ssh-access.html>).
+For a comprehensive guide, refer [here](https://jmmv.dev/2022/02/wsl-ssh-access.html).
 
 Since Windows uses port 22 by default for SSH, consider changing the SSH port in WSL2 to 2222 to prevent conflicts.
 
@@ -134,7 +185,7 @@ whoami
 
 The `hostname`, however, remains consistent with the Windows host.
 
-#### VSCode Remote - SSH
+#### VS Code Remote - SSH
 
 Edit the `~/.ssh/config` on the local client:
 
@@ -197,5 +248,4 @@ ssh-add
 ```
 
 to add the key to the `ssh-agent` cache.
-
 

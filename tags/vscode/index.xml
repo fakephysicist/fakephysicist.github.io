@@ -4,17 +4,17 @@
         <link>https://fakephysicist.github.io/tags/vscode/</link>
         <description>vscode - 标签 - FakePhysicist</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fakephysicist@outlook.com (FakePhysicist)</managingEditor>
-            <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><lastBuildDate>Wed, 09 Aug 2023 21:03:25 -0500</lastBuildDate><atom:link href="https://fakephysicist.github.io/tags/vscode/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><lastBuildDate>Thu, 17 Aug 2023 14:32:44 -0500</lastBuildDate><atom:link href="https://fakephysicist.github.io/tags/vscode/" rel="self" type="application/rss+xml" /><item>
+    <title>VSCode Basics</title>
+    <link>https://fakephysicist.github.io/vscode-basics/</link>
+    <pubDate>Thu, 17 Aug 2023 14:32:44 -0500</pubDate><author>
+                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/vscode-basics/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>SSH Basics</title>
     <link>https://fakephysicist.github.io/ssh-basics/</link>
     <pubDate>Wed, 09 Aug 2023 21:03:25 -0500</pubDate><author>
                         <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/ssh-basics/</guid>
     <description><![CDATA[<p>SSH is a protocol that allows you to connect to a remote computer. It is widely used in remote computing, such as connecting to a remote server or running Jupyter Lab in a remote host.</p>]]></description>
-</item><item>
-    <title>VSCode Basics</title>
-    <link>https://fakephysicist.github.io/vscode-basics/</link>
-    <pubDate>Tue, 17 Aug 2021 14:32:44 -0500</pubDate><author>
-                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/vscode-basics/</guid>
-    <description><![CDATA[]]></description>
 </item></channel>
 </rss>

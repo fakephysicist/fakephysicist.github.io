@@ -1,6 +1,10 @@
 # Git Basics
 
-Some basics about Git and GitHub. 其实上网一搜到处都有, 但还是记录一下, 方便自己查阅.
+
+Some basics about Git and GitHub.
+
+Although there are many tutorials online, I still want to record some of them here for my own reference.
+
 <!--more-->
 
 ## Some References
@@ -14,6 +18,8 @@ Some basics about Git and GitHub. 其实上网一搜到处都有, 但还是记�
 git config --global user.name "Your Name Here"
 git config --global user.email "your_email@youremail.com"
 ```
+
+NOTE: `your_email@@youremail.com` should be the `noreply` email address of your GitHub account.
 
 ## Git Clone
 
@@ -35,28 +41,28 @@ ls -al ~/.ssh
 
 Check the directory listing to see if you have files named either `id_rsa.pub` or `id_dsa.pub`. If you don't have either of those files then read on, otherwise skip the next section.
 
-### Generate  a new SSH key
+### Generate a new SSH key
 
 1. Open Terminal.
 2. Paste the text below, substituting in your GitHub email address. This creates a new ssh key, using the provided email as a label.
 
-    ```bash
-    ssh-keygen -t ed25519 -C "your_email@example.com"
-    ```
+   ```bash
+   ssh-keygen -t ed25519 -C "your_email@example.com"
+   ```
 
-### Add  your SSH key to the ssh-agent
+### Add your SSH key to the ssh-agent
 
 1. Start the ssh-agent in the background.
 
-    ```bash
-    eval "$(ssh-agent -s)"
-    ```
+   ```bash
+   eval "$(ssh-agent -s)"
+   ```
 
 2. Add your SSH private key to the ssh-agent. If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_ed25519 in the command with the name of your private key file.
 
-    ```bash
-    ssh-add ~/.ssh/id_ed25519
-    ```
+   ```bash
+   ssh-add ~/.ssh/id_ed25519
+   ```
 
 ### Test SSH connection
 
