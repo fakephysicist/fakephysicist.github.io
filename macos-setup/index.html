@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title>MacOS Setup - FakePhysicist</title><meta name="Description" content="a fake physicist&#39;s notes"><meta property="og:title" content="MacOS Setup" />
+<meta property="og:description" content="Some basics about setting up a development environment on MacOS." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://fakephysicist.github.io/macos-setup/" /><meta property="og:image" content="https://fakephysicist.github.io/favicon.ico"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-10-04T10:24:07-04:00" />
+<meta property="article:modified_time" content="2023-10-04T10:24:07-04:00" /><meta property="og:site_name" content="FakePhysicist" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://fakephysicist.github.io/favicon.ico"/>
+
+<meta name="twitter:title" content="MacOS Setup"/>
+<meta name="twitter:description" content="Some basics about setting up a development environment on MacOS."/>
+<meta name="application-name" content="FakePhysicist">
+<meta name="apple-mobile-web-app-title" content="FakePhysicist">
+
+<meta name="theme-color" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://fakephysicist.github.io/macos-setup/" /><link rel="prev" href="https://fakephysicist.github.io/git-basics/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/color.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript>
+    
+    
+    
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "MacOS Setup",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/fakephysicist.github.io\/macos-setup\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/fakephysicist.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "MacOS","wordcount":  338 ,
+        "url": "https:\/\/fakephysicist.github.io\/macos-setup\/","datePublished": "2023-10-04T10:24:07-04:00","dateModified": "2023-10-04T10:24:07-04:00","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/fakephysicist.github.io\/images\/avatar.png",
+                    "width":  512 ,
+                    "height":  512 
+                }},"authors": [{
+                        "@type": "Person",
+                        "name": "FakePhysicist"                    
+                    }],"description": ""
+    }
+    </script><script src="//instant.page/5.1.1" defer type="module" integrity="sha384-MWfCL6g1OTGsbSwfuMHc8+8J2u71/LA8dzlIN3ycajckxuZZmF+DNjdm7O6H3PSq"></script>
+</head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme); document.documentElement.style.setProperty('color-scheme', theme === 'light' ? 'light' : 'dark');}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let metaColors = {'light': '#f8f8f8','dark': '#252627','black': '#000000'}
+        getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="FakePhysicist"><span class="header-title-pre"><i class="fas fa-wave-square" aria-hidden="true"></i></span>FakePhysicist</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/series/"> 系列 </a><a class="menu-item" href="/about/"> 关于 </a><a class="menu-item" href="/my_docs/" title="GitHub">Docs  </a><a class="menu-item" href="https://github.com/fakephysicist" title="GitHub" rel="noopener noreferrer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="#" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="#" class="menu-item theme-select" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                    <select class="color-theme-select" id="theme-select-desktop" title="切换主题">
+                        <option value="light">浅色</option>
+                        <option value="dark">深色</option>
+                        <option value="black">黑色</option>
+                        <option value="auto">跟随系统</option>
+                    </select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="FakePhysicist"><span class="header-title-pre"><i class="fas fa-wave-square" aria-hidden="true"></i></span>FakePhysicist</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="#" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="#" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/series/" title="">系列</a><a class="menu-item" href="/about/" title="">关于</a><a class="menu-item" href="/my_docs/" title="GitHub">Docs</a><a class="menu-item" href="https://github.com/fakephysicist" title="GitHub" rel="noopener noreferrer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="#" class="menu-item theme-select" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+                <select class="color-theme-select" id="theme-select-mobile" title="切换主题">
+                    <option value="light">浅色</option>
+                    <option value="dark">深色</option>
+                    <option value="black">黑色</option>
+                    <option value="auto">跟随系统</option>
+                </select>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title">目录</h2>
+        <div class="toc-content" id="toc-content-auto"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#xcode">Xcode</a></li>
+    <li><a href="#homebrew">Homebrew</a></li>
+    <li><a href="#oh-my-zsh">Oh My Zsh</a>
+      <ul>
+        <li><a href="#plugins">Plugins</a>
+          <ul>
+            <li><a href="#sudo">sudo</a></li>
+            <li><a href="#extract">extract</a></li>
+            <li><a href="#autojump">autojump</a></li>
+            <li><a href="#zsh-autosuggestions">zsh-autosuggestions</a></li>
+            <li><a href="#zsh-syntax-highlighting">zsh-syntax-highlighting</a></li>
+          </ul>
+        </li>
+        <li><a href="#theme">Theme</a></li>
+      </ul>
+    </li>
+    <li><a href="#high-efficiency-software">High-efficiency software</a>
+      <ul>
+        <li><a href="#iterm2">iTerm2</a></li>
+        <li><a href="#tldr">tldr</a></li>
+        <li><a href="#the-unarchiver">the-unarchiver</a></li>
+        <li><a href="#tree">tree</a></li>
+      </ul>
+    </li>
+    <li><a href="#gitignore">.gitignore</a></li>
+    <li><a href="#conda">conda</a></li>
+  </ul>
+</nav></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">MacOS Setup</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://fakephysicist.github.io/authors/fakephysicist'>FakePhysicist</a></span>
+                </span>&nbsp;<span class="post-category">收录于 </span>&nbsp;<span class="post-category">类别 <a href="/categories/tricks/"><i class="far fa-folder fa-fw"></i>tricks</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-10-04">2023-10-04</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-10-04">2023-10-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 338 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#xcode">Xcode</a></li>
+    <li><a href="#homebrew">Homebrew</a></li>
+    <li><a href="#oh-my-zsh">Oh My Zsh</a>
+      <ul>
+        <li><a href="#plugins">Plugins</a>
+          <ul>
+            <li><a href="#sudo">sudo</a></li>
+            <li><a href="#extract">extract</a></li>
+            <li><a href="#autojump">autojump</a></li>
+            <li><a href="#zsh-autosuggestions">zsh-autosuggestions</a></li>
+            <li><a href="#zsh-syntax-highlighting">zsh-syntax-highlighting</a></li>
+          </ul>
+        </li>
+        <li><a href="#theme">Theme</a></li>
+      </ul>
+    </li>
+    <li><a href="#high-efficiency-software">High-efficiency software</a>
+      <ul>
+        <li><a href="#iterm2">iTerm2</a></li>
+        <li><a href="#tldr">tldr</a></li>
+        <li><a href="#the-unarchiver">the-unarchiver</a></li>
+        <li><a href="#tree">tree</a></li>
+      </ul>
+    </li>
+    <li><a href="#gitignore">.gitignore</a></li>
+    <li><a href="#conda">conda</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Some basics about setting up a development environment on MacOS.</p>
+<h2 id="xcode" class="headerLink">
+    <a href="#xcode" class="header-mark"></a>Xcode</h2><p>In the terminal, run</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo xcode-select --install
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="homebrew" class="headerLink">
+    <a href="#homebrew" class="header-mark"></a>Homebrew</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">/bin/bash -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh<span class="k">)</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="oh-my-zsh" class="headerLink">
+    <a href="#oh-my-zsh" class="header-mark"></a>Oh My Zsh</h2><p>Install Zsh first:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew install zsh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Then install Oh My Zsh:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sh -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh<span class="k">)</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="plugins" class="headerLink">
+    <a href="#plugins" class="header-mark"></a>Plugins</h3><p>Edit <code>~/.zshrc</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">plugins</span><span class="o">=(</span>
+</span></span><span class="line"><span class="cl">  sudo
+</span></span><span class="line"><span class="cl">  extract
+</span></span><span class="line"><span class="cl">  autojump
+</span></span><span class="line"><span class="cl">  zsh-autosuggestions
+</span></span><span class="line"><span class="cl">  zsh-syntax-highlighting
+</span></span><span class="line"><span class="cl"><span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="sudo" class="headerLink">
+    <a href="#sudo" class="header-mark"></a>sudo</h4><p>Press <code>ESC</code> twice to add <code>sudo</code> to the beginning of the command.</p>
+<h4 id="extract" class="headerLink">
+    <a href="#extract" class="header-mark"></a>extract</h4><p>Use <code>x abc.zip</code> to extract <code>abc.zip</code>. It supports almost all compressed formats.</p>
+<h4 id="autojump" class="headerLink">
+    <a href="#autojump" class="header-mark"></a>autojump</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew install autojump
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Follow the instructions to add the following line to <code>~/.zshrc</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># &gt;&gt;&gt; autojump initialize &gt;&gt;&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">[</span> -f /opt/homebrew/etc/profile.d/autojump.sh <span class="o">]</span> <span class="o">&amp;&amp;</span> . /opt/homebrew/etc/profile.d/autojump.sh
+</span></span><span class="line"><span class="cl"><span class="c1"># &lt;&lt;&lt; autojump initialize &lt;&lt;&lt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Use <code>j</code> to jump to the matching directory.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">j &lt;keyword&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="zsh-autosuggestions" class="headerLink">
+    <a href="#zsh-autosuggestions" class="header-mark"></a>zsh-autosuggestions</h4><p>auto-suggestion for zsh. It suggests commands based on your command history.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="zsh-syntax-highlighting" class="headerLink">
+    <a href="#zsh-syntax-highlighting" class="header-mark"></a>zsh-syntax-highlighting</h4><p>Syntax highlighting for zsh. It should be the last plugin in the <code>plugins</code> list.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="theme" class="headerLink">
+    <a href="#theme" class="header-mark"></a>Theme</h3><p>I prefer the <code>powerlevel10k</code> theme. One can find the installation instructions <a href="https://github.com/romkatv/powerlevel10k#oh-my-zsh" target="_blank" rel="noopener noreferrer">here</a>.</p>
+<ol>
+<li>
+<p>clone the repository</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone --depth<span class="o">=</span><span class="m">1</span> https://github.com/romkatv/powerlevel10k.git <span class="si">${</span><span class="nv">ZSH_CUSTOM</span><span class="k">:-</span><span class="nv">$HOME</span><span class="p">/.oh-my-zsh/custom</span><span class="si">}</span>/themes/powerlevel10k
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>Set <code>ZSH_THEME=&quot;powerlevel10k/powerlevel10k&quot;</code> in <code>~/.zshrc</code>.</p>
+</li>
+<li>
+<p>Run <code>p10k configure</code> to configure the theme. (It will be automatically run when you open a new terminal window. I prefer not to install the recommended fonts.)</p>
+</li>
+</ol>
+<h2 id="high-efficiency-software" class="headerLink">
+    <a href="#high-efficiency-software" class="header-mark"></a>High-efficiency software</h2><h3 id="iterm2" class="headerLink">
+    <a href="#iterm2" class="header-mark"></a>iTerm2</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew install --cask iterm2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="tldr" class="headerLink">
+    <a href="#tldr" class="header-mark"></a>tldr</h3><p><code>tldr</code> is a community effort to simplify the beloved <code>man</code> pages with practical examples.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew install tldr
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>To use it, run</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tldr &lt;command&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="the-unarchiver" class="headerLink">
+    <a href="#the-unarchiver" class="header-mark"></a>the-unarchiver</h3><p><code>the-unarchiver</code> is a free data decompression utility, which supports more formats than the built-in <code>Archive Utility</code>. It can be used to open <code>.rar</code> files.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew install --cask the-unarchiver
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="tree" class="headerLink">
+    <a href="#tree" class="header-mark"></a>tree</h3><p><code>tree</code> is a recursive directory listing command that produces a depth indented listing of files.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew install tree
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="gitignore" class="headerLink">
+    <a href="#gitignore" class="header-mark"></a>.gitignore</h2><p>Set the global <code>.gitignore</code> file:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl https://raw.githubusercontent.com/github/gitignore/master/Global/macOS.gitignore -o ~/.gitignore
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Config <code>git</code> to use the global <code>.gitignore</code> file:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config --global core.excludesfile ~/.gitignore
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>visit <a href="gitignore.io" rel="">gitignore</a> to generate a <code>.gitignore</code> file for your project.</p>
+<h2 id="conda" class="headerLink">
+    <a href="#conda" class="header-mark"></a>conda</h2><p>See <a href="./conda-basics" rel="">conda-basics</a> for more details.</p></div>
+
+        <div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-10-04</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span><a class="link-to-mardown" href=/macos-setup/index.md target="_blank" rel="noopener noreferrer">阅读原始文档</a>
+                    </span></div>
+            <div class="post-info-share">
+                <span><a href="#" title="分享到 Twitter" data-sharer="twitter" data-url="https://fakephysicist.github.io/macos-setup/" data-title="MacOS Setup" data-hashtags="MacOS"><i class="fab fa-twitter fa-fw"></i></a><a href="#" title="分享到 Facebook" data-sharer="facebook" data-url="https://fakephysicist.github.io/macos-setup/" data-hashtag="MacOS"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" title="分享到 Linkedin" data-sharer="linkedin" data-url="https://fakephysicist.github.io/macos-setup/"><i class="fab fa-linkedin fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/macos/">MacOS</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/git-basics/" class="prev" rel="prev" title="Git Basics"><i class="fas fa-angle-left fa-fw"></i>Git Basics</a></div>
+</div>
+<div id="comments"><div id="giscus"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app/">giscus</a>.
+            </noscript></div></article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://fakephysicist.github.io" target="_blank" rel="noopener noreferrer">FakePhysicist</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+            <div class="footer-line"></div>
+            <div class="footer-line">
+            </div>
+        </div><script>
+                    if('serviceWorker' in navigator) {
+                        navigator.serviceWorker
+                            .register('/sw.min.js', { scope: '/' })
+                            .then(function(registration) {
+                            });
+                
+                        navigator.serviceWorker
+                            .ready
+                            .then(function(registration) {
+                            });
+                    }
+                </script></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="回到顶部">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/copy-tex.min.css">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/copy-tex.min.css"></noscript><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"giscus":{"darkTheme":"dark","dataCategory":"Announcements","dataCategoryId":"DIC_kwDOF5xwg84CUAVU","dataEmitMetadata":"0","dataInputPosition":"bottom","dataLang":"zh-CN","dataMapping":"pathname","dataReactionsEnabled":"1","dataRepo":"FakePhysicist/fakephysicist.github.io","dataRepoId":"MDEwOlJlcG9zaXRvcnkzOTYxMjgzODc=","dataStrict":"0","lightTheme":"light"}},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"没有找到结果","snippetLength":50,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"sharerjs":true};</script><script type="text/javascript" src="/js/giscus.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.2/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/copy-tex.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/mhchem.min.js" defer></script><script type="text/javascript" src="/js/katex.min.js" defer></script><script type="text/javascript" src="/js/theme.min.js" defer></script></div>
+</body>
+
+</html>

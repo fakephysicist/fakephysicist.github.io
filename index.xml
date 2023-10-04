@@ -4,16 +4,23 @@
         <link>https://fakephysicist.github.io/</link>
         <description>a fake physicist&#39;s notes</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fakephysicist@outlook.com (FakePhysicist)</managingEditor>
-            <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><lastBuildDate>Thu, 17 Aug 2023 14:32:44 -0500</lastBuildDate>
+            <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><lastBuildDate>Wed, 04 Oct 2023 10:24:07 -0400</lastBuildDate>
             <atom:link href="https://fakephysicist.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>VSCode Basics</title>
-    <link>https://fakephysicist.github.io/vscode-basics/</link>
-    <pubDate>Thu, 17 Aug 2023 14:32:44 -0500</pubDate><author>
-                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/vscode-basics/</guid>
-    <description><![CDATA[]]></description>
+    <title>MacOS Setup</title>
+    <link>https://fakephysicist.github.io/macos-setup/</link>
+    <pubDate>Wed, 04 Oct 2023 10:24:07 -0400</pubDate><author>
+                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/macos-setup/</guid>
+    <description><![CDATA[<p>Some basics about setting up a development environment on MacOS.</p>]]></description>
 </item><item>
-    <title>Conda Basics</title>
+    <title>Git Basics</title>
+    <link>https://fakephysicist.github.io/git-basics/</link>
+    <pubDate>Sun, 10 Sep 2023 17:55:56 -0700</pubDate><author>
+                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/git-basics/</guid>
+    <description><![CDATA[<p>Some basics about Git and GitHub.</p>
+<p>Although there are many tutorials online, I still want to record some of them here for my own reference.</p>]]></description>
+</item><item>
+    <title>Mamba Basics</title>
     <link>https://fakephysicist.github.io/conda-basics/</link>
     <pubDate>Wed, 09 Aug 2023 21:03:25 -0500</pubDate><author>
                         <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/conda-basics/</guid>
@@ -33,41 +40,16 @@
                         <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/winget-basics/</guid>
     <description><![CDATA[<p>Windows Package Manager (winget) is a package manager for Windows. It is similar to <code>apt</code> in Linux. It is a command-line tool that allows you to search for and install apps from the command line. It is a great tool for setting up a new Windows machine.</p>]]></description>
 </item><item>
-    <title>折腾 OnePlus 5T</title>
-    <link>https://fakephysicist.github.io/toss-oneplus-5t/</link>
-    <pubDate>Thu, 02 Feb 2023 23:00:20 -0500</pubDate><author>
-                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/toss-oneplus-5t/</guid>
-    <description><![CDATA[<p>我不想让我的 OnePlus 5T 变成一个摆设, 所以我想折腾一下. 让他发挥余力.</p>]]></description>
-</item><item>
-    <title>Windows Terminal 分割快捷键</title>
+    <title>Windows Terminal splitting shortcuts</title>
     <link>https://fakephysicist.github.io/windows-terminal-splitting-shorcuts/</link>
     <pubDate>Mon, 30 Jan 2023 21:03:25 -0500</pubDate><author>
                         <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/windows-terminal-splitting-shorcuts/</guid>
-    <description><![CDATA[<p>老是忘记的分割窗口的快捷键, 所以记录一下.</p>]]></description>
-</item><item>
-    <title>Git Basics</title>
-    <link>https://fakephysicist.github.io/github-basics/</link>
-    <pubDate>Wed, 25 Jan 2023 00:06:00 -0400</pubDate><author>
-                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/github-basics/</guid>
-    <description><![CDATA[<p>Some basics about Git and GitHub.</p>
-<p>Although there are many tutorials online, I still want to record some of them here for my own reference.</p>]]></description>
-</item><item>
-    <title>FDTD Liquid Crystals</title>
-    <link>https://fakephysicist.github.io/fdtd-lc/</link>
-    <pubDate>Mon, 16 Aug 2021 14:00:00 -0400</pubDate><author>
-                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/fdtd-lc/</guid>
-    <description><![CDATA[<p>Liquid Crystals in FDTD simulation</p>]]></description>
-</item><item>
-    <title>FDTD Basics</title>
-    <link>https://fakephysicist.github.io/fdtd-basics/</link>
-    <pubDate>Mon, 16 Aug 2021 13:25:00 -0400</pubDate><author>
-                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/fdtd-basics/</guid>
-    <description><![CDATA[<p>FDTD basics, Python scripts controlling Lumerical.</p>]]></description>
+    <description><![CDATA[<p>I always forget the shortcuts for splitting windows, so I record them here.</p>]]></description>
 </item><item>
     <title>Hugo &#43; DoIt 创建个人主页</title>
-    <link>https://fakephysicist.github.io/how-to-build-a-website-with-hugo/</link>
+    <link>https://fakephysicist.github.io/build-a-personal-website-with-hugo/</link>
     <pubDate>Fri, 01 Jan 2021 02:43:06 -0500</pubDate><author>
-                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/how-to-build-a-website-with-hugo/</guid>
+                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/build-a-personal-website-with-hugo/</guid>
     <description><![CDATA[<p>在 wsl 环境下安装 Hugo 并且配置主题 DoIt.</p>]]></description>
 </item></channel>
 </rss>

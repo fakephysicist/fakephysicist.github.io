@@ -4,17 +4,11 @@
         <link>https://fakephysicist.github.io/categories/tossing/</link>
         <description>tossing - 分类 - FakePhysicist</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fakephysicist@outlook.com (FakePhysicist)</managingEditor>
-            <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><lastBuildDate>Thu, 02 Feb 2023 23:00:20 -0500</lastBuildDate><atom:link href="https://fakephysicist.github.io/categories/tossing/" rel="self" type="application/rss+xml" /><item>
-    <title>折腾 OnePlus 5T</title>
-    <link>https://fakephysicist.github.io/toss-oneplus-5t/</link>
-    <pubDate>Thu, 02 Feb 2023 23:00:20 -0500</pubDate><author>
-                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/toss-oneplus-5t/</guid>
-    <description><![CDATA[<p>我不想让我的 OnePlus 5T 变成一个摆设, 所以我想折腾一下. 让他发挥余力.</p>]]></description>
-</item><item>
+            <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><lastBuildDate>Fri, 01 Jan 2021 02:43:06 -0500</lastBuildDate><atom:link href="https://fakephysicist.github.io/categories/tossing/" rel="self" type="application/rss+xml" /><item>
     <title>Hugo &#43; DoIt 创建个人主页</title>
-    <link>https://fakephysicist.github.io/how-to-build-a-website-with-hugo/</link>
+    <link>https://fakephysicist.github.io/build-a-personal-website-with-hugo/</link>
     <pubDate>Fri, 01 Jan 2021 02:43:06 -0500</pubDate><author>
-                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/how-to-build-a-website-with-hugo/</guid>
+                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/build-a-personal-website-with-hugo/</guid>
     <description><![CDATA[<p>在 wsl 环境下安装 Hugo 并且配置主题 DoIt.</p>]]></description>
 </item></channel>
 </rss>

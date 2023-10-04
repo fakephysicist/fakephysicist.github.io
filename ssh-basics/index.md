@@ -5,9 +5,43 @@ SSH is a protocol that allows you to connect to a remote computer. It is widely 
 
 <!--more-->
 
-## 1. SSH Access to Windows
+## Create an SSH key pair
 
-For an in-depth tutorial, refer to [this link](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_overview).
+### Check for existing SSH keys
+
+First check for existing SSH keys on your computer by running:
+
+```bash
+ls -al ~/.ssh
+# Lists the files in your .ssh directory, if they exist
+```
+
+Check the directory listing to see if you have files named either `id_ed25519.pub` or `id_ed25519.pub`. If you don't have either of those files then read on, otherwise skip the next section.
+
+### Generate a new SSH key
+
+1. Open Terminal.
+2. Paste the text below, substituting in your GitHub email address. This creates a new ssh key, using the provided email as a label.
+
+   ```bash
+   ssh-keygen -t ed25519 -C "your_email@example.com"
+   ```
+
+### Add your SSH key to the ssh-agent
+
+1. Start the ssh-agent in the background.
+
+   ```bash
+   eval "$(ssh-agent -s)"
+   ```
+
+2. Add your SSH private key to the ssh-agent. If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_ed25519 in the command with the name of your private key file.
+
+   ```bash
+   ssh-add ~/.ssh/id_ed25519
+   ```
+
+## SSH Access to Windows
 
 ### Creating an SSH Key in Local SSH Client
 
@@ -122,7 +156,7 @@ netsh advfirewall firewall add rule name="Open SSH Port 22" dir=in action=allow 
 
 Try enabling `Remote server listen on socket` in VS Code.
 
-## 2. SSH Access to WSL2
+## SSH Access to WSL2
 
 For a comprehensive guide, refer [here](https://jmmv.dev/2022/02/wsl-ssh-access.html).
 
@@ -201,7 +235,7 @@ Host <hostname>
     Port 2222
 ```
 
-## 3. Running Jupyter Lab on a Remote Host
+## Running Jupyter Lab on a Remote Host
 
 Use `ssh` to run `jupyter lab` on a remote host and access it from a local browser.
 
@@ -219,7 +253,7 @@ ssh -L <local_port>:localhost:<remote_port> <username>@<hostname>
 jupyter lab --no-browser --port=<remote_port>
 ```
 
-## 4. Using `croc` to Transfer Files
+## Using `croc` to Transfer Files
 
 For more details, consult [this link](https://github.com/schollz/croc).
 
@@ -239,7 +273,7 @@ To receive the files:
 croc --yes --overwrite <code>
 ```
 
-## 5. Avoiding SSH passphrase prompt
+## Avoiding SSH passphrase prompt
 
 To avoid the SSH passphrase prompt, you can use
 

@@ -1,4 +1,4 @@
-# Conda Basics
+# Mamba Basics
 
 
 `mamba` is a package manager for Python. It is a reimplementation of `conda` in C++. The syntax is the same as `conda`, but it is much faster. It is recommended to use `mamba` instead of `conda` for package management.

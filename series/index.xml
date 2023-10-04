@@ -4,12 +4,5 @@
         <link>https://fakephysicist.github.io/series/</link>
         <description>Series - 系列 - FakePhysicist</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fakephysicist@outlook.com (FakePhysicist)</managingEditor>
-            <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><lastBuildDate>Mon, 16 Aug 2021 14:00:00 -0400</lastBuildDate><atom:link href="https://fakephysicist.github.io/series/" rel="self" type="application/rss+xml" /><item>
-    <title>fdtd</title>
-    <link>https://fakephysicist.github.io/series/fdtd/</link>
-    <pubDate>Mon, 16 Aug 2021 14:00:00 -0400</pubDate><author>
-        <name>FakePhysicist</name>
-    </author><guid>https://fakephysicist.github.io/series/fdtd/</guid>
-    <description><![CDATA[]]></description>
-</item></channel>
+            <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><atom:link href="https://fakephysicist.github.io/series/" rel="self" type="application/rss+xml" /></channel>
 </rss>

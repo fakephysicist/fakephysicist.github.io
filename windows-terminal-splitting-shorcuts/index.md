@@ -1,7 +1,10 @@
-# Windows Terminal 分割快捷键
+# Windows Terminal splitting shortcuts
 
-老是忘记的分割窗口的快捷键, 所以记录一下.
+
+I always forget the shortcuts for splitting windows, so I record them here.
+
 <!--more-->
+
 - alt + shift + + 增加左右分割画面
 - alt + shift + - 增加上下分割画面
 - alt + ← 或 → 移动焦点画面
