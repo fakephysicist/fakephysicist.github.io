@@ -1,14 +1,21 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>ssh - 标签 - FakePhysicist</title>
+        <title>ssh - tag - fakephysicist</title>
         <link>https://fakephysicist.github.io/tags/ssh/</link>
-        <description>ssh - 标签 - FakePhysicist</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fakephysicist@outlook.com (FakePhysicist)</managingEditor>
-            <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><lastBuildDate>Wed, 09 Aug 2023 21:03:25 -0500</lastBuildDate><atom:link href="https://fakephysicist.github.io/tags/ssh/" rel="self" type="application/rss+xml" /><item>
+        <description>ssh - tag - fakephysicist</description>
+        <generator>Hugo -- gohugo.io</generator><language>en-US</language><managingEditor>fakephysicist@outlook.com (fakephysicist)</managingEditor>
+            <webMaster>fakephysicist@outlook.com (fakephysicist)</webMaster><lastBuildDate>Sun, 10 Sep 2023 17:55:56 -0700</lastBuildDate><atom:link href="https://fakephysicist.github.io/tags/ssh/" rel="self" type="application/rss+xml" /><item>
+    <title>Git Basics</title>
+    <link>https://fakephysicist.github.io/git-basics/</link>
+    <pubDate>Sun, 10 Sep 2023 17:55:56 -0700</pubDate><author>
+                        <name>fakephysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/git-basics/</guid>
+    <description><![CDATA[<p>Some basics about Git and GitHub.</p>
+<p>Although there are many tutorials online, I still want to record some of them here for my own reference.</p>]]></description>
+</item><item>
     <title>SSH Basics</title>
     <link>https://fakephysicist.github.io/ssh-basics/</link>
     <pubDate>Wed, 09 Aug 2023 21:03:25 -0500</pubDate><author>
-                        <name>FakePhysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/ssh-basics/</guid>
+                        <name>fakephysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/ssh-basics/</guid>
     <description><![CDATA[<p>SSH is a protocol that allows you to connect to a remote computer. It is widely used in remote computing, such as connecting to a remote server or running Jupyter Lab in a remote host.</p>]]></description>
 </item></channel>
 </rss>

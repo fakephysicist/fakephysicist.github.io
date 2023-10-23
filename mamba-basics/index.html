@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noodp" />
+    <title>Mamba Basics - fakephysicist</title><meta name="Description" content="a fake physicist&#39;s notes"><meta property="og:title" content="Mamba Basics" />
+<meta property="og:description" content="mamba is a package manager for Python. It is a reimplementation of conda in C&#43;&#43;. The syntax is the same as conda, but it is much faster. It is recommended to use mamba instead of conda for package management.
+It is recommended to create a new environment for each project and leave the base environment untouched.
+In the following, we assume the environment name is cs101." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://fakephysicist.github.io/mamba-basics/" /><meta property="og:image" content="https://fakephysicist.github.io/favicon.ico"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-08-09T21:03:25-05:00" />
+<meta property="article:modified_time" content="2023-10-04T11:48:07-04:00" /><meta property="og:site_name" content="fakephysicist" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://fakephysicist.github.io/favicon.ico"/>
+
+<meta name="twitter:title" content="Mamba Basics"/>
+<meta name="twitter:description" content="mamba is a package manager for Python. It is a reimplementation of conda in C&#43;&#43;. The syntax is the same as conda, but it is much faster. It is recommended to use mamba instead of conda for package management.
+It is recommended to create a new environment for each project and leave the base environment untouched.
+In the following, we assume the environment name is cs101."/>
+<meta name="application-name" content="fakephysicist">
+<meta name="apple-mobile-web-app-title" content="fakephysicist">
+
+<meta name="theme-color" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://fakephysicist.github.io/mamba-basics/" /><link rel="prev" href="https://fakephysicist.github.io/ssh-basics/" /><link rel="next" href="https://fakephysicist.github.io/git-basics/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/color.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript>
+    
+    
+    
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Mamba Basics",
+        "inLanguage": "en-US",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/fakephysicist.github.io\/mamba-basics\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/fakephysicist.github.io\/images\/Apple-Devices-Preview.png",
+                            "width":  3200 ,
+                            "height":  2048 
+                        }],"genre": "posts","keywords": "mamba, conda, python","wordcount":  259 ,
+        "url": "https:\/\/fakephysicist.github.io\/mamba-basics\/","datePublished": "2023-08-09T21:03:25-05:00","dateModified": "2023-10-04T11:48:07-04:00","publisher": {
+            "@type": "Organization",
+            "name": "xxxx","logo": {
+                    "@type": "ImageObject",
+                    "url": "https:\/\/fakephysicist.github.io\/images\/avatar.png",
+                    "width":  512 ,
+                    "height":  512 
+                }},"authors": [{
+                        "@type": "Person",
+                        "name": "fakephysicist"                    
+                    }],"description": ""
+    }
+    </script><script src="//instant.page/5.1.1" defer type="module" integrity="sha384-MWfCL6g1OTGsbSwfuMHc8+8J2u71/LA8dzlIN3ycajckxuZZmF+DNjdm7O6H3PSq"></script>
+</head>
+
+<body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">
+        function setTheme(theme) {document.body.setAttribute('theme', theme); document.documentElement.style.setProperty('color-scheme', theme === 'light' ? 'light' : 'dark');}
+        function saveTheme(theme) {window.localStorage && localStorage.setItem('theme', theme);}
+        function getMeta(metaName) {const metas = document.getElementsByTagName('meta'); for (let i = 0; i < metas.length; i++) if (metas[i].getAttribute('name') === metaName) return metas[i]; return '';}
+        if (window.localStorage && localStorage.getItem('theme')) {let theme = localStorage.getItem('theme');theme === 'light' || theme === 'dark' || theme === 'black' ? setTheme(theme) : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light')); } else { if ('auto' === 'light' || 'auto' === 'dark' || 'auto' === 'black') setTheme('auto'), saveTheme('auto'); else saveTheme('auto'), window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? setTheme('dark') : setTheme('light');}
+        let metaColors = {'light': '#f8f8f8','dark': '#252627','black': '#000000'}
+        getMeta('theme-color').content = metaColors[document.body.getAttribute('theme')];
+    </script>
+    <div id="back-to-top"></div>
+    <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="fakephysicist"><span class="header-title-pre"><i class="fas fa-wave-square" aria-hidden="true"></i></span>fakephysicist</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/fakephysicist" title="GitHub" rel="noopener noreferrer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="" id="search-input-desktop">
+                        <a href="#" class="search-button search-toggle" id="search-toggle-desktop" title="">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" class="search-button search-clear" id="search-clear-desktop" title="">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="#" class="menu-item theme-select" title="">
+                    <i class="fas fa-adjust fa-fw"></i>
+                    <select class="color-theme-select" id="theme-select-desktop" title="">
+                        <option value="light"></option>
+                        <option value="dark"></option>
+                        <option value="black"></option>
+                        <option value="auto"></option>
+                    </select>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="fakephysicist"><span class="header-title-pre"><i class="fas fa-wave-square" aria-hidden="true"></i></span>fakephysicist</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="" id="search-input-mobile">
+                        <a href="#" class="search-button search-toggle" id="search-toggle-mobile" title="">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="#" class="search-button search-clear" id="search-clear-mobile" title="">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="#" class="search-cancel" id="search-cancel-mobile">
+                        
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/fakephysicist" title="GitHub" rel="noopener noreferrer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="#" class="menu-item theme-select" title="">
+                <i class="fas fa-adjust fa-fw"></i>
+                <select class="color-theme-select" id="theme-select-mobile" title="">
+                    <option value="light"></option>
+                    <option value="dark"></option>
+                    <option value="black"></option>
+                    <option value="auto"></option>
+                </select>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+            <div class="container"><div class="toc" id="toc-auto">
+        <h2 class="toc-title"></h2>
+        <div class="toc-content" id="toc-content-auto"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#uninstall-anacondaminiconda">Uninstall Anaconda/miniconda</a></li>
+    <li><a href="#install-mambaforge">Install Mambaforge</a></li>
+    <li><a href="#prevent-mamba-from-activating-the-base-environment-automatically">Prevent <code>mamba</code> from activating the base environment automatically</a></li>
+    <li><a href="#add-mambaforge-to-vs-code">Add Mambaforge to VS Code</a></li>
+    <li><a href="#create-a-new-environment">Create a New Environment</a></li>
+    <li><a href="#activate-an-environment">Activate an Environment</a></li>
+    <li><a href="#install-common-packages-for-scientific-computing">Install common packages for scientific computing</a></li>
+    <li><a href="#use-pip-to-install-packages-not-available-in-anaconda">Use <code>pip</code> to install packages not available in <code>Anaconda</code></a></li>
+    <li><a href="#install-local-modulespackages">Install local modules/packages</a></li>
+    <li><a href="#deactivate-an-environment">Deactivate an Environment</a></li>
+    <li><a href="#list-all-environments">List All Environments</a></li>
+    <li><a href="#remove-an-environment">Remove an Environment</a></li>
+  </ul>
+</nav></div>
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Mamba Basics</h1><div class="post-meta">
+            <div class="post-meta-line">
+                <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://fakephysicist.github.io/authors/fakephysicist'>fakephysicist</a></span>
+                </span>&nbsp;<span class="post-category"></span>&nbsp;<span class="post-category"></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-08-09">2023-08-09</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-10-04">2023-10-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span></span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#uninstall-anacondaminiconda">Uninstall Anaconda/miniconda</a></li>
+    <li><a href="#install-mambaforge">Install Mambaforge</a></li>
+    <li><a href="#prevent-mamba-from-activating-the-base-environment-automatically">Prevent <code>mamba</code> from activating the base environment automatically</a></li>
+    <li><a href="#add-mambaforge-to-vs-code">Add Mambaforge to VS Code</a></li>
+    <li><a href="#create-a-new-environment">Create a New Environment</a></li>
+    <li><a href="#activate-an-environment">Activate an Environment</a></li>
+    <li><a href="#install-common-packages-for-scientific-computing">Install common packages for scientific computing</a></li>
+    <li><a href="#use-pip-to-install-packages-not-available-in-anaconda">Use <code>pip</code> to install packages not available in <code>Anaconda</code></a></li>
+    <li><a href="#install-local-modulespackages">Install local modules/packages</a></li>
+    <li><a href="#deactivate-an-environment">Deactivate an Environment</a></li>
+    <li><a href="#list-all-environments">List All Environments</a></li>
+    <li><a href="#remove-an-environment">Remove an Environment</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p><code>mamba</code> is a package manager for Python. It is a reimplementation of <code>conda</code> in C++. The syntax is the same as <code>conda</code>, but it is much faster. It is recommended to use <code>mamba</code> instead of <code>conda</code> for package management.</p>
+<p>It is recommended to create a new environment for each project and leave the base environment untouched.</p>
+<p>In the following, we assume the environment name is <code>cs101</code>.</p>
+<h2 id="uninstall-anacondaminiconda" class="headerLink">
+    <a href="#uninstall-anacondaminiconda" class="header-mark"></a>Uninstall Anaconda/miniconda</h2><p>See <a href="https://docs.anaconda.com/free/anaconda/install/uninstall/" target="_blank" rel="noopener noreferrer">Uninstalling Anaconda</a> for more details.</p>
+<h2 id="install-mambaforge" class="headerLink">
+    <a href="#install-mambaforge" class="header-mark"></a>Install Mambaforge</h2><p>See <a href="https://github.com/conda-forge/miniforge#mambaforge" target="_blank" rel="noopener noreferrer">Mambaforge</a> for more details.</p>
+<p>For Linux and macOS:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -L -O <span class="s2">&#34;https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-</span><span class="k">$(</span>uname<span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname -m<span class="k">)</span><span class="s2">.sh&#34;</span>
+</span></span><span class="line"><span class="cl">bash Mambaforge-<span class="k">$(</span>uname<span class="k">)</span>-<span class="k">$(</span>uname -m<span class="k">)</span>.sh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>For Windows:</p>
+<p>Download the installer from <a href="https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Windows-x86_64.exe" target="_blank" rel="noopener noreferrer">Mambaforge</a> and run it.</p>
+<p>Enable the options to &ldquo;Create start menu shortcuts&rdquo; and &ldquo;Add Miniforge3 to my PATH environment variable&rdquo;.</p>
+<p>Open a <code>miniforge Prompt</code> from Start Menu. Now Try:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">conda</span> <span class="n">init</span> <span class="n">powershell</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="prevent-mamba-from-activating-the-base-environment-automatically" class="headerLink">
+    <a href="#prevent-mamba-from-activating-the-base-environment-automatically" class="header-mark"></a>Prevent <code>mamba</code> from activating the base environment automatically</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mamba config --set auto_activate_base <span class="nb">false</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="add-mambaforge-to-vs-code" class="headerLink">
+    <a href="#add-mambaforge-to-vs-code" class="header-mark"></a>Add Mambaforge to VS Code</h2><p>Add the following lines to <code>settings.json</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">    <span class="s2">&#34;python.condaPath&#34;</span><span class="err">:</span> <span class="s2">&#34;~/mambaforge/condabin/conda&#34;</span><span class="err">,</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;python.defaultInterpreterPath&#34;</span><span class="err">:</span> <span class="s2">&#34;~/mambaforge/envs/cs101/bin/python&#34;</span><span class="err">,</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="create-a-new-environment" class="headerLink">
+    <a href="#create-a-new-environment" class="header-mark"></a>Create a New Environment</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mamba create -n cs101
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="activate-an-environment" class="headerLink">
+    <a href="#activate-an-environment" class="header-mark"></a>Activate an Environment</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mamba activate cs101
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="install-common-packages-for-scientific-computing" class="headerLink">
+    <a href="#install-common-packages-for-scientific-computing" class="header-mark"></a>Install common packages for scientific computing</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mamba install -y numpy matplotlib scipy pandas sympy numba jupyterlab plotly pytest
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="use-pip-to-install-packages-not-available-in-anaconda" class="headerLink">
+    <a href="#use-pip-to-install-packages-not-available-in-anaconda" class="header-mark"></a>Use <code>pip</code> to install packages not available in <code>Anaconda</code></h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip install rocket-fft
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="install-local-modulespackages" class="headerLink">
+    <a href="#install-local-modulespackages" class="header-mark"></a>Install local modules/packages</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip install -e .
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>In this way, the package will be installed in the current environment and the changes will be reflected immediately.</p>
+<h2 id="deactivate-an-environment" class="headerLink">
+    <a href="#deactivate-an-environment" class="header-mark"></a>Deactivate an Environment</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mamba deactivate
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="list-all-environments" class="headerLink">
+    <a href="#list-all-environments" class="header-mark"></a>List All Environments</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mamba env list
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="remove-an-environment" class="headerLink">
+    <a href="#remove-an-environment" class="header-mark"></a>Remove an Environment</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mamba remove -n cs101 --all
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div>
+
+        <div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span></span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span><a class="link-to-mardown" href=/mamba-basics/index.md target="_blank" rel="noopener noreferrer"></a>
+                    </span></div>
+            <div class="post-info-share">
+                <span><a href="#" title=" Twitter" data-sharer="twitter" data-url="https://fakephysicist.github.io/mamba-basics/" data-title="Mamba Basics" data-hashtags="mamba,conda,python"><i class="fab fa-twitter fa-fw"></i></a><a href="#" title=" Facebook" data-sharer="facebook" data-url="https://fakephysicist.github.io/mamba-basics/" data-hashtag="mamba"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" title=" Linkedin" data-sharer="linkedin" data-url="https://fakephysicist.github.io/mamba-basics/"><i class="fab fa-linkedin fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/mamba/">mamba</a>,&nbsp;<a href="/tags/conda/">conda</a>,&nbsp;<a href="/tags/python/">python</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();"></a></span>&nbsp;|&nbsp;<span><a href="/"></a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/ssh-basics/" class="prev" rel="prev" title="SSH Basics"><i class="fas fa-angle-left fa-fw"></i>SSH Basics</a>
+            <a href="/git-basics/" class="next" rel="next" title="Git Basics">Git Basics<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="giscus"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app/">giscus</a>.
+            </noscript></div></article></div>
+        </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://fakephysicist.github.io" target="_blank" rel="noopener noreferrer">fakephysicist</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+            <div class="footer-line"></div>
+            <div class="footer-line">
+            </div>
+        </div><script>
+                    if('serviceWorker' in navigator) {
+                        navigator.serviceWorker
+                            .register('/sw.min.js', { scope: '/' })
+                            .then(function(registration) {
+                            });
+                
+                        navigator.serviceWorker
+                            .ready
+                            .then(function(registration) {
+                            });
+                    }
+                </script></footer></div>
+
+    <div id="fixed-buttons"><a href="#back-to-top" id="back-to-top-button" class="fixed-button" title="">
+            <i class="fas fa-arrow-up fa-fw"></i>
+        </a><a href="#" id="view-comments" class="fixed-button" title="">
+            <i class="fas fa-comment fa-fw"></i>
+        </a>
+    </div><div class="assets"><script type="text/javascript">window.config={"code":{"copyTitle":"","maxShownLines":50},"comment":{"giscus":{"darkTheme":"dark","dataCategory":"Announcements","dataCategoryId":"DIC_kwDOF5xwg84CUAVU","dataEmitMetadata":"0","dataInputPosition":"bottom","dataLang":"zh-CN","dataMapping":"pathname","dataReactionsEnabled":"1","dataRepo":"fakephysicist/fakephysicist.github.io","dataRepoId":"MDEwOlJlcG9zaXRvcnkzOTYxMjgzODc=","dataStrict":"0","lightTheme":"light"}},"search":{"distance":100,"findAllMatches":false,"fuseIndexURL":"/index.json","highlightTag":"em","ignoreFieldNorm":false,"ignoreLocation":false,"isCaseSensitive":false,"location":0,"maxResultLength":10,"minMatchCharLength":2,"noResultsFound":"","snippetLength":50,"threshold":0.3,"type":"fuse","useExtendedSearch":false},"sharerjs":true};</script><script type="text/javascript" src="/js/giscus.min.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.2/sharer.min.js"></script><script type="text/javascript" src="/js/theme.min.js" defer></script></div>
+</body>
+
+</html>

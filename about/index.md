@@ -1,19 +1,16 @@
-# 关于 FakePhysicist
+# About fakephysicist
 
-# 关于
 
 
 {{< style "float: right" >}}
-  {{< music auto="https://music.163.com/#/song?id=30070142" mini="true" >}}
+  {{< music auto="<https://music.163.com/#/song?id=30070142>" mini="true" >}}
 {{< /style >}}
 
-## 关于作者
+## Who am I?
 
-- 🤪 强迫症与拖延症患者
-- 🤔 热衷于了解世界的运转机制
-- [❤️](/love/) 爱好
-
-## Haha
+- 🎓 A graduate student in Physics
+- 🤔 Keen on learning the mechanism of the world
+- [❤️](/love/)
 
 {{< image src="./wind_turbine.png" caption="穷且益坚，不坠青云之志" title="The Road Not Taken" width="30%" height="30%" >}}
 
@@ -22,8 +19,4 @@
 
 勃，三尺微命，一介书生。无路请缨，等终军之弱冠；有怀投笔，慕宗悫之长风。舍簪笏于百龄，奉晨昏于万里。非谢家之宝树，接孟氏之芳邻。他日趋庭，叨陪鲤对；今兹捧袂，喜托龙门。杨意不逢，抚凌云而自惜；钟期既遇，奏流水以何惭？
 {{< /admonition >}}
-
-## My Github chart
-
-{{< image src="https://ghchart.rshah.org/fakephysicist" title="FakePhysicist's Github chart" width="100%">}}
 

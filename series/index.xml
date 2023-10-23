@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Series - 系列 - FakePhysicist</title>
+        <title>Series - series - fakephysicist</title>
         <link>https://fakephysicist.github.io/series/</link>
-        <description>Series - 系列 - FakePhysicist</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>fakephysicist@outlook.com (FakePhysicist)</managingEditor>
-            <webMaster>fakephysicist@outlook.com (FakePhysicist)</webMaster><atom:link href="https://fakephysicist.github.io/series/" rel="self" type="application/rss+xml" /></channel>
+        <description>Series - series - fakephysicist</description>
+        <generator>Hugo -- gohugo.io</generator><language>en-US</language><managingEditor>fakephysicist@outlook.com (fakephysicist)</managingEditor>
+            <webMaster>fakephysicist@outlook.com (fakephysicist)</webMaster><atom:link href="https://fakephysicist.github.io/series/" rel="self" type="application/rss+xml" /></channel>
 </rss>

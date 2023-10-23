@@ -1,5 +1,5 @@
 # Offline
 
 
-> 你没有连接至互联网, 只有缓存的页面可用.
+> You are not connected to the Internet, only cached pages are available.
 

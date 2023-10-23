@@ -28,6 +28,70 @@ git clone https://github.com/<username>/<repo-name>.git # https
 git clone git@github.com:<username>/<repo-name>.git # SSH
 ```
 
+## Git Branch
+
+### View all branches
+
+```bash
+git branch -a
+```
+
+### Create a new branch
+
+```bash
+git branch <branch-name>
+```
+
+### Switch to a branch
+
+```bash
+git checkout <branch-name>
+```
+
+or
+
+```bash
+git switch <branch-name>
+```
+
+### Create and switch to a new branch
+
+```bash
+git checkout -b <branch-name>
+```
+
+or
+
+```bash
+git switch -c <branch-name>
+```
+
+### Merge a branch
+
+First, switch to the branch you want to merge into, for example, `main`:
+
+```bash
+git checkout main
+```
+
+Then, merge the branch you want to merge into `main`, for example, `dev`:
+
+```bash
+git merge dev
+```
+
+### Delete a branch
+
+```bash
+git branch -d <branch-name>
+```
+
+If the branch has not been merged, use `-D` instead of `-d`:
+
+```bash
+git branch -D <branch-name>
+```
+
 ## SSH Config for GitHub
 
 Make sure you have generated an SSH key pair on your local machine.
