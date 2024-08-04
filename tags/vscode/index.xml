@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>vscode - tag - fakephysicist</title>
+        <title>Vscode - tag - fakephysicist</title>
         <link>https://fakephysicist.github.io/tags/vscode/</link>
-        <description>vscode - tag - fakephysicist</description>
+        <description>Vscode - tag - fakephysicist</description>
         <generator>Hugo -- gohugo.io</generator><language>en-US</language><managingEditor>fakephysicist@outlook.com (fakephysicist)</managingEditor>
             <webMaster>fakephysicist@outlook.com (fakephysicist)</webMaster><lastBuildDate>Wed, 09 Aug 2023 21:03:25 -0500</lastBuildDate><atom:link href="https://fakephysicist.github.io/tags/vscode/" rel="self" type="application/rss+xml" /><item>
     <title>SSH Basics</title>
     <link>https://fakephysicist.github.io/ssh-basics/</link>
     <pubDate>Wed, 09 Aug 2023 21:03:25 -0500</pubDate><author>
-                        <name>fakephysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/ssh-basics/</guid>
+                        <name>fakephysicist</name><uri>https://fakephysicist.github.io/authors/fakephysicist</uri></author><guid>https://fakephysicist.github.io/ssh-basics/</guid>
     <description><![CDATA[<p>SSH is a protocol that allows you to connect to a remote computer. It is widely used in remote computing, such as connecting to a remote server or running Jupyter Lab in a remote host.</p>]]></description>
 </item></channel>
 </rss>

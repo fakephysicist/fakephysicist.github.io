@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>tossing - category - fakephysicist</title>
+        <title>Tossing - category - fakephysicist</title>
         <link>https://fakephysicist.github.io/categories/tossing/</link>
-        <description>tossing - category - fakephysicist</description>
+        <description>Tossing - category - fakephysicist</description>
         <generator>Hugo -- gohugo.io</generator><language>en-US</language><managingEditor>fakephysicist@outlook.com (fakephysicist)</managingEditor>
             <webMaster>fakephysicist@outlook.com (fakephysicist)</webMaster><lastBuildDate>Fri, 01 Jan 2021 02:43:06 -0500</lastBuildDate><atom:link href="https://fakephysicist.github.io/categories/tossing/" rel="self" type="application/rss+xml" /><item>
     <title>Build a Personal Website with Hugo</title>
     <link>https://fakephysicist.github.io/build-a-personal-website-with-hugo/</link>
     <pubDate>Fri, 01 Jan 2021 02:43:06 -0500</pubDate><author>
-                        <name>fakephysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/build-a-personal-website-with-hugo/</guid>
+                        <name>fakephysicist</name><uri>https://fakephysicist.github.io/authors/fakephysicist</uri></author><guid>https://fakephysicist.github.io/build-a-personal-website-with-hugo/</guid>
     <description><![CDATA[<p>In this post, I will show you how to build a personal website with Hugo and configure the theme <a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer">DoIt</a>.</p>]]></description>
 </item></channel>
 </rss>

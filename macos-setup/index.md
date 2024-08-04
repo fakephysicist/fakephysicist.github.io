@@ -107,12 +107,6 @@ I prefer the `powerlevel10k` theme. One can find the installation instructions [
 
 ## High-efficiency software
 
-### iTerm2
-
-```bash
-brew install --cask iterm2
-```
-
 ### tldr
 
 `tldr` is a community effort to simplify the beloved `man` pages with practical examples.
@@ -125,14 +119,6 @@ To use it, run
 
 ```bash
 tldr <command>
-```
-
-### the-unarchiver
-
-`the-unarchiver` is a free data decompression utility, which supports more formats than the built-in `Archive Utility`. It can be used to open `.rar` files.
-
-```bash
-brew install --cask the-unarchiver
 ```
 
 ### tree

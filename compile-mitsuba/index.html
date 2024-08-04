@@ -5,28 +5,30 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title>MacOS Setup - fakephysicist</title><meta name="Description" content="a fake physicist&#39;s notes"><meta property="og:url" content="https://fakephysicist.github.io/macos-setup/">
+    <title>Compile Mitsuba - fakephysicist</title><meta name="Description" content="a fake physicist&#39;s notes"><meta property="og:url" content="https://fakephysicist.github.io/compile-mitsuba/">
   <meta property="og:site_name" content="fakephysicist">
-  <meta property="og:title" content="MacOS Setup">
-  <meta property="og:description" content="Some basics about setting up a development environment on MacOS.">
+  <meta property="og:title" content="Compile Mitsuba">
+  <meta property="og:description" content="In this post, I will show you how to compile Mitsuba from source code.
+Follow the instructions in the documentation to compile the project.">
   <meta property="og:locale" content="en_US">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2023-10-04T10:24:07-04:00">
-    <meta property="article:modified_time" content="2024-08-04T13:48:17-07:00">
-    <meta property="article:tag" content="Mac">
+    <meta property="article:published_time" content="2024-08-04T13:50:17-07:00">
+    <meta property="article:modified_time" content="2024-08-04T13:50:17-07:00">
+    <meta property="article:tag" content="Mitsuba">
     <meta property="og:image" content="https://fakephysicist.github.io/favicon.ico">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://fakephysicist.github.io/favicon.ico">
-  <meta name="twitter:title" content="MacOS Setup">
-  <meta name="twitter:description" content="Some basics about setting up a development environment on MacOS.">
+  <meta name="twitter:title" content="Compile Mitsuba">
+  <meta name="twitter:description" content="In this post, I will show you how to compile Mitsuba from source code.
+Follow the instructions in the documentation to compile the project.">
 <meta name="application-name" content="fakephysicist">
 <meta name="apple-mobile-web-app-title" content="fakephysicist">
 
 <meta name="theme-color" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://fakephysicist.github.io/macos-setup/" /><link rel="prev" href="https://fakephysicist.github.io/git-basics/" /><link rel="next" href="https://fakephysicist.github.io/compile-mitsuba/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/color.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://fakephysicist.github.io/compile-mitsuba/" /><link rel="prev" href="https://fakephysicist.github.io/macos-setup/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/color.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css"></noscript><link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript>
     
@@ -36,18 +38,18 @@
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "MacOS Setup",
+        "headline": "Compile Mitsuba",
         "inLanguage": "en-US",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/fakephysicist.github.io\/macos-setup\/"
+            "@id": "https:\/\/fakephysicist.github.io\/compile-mitsuba\/"
         },"image": [{
                             "@type": "ImageObject",
                             "url": "https:\/\/fakephysicist.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "mac","wordcount":  303 ,
-        "url": "https:\/\/fakephysicist.github.io\/macos-setup\/","datePublished": "2023-10-04T10:24:07-04:00","dateModified": "2024-08-04T13:48:17-07:00","publisher": {
+                        }],"genre": "posts","keywords": "mitsuba","wordcount":  298 ,
+        "url": "https:\/\/fakephysicist.github.io\/compile-mitsuba\/","datePublished": "2024-08-04T13:50:17-07:00","dateModified": "2024-08-04T13:50:17-07:00","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
                     "@type": "ImageObject",
@@ -147,37 +149,27 @@
         <h2 class="toc-title"></h2>
         <div class="toc-content" id="toc-content-auto"><nav id="TableOfContents">
   <ul>
-    <li><a href="#xcode">Xcode</a></li>
-    <li><a href="#homebrew">Homebrew</a></li>
-    <li><a href="#oh-my-zsh">Oh My Zsh</a>
+    <li><a href="#compile-mitsuba">Compile Mitsuba</a>
       <ul>
-        <li><a href="#plugins">Plugins</a>
-          <ul>
-            <li><a href="#sudo">sudo</a></li>
-            <li><a href="#extract">extract</a></li>
-            <li><a href="#autojump">autojump</a></li>
-            <li><a href="#zsh-autosuggestions">zsh-autosuggestions</a></li>
-            <li><a href="#zsh-syntax-highlighting">zsh-syntax-highlighting</a></li>
-          </ul>
-        </li>
-        <li><a href="#theme">Theme</a></li>
+        <li><a href="#clone-the-repository">Clone the Repository</a></li>
+        <li><a href="#switch-to-the-most-recent-version">Switch to the Most Recent Version</a></li>
+        <li><a href="#recursively-update-the-submodules">Recursively Update the Submodules</a></li>
+        <li><a href="#compile-the-project">Compile the Project</a></li>
       </ul>
     </li>
-    <li><a href="#high-efficiency-software">High-efficiency software</a>
+    <li><a href="#using-mitsuba-in-python">Using Mitsuba in Python</a>
       <ul>
-        <li><a href="#tldr">tldr</a></li>
-        <li><a href="#tree">tree</a></li>
+        <li><a href="#import-mitsuba">Import Mitsuba</a></li>
+        <li><a href="#check-the-version-of-mitsuba">Check the Version of Mitsuba</a></li>
       </ul>
     </li>
-    <li><a href="#gitignore">.gitignore</a></li>
-    <li><a href="#conda">conda</a></li>
   </ul>
 </nav></div>
-    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">MacOS Setup</h1><div class="post-meta">
+    </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Compile Mitsuba</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://fakephysicist.github.io/authors/fakephysicist'>fakephysicist</a></span>
                 </span>&nbsp;<span class="post-category"></span>&nbsp;<span class="post-category"></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-10-04">2023-10-04</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2024-08-04">2024-08-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2024-08-04">2024-08-04</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2024-08-04">2024-08-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -186,107 +178,68 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#xcode">Xcode</a></li>
-    <li><a href="#homebrew">Homebrew</a></li>
-    <li><a href="#oh-my-zsh">Oh My Zsh</a>
+    <li><a href="#compile-mitsuba">Compile Mitsuba</a>
       <ul>
-        <li><a href="#plugins">Plugins</a>
-          <ul>
-            <li><a href="#sudo">sudo</a></li>
-            <li><a href="#extract">extract</a></li>
-            <li><a href="#autojump">autojump</a></li>
-            <li><a href="#zsh-autosuggestions">zsh-autosuggestions</a></li>
-            <li><a href="#zsh-syntax-highlighting">zsh-syntax-highlighting</a></li>
-          </ul>
-        </li>
-        <li><a href="#theme">Theme</a></li>
+        <li><a href="#clone-the-repository">Clone the Repository</a></li>
+        <li><a href="#switch-to-the-most-recent-version">Switch to the Most Recent Version</a></li>
+        <li><a href="#recursively-update-the-submodules">Recursively Update the Submodules</a></li>
+        <li><a href="#compile-the-project">Compile the Project</a></li>
       </ul>
     </li>
-    <li><a href="#high-efficiency-software">High-efficiency software</a>
+    <li><a href="#using-mitsuba-in-python">Using Mitsuba in Python</a>
       <ul>
-        <li><a href="#tldr">tldr</a></li>
-        <li><a href="#tree">tree</a></li>
+        <li><a href="#import-mitsuba">Import Mitsuba</a></li>
+        <li><a href="#check-the-version-of-mitsuba">Check the Version of Mitsuba</a></li>
       </ul>
     </li>
-    <li><a href="#gitignore">.gitignore</a></li>
-    <li><a href="#conda">conda</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>Some basics about setting up a development environment on MacOS.</p>
-<h2 id="xcode" class="headerLink">
-    <a href="#xcode" class="header-mark"></a>Xcode</h2><p>In the terminal, run</p>
+            </div><div class="content" id="content"><p>In this post, I will show you how to compile Mitsuba from source code.</p>
+<p>Follow the instructions in the <a href="https://mitsuba.readthedocs.io/en/latest/src/developer_guide/compiling.html" target="_blank" rel="noopener noreferrer">documentation</a> to compile the project.</p>
+<h2 id="compile-mitsuba" class="headerLink">
+    <a href="#compile-mitsuba" class="header-mark"></a>Compile Mitsuba</h2><h3 id="clone-the-repository" class="headerLink">
+    <a href="#clone-the-repository" class="header-mark"></a>Clone the Repository</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone --recursive https://github.com/mitsuba-renderer/mitsuba3
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="switch-to-the-most-recent-version" class="headerLink">
+    <a href="#switch-to-the-most-recent-version" class="header-mark"></a>Switch to the Most Recent Version</h3><p>Switch to the most recent version of the repository. For example, if the current version is <code>v3.5.2</code>, switch to tag <code>v3.5.3</code>:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo xcode-select --install
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git checkout v3.5.3
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="homebrew" class="headerLink">
-    <a href="#homebrew" class="header-mark"></a>Homebrew</h2><div class="highlight"><div class="chroma">
+</div><h3 id="recursively-update-the-submodules" class="headerLink">
+    <a href="#recursively-update-the-submodules" class="header-mark"></a>Recursively Update the Submodules</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">/bin/bash -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh<span class="k">)</span><span class="s2">&#34;</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git submodule update --init --recursive
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="oh-my-zsh" class="headerLink">
-    <a href="#oh-my-zsh" class="header-mark"></a>Oh My Zsh</h2><p>Install Zsh first:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew install zsh
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Then install Oh My Zsh:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sh -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh<span class="k">)</span><span class="s2">&#34;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="plugins" class="headerLink">
-    <a href="#plugins" class="header-mark"></a>Plugins</h3><p>Edit <code>~/.zshrc</code>:</p>
-<div class="highlight"><div class="chroma">
+</div><h3 id="compile-the-project" class="headerLink">
+    <a href="#compile-the-project" class="header-mark"></a>Compile the Project</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">plugins</span><span class="o">=(</span>
-</span></span><span class="line"><span class="cl">  sudo
-</span></span><span class="line"><span class="cl">  extract
-</span></span><span class="line"><span class="cl">  autojump
-</span></span><span class="line"><span class="cl">  zsh-autosuggestions
-</span></span><span class="line"><span class="cl">  zsh-syntax-highlighting
-</span></span><span class="line"><span class="cl"><span class="o">)</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir build
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> build
+</span></span><span class="line"><span class="cl">cmake -GNinja ..
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="sudo" class="headerLink">
-    <a href="#sudo" class="header-mark"></a>sudo</h4><p>Press <code>ESC</code> twice to add <code>sudo</code> to the beginning of the command.</p>
-<h4 id="extract" class="headerLink">
-    <a href="#extract" class="header-mark"></a>extract</h4><p>Use <code>x abc.zip</code> to extract <code>abc.zip</code>. It supports almost all compressed formats.</p>
-<h4 id="autojump" class="headerLink">
-    <a href="#autojump" class="header-mark"></a>autojump</h4><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew install autojump
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Follow the instructions to add the following line to <code>~/.zshrc</code>:</p>
+</div><p>This should generate a <code>build</code> directory with a <code>mitsuba.conf</code> file. You should set the variants you want to compile in this file.</p>
+<p>For example, to compile the <code>scalar_rgb</code>, <code>scalar_spectral</code>, <code>scalar_spectral_polarized</code>, <code>llvm_spectral</code>, <code>llvm_spectral_polarized</code>, and <code>llvm_ad_rgb</code> variants, the <code>mitsuba.conf</code> file should look like this:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -294,113 +247,60 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># &gt;&gt;&gt; autojump initialize &gt;&gt;&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="o">[</span> -f /opt/homebrew/etc/profile.d/autojump.sh <span class="o">]</span> <span class="o">&amp;&amp;</span> . /opt/homebrew/etc/profile.d/autojump.sh
-</span></span><span class="line"><span class="cl"><span class="c1"># &lt;&lt;&lt; autojump initialize &lt;&lt;&lt;</span>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">&#34;enabled&#34;: [
+</span></span><span class="line"><span class="cl">    &#34;scalar_rgb&#34;, &#34;scalar_spectral&#34;, &#34;scalar_spectral_polarized&#34;, &#34;llvm_spectral&#34;, &#34;llvm_spectral_polarized&#34;, &#34;llvm_ad_rgb&#34;
+</span></span><span class="line"><span class="cl">],
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Use <code>j</code> to jump to the matching directory.</p>
+</div><p>Then, compile the project:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">j &lt;keyword&gt;
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ninja
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="zsh-autosuggestions" class="headerLink">
-    <a href="#zsh-autosuggestions" class="header-mark"></a>zsh-autosuggestions</h4><p>auto-suggestion for zsh. It suggests commands based on your command history.</p>
+</div><h2 id="using-mitsuba-in-python" class="headerLink">
+    <a href="#using-mitsuba-in-python" class="header-mark"></a>Using Mitsuba in Python</h2><p>To call the compiled version of Mitsuba in python or Jupyter, add the path of the compiled python module to the python path. For example, if the path to the compiled python module is <code>/Users/your_username/mitsuba3/build/python</code>, you can add this path to the python path by running the following code:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl"><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;/Users/your_username/mitsuba3/build/python&#39;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="zsh-syntax-highlighting" class="headerLink">
-    <a href="#zsh-syntax-highlighting" class="header-mark"></a>zsh-syntax-highlighting</h4><p>Syntax highlighting for zsh. It should be the last plugin in the <code>plugins</code> list.</p>
+</div><p>This can work only temporarily. If you quit the python session, or restart the Jupyter kernel, you will have to run this code again.</p>
+<h3 id="import-mitsuba" class="headerLink">
+    <a href="#import-mitsuba" class="header-mark"></a>Import Mitsuba</h3><p>Then, you can then import Mitsuba as usual:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">drjit</span> <span class="k">as</span> <span class="nn">dr</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">mitsuba</span> <span class="k">as</span> <span class="nn">mi</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="theme" class="headerLink">
-    <a href="#theme" class="header-mark"></a>Theme</h3><p>I prefer the <code>powerlevel10k</code> theme. One can find the installation instructions <a href="https://github.com/romkatv/powerlevel10k#oh-my-zsh" target="_blank" rel="noopener noreferrer">here</a>.</p>
-<ol>
-<li>
-<p>clone the repository</p>
+</div><h3 id="check-the-version-of-mitsuba" class="headerLink">
+    <a href="#check-the-version-of-mitsuba" class="header-mark"></a>Check the Version of Mitsuba</h3><p>To check if the correct version of Mitsuba is being used, you can run the following code:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone --depth<span class="o">=</span><span class="m">1</span> https://github.com/romkatv/powerlevel10k.git <span class="si">${</span><span class="nv">ZSH_CUSTOM</span><span class="k">:-</span><span class="nv">$HOME</span><span class="p">/.oh-my-zsh/custom</span><span class="si">}</span>/themes/powerlevel10k
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">mi</span><span class="o">.</span><span class="n">variants</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">mi</span><span class="o">.</span><span class="n">set_variant</span><span class="p">(</span><span class="s1">&#39;llvm_spectral_polarized&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">mi</span><span class="o">.</span><span class="n">MI_VERSION</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div></li>
-<li>
-<p>Set <code>ZSH_THEME=&quot;powerlevel10k/powerlevel10k&quot;</code> in <code>~/.zshrc</code>.</p>
-</li>
-<li>
-<p>Run <code>p10k configure</code> to configure the theme. (It will be automatically run when you open a new terminal window. I prefer not to install the recommended fonts.)</p>
-</li>
-</ol>
-<h2 id="high-efficiency-software" class="headerLink">
-    <a href="#high-efficiency-software" class="header-mark"></a>High-efficiency software</h2><h3 id="tldr" class="headerLink">
-    <a href="#tldr" class="header-mark"></a>tldr</h3><p><code>tldr</code> is a community effort to simplify the beloved <code>man</code> pages with practical examples.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew install tldr
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>To use it, run</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tldr &lt;command&gt;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="tree" class="headerLink">
-    <a href="#tree" class="header-mark"></a>tree</h3><p><code>tree</code> is a recursive directory listing command that produces a depth indented listing of files.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew install tree
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="gitignore" class="headerLink">
-    <a href="#gitignore" class="header-mark"></a>.gitignore</h2><p>Set the global <code>.gitignore</code> file:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl https://raw.githubusercontent.com/github/gitignore/master/Global/macOS.gitignore -o ~/.gitignore
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>Config <code>git</code> to use the global <code>.gitignore</code> file:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git config --global core.excludesfile ~/.gitignore
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>visit <a href="gitignore.io" rel="">gitignore</a> to generate a <code>.gitignore</code> file for your project.</p>
-<h2 id="conda" class="headerLink">
-    <a href="#conda" class="header-mark"></a>conda</h2><p>See <a href="./conda-basics" rel="">conda-basics</a> for more details.</p></div>
+</div><p>This code will print the available variants and the version of Mitsuba being used. Also, it tests if the variant <code>llvm_spectral_polarized</code> is available.</p></div>
 
         <div class="post-footer" id="post-footer">
     <div class="post-info">
@@ -411,23 +311,22 @@
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
-            <div class="post-info-md"><span><a class="link-to-mardown" href=/macos-setup/index.md target="_blank" rel="noopener noreferrer"></a>
+            <div class="post-info-md"><span><a class="link-to-mardown" href=/compile-mitsuba/index.md target="_blank" rel="noopener noreferrer"></a>
                     </span></div>
             <div class="post-info-share">
-                <span><a href="#" title=" Twitter" data-sharer="twitter" data-url="https://fakephysicist.github.io/macos-setup/" data-title="MacOS Setup" data-hashtags="mac"><i class="fab fa-twitter fa-fw"></i></a><a href="#" title=" Facebook" data-sharer="facebook" data-url="https://fakephysicist.github.io/macos-setup/" data-hashtag="mac"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" title=" Linkedin" data-sharer="linkedin" data-url="https://fakephysicist.github.io/macos-setup/"><i class="fab fa-linkedin fa-fw"></i></a></span>
+                <span><a href="#" title=" Twitter" data-sharer="twitter" data-url="https://fakephysicist.github.io/compile-mitsuba/" data-title="Compile Mitsuba" data-hashtags="mitsuba"><i class="fab fa-twitter fa-fw"></i></a><a href="#" title=" Facebook" data-sharer="facebook" data-url="https://fakephysicist.github.io/compile-mitsuba/" data-hashtag="mitsuba"><i class="fab fa-facebook-square fa-fw"></i></a><a href="#" title=" Linkedin" data-sharer="linkedin" data-url="https://fakephysicist.github.io/compile-mitsuba/"><i class="fab fa-linkedin fa-fw"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/mac/">Mac</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/mitsuba/">Mitsuba</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();"></a></span>&nbsp;|&nbsp;<span><a href="/"></a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/git-basics/" class="prev" rel="prev" title="Git Basics"><i class="fas fa-angle-left fa-fw"></i>Git Basics</a>
-            <a href="/compile-mitsuba/" class="next" rel="next" title="Compile Mitsuba">Compile Mitsuba<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/macos-setup/" class="prev" rel="prev" title="MacOS Setup"><i class="fas fa-angle-left fa-fw"></i>MacOS Setup</a></div>
 </div>
 <div id="comments"><div id="giscus"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://giscus.app/">giscus</a>.
