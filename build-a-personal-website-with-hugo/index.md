@@ -7,7 +7,15 @@ In this post, I will show you how to build a personal website with Hugo and conf
 
 ## Quick Start
 
-Install [Hugo](https://gohugo.io/installation/) and add the theme [DoIt](https://github.com/HEIGE-PCloud/DoIt) as a submodule of the hugo project.
+Install [Hugo](https://gohugo.io/installation/) 
+
+In macOS, you can use Homebrew to install Hugo.
+
+```bash
+brew install hugo
+```
+
+Then add the theme [DoIt](https://github.com/HEIGE-PCloud/DoIt) as a submodule of the hugo project.
 
 1. Create a new hugo project:
 
@@ -158,4 +166,13 @@ echo "Deployment completed successfully!"
 
 ```bash
 date +'%Y-%m-%dT%H:%M:%S%z' | sed 's/\(..\)$/:\1/'
+```
+
+One can use the above command to get the current timestamp in the format of `2024-08-04T14:20:29-07:00`.
+
+This timestamp can be used in the front matter of the posts.
+
+```yaml
+date: 2021-01-01T02:43:06-05:00
+lastmod: 2024-08-04T14:20:29-07:00
 ```
