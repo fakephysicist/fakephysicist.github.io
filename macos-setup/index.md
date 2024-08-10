@@ -1,7 +1,7 @@
-# MacOS Setup
+# macOS Setup
 
 
-Some basics about setting up a development environment on MacOS.
+Some basics about setting up a development environment on macOS.
 
 <!--more-->
 

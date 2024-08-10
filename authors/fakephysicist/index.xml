@@ -4,7 +4,14 @@
         <link>https://fakephysicist.github.io/authors/fakephysicist/</link>
         <description>Fakephysicist - author - fakephysicist</description>
         <generator>Hugo -- gohugo.io</generator><language>en-US</language><managingEditor>fakephysicist@outlook.com (fakephysicist)</managingEditor>
-            <webMaster>fakephysicist@outlook.com (fakephysicist)</webMaster><lastBuildDate>Sun, 04 Aug 2024 13:50:17 -0700</lastBuildDate><atom:link href="https://fakephysicist.github.io/authors/fakephysicist/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>fakephysicist@outlook.com (fakephysicist)</webMaster><lastBuildDate>Sat, 10 Aug 2024 13:40:18 -0700</lastBuildDate><atom:link href="https://fakephysicist.github.io/authors/fakephysicist/" rel="self" type="application/rss+xml" /><item>
+    <title>LaTeX Basics</title>
+    <link>https://fakephysicist.github.io/latex-basics/</link>
+    <pubDate>Sat, 10 Aug 2024 13:40:18 -0700</pubDate><author>
+                        <name>fakephysicist</name><uri>https://fakephysicist.github.io/authors/fakephysicist</uri></author><guid>https://fakephysicist.github.io/latex-basics/</guid>
+    <description><![CDATA[<p>In this post, I will show you how to write LaTeX on macOS. The text editor I will be using is VSCode.
+The procedure has been tested on macOS Sequoia.</p>]]></description>
+</item><item>
     <title>Compile Mitsuba</title>
     <link>https://fakephysicist.github.io/compile-mitsuba/</link>
     <pubDate>Sun, 04 Aug 2024 13:50:17 -0700</pubDate><author>
@@ -12,11 +19,11 @@
     <description><![CDATA[<p>In this post, I will show you how to compile Mitsuba from source code.</p>
 <p>Follow the instructions in the <a href="https://mitsuba.readthedocs.io/en/latest/src/developer_guide/compiling.html" target="_blank" rel="noopener noreferrer">documentation</a> to compile the project.</p>]]></description>
 </item><item>
-    <title>MacOS Setup</title>
+    <title>macOS Setup</title>
     <link>https://fakephysicist.github.io/macos-setup/</link>
     <pubDate>Wed, 04 Oct 2023 10:24:07 -0400</pubDate><author>
                         <name>fakephysicist</name><uri>https://fakephysicist.github.io/authors/fakephysicist</uri></author><guid>https://fakephysicist.github.io/macos-setup/</guid>
-    <description><![CDATA[<p>Some basics about setting up a development environment on MacOS.</p>]]></description>
+    <description><![CDATA[<p>Some basics about setting up a development environment on macOS.</p>]]></description>
 </item><item>
     <title>Git Basics</title>
     <link>https://fakephysicist.github.io/git-basics/</link>

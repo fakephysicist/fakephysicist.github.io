@@ -4,7 +4,14 @@
         <link>https://fakephysicist.github.io/tags/</link>
         <description>Tags - tag - fakephysicist</description>
         <generator>Hugo -- gohugo.io</generator><language>en-US</language><managingEditor>fakephysicist@outlook.com (fakephysicist)</managingEditor>
-            <webMaster>fakephysicist@outlook.com (fakephysicist)</webMaster><lastBuildDate>Sun, 04 Aug 2024 13:50:17 -0700</lastBuildDate><atom:link href="https://fakephysicist.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>fakephysicist@outlook.com (fakephysicist)</webMaster><lastBuildDate>Sat, 10 Aug 2024 13:40:18 -0700</lastBuildDate><atom:link href="https://fakephysicist.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>Latex</title>
+    <link>https://fakephysicist.github.io/tags/latex/</link>
+    <pubDate>Sat, 10 Aug 2024 13:40:18 -0700</pubDate><author>
+        <name>fakephysicist</name>
+    </author><guid>https://fakephysicist.github.io/tags/latex/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
     <title>Mitsuba</title>
     <link>https://fakephysicist.github.io/tags/mitsuba/</link>
     <pubDate>Sun, 04 Aug 2024 13:50:17 -0700</pubDate><author>
@@ -66,13 +73,6 @@
     <pubDate>Fri, 01 Jan 2021 02:43:06 -0500</pubDate><author>
         <name>fakephysicist</name>
     </author><guid>https://fakephysicist.github.io/tags/doit/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>Hugo</title>
-    <link>https://fakephysicist.github.io/tags/hugo/</link>
-    <pubDate>Fri, 01 Jan 2021 02:43:06 -0500</pubDate><author>
-        <name>fakephysicist</name>
-    </author><guid>https://fakephysicist.github.io/tags/hugo/</guid>
     <description><![CDATA[]]></description>
 </item></channel>
 </rss>
