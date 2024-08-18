@@ -131,15 +131,15 @@ brew install tree
 
 ## Conda
 
-See [conda-basics](./conda-basics) for more details.
+See [conda-basics](../conda-basics) for more details.
 
 ## SSH
 
-See [ssh-basics](./ssh-basics) for more details.
+See [ssh-basics](../ssh-basics) for more details.
 
 ## Git
 
-See [git-basics](./git-basics) for more details.
+See [git-basics](../git-basics) for more details.
 
 ## Useful Commands
 
