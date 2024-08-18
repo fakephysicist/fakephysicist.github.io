@@ -21,6 +21,22 @@ git config --global user.email "your_email@youremail.com"
 
 NOTE: `your_email@@youremail.com` should be the `noreply` email address of your GitHub account.
 
+## .gitignore
+
+Set the global `.gitignore` file:
+
+```bash
+curl https://raw.githubusercontent.com/github/gitignore/master/Global/macOS.gitignore -o ~/.gitignore
+```
+
+Config `git` to use the global `.gitignore` file:
+
+```bash
+git config --global core.excludesfile ~/.gitignore
+```
+
+visit [gitignore](gitignore.io) to generate a `.gitignore` file for your project.
+
 ## Git Clone
 
 ```bash
@@ -105,25 +121,3 @@ Make sure you have generated an SSH key pair on your local machine.
 ```bash
 ssh -T git@github.com
 ```
-
-## Some Useful Commands
-
-### Remove all `.DS_Store` files recursively
-
-Delete all `.DS_Store` files recursively and print the path of each deleted file:
-
-```bash
-find . -name ".DS_Store" -print -delete
-```
-
-### Generate a timestamp
-
-Use the following code snippet to generate the current timestamp in the format of `YYYY-MM-DD HH:MM:SS-07:00`:
-
-```bash
-timestamp=$(date +"%Y-%m-%dT%H:%M:%S")
-offset=$(date +%z)
-formatted_offset=${offset:0:3}:${offset:3:2}
-echo "${timestamp}${formatted_offset}"
-```
-

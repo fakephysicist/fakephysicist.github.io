@@ -5,23 +5,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noodp" />
-    <title>SSH Basics - fakephysicist</title><meta name="Description" content="a fake physicist&#39;s notes"><meta property="og:url" content="https://fakephysicist.github.io/ssh-basics/">
-  <meta property="og:site_name" content="fakephysicist">
-  <meta property="og:title" content="SSH Basics">
-  <meta property="og:description" content="SSH is a protocol that allows you to connect to a remote computer. It is widely used in remote computing, such as connecting to a remote server or running Jupyter Lab in a remote host.">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2023-08-09T21:03:25-05:00">
-    <meta property="article:modified_time" content="2023-08-09T21:03:25-05:00">
-    <meta property="article:tag" content="Ssh">
-    <meta property="article:tag" content="Vscode">
-    <meta property="og:image" content="https://fakephysicist.github.io/favicon.ico">
+    <title>SSH Basics - fakephysicist</title><meta name="Description" content="a fake physicist&#39;s notes"><meta property="og:title" content="SSH Basics" />
+<meta property="og:description" content="SSH is a protocol that allows you to connect to a remote computer. It is widely used in remote computing, such as connecting to a remote server or running Jupyter Lab in a remote host." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://fakephysicist.github.io/ssh-basics/" /><meta property="og:image" content="https://fakephysicist.github.io/favicon.ico"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-08-09T21:03:25-05:00" />
+<meta property="article:modified_time" content="2024-08-18T00:48:53-07:00" /><meta property="og:site_name" content="fakephysicist" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://fakephysicist.github.io/favicon.ico"/>
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://fakephysicist.github.io/favicon.ico">
-  <meta name="twitter:title" content="SSH Basics">
-  <meta name="twitter:description" content="SSH is a protocol that allows you to connect to a remote computer. It is widely used in remote computing, such as connecting to a remote server or running Jupyter Lab in a remote host.">
+<meta name="twitter:title" content="SSH Basics"/>
+<meta name="twitter:description" content="SSH is a protocol that allows you to connect to a remote computer. It is widely used in remote computing, such as connecting to a remote server or running Jupyter Lab in a remote host."/>
 <meta name="application-name" content="fakephysicist">
 <meta name="apple-mobile-web-app-title" content="fakephysicist">
 
@@ -47,8 +41,8 @@
                             "url": "https:\/\/fakephysicist.github.io\/images\/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords": "ssh, vscode","wordcount":  994 ,
-        "url": "https:\/\/fakephysicist.github.io\/ssh-basics\/","datePublished": "2023-08-09T21:03:25-05:00","dateModified": "2023-08-09T21:03:25-05:00","publisher": {
+                        }],"genre": "posts","keywords": "ssh, vscode","wordcount":  1103 ,
+        "url": "https:\/\/fakephysicist.github.io\/ssh-basics\/","datePublished": "2023-08-09T21:03:25-05:00","dateModified": "2024-08-18T00:48:53-07:00","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
                     "@type": "ImageObject",
@@ -200,14 +194,13 @@
         <li><a href="#on-the-remote-machine">On the Remote Machine</a></li>
       </ul>
     </li>
-    <li><a href="#avoiding-ssh-passphrase-prompt">Avoiding SSH passphrase prompt</a></li>
   </ul>
 </nav></div>
     </div><script>document.getElementsByTagName("main")[0].setAttribute("pageStyle", "normal")</script><script>document.getElementsByTagName("main")[0].setAttribute("autoTOC", "true")</script><article class="page single"><h1 class="single-title animate__animated animate__flipInX">SSH Basics</h1><div class="post-meta">
             <div class="post-meta-line">
                 <span class="post-author"><span class='author'><i class="author fas fa-user-circle fa-fw"></i><span class='screen-reader-text'>  </span><a href='https://fakephysicist.github.io/authors/fakephysicist'>fakephysicist</a></span>
                 </span>&nbsp;<span class="post-category"></span>&nbsp;<span class="post-category"></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-08-09">2023-08-09</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2023-08-09">2023-08-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-08-09">2023-08-09</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime="2024-08-18">2024-08-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="">
                 <div class="details-summary toc-title">
@@ -268,12 +261,12 @@
         <li><a href="#on-the-remote-machine">On the Remote Machine</a></li>
       </ul>
     </li>
-    <li><a href="#avoiding-ssh-passphrase-prompt">Avoiding SSH passphrase prompt</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>SSH is a protocol that allows you to connect to a remote computer. It is widely used in remote computing, such as connecting to a remote server or running Jupyter Lab in a remote host.</p>
 <h2 id="create-an-ssh-key-pair" class="headerLink">
-    <a href="#create-an-ssh-key-pair" class="header-mark"></a>Create an SSH key pair</h2><h3 id="check-for-existing-ssh-keys" class="headerLink">
+    <a href="#create-an-ssh-key-pair" class="header-mark"></a>Create an SSH key pair</h2><p>The following steps are adapted from the <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" target="_blank" rel="noopener noreferrer">Generating a new SSH key and adding it to the ssh-agent</a>. The procedure has been tested on macOS Sequoia.</p>
+<h3 id="check-for-existing-ssh-keys" class="headerLink">
     <a href="#check-for-existing-ssh-keys" class="header-mark"></a>Check for existing SSH keys</h3><p>First check for existing SSH keys on your computer by running:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -287,12 +280,7 @@
 </div>
 </div><p>Check the directory listing to see if you have files named either <code>id_ed25519.pub</code> or <code>id_ed25519.pub</code>. If you don&rsquo;t have either of those files then read on, otherwise skip the next section.</p>
 <h3 id="generate-a-new-ssh-key" class="headerLink">
-    <a href="#generate-a-new-ssh-key" class="header-mark"></a>Generate a new SSH key</h3><ol>
-<li>
-<p>Open Terminal.</p>
-</li>
-<li>
-<p>Paste the text below, substituting in your GitHub email address. This creates a new ssh key, using the provided email as a label.</p>
+    <a href="#generate-a-new-ssh-key" class="header-mark"></a>Generate a new SSH key</h3><p>Open Terminal. Paste the text below, substituting in your GitHub email address. This creates a new ssh key, using the provided email as a label.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -301,12 +289,8 @@
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh-keygen -t ed25519 -C <span class="s2">&#34;your_email@example.com&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div></li>
-</ol>
-<h3 id="add-your-ssh-key-to-the-ssh-agent" class="headerLink">
-    <a href="#add-your-ssh-key-to-the-ssh-agent" class="header-mark"></a>Add your SSH key to the ssh-agent</h3><ol>
-<li>
-<p>Start the ssh-agent in the background.</p>
+</div><h3 id="add-your-ssh-key-to-the-ssh-agent" class="headerLink">
+    <a href="#add-your-ssh-key-to-the-ssh-agent" class="header-mark"></a>Add your SSH key to the ssh-agent</h3><p>Start the ssh-agent in the background.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -315,20 +299,50 @@
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">eval</span> <span class="s2">&#34;</span><span class="k">$(</span>ssh-agent -s<span class="k">)</span><span class="s2">&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div></li>
-<li>
-<p>Add your SSH private key to the ssh-agent. If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_ed25519 in the command with the name of your private key file.</p>
+</div><p>If you&rsquo;re using macOS Sierra 10.12.2 or later, you will need to modify your <code>~/.ssh/config</code> file to automatically load keys into the ssh-agent and store passphrases in your keychain.</p>
+<p>First, check to see if your ~/.ssh/config file exists in the default location.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh-add ~/.ssh/id_ed25519
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">open ~/.ssh/config
 </span></span></code></pre></td></tr></table>
 </div>
-</div></li>
-</ol>
-<h2 id="ssh-access-to-windows" class="headerLink">
+</div><p>If the file doesn&rsquo;t exist, create the file.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">touch ~/.ssh/config
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Next, open your ~/.ssh/config file, then modify the file to contain the following lines. If your SSH key file has a different name or path than the example code, modify the filename or path to match your current setup.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Host github.com
+</span></span><span class="line"><span class="cl">AddKeysToAgent yes
+</span></span><span class="line"><span class="cl">UseKeychain yes
+</span></span><span class="line"><span class="cl">IdentityFile ~/.ssh/id_ed25519
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Add your SSH private key to the ssh-agent. If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_ed25519 in the command with the name of your private key file.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="ssh-access-to-windows" class="headerLink">
     <a href="#ssh-access-to-windows" class="header-mark"></a>SSH Access to Windows</h2><h3 id="creating-an-ssh-key-in-local-ssh-client" class="headerLink">
     <a href="#creating-an-ssh-key-in-local-ssh-client" class="header-mark"></a>Creating an SSH Key in Local SSH Client</h3><p>For a detailed explanation, refer to my <a href="../github-basics/" rel="">previous post</a>.</p>
 <p>In summary:</p>
@@ -640,17 +654,7 @@
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">croc --yes --overwrite &lt;code&gt;
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="avoiding-ssh-passphrase-prompt" class="headerLink">
-    <a href="#avoiding-ssh-passphrase-prompt" class="header-mark"></a>Avoiding SSH passphrase prompt</h2><p>To avoid the SSH passphrase prompt, you can use</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ssh-add
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>to add the key to the <code>ssh-agent</code> cache.</p></div>
+</div></div>
 
         <div class="post-footer" id="post-footer">
     <div class="post-info">
@@ -670,7 +674,7 @@
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/ssh/">Ssh</a>,&nbsp;<a href="/tags/vscode/">Vscode</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/ssh/">ssh</a>,&nbsp;<a href="/tags/vscode/">vscode</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();"></a></span>&nbsp;|&nbsp;<span><a href="/"></a></span>
         </section>
