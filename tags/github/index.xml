@@ -6,9 +6,9 @@
         <generator>Hugo -- gohugo.io</generator><language>en-US</language><managingEditor>fakephysicist@outlook.com (fakephysicist)</managingEditor>
             <webMaster>fakephysicist@outlook.com (fakephysicist)</webMaster><lastBuildDate>Sun, 10 Sep 2023 17:55:56 -0700</lastBuildDate><atom:link href="https://fakephysicist.github.io/tags/github/" rel="self" type="application/rss+xml" /><item>
     <title>Git Basics</title>
-    <link>https://fakephysicist.github.io/git-basics/</link>
+    <link>https://fakephysicist.github.io/posts/git-basics/</link>
     <pubDate>Sun, 10 Sep 2023 17:55:56 -0700</pubDate><author>
-                        <name>fakephysicist</name><uri>https://fakephysicist.github.io/authors/fakephysicist/</uri></author><guid>https://fakephysicist.github.io/git-basics/</guid>
+                        <name>fakephysicist</name><uri>https://fakephysicist.github.io/authors/fakephysicist/</uri></author><guid>https://fakephysicist.github.io/posts/git-basics/</guid>
     <description><![CDATA[<p>Some basics about Git and GitHub.</p>
 <p>Although there are many tutorials online, I still want to record some of them here for my own reference.</p>]]></description>
 </item></channel>

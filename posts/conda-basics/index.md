@@ -1,0 +1,85 @@
+# Conda Basics
+
+
+It is recommended to create a new environment for each project and leave the base environment untouched.
+
+In the following, we assume the environment name is `cs101`.
+
+<!--more-->
+
+## Install miniforge
+
+See [Miniforge](https://github.com/conda-forge/miniforge) for more information.
+
+For Linux and macOS:
+
+```bash
+curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+bash Miniforge3-$(uname)-$(uname -m).sh
+```
+
+## Prevent `conda` from activating the base environment automatically
+
+```bash
+conda config --set auto_activate_base false
+```
+
+## Add Miniforge to VS Code
+
+Add the following lines to `settings.json`:
+
+```json
+"python.condaPath": "~/miniforge/condabin/conda",
+"python.defaultInterpreterPath": "~/miniforge/envs/cs101/bin/python",
+```
+
+## Create a New Environment
+
+```bash
+conda create -n cs101
+```
+
+## Activate an Environment
+
+```bash
+conda activate cs101
+```
+
+## Install common packages for scientific computing
+
+```bash
+conda install -y numpy matplotlib scipy pandas sympy jupyterlab ipykernel ipywidgets pytest numba plotly
+```
+
+## Use `pip` to install packages not available in `Anaconda`
+
+```bash
+pip install rocket-fft
+```
+
+## Install local modules/packages
+
+```bash
+pip install -e .
+```
+
+In this way, the package will be installed in the current environment and the changes will be reflected immediately.
+
+## Deactivate an Environment
+
+```bash
+conda deactivate
+```
+
+## List All Environments
+
+```bash
+conda env list
+```
+
+## Remove an Environment
+
+```bash
+conda remove -n cs101 --all
+```
+
