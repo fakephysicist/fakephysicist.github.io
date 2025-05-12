@@ -24,6 +24,25 @@ git config --global user.email "your_email@youremail.com"
 ```
 NOTE: `your_email@@youremail.com` should be the `noreply` email address of your GitHub account.
 
+<<<<<<< HEAD
+## .gitignore
+
+Set the global `.gitignore` file:
+
+```bash
+curl https://raw.githubusercontent.com/github/gitignore/master/Global/macOS.gitignore -o ~/.gitignore
+```
+
+Config `git` to use the global `.gitignore` file:
+
+```bash
+git config --global core.excludesfile ~/.gitignore
+```
+
+visit [gitignore](gitignore.io) to generate a `.gitignore` file for your project.
+
+## Git Clone
+=======
 To check your configuration, run:
 
 ```bash
@@ -92,6 +111,7 @@ git init
 ### Clone a repository
 
 Download a project and its entire version history:
+>>>>>>> fe6b87b (Update timestamp command)
 
 ```bash
 git clone https://github.com/<username>/<repo-name>.git # https
@@ -416,6 +436,9 @@ Make sure you have generated an SSH key pair on your local machine.
 
 ```bash
 ssh -T git@github.com
+<<<<<<< HEAD
+```
+=======
 ```
 
 ## Some Useful Commands
@@ -427,4 +450,5 @@ Delete all `.DS_Store` files recursively and print the path of each deleted file
 ```bash
 find . -name ".DS_Store" -print -delete
 ```
+>>>>>>> fe6b87b (Update timestamp command)
 

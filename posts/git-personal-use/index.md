@@ -1,4 +1,4 @@
-# Git Basics
+# Git Personal Use
 
 
 As a solo developer working locally, you don’t need to worry about remotes (push, pull, etc.) yet — just the core Git workflow to track versions, explore ideas, and organize your work.
