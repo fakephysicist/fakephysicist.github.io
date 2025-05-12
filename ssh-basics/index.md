@@ -7,8 +7,6 @@ SSH is a protocol that allows you to connect to a remote computer. It is widely 
 
 ## Create an SSH key pair
 
-The following steps are adapted from the [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent). The procedure has been tested on macOS Sequoia.
-
 ### Check for existing SSH keys
 
 First check for existing SSH keys on your computer by running:
@@ -22,7 +20,8 @@ Check the directory listing to see if you have files named either `id_ed25519.pu
 
 ### Generate a new SSH key
 
-Open Terminal. Paste the text below, substituting in your GitHub email address. This creates a new ssh key, using the provided email as a label.
+1. Open Terminal.
+2. Paste the text below, substituting in your GitHub email address. This creates a new ssh key, using the provided email as a label.
 
    ```bash
    ssh-keygen -t ed25519 -C "your_email@example.com"
@@ -30,40 +29,17 @@ Open Terminal. Paste the text below, substituting in your GitHub email address. 
 
 ### Add your SSH key to the ssh-agent
 
-Start the ssh-agent in the background.
+1. Start the ssh-agent in the background.
 
-```bash
-eval "$(ssh-agent -s)"
-```
+   ```bash
+   eval "$(ssh-agent -s)"
+   ```
 
-If you're using macOS Sierra 10.12.2 or later, you will need to modify your `~/.ssh/config` file to automatically load keys into the ssh-agent and store passphrases in your keychain.
+2. Add your SSH private key to the ssh-agent. If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_ed25519 in the command with the name of your private key file.
 
-First, check to see if your ~/.ssh/config file exists in the default location.
-
- ```bash
- open ~/.ssh/config
- ```
-
-If the file doesn't exist, create the file.
-
- ```bash
- touch ~/.ssh/config
- ```
-
-Next, open your ~/.ssh/config file, then modify the file to contain the following lines. If your SSH key file has a different name or path than the example code, modify the filename or path to match your current setup.
-
-```text
-Host github.com
-AddKeysToAgent yes
-UseKeychain yes
-IdentityFile ~/.ssh/id_ed25519
-```
-
-Add your SSH private key to the ssh-agent. If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_ed25519 in the command with the name of your private key file.
-
-```bash
-ssh-add --apple-use-keychain ~/.ssh/id_ed25519
-```
+   ```bash
+   ssh-add ~/.ssh/id_ed25519
+   ```
 
 ## SSH Access to Windows
 
@@ -296,4 +272,14 @@ To receive the files:
 ```bash
 croc --yes --overwrite <code>
 ```
+
+## Avoiding SSH passphrase prompt
+
+To avoid the SSH passphrase prompt, you can use
+
+```bash
+ssh-add
+```
+
+to add the key to the `ssh-agent` cache.
 

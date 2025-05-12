@@ -4,71 +4,71 @@
         <link>https://fakephysicist.github.io/tags/</link>
         <description>Tags - tag - fakephysicist</description>
         <generator>Hugo -- gohugo.io</generator><language>en-US</language><managingEditor>fakephysicist@outlook.com (fakephysicist)</managingEditor>
-            <webMaster>fakephysicist@outlook.com (fakephysicist)</webMaster><lastBuildDate>Sat, 10 Aug 2024 13:40:18 -0700</lastBuildDate><atom:link href="https://fakephysicist.github.io/tags/" rel="self" type="application/rss+xml" /><item>
-    <title>latex</title>
+            <webMaster>fakephysicist@outlook.com (fakephysicist)</webMaster><lastBuildDate>Sun, 11 May 2025 21:51:16 -0700</lastBuildDate><atom:link href="https://fakephysicist.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>Git</title>
+    <link>https://fakephysicist.github.io/tags/git/</link>
+    <pubDate>Sun, 11 May 2025 21:51:16 -0700</pubDate><author>
+        <name>fakephysicist</name>
+    </author><guid>https://fakephysicist.github.io/tags/git/</guid>
+    <description><![CDATA[]]></description>
+</item><item>
+    <title>Latex</title>
     <link>https://fakephysicist.github.io/tags/latex/</link>
     <pubDate>Sat, 10 Aug 2024 13:40:18 -0700</pubDate><author>
         <name>fakephysicist</name>
     </author><guid>https://fakephysicist.github.io/tags/latex/</guid>
     <description><![CDATA[]]></description>
 </item><item>
-    <title>mitsuba</title>
+    <title>Mitsuba</title>
     <link>https://fakephysicist.github.io/tags/mitsuba/</link>
     <pubDate>Sun, 04 Aug 2024 13:50:17 -0700</pubDate><author>
         <name>fakephysicist</name>
     </author><guid>https://fakephysicist.github.io/tags/mitsuba/</guid>
     <description><![CDATA[]]></description>
 </item><item>
-    <title>mac</title>
+    <title>Mac</title>
     <link>https://fakephysicist.github.io/tags/mac/</link>
     <pubDate>Wed, 04 Oct 2023 10:24:07 -0400</pubDate><author>
         <name>fakephysicist</name>
     </author><guid>https://fakephysicist.github.io/tags/mac/</guid>
     <description><![CDATA[]]></description>
 </item><item>
-    <title>git</title>
-    <link>https://fakephysicist.github.io/tags/git/</link>
-    <pubDate>Sun, 10 Sep 2023 17:55:56 -0700</pubDate><author>
-        <name>fakephysicist</name>
-    </author><guid>https://fakephysicist.github.io/tags/git/</guid>
-    <description><![CDATA[]]></description>
-</item><item>
-    <title>github</title>
+    <title>Github</title>
     <link>https://fakephysicist.github.io/tags/github/</link>
     <pubDate>Sun, 10 Sep 2023 17:55:56 -0700</pubDate><author>
         <name>fakephysicist</name>
     </author><guid>https://fakephysicist.github.io/tags/github/</guid>
     <description><![CDATA[]]></description>
 </item><item>
-    <title>ssh</title>
+    <title>Ssh</title>
     <link>https://fakephysicist.github.io/tags/ssh/</link>
     <pubDate>Sun, 10 Sep 2023 17:55:56 -0700</pubDate><author>
         <name>fakephysicist</name>
     </author><guid>https://fakephysicist.github.io/tags/ssh/</guid>
     <description><![CDATA[]]></description>
 </item><item>
-    <title>conda</title>
+    <title>Conda</title>
     <link>https://fakephysicist.github.io/tags/conda/</link>
     <pubDate>Wed, 09 Aug 2023 21:03:25 -0500</pubDate><author>
         <name>fakephysicist</name>
     </author><guid>https://fakephysicist.github.io/tags/conda/</guid>
     <description><![CDATA[]]></description>
 </item><item>
-    <title>python</title>
+    <title>Python</title>
     <link>https://fakephysicist.github.io/tags/python/</link>
     <pubDate>Wed, 09 Aug 2023 21:03:25 -0500</pubDate><author>
         <name>fakephysicist</name>
     </author><guid>https://fakephysicist.github.io/tags/python/</guid>
     <description><![CDATA[]]></description>
 </item><item>
-    <title>vscode</title>
+    <title>Vscode</title>
     <link>https://fakephysicist.github.io/tags/vscode/</link>
     <pubDate>Wed, 09 Aug 2023 21:03:25 -0500</pubDate><author>
         <name>fakephysicist</name>
     </author><guid>https://fakephysicist.github.io/tags/vscode/</guid>
     <description><![CDATA[]]></description>
 </item><item>
-    <title>doit</title>
+    <title>Doit</title>
     <link>https://fakephysicist.github.io/tags/doit/</link>
     <pubDate>Fri, 01 Jan 2021 02:43:06 -0500</pubDate><author>
         <name>fakephysicist</name>

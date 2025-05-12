@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>python - tag - fakephysicist</title>
+        <title>Python - tag - fakephysicist</title>
         <link>https://fakephysicist.github.io/tags/python/</link>
-        <description>python - tag - fakephysicist</description>
+        <description>Python - tag - fakephysicist</description>
         <generator>Hugo -- gohugo.io</generator><language>en-US</language><managingEditor>fakephysicist@outlook.com (fakephysicist)</managingEditor>
             <webMaster>fakephysicist@outlook.com (fakephysicist)</webMaster><lastBuildDate>Wed, 09 Aug 2023 21:03:25 -0500</lastBuildDate><atom:link href="https://fakephysicist.github.io/tags/python/" rel="self" type="application/rss+xml" /><item>
     <title>Conda Basics</title>
     <link>https://fakephysicist.github.io/conda-basics/</link>
     <pubDate>Wed, 09 Aug 2023 21:03:25 -0500</pubDate><author>
-                        <name>fakephysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/conda-basics/</guid>
+                        <name>fakephysicist</name><uri>https://fakephysicist.github.io/authors/fakephysicist/</uri></author><guid>https://fakephysicist.github.io/conda-basics/</guid>
     <description><![CDATA[<p>It is recommended to create a new environment for each project and leave the base environment untouched.</p>
 <p>In the following, we assume the environment name is <code>cs101</code>.</p>]]></description>
 </item></channel>

@@ -136,7 +136,7 @@ check_root_dir() {
 
 # Step 1: Update submodules
 check_root_dir
-git submodule update --init --recursive
+git submodule update --remote --merge
 
 # Step 2: Ensure public folder is deleted and add the submodule repository
 if [ -d "public" ]; then

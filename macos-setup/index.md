@@ -105,7 +105,7 @@ I prefer the `powerlevel10k` theme. One can find the installation instructions [
 
 3. Run `p10k configure` to configure the theme. (It will be automatically run when you open a new terminal window. I prefer not to install the recommended fonts.)
 
-## Software
+## High-efficiency software
 
 ### tldr
 
@@ -129,24 +129,23 @@ tldr <command>
 brew install tree
 ```
 
-## Conda
+## .gitignore
 
-See [conda-basics](../conda-basics) for more details.
-
-## SSH
-
-See [ssh-basics](../ssh-basics) for more details.
-
-## Git
-
-See [git-basics](../git-basics) for more details.
-
-## Useful Commands
-
-### Remove all `.DS_Store` files recursively
-
-Delete all `.DS_Store` files recursively and print the path of each deleted file:
+Set the global `.gitignore` file:
 
 ```bash
-find . -name ".DS_Store" -print -delete
+curl https://raw.githubusercontent.com/github/gitignore/master/Global/macOS.gitignore -o ~/.gitignore
 ```
+
+Config `git` to use the global `.gitignore` file:
+
+```bash
+git config --global core.excludesfile ~/.gitignore
+```
+
+visit [gitignore](gitignore.io) to generate a `.gitignore` file for your project.
+
+## conda
+
+See [conda-basics](./conda-basics) for more details.
+

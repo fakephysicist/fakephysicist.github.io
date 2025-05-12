@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>mac - tag - fakephysicist</title>
+        <title>Mac - tag - fakephysicist</title>
         <link>https://fakephysicist.github.io/tags/mac/</link>
-        <description>mac - tag - fakephysicist</description>
+        <description>Mac - tag - fakephysicist</description>
         <generator>Hugo -- gohugo.io</generator><language>en-US</language><managingEditor>fakephysicist@outlook.com (fakephysicist)</managingEditor>
             <webMaster>fakephysicist@outlook.com (fakephysicist)</webMaster><lastBuildDate>Wed, 04 Oct 2023 10:24:07 -0400</lastBuildDate><atom:link href="https://fakephysicist.github.io/tags/mac/" rel="self" type="application/rss+xml" /><item>
     <title>macOS Setup</title>
     <link>https://fakephysicist.github.io/macos-setup/</link>
     <pubDate>Wed, 04 Oct 2023 10:24:07 -0400</pubDate><author>
-                        <name>fakephysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/macos-setup/</guid>
+                        <name>fakephysicist</name><uri>https://fakephysicist.github.io/authors/fakephysicist/</uri></author><guid>https://fakephysicist.github.io/macos-setup/</guid>
     <description><![CDATA[<p>Some basics about setting up a development environment on macOS.</p>]]></description>
 </item></channel>
 </rss>

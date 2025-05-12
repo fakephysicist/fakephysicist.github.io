@@ -1,14 +1,14 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>mitsuba - tag - fakephysicist</title>
+        <title>Mitsuba - tag - fakephysicist</title>
         <link>https://fakephysicist.github.io/tags/mitsuba/</link>
-        <description>mitsuba - tag - fakephysicist</description>
+        <description>Mitsuba - tag - fakephysicist</description>
         <generator>Hugo -- gohugo.io</generator><language>en-US</language><managingEditor>fakephysicist@outlook.com (fakephysicist)</managingEditor>
             <webMaster>fakephysicist@outlook.com (fakephysicist)</webMaster><lastBuildDate>Sun, 04 Aug 2024 13:50:17 -0700</lastBuildDate><atom:link href="https://fakephysicist.github.io/tags/mitsuba/" rel="self" type="application/rss+xml" /><item>
     <title>Compile Mitsuba</title>
     <link>https://fakephysicist.github.io/compile-mitsuba/</link>
     <pubDate>Sun, 04 Aug 2024 13:50:17 -0700</pubDate><author>
-                        <name>fakephysicist</name><uri>https://fakephysicist.github.io/about/</uri><email>fakephysicist@outlook.com</email></author><guid>https://fakephysicist.github.io/compile-mitsuba/</guid>
+                        <name>fakephysicist</name><uri>https://fakephysicist.github.io/authors/fakephysicist/</uri></author><guid>https://fakephysicist.github.io/compile-mitsuba/</guid>
     <description><![CDATA[<p>In this post, I will show you how to compile Mitsuba from source code.</p>
 <p>Follow the instructions in the <a href="https://mitsuba.readthedocs.io/en/latest/src/developer_guide/compiling.html" target="_blank" rel="noopener noreferrer">documentation</a> to compile the project.</p>]]></description>
 </item></channel>
