@@ -30,40 +30,63 @@ Open Terminal. Paste the text below, substituting in your GitHub email address. 
 
 ### Add your SSH key to the ssh-agent
 
-Start the ssh-agent in the background.
+Use `ssh-agent` and `ssh-add` to manage your SSH keys. 
 
-```bash
-eval "$(ssh-agent -s)"
-```
+The `ssh-agent` is a program that runs in the background and stores your SSH keys. This allows you to use your SSH keys without having to enter your passphrase every time.
 
-If you're using macOS Sierra 10.12.2 or later, you will need to modify your `~/.ssh/config` file to automatically load keys into the ssh-agent and store passphrases in your keychain.
+`ssh-add` is a command that adds your SSH private key to the running ssh-agent. 
 
-First, check to see if your ~/.ssh/config file exists in the default location.
+1. Start the ssh-agent in the background.
 
- ```bash
- open ~/.ssh/config
- ```
 
-If the file doesn't exist, create the file.
-
- ```bash
- touch ~/.ssh/config
- ```
-
-Next, open your ~/.ssh/config file, then modify the file to contain the following lines. If your SSH key file has a different name or path than the example code, modify the filename or path to match your current setup.
-
-```text
-Host github.com
-AddKeysToAgent yes
-UseKeychain yes
-IdentityFile ~/.ssh/id_ed25519
-```
+2. Add your SSH private key to the ssh-agent.
 
 Add your SSH private key to the ssh-agent. If you created your key with a different name, or if you are adding an existing key that has a different name, replace id_ed25519 in the command with the name of your private key file.
 
 ```bash
 ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 ```
+
+3. To automatically load your keys into the ssh-agent on login, add the following lines to your `~/.ssh/config` file:
+
+```bash
+Host *
+    AddKeysToAgent yes
+    UseKeychain yes
+    IdentityFile ~/.ssh/id_ed25519
+```
+
+To open your `~/.ssh/config` file with `vscode`, use the command:
+
+```bash
+code ~/.ssh/config
+```
+
+## One-Time Setup for Passwordless SSH
+
+The high level idea is to generate a key pair on your local machine, copy the public key to the remote host (Adding it to the `~/.ssh/authorized_keys` file), and then test the connection. This allows you to connect to the remote host without entering a password each time.
+
+1. On local machine, generate a key pair using `ssh-keygen`.
+2. Copy the public key to the remote host's `~/.ssh/authorized_keys` file.
+
+```bash
+ssh-copy-id <username>@<hostname>
+```
+
+Or manually copy the public key to the remote host, appending it to the `~/.ssh/authorized_keys` file, and set the appropriate permissions:
+
+```bash
+cat ~/.ssh/id_ed25519.pub | ssh <username>@<hostname> 'mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys && chmod 700 ~/.ssh && chmod 600 ~/.ssh/authorized_keys'
+```
+
+3. Test the SSH connection to the remote host.
+
+```bash
+ssh <username>@<hostname>
+```
+
+If no password is required, the setup is successful.
+
 
 ## SSH Access to Windows
 
