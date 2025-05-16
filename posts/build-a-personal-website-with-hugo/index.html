@@ -44,7 +44,7 @@
                             "url": "https://fakephysicist.github.io/images/Apple-Devices-Preview.png",
                             "width":  3200 ,
                             "height":  2048 
-                        }],"genre": "posts","keywords":["hugo","doit"],"wordcount":  809 ,
+                        }],"genre": "posts","keywords":["hugo","doit"],"wordcount":  872 ,
         "url": "https://fakephysicist.github.io/posts/build-a-personal-website-with-hugo/","datePublished": "2021-01-01T02:43:06-05:00","dateModified": "2024-08-10T15:50:03-07:00","publisher": {
             "@type": "Organization",
             "name": "xxxx","logo": {
@@ -852,7 +852,7 @@
 </div>
 </li>
 <li>
-<p>Make sure the <code>public</code> folder is deleted. Make <code>fakephysicist.github.io</code> repository as a submodule, and set it in the <code>public</code> folder.</p>
+<p>Generate the website, and push the generated website to repository 2.</p>
 <div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
   <div class="
     
@@ -942,11 +942,16 @@
       tw-overflow-y-hidden
       tw-overflow-x-auto
       tw-scrollbar-thin
-      "><span class="line"><span class="cl">git submodule add -f -b main https://github.com/fakephysicist/fakephysicist.github.io.git public</span></span></code></pre>
+      "><span class="line"><span class="cl">hugo
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> public
+</span></span><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;Build website&#34;</span>
+</span></span><span class="line"><span class="cl">git push origin main
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ..</span></span></code></pre>
 </div>
 </li>
 <li>
-<p>Generate the website, and push the generated website to repository 2.</p>
+<p>Add, commit and push repository 1.</p>
 <div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
   <div class="
     
@@ -1036,18 +1041,14 @@
       tw-overflow-y-hidden
       tw-overflow-x-auto
       tw-scrollbar-thin
-      "><span class="line"><span class="cl">hugo
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> public
-</span></span><span class="line"><span class="cl">git add .
-</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;Build website&#34;</span>
-</span></span><span class="line"><span class="cl">git push origin main
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ..
-</span></span><span class="line"><span class="cl">rm -rf public</span></span></code></pre>
+      "><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;Publish website&#34;</span>
+</span></span><span class="line"><span class="cl">git push -u origin master</span></span></code></pre>
 </div>
 </li>
-<li>
-<p>Add, commit and push repository 1.</p>
-<div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
+</ol>
+<p>Next time you want to update the website, just execute the following script <code>deploy.sh</code>.</p>
+<div class="code-block highlight is-closed show-line-numbers  tw-group tw-my-2">
   <div class="
     
     tw-flex 
@@ -1136,13 +1137,60 @@
       tw-overflow-y-hidden
       tw-overflow-x-auto
       tw-scrollbar-thin
-      "><span class="line"><span class="cl">git add .
-</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;Publish website&#34;</span>
-</span></span><span class="line"><span class="cl">git push -u origin master</span></span></code></pre>
+      "><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nb">set</span> -e
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Optional: Custom commit message</span>
+</span></span><span class="line"><span class="cl"><span class="nv">commit_msg</span><span class="o">=</span><span class="si">${</span><span class="nv">1</span><span class="k">:-</span><span class="s2">&#34;Update site&#34;</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step 1: Ensure you&#39;re in the root of the Git repo</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> ! -d <span class="s2">&#34;.git&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;❌ You must run this script from the root of the Git repository.&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">exit</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step 2: Update the submodule if it&#39;s not initialized</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> ! -d <span class="s2">&#34;public/.git&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;➡️ Initializing submodule...&#34;</span>
+</span></span><span class="line"><span class="cl">    git submodule update --init --recursive
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step 3: Pull latest from GitHub Pages branch (optional, but safe)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;🔄 Updating submodule content...&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> public
+</span></span><span class="line"><span class="cl">git checkout main
+</span></span><span class="line"><span class="cl">git pull origin main
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ..
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step 4: Generate the site into public/</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;🏗 Running Hugo to build the site...&#34;</span>
+</span></span><span class="line"><span class="cl">hugo
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step 5: Commit &amp; push changes in public submodule</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> public
+</span></span><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl"><span class="k">if</span> git diff --cached --quiet<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;✅ No changes in public to commit.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">    git commit -m <span class="s2">&#34;</span><span class="nv">$commit_msg</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    git push origin main
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;✅ Pushed updates to GitHub Pages repo.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ..
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step 6: Commit &amp; push changes in main repo (content, config, etc.)</span>
+</span></span><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl"><span class="k">if</span> git diff --cached --quiet<span class="p">;</span> <span class="k">then</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;✅ No changes in main repo to commit.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl">    git commit -m <span class="s2">&#34;</span><span class="nv">$commit_msg</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    git push origin main
+</span></span><span class="line"><span class="cl">    <span class="nb">echo</span> <span class="s2">&#34;✅ Pushed changes to main repository.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">fi</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;🚀 Deployment complete!&#34;</span></span></span></code></pre>
 </div>
-</li>
-</ol>
-<p>Next time you want to update the website, just execute the following script.</p>
+<p>If this script is saved in the root directory of the project, you can run it with the following command:</p>
 <div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
   <div class="
     
@@ -1232,45 +1280,7 @@
       tw-overflow-y-hidden
       tw-overflow-x-auto
       tw-scrollbar-thin
-      "><span class="line"><span class="cl"><span class="cp">#!/bin/bash
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Ensure we exit on any error</span>
-</span></span><span class="line"><span class="cl"><span class="nb">set</span> -e
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Function to check current directory is the root of the repository</span>
-</span></span><span class="line"><span class="cl">check_root_dir<span class="o">()</span> <span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">[</span> ! -d <span class="s2">&#34;.git&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">echo</span> <span class="s2">&#34;Error: The script needs to be run from the root of the repository.&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="nb">exit</span> <span class="m">1</span>
-</span></span><span class="line"><span class="cl">    <span class="k">fi</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Step 1: Update submodules</span>
-</span></span><span class="line"><span class="cl">check_root_dir
-</span></span><span class="line"><span class="cl">git submodule update --remote --merge
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Step 2: Ensure public folder is deleted and add the submodule repository</span>
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> -d <span class="s2">&#34;public&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-</span></span><span class="line"><span class="cl">    rm -rf public
-</span></span><span class="line"><span class="cl"><span class="k">fi</span>
-</span></span><span class="line"><span class="cl">git submodule add -f -b main git@github.com:fakephysicist/fakephysicist.github.io.git public
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Step 3: Generate the website and push it to the submodule repository</span>
-</span></span><span class="line"><span class="cl">hugo
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> public
-</span></span><span class="line"><span class="cl">git add .
-</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;Build website&#34;</span>
-</span></span><span class="line"><span class="cl">git push origin main
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ..
-</span></span><span class="line"><span class="cl">rm -rf public
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Step 4: Add, commit and push the main repository</span>
-</span></span><span class="line"><span class="cl">git add .
-</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;Update website&#34;</span>
-</span></span><span class="line"><span class="cl">git push -u origin master
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Deployment completed successfully!&#34;</span></span></span></code></pre>
+      "><span class="line"><span class="cl">bash deploy.sh <span class="s2">&#34;&lt;your commit message&gt;&#34;</span></span></span></code></pre>
 </div>
 <h2 id="get-current-timestamp" class="headerLink">
     <a href="#get-current-timestamp" class="header-mark"></a>Get current timestamp</h2><div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">

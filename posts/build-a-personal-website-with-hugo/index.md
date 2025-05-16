@@ -92,13 +92,7 @@ Create these two repositories on GitHub, and then follow the steps below to depl
    git submodule add -f -b main <https://github.com/fakephysicist/fakephysicist.github.io.git> public
    ```
 
-4. Make sure the `public` folder is deleted. Make `fakephysicist.github.io` repository as a submodule, and set it in the `public` folder.
-
-   ```bash
-   git submodule add -f -b main https://github.com/fakephysicist/fakephysicist.github.io.git public
-   ```
-
-5. Generate the website, and push the generated website to repository 2.
+4. Generate the website, and push the generated website to repository 2.
 
    ```bash
    hugo
@@ -107,10 +101,9 @@ Create these two repositories on GitHub, and then follow the steps below to depl
    git commit -m "Build website"
    git push origin main
    cd ..
-   rm -rf public
    ```
 
-6. Add, commit and push repository 1.
+5. Add, commit and push repository 1.
 
    ```bash
    git add .
@@ -118,48 +111,67 @@ Create these two repositories on GitHub, and then follow the steps below to depl
    git push -u origin master
    ```
 
-Next time you want to update the website, just execute the following script.
+Next time you want to update the website, just execute the following script `deploy.sh`.
 
 ```bash
 #!/bin/bash
-
-# Ensure we exit on any error
 set -e
 
-# Function to check current directory is the root of the repository
-check_root_dir() {
-    if [ ! -d ".git" ]; then
-        echo "Error: The script needs to be run from the root of the repository."
-        exit 1
-    fi
-}
+# Optional: Custom commit message
+commit_msg=${1:-"Update site"}
 
-# Step 1: Update submodules
-check_root_dir
-git submodule update --remote --merge
-
-# Step 2: Ensure public folder is deleted and add the submodule repository
-if [ -d "public" ]; then
-    rm -rf public
+# Step 1: Ensure you're in the root of the Git repo
+if [ ! -d ".git" ]; then
+    echo "❌ You must run this script from the root of the Git repository."
+    exit 1
 fi
-git submodule add -f -b main git@github.com:fakephysicist/fakephysicist.github.io.git public
 
+# Step 2: Update the submodule if it's not initialized
+if [ ! -d "public/.git" ]; then
+    echo "➡️ Initializing submodule..."
+    git submodule update --init --recursive
+fi
 
-# Step 3: Generate the website and push it to the submodule repository
+# Step 3: Pull latest from GitHub Pages branch (optional, but safe)
+echo "🔄 Updating submodule content..."
+cd public
+git checkout main
+git pull origin main
+cd ..
+
+# Step 4: Generate the site into public/
+echo "🏗 Running Hugo to build the site..."
 hugo
+
+# Step 5: Commit & push changes in public submodule
 cd public
 git add .
-git commit -m "Build website"
-git push origin main
+if git diff --cached --quiet; then
+    echo "✅ No changes in public to commit."
+else
+    git commit -m "$commit_msg"
+    git push origin main
+    echo "✅ Pushed updates to GitHub Pages repo."
+fi
 cd ..
-rm -rf public
 
-# Step 4: Add, commit and push the main repository
+# Step 6: Commit & push changes in main repo (content, config, etc.)
 git add .
-git commit -m "Update website"
-git push -u origin master
+if git diff --cached --quiet; then
+    echo "✅ No changes in main repo to commit."
+else
+    git commit -m "$commit_msg"
+    git push origin main
+    echo "✅ Pushed changes to main repository."
+fi
 
-echo "Deployment completed successfully!"
+echo "🚀 Deployment complete!"
+```
+
+If this script is saved in the root directory of the project, you can run it with the following command:
+
+```bash
+bash deploy.sh "<your commit message>"
 ```
 
 ## Get current timestamp
