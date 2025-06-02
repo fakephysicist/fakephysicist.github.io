@@ -45,16 +45,35 @@ conda create -n cs101
 conda activate cs101
 ```
 
-## Install common packages for scientific computing
+## Install common packages for scientific computing, data science, and machine learning
 
 ```bash
-conda install -y numpy matplotlib scipy pandas sympy jupyterlab ipykernel ipywidgets pytest numba plotly
+conda create -n cs101 \
+pytorch torchvision torchaudio \
+numpy matplotlib scipy \
+pandas openpyxl seaborn \
+scikit-image opencv \
+sympy \
+shapely rasterio \
+colour-science tqdm \
+jupyterlab jupytext \
+ipykernel ipympl ipywidgets \
+pytest \
+black isort flake8 \
+-c pytorch -c conda-forge
 ```
 
-## Use `pip` to install packages not available in `Anaconda`
+## Use `pip` to install packages not available in `conda`
 
 ```bash
-pip install rocket-fft
+python -m pip install <package_name>
+```
+
+### DL and ML packages
+
+```bash
+# JAX Metal, experimental support for Apple Silicon
+python -m pip install jax-metal
 ```
 
 ## Install local modules/packages
