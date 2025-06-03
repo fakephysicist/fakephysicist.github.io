@@ -58,6 +58,7 @@ shapely rasterio \
 colour-science tqdm \
 jupyterlab jupytext \
 ipykernel ipympl ipywidgets \
+spyder \
 pytest \
 black isort flake8 \
 -c pytorch -c conda-forge
