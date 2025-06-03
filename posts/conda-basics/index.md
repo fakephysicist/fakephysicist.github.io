@@ -61,6 +61,7 @@ ipykernel ipympl ipywidgets \
 spyder \
 pytest \
 black isort flake8 \
+natsort \
 -c pytorch -c conda-forge
 ```
 

@@ -1,10 +1,10 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>MacOS - tag - fakephysicist</title>
-        <link>https://fakephysicist.github.io/tags/macos/</link>
-        <description>MacOS - tag - fakephysicist</description>
+        <title>VS Code - tag - fakephysicist</title>
+        <link>https://fakephysicist.github.io/tags/vs-code/</link>
+        <description>VS Code - tag - fakephysicist</description>
         <generator>Hugo -- gohugo.io</generator><language>en-US</language><managingEditor>fakephysicist@outlook.com (fakephysicist)</managingEditor>
-            <webMaster>fakephysicist@outlook.com (fakephysicist)</webMaster><lastBuildDate>Mon, 02 Jun 2025 20:57:33 -0700</lastBuildDate><atom:link href="https://fakephysicist.github.io/tags/macos/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>fakephysicist@outlook.com (fakephysicist)</webMaster><lastBuildDate>Mon, 02 Jun 2025 20:57:33 -0700</lastBuildDate><atom:link href="https://fakephysicist.github.io/tags/vs-code/" rel="self" type="application/rss+xml" /><item>
     <title>Working smarter on macOS</title>
     <link>https://fakephysicist.github.io/posts/working-smarter-on-macos/</link>
     <pubDate>Mon, 02 Jun 2025 20:57:33 -0700</pubDate><author>
