@@ -187,14 +187,21 @@ select{background:transparent;border:1px solid var(--line);border-radius:7px;pad
   main{padding:22px 18px calc(40px + var(--sab))}
 }
 /* web copy only: passphrase screen */
-#lock{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:24px}
+#lock{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:48px;padding:24px;user-select:none;-webkit-user-select:none}
 #lock[hidden]{display:none}
-#lock form{width:min(360px,100%);display:grid;gap:12px}
-#lock h1{font:600 22px/1.3 system-ui,sans-serif;margin:0 0 4px}
-#lock input[type=password]{font:inherit;font-size:17px;padding:11px 12px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink)}
-#lock label{font-size:14px;color:var(--muted);display:flex;gap:8px;align-items:center}
-#lock button[type=submit]{background:var(--accent);color:var(--paper);border-color:var(--accent);font-size:16px;padding:11px}
-#lockmsg{min-height:1.5em;margin:0;font-size:14px;color:var(--warn)}
+#dots{display:flex;gap:14px}
+#dots i{width:12px;height:12px;border-radius:50%;border:1.5px solid var(--ink);opacity:.5}
+#dots i.on{background:var(--ink);opacity:.8}
+#lock.busy #dots i{animation:pulse .9s ease-in-out infinite}
+#lock.shake #dots{animation:shake .42s}
+@keyframes pulse{50%{opacity:.15}}
+@keyframes shake{20%,60%{transform:translateX(-11px)}40%,80%{transform:translateX(11px)}}
+#keys{display:grid;grid-template-columns:repeat(3,78px);gap:18px 28px}
+#keys button{width:78px;height:78px;padding:0;border:none;border-radius:50%;background:var(--side);color:var(--ink);font:300 32px/1 system-ui,-apple-system,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+#keys button small{font:500 9px/1 system-ui,sans-serif;letter-spacing:2px;color:var(--muted)}
+#keys button:active{background:var(--line)}
+#keys button.del{background:transparent;font-size:24px}
+@media(prefers-color-scheme:dark){#lock{--bg:#202824;--side:#2c3731;--ink:#e6e8df;--muted:#a6b5aa;--line:#425046}}  /* before the reader's own theme is applied */
 @media print{header,aside,#sidebar,.divider,.chapnav{display:none}.shell{display:block}}
 </style>
 </head>
@@ -237,19 +244,13 @@ select{background:transparent;border:1px solid var(--line);border-radius:7px;pad
 <div id="lightbox" role="dialog" aria-label="图片放大"><img alt=""></div>
 <div id="pop" role="dialog"></div>
 <div id="lock" hidden>
-  <form id="lockform" autocomplete="on">
-    <h1>阅读</h1>
-    <input id="pass" type="password" autocomplete="current-password" placeholder="密码" aria-label="密码" required>
-    <label><input id="remember" type="checkbox" checked> 记住此设备</label>
-    <button type="submit">解锁</button>
-    <p id="lockmsg" role="alert"></p>
-    <button type="button" id="forget">忘记此设备保存的密码</button>
-  </form>
+  <div id="dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div id="keys"><button data-k="1">1<small>&nbsp;</small></button><button data-k="2">2<small>ABC</small></button><button data-k="3">3<small>DEF</small></button><button data-k="4">4<small>GHI</small></button><button data-k="5">5<small>JKL</small></button><button data-k="6">6<small>MNO</small></button><button data-k="7">7<small>PQRS</small></button><button data-k="8">8<small>TUV</small></button><button data-k="9">9<small>WXYZ</small></button><span></span><button data-k="0">0</button><button data-k="del" class="del" aria-label="删除">⌫</button></div>
 </div>
 <script>
 const LOADER = 'web';  // 'script': offline copy, data/*.js loaded with <script src>; 'web': encrypted copy built by publish_web.py
 
-/* ---------- web copy: every book file is AES-GCM encrypted, the key is derived from the passphrase (PBKDF2) ---------- */
+/* ---------- web copy: every book file is AES-GCM encrypted, the key is derived from an 8-digit code (PBKDF2) ---------- */
 const VAULT = LOADER !== 'web' ? null : (() => {
   const $ = s => document.querySelector(s);
   const SLOT = 'key:' + location.pathname;
@@ -287,21 +288,29 @@ const VAULT = LOADER !== 'web' ? null : (() => {
     const base = await crypto.subtle.importKey('raw', utf8.encode(pass), 'PBKDF2', false, ['deriveKey']);
     return crypto.subtle.deriveKey({name: 'PBKDF2', salt, iterations: man.iterations, hash: 'SHA-256'}, base, {name: 'AES-GCM', length: 256}, false, ['decrypt']);
   }
-  function askPassphrase(){
-    const btn = $('#lockform button[type=submit]'), msg = $('#lockmsg');
-    $('#lock').hidden = false; $('#pass').focus();
-    $('#forget').onclick = async () => { await forget(); msg.textContent = '已清除此设备保存的密钥。'; };
+  function askCode(){  // 8 digits on a phone-style keypad; no text at all, a wrong code just shakes the dots
+    const lock = $('#lock'), dots = [...lock.querySelectorAll('#dots i')];
+    let code = '', busy = false;
+    lock.hidden = false;
     return new Promise(resolve => {
-      $('#lockform').onsubmit = async e => {
-        e.preventDefault();
-        const pass = $('#pass').value.trim().normalize('NFC');
-        if (!pass) return;
-        btn.disabled = true; msg.textContent = '正在验证…';
-        const k = await derive(pass);
-        if (!await works(k)){ msg.textContent = '密码不对，请再试一次。'; btn.disabled = false; $('#pass').select(); return; }
-        if ($('#remember').checked) await idb('readwrite', s => s.put({key: k, salt: man.salt}, SLOT)).catch(() => {});
-        $('#pass').value = ''; msg.textContent = ''; $('#lock').hidden = true; resolve(k);
-      };
+      const show = () => dots.forEach((d, i) => d.classList.toggle('on', i < code.length));
+      async function press(k){
+        if (busy) return;
+        if (k === 'del'){ code = code.slice(0, -1); show(); return; }
+        if (code.length >= dots.length) return;
+        code += k; show();
+        if (code.length < dots.length) return;
+        busy = true; lock.classList.add('busy');
+        const k2 = await derive(code), good = await works(k2);
+        lock.classList.remove('busy'); busy = false;
+        if (!good){ code = ''; show(); lock.classList.remove('shake'); void lock.offsetWidth; lock.classList.add('shake'); return; }
+        await idb('readwrite', s => s.put({key: k2, salt: man.salt}, SLOT)).catch(() => {});  // always remembered
+        removeEventListener('keydown', onKey); lock.hidden = true; resolve(k2);
+      }
+      const onKey = e => { if (/^[0-9]$/.test(e.key)) press(e.key); else if (e.key === 'Backspace') press('del'); };
+      addEventListener('keydown', onKey);
+      lock.querySelector('#keys').onclick = e => { const b = e.target.closest('button[data-k]'); if (b) press(b.dataset.k); };
+      lock.addEventListener('animationend', () => lock.classList.remove('shake'));
     });
   }
   async function boot(){
@@ -313,7 +322,7 @@ const VAULT = LOADER !== 'web' ? null : (() => {
     man = await (await fetch('manifest.json', {cache: 'no-cache'})).json();
     const saved = await idb('readonly', s => s.get(SLOT)).catch(() => null);  // non-extractable CryptoKey
     key = saved && saved.salt === man.salt && await works(saved.key) ? saved.key : null;
-    if (!key){ if (saved) await forget(); key = await askPassphrase(); }
+    if (!key){ if (saved) await forget(); key = await askCode(); }
     const m = JSON.parse(new TextDecoder().decode(await gunzip(await decrypt(man.meta, 'meta'))));
     files = m.files;
     return m.meta;
@@ -873,7 +882,7 @@ addEventListener('hashchange', () => {
 });
 $('.brand').innerHTML = esc(META.brand[0]) + ' <small>' + esc(META.brand[1]) + '</small>';
 $('#translation').innerHTML = '<p class="hint">' + esc(META.about) + '按对齐可靠程度分为：<br>· <b>对应句群</b>：句子级对应，置信度高<br>· <b>对应段落</b>：只能确定所在段落<br>· <b>暂无可靠对应</b>：中文版缺这一段或无法确认，不会拿相邻译文来凑</p>';
-if (VAULT){ $('#prefsbox').insertAdjacentHTML('beforeend', '<button id="lockbtn" title="清除此设备保存的密钥，下次需要重新输入密码">锁定</button>'); $('#lockbtn').onclick = VAULT.lock; }
+if (VAULT){ $('#prefsbox').insertAdjacentHTML('beforeend', '<button id="lockbtn" title="锁定（下次打开需要重新解锁）">锁定</button>'); $('#lockbtn').onclick = VAULT.lock; }
 buildSidebar(); applyPrefs();
 const hash = decodeURIComponent(location.hash.slice(1)).split('/');
 if (hash[0] && tocById[hash[0]]) openUnit(hash[0], hash[1] || null, false);
