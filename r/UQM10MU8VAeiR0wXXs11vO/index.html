@@ -162,7 +162,7 @@ select{background:transparent;border:1px solid var(--line);border-radius:7px;pad
 @media(max-width:1279px){
   .shell{--sbw-eff:0px}
   #sbdiv{display:none}
-  body.nosb #sidebar,#sidebar{display:block;position:fixed;inset:0 auto 0 0;top:0;height:auto;width:min(380px,90vw);z-index:40;transform:translateX(-102%);transition:transform .18s ease;background:var(--paper)}
+  body.nosb #sidebar,#sidebar{display:block;position:fixed;inset:0 auto 0 0;top:0;bottom:auto;height:100vh;height:100dvh;overscroll-behavior:contain;width:min(380px,90vw);z-index:40;transform:translateX(-102%);transition:transform .18s ease;background:var(--paper)}
   #sidebar.open{transform:none}
   #scrim.open{display:block}
   header{padding:0 14px}.brand small{display:none}h1{font-size:34px}
@@ -535,7 +535,7 @@ function renderUnit(){
   const lastOfBead = {};
   U.blocks.forEach((b, i) => { if (b.b !== undefined) lastOfBead[b.b] = i; });
   let h = `<div class="eyebrow">${T.num ? 'Chapter ' + T.num : esc(T.en)}</div><h1>${esc(T.name || T.en)}</h1><div class="h1zh">${esc(t.zh)}</div>`;
-  h += `<div class="intro">点击英文句子查看中文版对应译文；也可以拖选一段英文。右侧标签说明对应的可靠程度。</div><article id="book">`;
+  h += `<div class="intro">点击英文句子查看中文版对应译文；也可以选中一段英文（手机上长按）。标签说明对应的可靠程度。</div><article id="book">`;
   // the blocks of one bead (always consecutive) share a .pair, so 全部双语 can put the Chinese beside them
   let run = null;
   const flush = () => { if (run){ h += `<div class="pair"><div class="pen">${run.html}</div>${run.zh}</div>`; run = null; } };
