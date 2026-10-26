@@ -1,0 +1,885 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<link rel="manifest" href="app.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="阅读">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>阅读</title>
+<style>
+:root{--bg:#f6f3ec;--side:#efebe2;--paper:#fffdf8;--ink:#292e2c;--muted:#727a74;--line:#dedfd5;--accent:#286651;--highlight:#e5eedc;--zhhi:#f3e6c4;--warn:#9a6a16;--font:21px;--zhfont:18px;--sat:env(safe-area-inset-top,0px);--sal:env(safe-area-inset-left,0px);--sar:env(safe-area-inset-right,0px);--sab:env(safe-area-inset-bottom,0px);--hdr:calc(64px + var(--sat));--sbw:272px;--inw:clamp(360px,26vw,640px)}
+*{box-sizing:border-box}
+html{scroll-padding-top:90px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"PingFang SC","Noto Sans SC",sans-serif}
+body.dark{--bg:#202824;--side:#1b221e;--paper:#26312b;--ink:#e6e8df;--muted:#a6b5aa;--line:#425046;--accent:#a0cbb5;--highlight:#3a5141;--zhhi:#5a4f2e;--warn:#e0b45c}
+body.resizing{cursor:col-resize;user-select:none}
+header{position:sticky;top:0;z-index:20;height:var(--hdr);background:var(--bg);border-bottom:1px solid var(--line);padding:var(--sat) calc(20px + var(--sar)) 0 calc(20px + var(--sal));display:flex;gap:18px;align-items:center;justify-content:space-between}
+.hl{display:flex;gap:14px;align-items:center}
+button.icon{padding:6px 8px;line-height:0}
+button.icon svg{width:20px;height:16px;fill:none;stroke:currentColor;stroke-width:1.4}
+button.icon[aria-pressed="false"]{color:var(--muted)}
+.brand{font-size:15px;font-weight:650;white-space:nowrap}
+.brand small{display:block;font-weight:400;color:var(--muted);font-size:11px;letter-spacing:1.5px;margin-top:4px}
+#chapbtn{display:flex;flex-direction:column;align-items:flex-start;max-width:420px;text-align:left;line-height:1.35}
+#chapbtn b{font-weight:600;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+#chapbtn span{font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+button{background:transparent;border:1px solid var(--line);border-radius:7px;padding:7px 11px;color:var(--ink);font:inherit;font-size:13px;cursor:pointer}
+@media(hover:hover){button:hover{background:var(--highlight)}}
+button[aria-pressed="true"]{background:var(--highlight);border-color:var(--accent)}
+.tools{display:flex;gap:7px;align-items:center}
+#progress{height:2px;background:var(--accent);position:absolute;bottom:-1px;left:0;width:0}
+/* split view: sidebar | content | inspector, filling the window. Pane widths are clamped so the content keeps ≥ 520px. */
+.shell{--sbw-eff:min(var(--sbw),max(200px,100vw - 820px));--inw-eff:min(var(--inw),max(300px,100vw - var(--sbw-eff) - 520px));display:grid;grid-template-columns:var(--sbw-eff) minmax(0,1fr) var(--inw-eff)}
+#sidebar{grid-column:1}main{grid-column:2}aside{grid-column:3}  /* fixed columns, so hiding a pane never shifts the others */
+body.nosb .shell{--sbw-eff:0px}
+body.noinsp .shell{--inw-eff:0px}
+body.nosb #sidebar,body.noinsp aside,body.nosb #sbdiv,body.noinsp #indiv{display:none}
+#sidebar{position:sticky;top:var(--hdr);align-self:start;height:calc(100vh - var(--hdr));overflow:auto;background:var(--side);border-right:1px solid var(--line);padding:16px 14px 40px}
+.divider{position:fixed;top:var(--hdr);bottom:0;width:9px;z-index:15;cursor:col-resize;touch-action:none}
+.divider::after{content:"";position:absolute;top:0;bottom:0;left:4px;width:1px;background:transparent;transition:background .15s}
+.divider.drag::after{background:var(--accent);width:2px;left:3.5px}
+#sbdiv{left:calc(var(--sbw-eff) - 5px)}
+#indiv{right:calc(var(--inw-eff) + var(--sar) - 5px)}
+@media(hover:hover){.divider:hover::after{background:var(--accent);width:2px;left:3.5px}}
+/* notch / home indicator (the iOS app draws edge to edge) */
+.shell{padding-left:var(--sal);padding-right:var(--sar)}
+#sidebar,aside{padding-bottom:calc(30px + var(--sab))}
+#sidebar h4{font-size:11px;letter-spacing:2px;color:var(--accent);margin:18px 8px 6px;font-weight:600}
+#sidebar h4:first-child{margin-top:4px}
+#sidebar a{display:block;color:var(--ink);text-decoration:none;padding:6px 8px;border-radius:6px;line-height:1.4;font-size:14px}
+@media(hover:hover){#sidebar a:hover{background:var(--highlight)}}
+#sidebar a.cur{background:var(--highlight);font-weight:600}
+#sidebar a small{display:block;color:var(--muted);font-size:12px;font-weight:400}
+#sidebar .secs{margin:2px 0 8px}
+#sidebar .secs a{padding:4px 8px 4px 20px;font-size:13px;border-left:2px solid transparent;border-radius:0 6px 6px 0}
+#sidebar .secs a.l3{padding-left:34px;font-size:12px;color:var(--muted)}
+#sidebar .secs a.on{border-left-color:var(--accent);background:var(--highlight)}
+#sidebar .ol-prog{height:3px;background:var(--line);border-radius:2px;margin:8px 8px 3px 20px;overflow:hidden}
+#sidebar .ol-prog i{display:block;height:100%;width:0;background:var(--accent)}
+#sidebar .ol-pct{font-size:11px;color:var(--muted);margin:0 8px 6px 20px}
+/* content: text keeps a readable measure inside the flexible pane */
+main{min-width:0;padding:44px clamp(24px,3.5vw,60px) calc(60px + var(--sab));container-type:inline-size}
+main>*{max-width:calc(var(--font) * 36);margin-left:auto;margin-right:auto}
+.eyebrow{color:var(--accent);font-size:12px;letter-spacing:2px;text-transform:uppercase}
+h1{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:42px;line-height:1.16;letter-spacing:-.5px;margin:14px 0 8px}
+.h1zh{font-size:17px;color:var(--muted);margin-bottom:26px}
+.intro{font-size:13px;line-height:1.9;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:30px}
+.blk{scroll-margin-top:100px;position:relative}
+.english{font-family:Georgia,"Times New Roman",serif;font-size:var(--font);line-height:1.85;margin:0 0 22px}
+.english.quote{margin-left:1.6em;font-size:calc(var(--font)*.92)}
+.english.epi{font-style:italic;margin-left:20%;font-size:calc(var(--font)*.9)}
+.english.epi_src{text-align:right;font-size:calc(var(--font)*.85);color:var(--muted)}
+.english.formula{text-align:center}
+.english.li{margin-left:1.6em;display:list-item;list-style:disc}
+.english .sc{font-variant:small-caps;letter-spacing:.3px}
+.part{font:600 13px/1.6 system-ui;letter-spacing:3px;text-transform:uppercase;color:var(--accent);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:0 0 26px;cursor:pointer}
+h2.h,h3.h{font-family:system-ui,sans-serif;color:var(--accent);margin:46px 0 20px;cursor:pointer}
+h2.h{font-weight:600;font-size:16px;letter-spacing:1px;text-transform:uppercase}
+h3.h{font-weight:600;font-size:16px;letter-spacing:.2px}
+.s{border-radius:3px;cursor:pointer}
+.s:focus-visible{background:var(--highlight);outline:none}
+@media(hover:hover){.s:hover{background:var(--highlight)}}
+.s.active,.blk.active>h2,.blk.active>h3,.blk.active>.part{background:var(--highlight);box-shadow:0 2px var(--accent)}
+.s.ingroup{background:var(--highlight)}
+sup.fnref{color:var(--accent);cursor:pointer;font-family:system-ui;font-weight:700;padding:0 2px}
+.caption{font:600 13px/1.6 system-ui;letter-spacing:.6px;color:var(--ink);margin:30px 0 8px;text-transform:uppercase}
+.source{font-size:12px;color:var(--muted);margin:6px 0 22px;line-height:1.6}
+.source .s,.caption .s{cursor:pointer}
+figure{margin:18px 0 8px}
+figure img{max-width:100%;height:auto;display:block;margin:auto;border-radius:4px;cursor:zoom-in;background:#fff}
+.tablewrap{overflow-x:auto;margin:10px 0 18px;border:1px solid var(--line);border-radius:6px;background:var(--paper)}
+.tablewrap table{border-collapse:collapse;font-size:13px;min-width:100%}
+.tablewrap td{border-bottom:1px solid var(--line);padding:6px 10px;vertical-align:top}
+.tablewrap tr:first-child td{font-weight:600}
+.inline{display:none;background:var(--paper);border-left:2px solid var(--accent);padding:14px 18px;font-size:var(--zhfont);line-height:1.9;margin:-8px 0 24px}
+.inline.none{border-left-color:var(--line);color:var(--muted);font-size:13px}
+body.all .inline,body.noinsp .inline.revealed{display:block}
+.inline .meta{font-size:11px;color:var(--muted);margin-top:6px;letter-spacing:.5px}
+/* 全部双语 on a wide content pane: English | 中文 side by side, one row per alignment block */
+@container (min-width:960px){
+  body.all #book{max-width:calc(var(--font) * 34 + var(--zhfont) * 32 + 40px)}
+  body.all #book>.blk{max-width:calc(var(--font) * 34)}
+  body.all .pair{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;align-items:start}
+  body.all .pair .inline{margin:0 0 22px}
+}
+mark{background:var(--zhhi);color:inherit;border-radius:2px;padding:0 1px}
+aside{position:sticky;top:var(--hdr);align-self:start;height:calc(100vh - var(--hdr));overflow:auto;background:var(--paper);border-left:1px solid var(--line);padding:22px 26px 30px}
+.aside-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.chip{display:inline-block;font-size:11px;letter-spacing:1px;padding:3px 9px;border-radius:20px;border:1px solid var(--line);color:var(--muted)}
+.chip.sent{color:var(--accent);border-color:var(--accent)}
+.chip.para{color:var(--warn);border-color:var(--warn)}
+#selected{font:italic 15px/1.6 Georgia,serif;color:var(--muted);border-bottom:1px solid var(--line);padding:14px 0;margin:0}
+#translation{font-size:var(--zhfont);line-height:1.95;margin-top:16px}
+#translation .grp{font-size:calc(var(--zhfont)*1.06)}
+#translation .ctx{margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);font-size:calc(var(--zhfont)*.86);color:var(--muted);line-height:1.9}
+#translation .ctx mark{color:var(--ink)}
+#translation .multi{border-left:2px solid var(--line);padding-left:12px;margin:0 0 16px}
+#translation .multi .lab{font:12px/1.5 Georgia,serif;color:var(--muted);font-style:italic;margin-bottom:4px}
+#note{font-size:12px;color:var(--warn);line-height:1.7}
+.zhnote{font-size:13px;color:var(--muted);border-top:1px solid var(--line);margin-top:12px;padding-top:10px;line-height:1.8}
+.nav{display:flex;justify-content:space-between;margin-top:18px;gap:8px}
+.hint{font-size:12px;line-height:1.8;color:var(--muted)}
+.chapnav{display:flex;justify-content:space-between;gap:12px;margin:46px 0 10px}
+.chapnav button{padding:12px 16px;text-align:left;max-width:48%}
+.chapnav small{display:block;color:var(--muted);font-size:11px;margin-bottom:3px}
+footer{border-top:1px solid var(--line);padding:22px 0;font-size:12px;color:var(--muted);line-height:1.8}
+.zhonly p{font-size:calc(var(--zhfont)*1.05);line-height:2;margin:0 0 18px;text-indent:2em}
+.zhonly h2,.zhonly h3{color:var(--accent);font-size:17px;margin:34px 0 14px}
+.banner{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:12px 16px;font-size:13px;color:var(--muted);margin-bottom:26px}
+#scrim{position:fixed;inset:0;background:rgba(0,0,0,.25);z-index:30;display:none}
+/* lightbox & popover */
+#lightbox{position:fixed;inset:0;background:rgba(20,24,22,.86);z-index:50;display:none;align-items:center;justify-content:center;cursor:zoom-out;padding:3vh 3vw}
+#lightbox.open{display:flex}
+#lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:4px}
+#pop{position:fixed;max-height:60vh;overflow:auto;z-index:45;max-width:min(460px,90vw);background:var(--paper);border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 30px rgba(0,0,0,.15);padding:14px 16px;font-size:14px;line-height:1.75;display:none}
+#pop .en{font-family:Georgia,serif;margin-bottom:10px}
+#pop .zh{color:var(--ink);border-top:1px solid var(--line);padding-top:8px}
+#pop .lab{font-size:11px;color:var(--accent);letter-spacing:1px;margin-bottom:6px}
+.loading{color:var(--muted);padding:40px 0}
+#dictcard{display:none;border:1px solid var(--line);border-radius:9px;padding:12px 14px;margin:12px 0 4px;background:var(--bg)}
+#dictcard.on{display:block}
+.dc-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.dc-w{font:600 20px/1.3 Georgia,serif}
+.dc-p{font-size:13px;color:var(--muted)}
+.dc-star{color:var(--warn);font-size:12px;letter-spacing:1px}
+.dc-form{font-size:12px;color:var(--accent);margin-top:4px}
+.dc-t{margin:6px 0 0;padding:0;list-style:none;font-size:14px;line-height:1.7}
+.dc-g{margin-top:6px}
+.dc-g span{display:inline-block;font-size:11px;border:1px solid var(--line);border-radius:10px;padding:0 7px;margin:2px 4px 0 0;color:var(--muted)}
+.dc-src{font-size:10px;color:var(--muted);margin-top:6px}
+.nw{text-decoration:underline dotted var(--accent);text-decoration-thickness:1.5px;text-underline-offset:4px}
+select{background:transparent;border:1px solid var(--line);border-radius:7px;padding:6px 8px;color:var(--ink);font:inherit;font-size:13px;cursor:pointer}
+.zfig{margin:4px 0 20px;font-size:13px;color:var(--accent)}
+.zfig summary{cursor:pointer;padding:4px 0}
+.zfig figure{margin:10px 0}
+/* medium windows (incl. iPad landscape): the sidebar becomes a slide-in overlay */
+@media(max-width:1279px){
+  .shell{--sbw-eff:0px}
+  #sbdiv{display:none}
+  body.nosb #sidebar,#sidebar{display:block;position:fixed;inset:0 auto 0 0;top:0;height:auto;width:min(380px,90vw);z-index:40;transform:translateX(-102%);transition:transform .18s ease;background:var(--paper)}
+  #sidebar.open{transform:none}
+  #scrim.open{display:block}
+  header{padding:0 14px}.brand small{display:none}h1{font-size:34px}
+}
+/* compact: one column, Chinese shown under the clicked paragraph */
+#aa{display:none;font:600 15px/1 Georgia,serif;padding:7px 10px}
+#prefsbox{display:contents}
+/* compact (iPhone): one-row toolbar, settings behind "Aa" (as in Apple Books), toolbar slides away while reading */
+@media(max-width:719px){
+  :root{--hdr:calc(52px + var(--sat))}
+  header{gap:10px;padding:var(--sat) calc(10px + var(--sar)) 0 calc(10px + var(--sal));transition:transform .2s ease}
+  body.hidehdr header{transform:translateY(-100%)}
+  .brand,aside,#indiv,#intoggle{display:none}
+  .shell{display:block}
+  #chapbtn{flex:1;min-width:0;max-width:none;padding:5px 10px}
+  #aa{display:inline-block}
+  #prefsbox{display:none}
+  #prefsbox.open{display:grid;grid-template-columns:1fr 1fr;gap:8px;position:fixed;top:calc(var(--hdr) + 6px);right:calc(10px + var(--sar));z-index:25;width:230px;padding:12px;background:var(--paper);border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.15)}
+  #prefsbox.open #mode,#prefsbox.open #lvl{grid-column:span 2}
+  #prefsbox button,#prefsbox select{padding:10px;font-size:15px}
+  .inline.revealed{display:block}
+  main{padding:22px 18px calc(40px + var(--sab))}
+}
+/* web copy only: passphrase screen */
+#lock{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:24px}
+#lock[hidden]{display:none}
+#lock form{width:min(360px,100%);display:grid;gap:12px}
+#lock h1{font:600 22px/1.3 system-ui,sans-serif;margin:0 0 4px}
+#lock input[type=password]{font:inherit;font-size:17px;padding:11px 12px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink)}
+#lock label{font-size:14px;color:var(--muted);display:flex;gap:8px;align-items:center}
+#lock button[type=submit]{background:var(--accent);color:var(--paper);border-color:var(--accent);font-size:16px;padding:11px}
+#lockmsg{min-height:1.5em;margin:0;font-size:14px;color:var(--warn)}
+@media print{header,aside,#sidebar,.divider,.chapnav{display:none}.shell{display:block}}
+</style>
+</head>
+<body>
+<header>
+  <div class="hl">
+    <button id="sbtoggle" class="icon" aria-controls="sidebar" aria-pressed="true" aria-label="显示或隐藏目录" title="显示/隐藏目录 (C)"><svg viewBox="0 0 20 16"><rect x=".7" y=".7" width="18.6" height="14.6" rx="3"/><path d="M7 .7v14.6M2.8 4.5h2.4M2.8 7h2.4M2.8 9.5h2.4"/></svg></button>
+    <div class="brand"></div>
+  </div>
+  <button id="chapbtn" aria-controls="sidebar" title="目录 (C)"><b id="chapEn">目录</b><span id="chapZh"></span></button>
+  <div class="tools">
+    <button id="aa" aria-controls="prefsbox" aria-expanded="false" aria-label="阅读设置" title="阅读设置">Aa</button>
+    <div id="prefsbox">
+    <button id="smaller" aria-label="缩小字号" title="缩小字号 (-)">A−</button>
+    <button id="larger" aria-label="放大字号" title="放大字号 (+)">A+</button>
+    <button id="mode" aria-pressed="false" title="全部双语 (B)">全部双语</button>
+    <select id="lvl" title="在正文中标出生词（按 ECDICT 考试等级）" aria-label="标出生词"><option value="0">生词：关</option><option value="1">四级以上</option><option value="2">六级以上</option><option value="3">GRE 级</option></select>
+    <button id="theme" title="深浅主题">深色</button>
+    </div>
+    <button id="intoggle" class="icon" aria-pressed="true" aria-label="显示或隐藏译文栏" title="显示/隐藏译文栏 (I)"><svg viewBox="0 0 20 16"><rect x=".7" y=".7" width="18.6" height="14.6" rx="3"/><path d="M13 .7v14.6M14.8 4.5h2.4M14.8 7h2.4M14.8 9.5h2.4"/></svg></button>
+  </div>
+  <div id="progress"></div>
+</header>
+<div id="scrim"></div>
+<div class="shell">
+  <nav id="sidebar" aria-label="目录"></nav>
+  <div class="divider" id="sbdiv" role="separator" aria-orientation="vertical" title="拖动调整目录宽度，双击恢复默认"></div>
+  <main id="main"><div class="loading">正在载入…</div></main>
+  <div class="divider" id="indiv" role="separator" aria-orientation="vertical" title="拖动调整译文栏宽度，双击恢复默认"></div>
+  <aside aria-label="对应中文">
+    <div class="aside-top"><span class="chip" id="level">中文版原文</span></div>
+    <div id="dictcard" aria-live="polite"></div>
+    <p id="selected">点击左侧英文句子，或选中一段英文；双击单词可查词典。</p>
+    <div id="translation" aria-live="polite"></div>
+    <p id="note"></p>
+    <div class="nav"><button id="prev" title="上一处 (↑ / K)">← 上一处</button><button id="next" title="下一处 (↓ / J)">下一处 →</button></div>
+    <p class="hint">双击单词查词典 · 快捷键：↑↓ 或 J/K 切换上一处/下一处 · [ ] 切换章节 · B 全部双语 · C 目录 · I 译文栏 · Esc 关闭</p>
+  </aside>
+</div>
+<div id="lightbox" role="dialog" aria-label="图片放大"><img alt=""></div>
+<div id="pop" role="dialog"></div>
+<div id="lock" hidden>
+  <form id="lockform" autocomplete="on">
+    <h1>阅读</h1>
+    <input id="pass" type="password" autocomplete="current-password" placeholder="密码" aria-label="密码" required>
+    <label><input id="remember" type="checkbox" checked> 记住此设备</label>
+    <button type="submit">解锁</button>
+    <p id="lockmsg" role="alert"></p>
+    <button type="button" id="forget">忘记此设备保存的密码</button>
+  </form>
+</div>
+<script>
+const LOADER = 'web';  // 'script': offline copy, data/*.js loaded with <script src>; 'web': encrypted copy built by publish_web.py
+
+/* ---------- web copy: every book file is AES-GCM encrypted, the key is derived from the passphrase (PBKDF2) ---------- */
+const VAULT = LOADER !== 'web' ? null : (() => {
+  const $ = s => document.querySelector(s);
+  const SLOT = 'key:' + location.pathname;
+  const utf8 = new TextEncoder();
+  let man, key, files;
+  const urls = new Set();  // Blob URLs of the images on screen
+  function idb(mode, fn){
+    return new Promise((resolve, reject) => {
+      const o = indexedDB.open('reader', 1);
+      o.onupgradeneeded = () => o.result.createObjectStore('kv');
+      o.onerror = () => reject(o.error);
+      o.onsuccess = () => {
+        const tx = o.result.transaction('kv', mode), r = fn(tx.objectStore('kv'));
+        tx.oncomplete = () => resolve(r.result); tx.onerror = () => reject(tx.error);
+      };
+    });
+  }
+  const forget = () => idb('readwrite', s => s.delete(SLOT)).catch(() => {});
+  const gunzip = buf => new Response(new Blob([buf]).stream().pipeThrough(new DecompressionStream('gzip'))).arrayBuffer();
+  async function decrypt(name, aad, k = key){  // file layout: IV (12 bytes) ‖ ciphertext ‖ GCM tag
+    const r = await fetch('d/' + name);
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const buf = await r.arrayBuffer();
+    return crypto.subtle.decrypt({name: 'AES-GCM', iv: buf.slice(0, 12), additionalData: utf8.encode(aad)}, k, buf.slice(12));
+  }
+  async function open(logical){  // original bytes of e.g. 'data/ch01.js' or 'images/image00339.jpeg' (stored as WebP)
+    const f = files[logical];
+    if (!f) throw new Error('缺少文件');
+    const buf = await decrypt(f.f, logical);
+    return f.gz ? gunzip(buf) : buf;
+  }
+  const works = k => decrypt(man.check, 'check', k).then(() => true, () => false);  // GCM refuses a wrong key
+  async function derive(pass){
+    const salt = Uint8Array.from(atob(man.salt), c => c.charCodeAt(0));
+    const base = await crypto.subtle.importKey('raw', utf8.encode(pass), 'PBKDF2', false, ['deriveKey']);
+    return crypto.subtle.deriveKey({name: 'PBKDF2', salt, iterations: man.iterations, hash: 'SHA-256'}, base, {name: 'AES-GCM', length: 256}, false, ['decrypt']);
+  }
+  function askPassphrase(){
+    const btn = $('#lockform button[type=submit]'), msg = $('#lockmsg');
+    $('#lock').hidden = false; $('#pass').focus();
+    $('#forget').onclick = async () => { await forget(); msg.textContent = '已清除此设备保存的密钥。'; };
+    return new Promise(resolve => {
+      $('#lockform').onsubmit = async e => {
+        e.preventDefault();
+        const pass = $('#pass').value.trim().normalize('NFC');
+        if (!pass) return;
+        btn.disabled = true; msg.textContent = '正在验证…';
+        const k = await derive(pass);
+        if (!await works(k)){ msg.textContent = '密码不对，请再试一次。'; btn.disabled = false; $('#pass').select(); return; }
+        if ($('#remember').checked) await idb('readwrite', s => s.put({key: k, salt: man.salt}, SLOT)).catch(() => {});
+        $('#pass').value = ''; msg.textContent = ''; $('#lock').hidden = true; resolve(k);
+      };
+    });
+  }
+  async function boot(){
+    if ('serviceWorker' in navigator){  // offline copy; a new build takes over on the next visit and the page reloads once
+      const had = !!navigator.serviceWorker.controller;
+      navigator.serviceWorker.addEventListener('controllerchange', () => { if (had) location.reload(); });
+      navigator.serviceWorker.register('sw.js').catch(() => {});
+    }
+    man = await (await fetch('manifest.json', {cache: 'no-cache'})).json();
+    const saved = await idb('readonly', s => s.get(SLOT)).catch(() => null);  // non-extractable CryptoKey
+    key = saved && saved.salt === man.salt && await works(saved.key) ? saved.key : null;
+    if (!key){ if (saved) await forget(); key = await askPassphrase(); }
+    const m = JSON.parse(new TextDecoder().decode(await gunzip(await decrypt(man.meta, 'meta'))));
+    files = m.files;
+    return m.meta;
+  }
+  const scriptUrl = async logical => URL.createObjectURL(new Blob([await open(logical)], {type: 'text/javascript'}));
+  async function reveal(img){
+    try { const u = URL.createObjectURL(new Blob([await open(img.dataset.src)], {type: 'image/webp'})); urls.add(u); img.src = u; }
+    catch (err){ img.alt = '图片载入失败'; }
+  }
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ io.unobserve(e.target); reveal(e.target); } }), {rootMargin: '800px 0px'});
+  function images(root){  // after each render: free the previous images, decrypt new ones as they near the viewport
+    io.disconnect(); urls.forEach(u => URL.revokeObjectURL(u)); urls.clear();
+    root.querySelectorAll('img[data-src]').forEach(img => io.observe(img));
+  }
+  function imgAttr(src){  // width/height keep the layout stable before the image is decrypted
+    const f = files['images/' + src] || {};
+    return `data-src="images/${src.replace(/[^\w./-]/g, '')}"` + (f.w ? ` width="${f.w}" height="${f.h}"` : '');
+  }
+  return {boot, scriptUrl, images, imgAttr, lock: () => forget().then(() => location.reload())};
+})();
+
+function app(META){
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const KEY = 'walk:' + META.book + ':';
+const store = {
+  get(k){ try { return JSON.parse(localStorage.getItem(KEY + k)); } catch { return null; } },
+  set(k, v){ try { localStorage.setItem(KEY + k, JSON.stringify(v)); } catch {} }
+};
+const UNITS = {}; // loaded unit data
+let U = null;      // current unit
+let cur = null;    // current selection {bead, group} or {beads:[...]}
+const prefs = Object.assign({fontSize: null, dark: null, all: false, lvl: 0, sidebar: true, inspector: true}, store.get('prefs') || {});
+delete prefs.size;  // round-2 key
+// text size is the reader's choice (A− / A+), never tied to window width; the default follows the platform (iOS body text is smaller than macOS)
+const PHONE = Math.min(screen.width, screen.height) < 600;
+const fontSize = () => prefs.fontSize || (PHONE ? 19 : 21);
+const REGULAR = 1280;  // below this the sidebar is an overlay instead of a pane
+const tocById = Object.fromEntries(META.toc.map(t => [t.id, t]));
+const readingOrder = [...META.zhonly, ...META.order];
+
+window.WALK = { register(data){ const id = data.id; UNITS[id] = data; const cb = pending[id]; delete pending[id]; cb && cb(data); } };
+const pending = {};
+let DICT = null, dictWaiters = [];
+WALK.dict = data => { DICT = data; dictWaiters.forEach(f => f(data)); dictWaiters = []; };
+function loadDict(){
+  if (DICT) return Promise.resolve(DICT);
+  return new Promise((resolve, reject) => {
+    dictWaiters.push(resolve);
+    if (dictWaiters.length > 1) return;
+    loadScript('data/dict.js').catch(() => reject(new Error('无法载入词典')));
+  });
+}
+function loadScript(path){  // offline: <script src>; web copy: decrypted, then run from a Blob URL
+  return (VAULT ? VAULT.scriptUrl(path) : Promise.resolve(path)).then(src => new Promise((resolve, reject) => {
+    const s = document.createElement('script'); s.src = src;
+    s.onload = () => { if (VAULT) URL.revokeObjectURL(src); resolve(); };
+    s.onerror = reject; document.head.appendChild(s);
+  }));
+}
+const imgAttr = src => VAULT ? VAULT.imgAttr(src) : `src="images/${esc(src)}"`;
+function lookup(raw){
+  let w = raw.toLowerCase().replace(/[’']s$/, '').replace(/^[^a-z]+|[^a-z]+$/g, '');
+  if (!DICT || !w) return null;
+  const E = DICT.entries, F = DICT.forms;
+  if (E[w] && F[w] && E[F[w][0]]) return {e: E[w], also: E[F[w][0]], form: w, kind: F[w][1]};
+  if (F[w] && E[F[w][0]]) return {e: E[F[w][0]], form: w, kind: F[w][1]};
+  if (E[w]) return {e: E[w]};
+  for (const [suf, add] of [['ies', 'y'], ['es', ''], ['s', ''], ['ed', ''], ['ed', 'e'], ['ing', ''], ['ing', 'e'], ['ly', '']]){
+    if (w.endsWith(suf) && E[w.slice(0, -suf.length) + add]) return {e: E[w.slice(0, -suf.length) + add], form: w, kind: '变形'};
+  }
+  return null;
+}
+function cardHtml(word, r){
+  if (!r) return `<div class="dc-head"><span class="dc-w">${esc(word)}</span></div><div class="hint">词典未收录（多为人名、机构、代码或新词）。</div>`;
+  const e = r.e;
+  return `<div class="dc-head"><span class="dc-w">${esc(e.w)}</span>${e.p ? `<span class="dc-p">/${esc(e.p)}/</span>` : ''}${e.c ? `<span class="dc-star" title="柯林斯星级">${'★'.repeat(e.c)}</span>` : ''}</div>` +
+    (r.form && !r.also ? `<div class="dc-form">${esc(r.form)} 是 ${esc(e.w)} 的${esc(r.kind)}</div>` : '') +
+    `<ul class="dc-t">${e.t.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` +
+    (r.also ? `<div class="dc-form">也是 ${esc(r.also.w)} 的${esc(r.kind)}：</div><ul class="dc-t">${r.also.t.slice(0, 2).map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : '') +
+    (e.g.length ? `<div class="dc-g">${e.g.map(g => `<span>${esc(g)}</span>`).join('')}</div>` : '') +
+    `<div class="dc-src">ECDICT 离线词典</div>`;
+}
+async function showWord(word, rect){
+  try { await loadDict(); } catch (err){ return; }
+  const html = cardHtml(word, lookup(word));
+  if (getComputedStyle(document.querySelector('aside')).display !== 'none'){
+    const c = $('#dictcard'); c.innerHTML = html; c.classList.add('on');
+  } else {
+    const pop = $('#pop'); pop.innerHTML = html; pop.style.display = 'block';
+    pop.style.left = Math.max(10, Math.min(rect.left - 20, innerWidth - pop.offsetWidth - 16)) + 'px';
+    pop.style.top = (rect.bottom + 8 + pop.offsetHeight < innerHeight ? rect.bottom + 8 : Math.max(70, rect.top - pop.offsetHeight - 8)) + 'px';
+  }
+}
+function hideWord(){ $('#dictcard').classList.remove('on'); }
+const WORD_RE = /[A-Za-z]+(?:['’][A-Za-z]+)?/g;
+async function markLevels(){
+  if (!prefs.lvl || !U || U.zhonly) return;
+  await loadDict();
+  const th = Number(prefs.lvl);
+  document.querySelectorAll('#book p.english').forEach(p => {
+    const walker = document.createTreeWalker(p, NodeFilter.SHOW_TEXT, {acceptNode: n => n.parentElement.closest('sup,.nw,i') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT});
+    const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+    for (const n of nodes){
+      const t = n.nodeValue; let last = 0, frag = null;
+      for (const m of t.matchAll(WORD_RE)){
+        if (/^[A-Z]/.test(m[0])) continue;  // proper nouns and headings
+        const r = lookup(m[0]);
+        if (!r || Math.min(r.e.v, r.also ? r.also.v : 9) < th) continue;
+        frag = frag || document.createDocumentFragment();
+        frag.append(t.slice(last, m.index));
+        const sp = document.createElement('span'); sp.className = 'nw'; sp.textContent = m[0]; frag.append(sp);
+        last = m.index + m[0].length;
+      }
+      if (frag){ frag.append(t.slice(last)); n.replaceWith(frag); }
+    }
+  });
+}
+function loadUnit(id){
+  return new Promise((resolve, reject) => {
+    if (UNITS[id]) return resolve(UNITS[id]);
+    pending[id] = resolve;
+    loadScript('data/' + id + '.js').catch(() => reject(new Error('无法载入 ' + id)));
+  });
+}
+
+/* ---------- labels ---------- */
+function unitTitle(t){
+  if (t.kind === 'zh') return {en: '中文版独有', zh: t.zh};
+  const m = t.en.match(/^(\d+)\.\s*(.*)$/);
+  return m ? {en: 'Chapter ' + m[1] + ' · ' + m[2], zh: t.zh, num: m[1], name: m[2]} : {en: t.en, zh: t.zh, name: t.en};
+}
+
+/* ---------- sidebar (whole book; the current chapter expanded with its sections and progress) ---------- */
+function buildSidebar(){
+  const d = $('#sidebar');
+  let h = '<h4>中文版独有（英文版无对应）</h4>';
+  const secs = (id, list) => `<div class="secs" data-secs="${id}" hidden><div class="ol-prog"><i></i></div><div class="ol-pct"></div>` + list.map(s => `<a class="l${s.lvl}" href="#${id}/${s.id}" data-u="${id}" data-b="${s.id}">${esc(s.en)}${s.zh ? '<small>' + esc(s.zh) + '</small>' : ''}</a>`).join('') + '</div>';
+  for (const id of META.zhonly){ const t = tocById[id]; h += `<a href="#${id}" data-u="${id}">${esc(t.zh)}</a>` + secs(id, []); }
+  h += '<h4>正文 · 中英对照</h4>';
+  for (const id of META.order){
+    const t = tocById[id];
+    h += `<a href="#${id}" data-u="${id}">${esc(t.en)}<small>${esc(t.zh)}</small></a>`;
+    h += secs(id, t.secs);
+  }
+  h += '<h4>说明</h4><p class="hint" style="margin:0 8px">译文来自中文版出版译文（繁体转简体，术语与人名按术语表调整），未做机器翻译。阅读位置按章节保存在本机浏览器。生成日期 ' + META.built + '。</p>';
+  d.innerHTML = h;
+  d.addEventListener('click', e => {
+    const a = e.target.closest('a[data-u]'); if (!a) return;
+    e.preventDefault(); closeDrawer();
+    if (U && a.dataset.u === U.id && a.dataset.b){  // section of the open chapter: just scroll
+      const el = document.getElementById(a.dataset.b); el && el.scrollIntoView({block: 'start'});
+      history.replaceState(null, '', '#' + U.id + '/' + a.dataset.b); return;
+    }
+    openUnit(a.dataset.u, a.dataset.b || null, !a.dataset.b);
+  });
+}
+function scrollSidebarTo(a){  // scroll the sidebar only, never the page
+  const o = $('#sidebar'), r = a.getBoundingClientRect(), orr = o.getBoundingClientRect();
+  if (r.top < orr.top || r.bottom > orr.bottom) o.scrollTop += r.top - orr.top - orr.height / 3;
+}
+function syncSidebar(){
+  document.querySelectorAll('#sidebar a.cur').forEach(a => a.classList.remove('cur'));
+  document.querySelectorAll('#sidebar .secs').forEach(s => s.hidden = s.dataset.secs !== (U && U.id));
+  const a = U && $(`#sidebar a[data-u="${U.id}"]:not([data-b])`);
+  if (a){ a.classList.add('cur'); scrollSidebarTo(a); }
+  updateOutline();
+}
+const overlayMode = () => innerWidth < REGULAR;
+function openDrawer(){
+  $('#sidebar').classList.add('open'); $('#scrim').classList.add('open');
+  const a = $('#sidebar a.cur'); a && scrollSidebarTo(a); (a || $('#sidebar a')).focus({preventScroll: true});
+}
+function closeDrawer(){ $('#sidebar').classList.remove('open'); $('#scrim').classList.remove('open'); }
+function toggleSidebar(){
+  if (overlayMode()) return $('#sidebar').classList.contains('open') ? closeDrawer() : openDrawer();
+  setPane('sidebar', !prefs.sidebar);
+}
+function setPane(k, on){
+  const anchor = topBlock(); prefs[k] = on; applyPrefs(); anchor && restoreTo(anchor.id, anchor.off);
+  if (k === 'sidebar' && on) syncSidebar();
+}
+
+/* ---------- rendering ---------- */
+function zhText(z){ return U.zhp[z] ? U.zhp[z].x : ''; }
+function zhParasHtml(bead, marks){
+  // marks: list of [zhIdx, start, end] to highlight
+  return bead.zh.map(z => {
+    let t = zhText(z); const ms = (marks || []).filter(m => m[0] === z).sort((a, b) => a[1] - b[1]);
+    if (!ms.length) return '<p style="margin:0 0 .6em">' + esc(t) + '</p>';
+    let out = '', i = 0;
+    for (const [, a, b] of ms){ out += esc(t.slice(i, a)) + '<mark>' + esc(t.slice(a, b)) + '</mark>'; i = b; }
+    return '<p style="margin:0 0 .6em">' + out + esc(t.slice(i)) + '</p>';
+  }).join('');
+}
+function inlineHtml(bi){
+  const b = U.beads[bi];
+  if (!b.zh.length) return `<div class="inline none" data-ib="${bi}">暂无可靠对应 · ${esc(b.r || '')}</div>`;
+  return `<div class="inline" data-ib="${bi}">${zhParasHtml(b)}${b.n ? '<div class="meta" style="color:var(--warn)">' + esc(b.n) + '</div>' : ''}${b.c === 'low' ? '<div class="meta">置信度较低</div>' : ''}</div>`;
+}
+function renderUnit(){
+  const t = tocById[U.id], T = unitTitle(t), m = $('#main');
+  $('#chapEn').textContent = T.en; $('#chapZh').textContent = t.zh;
+  if (!VAULT) document.title = (t.zh || t.en) + ' · ' + META.title;  // the web copy keeps a neutral title (it ends up in browser history)
+  if (U.zhonly){
+    m.innerHTML = `<div class="eyebrow">中文版独有</div><h1 style="font-family:inherit">${esc(t.zh)}</h1><div class="banner">此篇为中文版特有内容，英文原版没有对应文字，因此以中文单独呈现。</div><article class="zhonly">` +
+      U.zhp.filter(p => p.t !== 'label' && p.t !== 'title').map(p => p.t === 'p' ? `<p>${esc(p.x)}</p>` : `<h3>${esc(p.x)}</h3>`).join('') + '</article>' + chapNav() + footer();
+    VAULT && VAULT.images(m); bindChapNav(); return;
+  }
+  const lastOfBead = {};
+  U.blocks.forEach((b, i) => { if (b.b !== undefined) lastOfBead[b.b] = i; });
+  let h = `<div class="eyebrow">${T.num ? 'Chapter ' + T.num : esc(T.en)}</div><h1>${esc(T.name || T.en)}</h1><div class="h1zh">${esc(t.zh)}</div>`;
+  h += `<div class="intro">点击英文句子查看中文版对应译文；也可以拖选一段英文。右侧标签说明对应的可靠程度。</div><article id="book">`;
+  // the blocks of one bead (always consecutive) share a .pair, so 全部双语 can put the Chinese beside them
+  let run = null;
+  const flush = () => { if (run){ h += `<div class="pair"><div class="pen">${run.html}</div>${run.zh}</div>`; run = null; } };
+  U.blocks.forEach((b, i) => {
+    const bead = b.b !== undefined ? ` data-b="${b.b}"` : '';
+    let inner;
+    switch (b.t){
+      case 'chapnum': case 'title': inner = ''; break;
+      case 'part': inner = `<div class="part" tabindex="0" role="button">${b.h}</div>`; break;
+      case 'h2': inner = `<h2 class="h" tabindex="0" role="button">${b.h}</h2>`; break;
+      case 'h3': inner = `<h3 class="h" tabindex="0" role="button">${b.h}</h3>`; break;
+      case 'img': inner = `<figure><img loading="lazy" ${imgAttr(b.src)} alt="原书图表"></figure>${zimgHtml(b)}`; break;
+      case 'table': inner = `<div class="tablewrap">${b.h}</div>${zimgHtml(b)}`; break;
+      case 'zhimg': inner = `${b.id.endsWith('zh00') ? '<h3 class="h" style="cursor:default">中文版附录（原书为图片页）</h3>' : ''}<figure><img loading="lazy" ${imgAttr(b.src)} alt="中文版附录页"></figure>`; break;
+      case 'caption': inner = `<div class="caption">${b.h}</div>`; break;
+      case 'source': inner = `<div class="source">${b.h}</div>`; break;
+      default: inner = `<p class="english ${b.t}">${b.h}</p>`;
+    }
+    if (!inner) return;
+    const sec = `<section class="blk" id="${b.id}"${bead}${b.fnid ? ` data-fnid="${b.fnid}"` : ''}>${inner}</section>`;
+    if (b.b === undefined){ flush(); h += sec; return; }
+    if (!run || run.b !== b.b){ flush(); run = {b: b.b, html: '', zh: ''}; }
+    run.html += sec;
+    if (lastOfBead[b.b] === i && !['img'].includes(b.t)) run.zh = inlineHtml(b.b);
+  });
+  flush();
+  h += '</article>' + chapNav() + footer();
+  m.innerHTML = h;
+  VAULT && VAULT.images(m);
+  m.querySelectorAll('.s').forEach(s => { s.tabIndex = 0; s.setAttribute('role', 'button'); });
+  bindChapNav();
+}
+function zimgHtml(b){
+  if (!b.zimg) return '';
+  return `<details class="zfig"><summary>查看中文版图表</summary>` + b.zimg.map(z => `<figure><img loading="lazy" ${imgAttr(z.src)} alt="中文版图表"></figure>`).join('') + '</details>';
+}
+function updateOutline(){
+  const o = U && $(`#sidebar .secs[data-secs="${U.id}"]`); if (!o) return;
+  const m = $('#main'), top = m.getBoundingClientRect().top + scrollY;
+  const pct = Math.max(0, Math.min(100, Math.round((scrollY - top + innerHeight * 0.3) / Math.max(1, m.offsetHeight - innerHeight * 0.4) * 100)));
+  o.querySelector('.ol-prog i').style.width = pct + '%'; o.querySelector('.ol-pct').textContent = '本章已读 ' + pct + '%';
+  let curId = null;
+  document.querySelectorAll('#book .blk > h2, #book .blk > h3').forEach(h => { if (h.getBoundingClientRect().top < 240) curId = h.parentElement.id; });
+  const a = curId && o.querySelector(`a[data-b="${curId}"]`), was = o.querySelector('a.on');
+  if (a === was) return;
+  was && was.classList.remove('on');
+  if (a){ a.classList.add('on'); scrollSidebarTo(a); }
+}
+function footer(){ return `<footer>英文：EPUB 原文；中文：繁体中文版出版译文转为简体。对应关系由脚本自动对齐并经抽样复核，详见“对齐质量说明”。</footer>`; }
+function chapNav(){
+  const i = readingOrder.indexOf(U.id), p = readingOrder[i - 1], n = readingOrder[i + 1];
+  const lab = id => { const t = tocById[id]; return esc(t.kind === 'zh' ? t.zh : t.en); };
+  return `<div class="chapnav">${p ? `<button data-go="${p}"><small>← 上一章</small>${lab(p)}</button>` : '<span></span>'}${n ? `<button data-go="${n}"><small>下一章 →</small>${lab(n)}</button>` : ''}</div>`;
+}
+function bindChapNav(){
+  const i = readingOrder.indexOf(U.id);
+  document.querySelectorAll('.chapnav [data-go]').forEach(b => b.onclick = () => openUnit(b.dataset.go, null, readingOrder.indexOf(b.dataset.go) > i));
+}
+
+/* ---------- showing translations ---------- */
+function clearMarks(){
+  document.querySelectorAll('.s.active,.s.ingroup').forEach(e => e.classList.remove('active', 'ingroup'));
+  document.querySelectorAll('.blk.active').forEach(e => e.classList.remove('active'));
+  document.querySelectorAll('.inline.revealed').forEach(e => { e.classList.remove('revealed'); e.innerHTML = e.dataset.orig || e.innerHTML; });
+}
+function sidRange(g){ const r = []; for (let s = g.e[0]; s <= g.e[1]; s++) r.push(s); return r; }
+function show(bi, gi, el){
+  const b = U.beads[bi]; if (!b) return;
+  clearMarks();
+  cur = {bead: bi, group: gi};
+  const g = gi !== null && gi !== undefined ? b.g[gi] : null;
+  const level = !b.zh.length ? 'none' : (g && g.l === 'sent' ? 'sent' : 'para');
+  // highlight English
+  if (g && level === 'sent') sidRange(g).forEach(s => { const e = document.querySelector(`.s[data-s="${s}"]`); e && e.classList.add('ingroup'); });
+  else b.en.forEach(i => { const sec = document.getElementById(U.blocks[i].id); sec && sec.querySelectorAll('.s').forEach(e => e.classList.add('ingroup')); });
+  if (el) el.classList.add('active');
+  b.en.forEach(i => { const sec = document.getElementById(U.blocks[i].id); if (sec && !sec.querySelector('.s')) sec.classList.add('active'); });
+  // panel
+  const chip = $('#level');
+  chip.className = 'chip ' + level;
+  chip.textContent = level === 'sent' ? '对应句群' : level === 'para' ? '对应段落' : '暂无可靠对应';
+  const enText = el ? el.textContent : b.en.map(i => document.getElementById(U.blocks[i].id)?.textContent || '').join(' ');
+  $('#selected').textContent = enText.length > 260 ? enText.slice(0, 260) + '…' : enText;
+  let tr = '';
+  if (level === 'none') tr = `<p class="hint">${esc(b.r || '中文版未见对应内容。')}</p>`;
+  else if (level === 'sent') {
+    tr = '<div class="grp">' + esc(g.z.map(([z, a, e]) => zhText(z).slice(a, e)).join('').trim()) + '</div>';
+    tr += '<div class="ctx"><div class="hint" style="margin-bottom:4px">所在段落</div>' + zhParasHtml(b, g.z) + '</div>';
+  } else {
+    tr = zhParasHtml(b);
+    if (b.g.length > 1) tr += '<p class="hint">本段未能可靠细分到句子，显示整段译文。</p>';
+  }
+  tr += zhNotesHtml(b);
+  $('#translation').innerHTML = tr;
+  $('#note').textContent = (b.n || '') + (b.c === 'low' && level !== 'none' ? '（对齐置信度较低，请对照判断）' : '');
+  // inline (narrow screens)
+  const ib = document.querySelector(`.inline[data-ib="${bi}"]`);
+  if (ib){
+    ib.dataset.orig = ib.dataset.orig || ib.innerHTML;
+    if (level === 'sent') ib.innerHTML = zhParasHtml(b, g.z) + '<div class="meta">对应句群</div>';
+    ib.classList.add('revealed');
+  }
+  store.set('active:' + U.id, {bead: bi, group: gi});
+}
+function zhNotesHtml(b){
+  const ns = U.zn.filter(n => b.zh.includes(n.p));
+  return ns.map(n => `<div class="zhnote"><b>中文版${esc(n.kind)}</b>（英文版无此注）：${esc(n.x.replace(/^＊\s*(編注|譯注|作者注)?[:：]?/, ''))}</div>`).join('');
+}
+function showSelection(sids){
+  const beads = [...new Set(sids.map(s => (U.sid[s] || [])[0]).filter(x => x !== undefined && x !== null))];
+  if (!beads.length) return;
+  if (beads.length === 1){
+    const bi = beads[0], gs = [...new Set(sids.map(s => U.sid[s][1]))];
+    if (gs.length === 1) return show(bi, gs[0], null), void ($('#selected').textContent = selText());
+    return show(bi, null, null), void ($('#selected').textContent = selText());
+  }
+  clearMarks(); cur = {beads};
+  sids.forEach(s => { const e = document.querySelector(`.s[data-s="${s}"]`); e && e.classList.add('ingroup'); });
+  const chip = $('#level'); chip.className = 'chip para'; chip.textContent = '跨段选择 · ' + beads.length + ' 处';
+  $('#selected').textContent = selText();
+  let tr = `<p class="hint">所选英文跨越 ${beads.length} 个对应块，按顺序列出各块的中文（整段）：</p>`;
+  for (const bi of beads){
+    const b = U.beads[bi];
+    const first = document.getElementById(U.blocks[b.en[0]].id)?.textContent.trim().slice(0, 60) || '';
+    tr += `<div class="multi"><div class="lab">${esc(first)}…</div>` + (b.zh.length ? zhParasHtml(b) : `<div class="hint">暂无可靠对应 · ${esc(b.r || '')}</div>`) + '</div>';
+  }
+  $('#translation').innerHTML = tr; $('#note').textContent = '';
+}
+function selText(){ const t = getSelection().toString().trim(); return t.length > 260 ? t.slice(0, 260) + '…' : t; }
+
+/* ---------- navigation between translations ---------- */
+function stops(){
+  // ordered list of [bead, group] stops
+  const out = [];
+  U.beads.forEach((b, bi) => {
+    const sentGroups = b.g.filter(g => g.l === 'sent');
+    if (sentGroups.length === b.g.length && b.g.length > 1) b.g.forEach((g, gi) => out.push([bi, gi]));
+    else out.push([bi, b.g.length ? 0 : null]);
+  });
+  return out;
+}
+function move(step){
+  if (!U || U.zhonly) return;
+  const st = stops();
+  let i = -1;
+  if (cur && cur.bead !== undefined){
+    i = st.findIndex(([b, g]) => b === cur.bead && g === cur.group);
+    if (i < 0) i = st.findIndex(([b]) => b === cur.bead);
+  } else if (cur && cur.beads){
+    i = st.findIndex(([b]) => b === cur.beads[step > 0 ? cur.beads.length - 1 : 0]);
+  }
+  if (i < 0) i = step > 0 ? -1 : st.length;
+  i = Math.max(0, Math.min(st.length - 1, i + step));
+  const [bi, gi] = st[i], b = U.beads[bi];
+  let el = null;
+  if (gi !== null && b.g[gi]) el = document.querySelector(`.s[data-s="${b.g[gi].e[0]}"]`);
+  show(bi, gi, el);
+  const target = el || document.getElementById(U.blocks[b.en[0]].id);
+  target && target.scrollIntoView({behavior: 'smooth', block: 'center'});
+}
+
+/* ---------- events ---------- */
+function onActivate(target){
+  const s = target.closest('.s');
+  if (s){ hideWord(); const [bi, gi] = U.sid[s.dataset.s] || []; if (bi !== undefined) show(bi, gi, s); return true; }
+  const sec = target.closest('.blk');
+  if (sec && sec.dataset.b !== undefined && target.closest('h2,h3,.part')){ show(Number(sec.dataset.b), 0, null); return true; }
+  return false;
+}
+document.addEventListener('click', e => {
+  const fn = e.target.closest('sup.fnref'); if (fn){ e.stopPropagation(); showFootnote(fn); return; }
+  if (!e.target.closest('#pop')) $('#pop').style.display = 'none';
+  const img = e.target.closest('figure img'); if (img){ $('#lightbox img').src = img.src; $('#lightbox').classList.add('open'); return; }
+  if (!e.target.closest('#book')) return;
+  if (!getSelection().isCollapsed) return; // the user is selecting text, do not hijack
+  onActivate(e.target);
+});
+let selTimer;
+document.addEventListener('selectionchange', () => {
+  clearTimeout(selTimer);
+  selTimer = setTimeout(() => {
+    const sel = getSelection(); if (sel.isCollapsed || !sel.rangeCount || !U) return;
+    const r = sel.getRangeAt(0), book = $('#book'); if (!book || !book.contains(r.commonAncestorContainer)) return;
+    const txt = sel.toString().trim();
+    const sids = [...book.querySelectorAll('.s')].filter(s => r.intersectsNode(s) && txt).map(s => Number(s.dataset.s));
+    if (sids.length) showSelection(sids);
+    if (/^[A-Za-z][A-Za-z'’-]*$/.test(txt)) showWord(txt, r.getBoundingClientRect()); else hideWord();
+  }, 250);
+});
+document.addEventListener('keydown', e => {
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  const tag = e.target.tagName;
+  if (e.key === 'Escape'){ closeDrawer(); $('#lightbox').classList.remove('open'); $('#pop').style.display = 'none'; return; }
+  if ((e.key === 'Enter' || e.key === ' ') && e.target.closest && e.target.closest('#book') && (e.target.matches('.s') || e.target.matches('h2,h3,.part'))){ e.preventDefault(); onActivate(e.target); return; }
+  if (['INPUT', 'TEXTAREA', 'SELECT'].includes(tag)) return;
+  if ($('#sidebar').classList.contains('open')) return;
+  const k = e.key;
+  if (k === 'ArrowDown' || k === 'j'){ e.preventDefault(); move(1); }
+  else if (k === 'ArrowUp' || k === 'k'){ e.preventDefault(); move(-1); }
+  else if (k === ']'){ const n = readingOrder[readingOrder.indexOf(U.id) + 1]; n && openUnit(n, null, true); }
+  else if (k === '['){ const p = readingOrder[readingOrder.indexOf(U.id) - 1]; p && openUnit(p, null, false); }
+  else if (k === 'b' || k === 'B'){ toggleAll(); }
+  else if (k === 'c' || k === 'C'){ toggleSidebar(); }
+  else if (k === 'i' || k === 'I'){ setPane('inspector', !prefs.inspector); }
+  else if (k === '+' || k === '='){ setSize(fontSize() + 1); }
+  else if (k === '-'){ setSize(fontSize() - 1); }
+});
+function showFootnote(sup){
+  const f = U.fn[sup.dataset.fn], pop = $('#pop');
+  if (!f){
+    // table notes live in the flow (e.g. "fn10"): jump to them
+    const t = document.querySelector(`#book [data-fnid="${sup.dataset.fn}"]`); if (t) t.scrollIntoView({block: 'center'});
+    return;
+  }
+  pop.innerHTML = `<div class="lab">原书脚注</div><div class="en">${f.en}</div>` + (f.zh ? `<div class="zh">${esc(f.zh.replace(/^＊\s*作者注[:：]?/, '作者注：'))}</div>` : '<div class="zh hint">中文版未找到对应注释</div>');
+  const r = sup.getBoundingClientRect();
+  pop.style.display = 'block';
+  pop.style.left = Math.max(10, Math.min(r.left - 20, innerWidth - pop.offsetWidth - 16)) + 'px';
+  const below = innerHeight - r.bottom - 12;
+  pop.style.top = (below >= pop.offsetHeight ? r.bottom + 8 : Math.max(80, r.top - pop.offsetHeight - 8)) + 'px';
+}
+$('#lightbox').onclick = () => $('#lightbox').classList.remove('open');
+$('#scrim').onclick = closeDrawer;
+$('#chapbtn').onclick = () => overlayMode() ? openDrawer() : prefs.sidebar ? syncSidebar() : setPane('sidebar', true);
+$('#sbtoggle').onclick = toggleSidebar;
+$('#intoggle').onclick = () => setPane('inspector', !prefs.inspector);
+$('#prev').onclick = () => move(-1);
+$('#next').onclick = () => move(1);
+function setSize(n){ prefs.fontSize = Math.max(16, Math.min(32, n)); applyPrefs(); }
+$('#smaller').onclick = () => setSize(fontSize() - 1);
+$('#larger').onclick = () => setSize(fontSize() + 1);
+function toggleAll(){ const anchor = topBlock(); prefs.all = !prefs.all; applyPrefs(); anchor && restoreTo(anchor.id, anchor.off); }
+$('#mode').onclick = toggleAll;
+const isDark = () => prefs.dark ?? matchMedia('(prefers-color-scheme: dark)').matches;  // follows the system until the reader picks one
+const closePrefs = () => { $('#prefsbox').classList.remove('open'); $('#aa').setAttribute('aria-expanded', 'false'); };
+$('#aa').onclick = e => { e.stopPropagation(); const o = $('#prefsbox').classList.toggle('open'); $('#aa').setAttribute('aria-expanded', o ? 'true' : 'false'); };
+document.addEventListener('click', e => { if (!e.target.closest('#prefsbox, #aa')) closePrefs(); }, true);
+$('#theme').onclick = () => { prefs.dark = !isDark(); applyPrefs(); };
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { if (prefs.dark === null) applyPrefs(); });
+$('#lvl').onchange = e => {
+  prefs.lvl = Number(e.target.value); store.set('prefs', prefs);
+  const anchor = topBlock(), a = cur;
+  renderUnit(); anchor && restoreTo(anchor.id, anchor.off);
+  if (a && a.bead !== undefined) show(a.bead, a.group, null);
+  markLevels();
+};
+function applyPrefs(){
+  document.documentElement.style.setProperty('--font', fontSize() + 'px');
+  document.documentElement.style.setProperty('--zhfont', Math.round(fontSize() * 0.86) + 'px');
+  document.body.classList.toggle('dark', isDark());
+  document.body.classList.toggle('all', prefs.all);
+  $('#mode').setAttribute('aria-pressed', prefs.all ? 'true' : 'false');
+  $('#theme').textContent = isDark() ? '浅色' : '深色';
+  $('#lvl').value = String(prefs.lvl || 0);
+  document.body.classList.toggle('nosb', !prefs.sidebar);
+  document.body.classList.toggle('noinsp', !prefs.inspector);
+  $('#sbtoggle').setAttribute('aria-pressed', prefs.sidebar ? 'true' : 'false');
+  $('#intoggle').setAttribute('aria-pressed', prefs.inspector ? 'true' : 'false');
+  applyWidths();
+  store.set('prefs', prefs);
+}
+
+/* ---------- pane dividers: drag to resize (limits as in .shell), double-click to reset ---------- */
+const PANE = {sbw: {min: 200, max: 400, el: '#sidebar'}, inw: {min: 300, max: 820, el: 'aside'}};
+function applyWidths(){
+  for (const k in PANE){ const st = document.documentElement.style; prefs[k] ? st.setProperty('--' + k, prefs[k] + 'px') : st.removeProperty('--' + k); }
+}
+function bindDivider(div, k){
+  div.addEventListener('pointerdown', e => {
+    e.preventDefault(); div.setPointerCapture(e.pointerId);
+    div.classList.add('drag'); document.body.classList.add('resizing');
+    const anchor = topBlock(), vw = document.documentElement.clientWidth;
+    const other = k === 'inw' && overlayMode() ? 0 : $(PANE[k === 'sbw' ? 'inw' : 'sbw'].el).getBoundingClientRect().width;  // the overlay sidebar takes no column
+    const onMove = ev => {
+      const w = k === 'sbw' ? ev.clientX : vw - ev.clientX;
+      prefs[k] = Math.round(Math.max(PANE[k].min, Math.min(PANE[k].max, vw - other - 520, w)));
+      applyWidths(); anchor && restoreTo(anchor.id, anchor.off);
+    };
+    const onUp = () => {
+      div.removeEventListener('pointermove', onMove); div.classList.remove('drag'); document.body.classList.remove('resizing');
+      store.set('prefs', prefs); updateOutline();
+    };
+    div.addEventListener('pointermove', onMove);
+    div.addEventListener('pointerup', onUp, {once: true}); div.addEventListener('pointercancel', onUp, {once: true});
+  });
+  div.addEventListener('dblclick', () => { const anchor = topBlock(); delete prefs[k]; applyPrefs(); anchor && restoreTo(anchor.id, anchor.off); });
+}
+bindDivider($('#sbdiv'), 'sbw'); bindDivider($('#indiv'), 'inw');
+
+/* ---------- reading position ---------- */
+function topBlock(){
+  const secs = document.querySelectorAll('#main .blk, #main .zhonly > *');
+  for (const s of secs){ const r = s.getBoundingClientRect(); if (r.bottom > 90){ return {id: s.id || null, off: Math.round(90 - r.top), idx: [...secs].indexOf(s)}; } }
+  return null;
+}
+function restoreTo(id, off){
+  const el = id && document.getElementById(id);
+  if (el) scrollTo(0, el.getBoundingClientRect().top + scrollY - 90 + (off || 0));
+}
+let posTimer;
+let olFrame = 0;
+addEventListener('resize', () => { if (!overlayMode()) closeDrawer(); U && updateOutline(); });
+let lastY = scrollY;
+addEventListener('scroll', () => {
+  if (innerWidth < 720){  // compact: hide the toolbar while scrolling down, bring it back on the way up
+    const dy = scrollY - lastY;  // (not while the Aa panel is open: font changes reflow and scroll the page)
+    if ($('#prefsbox').classList.contains('open')) lastY = scrollY;
+    else if (Math.abs(dy) > 6){ document.body.classList.toggle('hidehdr', dy > 0 && scrollY > 120); lastY = scrollY; }
+  }
+  if (!olFrame) olFrame = requestAnimationFrame(() => { olFrame = 0; updateOutline(); });
+  $('#pop').style.display = 'none';
+  $('#progress').style.width = (scrollY / Math.max(1, document.documentElement.scrollHeight - innerHeight) * 100) + '%';
+  clearTimeout(posTimer);
+  posTimer = setTimeout(() => {
+    if (!U) return;
+    const t = topBlock();
+    store.set('pos:' + U.id, t && t.id ? {id: t.id, off: t.off} : {y: scrollY});
+    store.set('last', U.id);
+  }, 250);
+}, {passive: true});
+
+async function openUnit(id, blockId, fromStart){
+  if (!tocById[id]) id = META.order[0];
+  $('#main').innerHTML = '<div class="loading">正在载入…</div>';
+  try { U = await loadUnit(id); }
+  catch (err){ $('#main').innerHTML = '<div class="loading">载入失败：' + esc(err.message) + (VAULT ? '。请检查网络后刷新。' : '。请确认 data 文件夹与 index.html 在同一目录。') + '</div>'; return; }
+  cur = null; renderUnit(); syncSidebar(); markLevels(); store.set('last', id); hideWord();
+  history.replaceState(null, '', '#' + id + (blockId ? '/' + blockId : ''));
+  $('#translation').innerHTML = '<p class="hint">点击英文句子查看对应中文。</p>'; $('#selected').textContent = ''; $('#level').className = 'chip'; $('#level').textContent = '中文版原文'; $('#note').textContent = '';
+  if (blockId){ const el = document.getElementById(blockId); if (el){ el.scrollIntoView({block: 'start'}); const b = el.dataset.b; if (b !== undefined) show(Number(b), 0, null); } return; }
+  if (fromStart){ scrollTo(0, 0); return; }
+  const pos = store.get('pos:' + id);
+  if (pos && pos.id) restoreTo(pos.id, pos.off); else if (pos && pos.y) scrollTo(0, pos.y); else scrollTo(0, 0);
+  const a = store.get('active:' + id);
+  if (a && U.beads && U.beads[a.bead]){
+    const b = U.beads[a.bead], g = a.group !== null && b.g[a.group];
+    show(a.bead, a.group, g ? document.querySelector(`.s[data-s="${g.e[0]}"]`) : null);
+  }
+}
+
+addEventListener('hashchange', () => {
+  const [id, blk] = decodeURIComponent(location.hash.slice(1)).split('/');
+  if (id && tocById[id] && (!U || U.id !== id || blk)) openUnit(id, blk || null, false);
+});
+$('.brand').innerHTML = esc(META.brand[0]) + ' <small>' + esc(META.brand[1]) + '</small>';
+$('#translation').innerHTML = '<p class="hint">' + esc(META.about) + '按对齐可靠程度分为：<br>· <b>对应句群</b>：句子级对应，置信度高<br>· <b>对应段落</b>：只能确定所在段落<br>· <b>暂无可靠对应</b>：中文版缺这一段或无法确认，不会拿相邻译文来凑</p>';
+if (VAULT){ $('#prefsbox').insertAdjacentHTML('beforeend', '<button id="lockbtn" title="清除此设备保存的密钥，下次需要重新输入密码">锁定</button>'); $('#lockbtn').onclick = VAULT.lock; }
+buildSidebar(); applyPrefs();
+const hash = decodeURIComponent(location.hash.slice(1)).split('/');
+if (hash[0] && tocById[hash[0]]) openUnit(hash[0], hash[1] || null, false);
+else openUnit(store.get('last') || META.order[0], null, false);
+}
+if (VAULT) VAULT.boot().then(app); else app(null);
+</script>
+</body>
+</html>
