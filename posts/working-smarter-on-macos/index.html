@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Working smarter on macOS · fakephysicist</title>
+<meta name="description" content="Practical fixes and customizations I rely on for daily workflows in VS Code on macOS.">
+<link rel="canonical" href="https://fakephysicist.github.io/working-smarter-on-macos/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="site"><a href="/">fakephysicist</a></header>
+<main>
+<article>
+<h1>Working smarter on macOS</h1>
+<p class="meta"><time datetime="2025-06-02">2025-06-02</time></p>
+<p>Some tricks I use to get things done and stay sane while working with VS Code on macOS.</p>
+
+<h2 id="fix-vs-code-tunnel-cant-access-external-ssd-on-macos-sonoma">Fix: VS Code Tunnel Can’t Access External SSD on macOS Sonoma</h2>
+<p>In MacOS 14 Sonoma, if you have a portable SSD connected to your Mac and you want to use VS Code's SSH tunnel feature, you may encounter an issue where the tunnel cannot access the SSD. This is because macOS restricts access to external drives for security reasons.
+To resolve this issue, you need to grant permission for VS Code tunnel to access the external SSD. Here are the steps to do so:</p>
+<ol>
+<li>Open <strong>System Settings</strong> on your Mac.</li>
+<li>Go to <strong>Privacy &amp; Security</strong>.</li>
+<li>Scroll down to the <strong>Files and Folders</strong> section.</li>
+<li>Add the following path to the list of allowed applications:
+<pre><code>/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code-tunnel</code></pre>
+make sure to include the full path to the <code>code-tunnel</code> executable.</li>
+<li>Scroll down to the <strong>Full Disk Access</strong> section.</li>
+<li>Add the same path to the list of applications that have full disk access:
+<pre><code>/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code-tunnel</code></pre></li>
+<li>Restart VS Code to apply the changes.
+This should allow VS Code's SSH tunnel to access the portable SSD without any issues.</li>
+</ol>
+</article>
+</main>
+</body>
+</html>
